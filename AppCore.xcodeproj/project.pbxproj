@@ -36,6 +36,11 @@
 		E65BCB2A222EA39600F7A8BC /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB20222EA39600F7A8BC /* Realm.framework */; };
 		E65BCB2B222EA39600F7A8BC /* SwinjectAutoregistration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB21222EA39600F7A8BC /* SwinjectAutoregistration.framework */; };
 		E65BCB2C222EA39600F7A8BC /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB22222EA39600F7A8BC /* RealmSwift.framework */; };
+		E65BCB7A222F04F900F7A8BC /* FlagsChangeg+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB75222F04F000F7A8BC /* FlagsChangeg+Rx.swift */; };
+		E65BCB7B222F04F900F7A8BC /* NSButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB76222F04F000F7A8BC /* NSButton+Rx.swift */; };
+		E65BCB7C222F04F900F7A8BC /* NSPopUpButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB77222F04F000F7A8BC /* NSPopUpButton+Rx.swift */; };
+		E65BCB7D222F04F900F7A8BC /* NSView+TrackingArea+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */; };
+		E65BCB7E222F04F900F7A8BC /* NSProgressIndicator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +86,11 @@
 		E65BCB20222EA39600F7A8BC /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/Mac/Realm.framework; sourceTree = "<group>"; };
 		E65BCB21222EA39600F7A8BC /* SwinjectAutoregistration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwinjectAutoregistration.framework; path = Carthage/Build/Mac/SwinjectAutoregistration.framework; sourceTree = "<group>"; };
 		E65BCB22222EA39600F7A8BC /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/Mac/RealmSwift.framework; sourceTree = "<group>"; };
+		E65BCB75222F04F000F7A8BC /* FlagsChangeg+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FlagsChangeg+Rx.swift"; sourceTree = "<group>"; };
+		E65BCB76222F04F000F7A8BC /* NSButton+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSButton+Rx.swift"; sourceTree = "<group>"; };
+		E65BCB77222F04F000F7A8BC /* NSPopUpButton+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPopUpButton+Rx.swift"; sourceTree = "<group>"; };
+		E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+TrackingArea+Rx.swift"; sourceTree = "<group>"; };
+		E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProgressIndicator+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +188,7 @@
 		E65BCAF9222EA2E800F7A8BC /* Ext */ = {
 			isa = PBXGroup;
 			children = (
+				E65BCB74222F04F000F7A8BC /* Cocoa+Rx */,
 				E65BCAFA222EA2E800F7A8BC /* NSStoryboard+Ext.swift */,
 				E65BCAFB222EA2E800F7A8BC /* Thread+Ext.swift */,
 			);
@@ -228,6 +239,18 @@
 				E65BCB21222EA39600F7A8BC /* SwinjectAutoregistration.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E65BCB74222F04F000F7A8BC /* Cocoa+Rx */ = {
+			isa = PBXGroup;
+			children = (
+				E65BCB75222F04F000F7A8BC /* FlagsChangeg+Rx.swift */,
+				E65BCB76222F04F000F7A8BC /* NSButton+Rx.swift */,
+				E65BCB77222F04F000F7A8BC /* NSPopUpButton+Rx.swift */,
+				E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */,
+				E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */,
+			);
+			path = "Cocoa+Rx";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,16 +367,21 @@
 				E65BCB14222EA2E800F7A8BC /* SignalsService.swift in Sources */,
 				E65BCB13222EA2E800F7A8BC /* SignalDispatcher.swift in Sources */,
 				E65BCB10222EA2E800F7A8BC /* StatesServiceEnums.swift in Sources */,
+				E65BCB7C222F04F900F7A8BC /* NSPopUpButton+Rx.swift in Sources */,
 				E65BCB07222EA2E800F7A8BC /* AppCore.swift in Sources */,
 				E65BCB06222EA2E800F7A8BC /* Scenes.swift in Sources */,
 				E65BCB0E222EA2E800F7A8BC /* Thread+Ext.swift in Sources */,
+				E65BCB7B222F04F900F7A8BC /* NSButton+Rx.swift in Sources */,
 				E65BCB0C222EA2E800F7A8BC /* FS.swift in Sources */,
 				E65BCB15222EA2E800F7A8BC /* Signals.swift in Sources */,
 				E65BCB11222EA2E800F7A8BC /* StatesService.swift in Sources */,
 				E65BCB12222EA2E800F7A8BC /* StatesServiceItem.swift in Sources */,
 				E65BCB0B222EA2E800F7A8BC /* MVVMController.swift in Sources */,
 				E65BCB0F222EA2E800F7A8BC /* Ninja.swift in Sources */,
+				E65BCB7D222F04F900F7A8BC /* NSView+TrackingArea+Rx.swift in Sources */,
 				E65BCB0D222EA2E800F7A8BC /* NSStoryboard+Ext.swift in Sources */,
+				E65BCB7A222F04F900F7A8BC /* FlagsChangeg+Rx.swift in Sources */,
+				E65BCB7E222F04F900F7A8BC /* NSProgressIndicator+Rx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

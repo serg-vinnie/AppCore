@@ -26,6 +26,8 @@ import Foundation
 
 public class FS {
     
+    public static var home : URL { return FileManager.default.homeDirectoryForCurrentUser }
+    
     public class func urlFor(file: String) -> URL {
         return appFolder().appendingPathComponent(file)
     }
