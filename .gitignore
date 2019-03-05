@@ -3,3 +3,4 @@
 /.DS_Store
 /Carthage/Build/.DS_Store
 AppCore.xcodeproj/project.xcworkspace/xcuserdata
+/Carthage/Checkouts

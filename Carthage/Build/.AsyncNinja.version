@@ -1,0 +1,27 @@
+{
+  "Mac" : [
+    {
+      "name" : "AsyncNinja",
+      "hash" : "65dc12de2ea6914d2acd1397bed522432b3d3da9a944baed6b8729f7100289fe"
+    }
+  ],
+  "watchOS" : [
+    {
+      "name" : "AsyncNinja",
+      "hash" : "97a403d14adca27db52768e2424825ef5f87b1ca2a596d5d2ad25892189e91d6"
+    }
+  ],
+  "tvOS" : [
+    {
+      "name" : "AsyncNinja",
+      "hash" : "5a33a718bfd75081272d1e79640b3b652402af8e9ebfbf2ccefb13d4592568c7"
+    }
+  ],
+  "commitish" : "42c31f6f086d9b354b772c827a0ec0f225b0f81c",
+  "iOS" : [
+    {
+      "name" : "AsyncNinja",
+      "hash" : "e01d7a07783d2ad38d2f213d109073021675bbe0a95ed381b7cc7e1947135790"
+    }
+  ]
+}
