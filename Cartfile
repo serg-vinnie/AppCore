@@ -1,0 +1,10 @@
+github "realm/realm-cocoa"
+
+github "AsyncNinja/AsyncNinja" "master"
+
+github "ReactiveX/RxSwift"
+github "RxSwiftCommunity/Action"
+github "RxSwiftCommunity/RxRealm"
+
+github "Swinject/Swinject"
+github "Swinject/SwinjectAutoregistration"

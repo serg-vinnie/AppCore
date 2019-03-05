@@ -1,0 +1,7 @@
+github "AsyncNinja/AsyncNinja" "42c31f6f086d9b354b772c827a0ec0f225b0f81c"
+github "ReactiveX/RxSwift" "4.4.1"
+github "RxSwiftCommunity/Action" "3.10.1"
+github "RxSwiftCommunity/RxRealm" "0.7.7"
+github "Swinject/Swinject" "2.5.0"
+github "Swinject/SwinjectAutoregistration" "2.5.1"
+github "realm/realm-cocoa" "v3.13.1"
