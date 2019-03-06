@@ -52,11 +52,19 @@ public class FS {
         #endif
     }
     
-    public class func applicationSupportFolderURL() -> URL {
+    public class func appSupportRoot(in mask: FileManager.SearchPathDomainMask) -> URL {
+        do {
+            return try FileManager.default.url(for: FileManager.SearchPathDirectory.applicationSupportDirectory, in: mask, appropriateFor: nil, create: false)
+        } catch {
+            fatalError()
+        }
+    }
+    
+    public class func applicationSupportFolderURL(in mask: FileManager.SearchPathDomainMask = .userDomainMask) -> URL {
         let fm = FileManager.default
         var appSupportURL: URL?
         do {
-            appSupportURL = try fm.url(for: FileManager.SearchPathDirectory.applicationSupportDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: true)
+            appSupportURL = try fm.url(for: FileManager.SearchPathDirectory.applicationSupportDirectory, in: mask, appropriateFor: nil, create: true)
         } catch _ as NSError {
             appSupportURL = nil
         }
