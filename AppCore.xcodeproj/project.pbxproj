@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E629DC18223A72C900669FD3 /* NSWindow+Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */; };
 		E65BCAE0222EA26100F7A8BC /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCAD6222EA26100F7A8BC /* AppCore.framework */; };
 		E65BCAE5222EA26100F7A8BC /* AppCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCAE4222EA26100F7A8BC /* AppCoreTests.swift */; };
 		E65BCAE7222EA26100F7A8BC /* AppCore.h in Headers */ = {isa = PBXBuildFile; fileRef = E65BCAD9222EA26100F7A8BC /* AppCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSWindow+Fade.swift"; sourceTree = "<group>"; };
 		E65BCAD6222EA26100F7A8BC /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65BCAD9222EA26100F7A8BC /* AppCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCore.h; sourceTree = "<group>"; };
 		E65BCADA222EA26100F7A8BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 		E65BCB74222F04F000F7A8BC /* Cocoa+Rx */ = {
 			isa = PBXGroup;
 			children = (
+				E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */,
 				E65BCB75222F04F000F7A8BC /* FlagsChangeg+Rx.swift */,
 				E65BCB76222F04F000F7A8BC /* NSButton+Rx.swift */,
 				E65BCB77222F04F000F7A8BC /* NSPopUpButton+Rx.swift */,
@@ -365,6 +368,7 @@
 				E65BCB0A222EA2E800F7A8BC /* ServiceEnvironment.swift in Sources */,
 				E65BCB09222EA2E800F7A8BC /* AppCoreContainer.swift in Sources */,
 				E65BCB14222EA2E800F7A8BC /* SignalsService.swift in Sources */,
+				E629DC18223A72C900669FD3 /* NSWindow+Fade.swift in Sources */,
 				E65BCB13222EA2E800F7A8BC /* SignalDispatcher.swift in Sources */,
 				E65BCB10222EA2E800F7A8BC /* StatesServiceEnums.swift in Sources */,
 				E65BCB7C222F04F900F7A8BC /* NSPopUpButton+Rx.swift in Sources */,
