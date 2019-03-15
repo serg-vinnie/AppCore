@@ -8,3 +8,6 @@ github "RxSwiftCommunity/RxRealm"
 
 github "Swinject/Swinject"
 github "Swinject/SwinjectAutoregistration"
+
+github "Alamofire/Alamofire"
+github "RxSwiftCommunity/RxAlamofire" "master"
