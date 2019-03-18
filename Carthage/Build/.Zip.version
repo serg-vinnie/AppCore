@@ -1,0 +1,24 @@
+{
+  "Mac" : [
+    {
+      "name" : "Zip",
+      "hash" : "bd5fe9a18a916f01399a17b130683cee1a25c686bbf57d51cdf6698f32f057e7"
+    }
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+    {
+      "name" : "Zip",
+      "hash" : "4b86f103c7b72684e938980b3c02910eb8a9922299964ad0255810d77590ab44"
+    }
+  ],
+  "commitish" : "1.1.0",
+  "iOS" : [
+    {
+      "name" : "Zip",
+      "hash" : "20a0f48e057b19f565de871d28cd97a760b3b2e2ff6559f7315098939a1c7081"
+    }
+  ]
+}
