@@ -11,3 +11,5 @@ github "Swinject/SwinjectAutoregistration"
 
 github "Alamofire/Alamofire"
 github "RxSwiftCommunity/RxAlamofire" "master"
+
+github "marmelroy/Zip"
