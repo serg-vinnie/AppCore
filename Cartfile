@@ -12,4 +12,5 @@ github "Swinject/SwinjectAutoregistration"
 github "Alamofire/Alamofire"
 github "RxSwiftCommunity/RxAlamofire" "master"
 
+github "dexman/Minizip"
 github "marmelroy/Zip"
