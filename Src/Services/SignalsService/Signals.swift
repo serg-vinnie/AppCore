@@ -28,5 +28,10 @@ public struct Signal {
     public struct WindowDidClose {
         public let sender : Any?
         public let reason : String
+        
+        public init(sender: Any?, reason: String) {
+            self.sender = sender
+            self.reason = reason
+        }
     }
 }
