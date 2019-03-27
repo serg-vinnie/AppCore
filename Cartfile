@@ -1,6 +1,6 @@
 github "realm/realm-cocoa"
 
-github "AsyncNinja/AsyncNinja" "master"
+github "serg-vinnie/AsyncNinja" "master"
 
 github "ReactiveX/RxSwift"
 github "RxSwiftCommunity/Action"
