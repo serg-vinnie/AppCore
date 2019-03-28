@@ -10,7 +10,8 @@ import Foundation
 import AsyncNinja
 
 open class Ninja : ExecutionContext, ReleasePoolOwner {
-    public var executor: Executor { return Executor.init(queue: DispatchQueue.main) }
+    public let dispatchQueue = DispatchQueue.main
+    public var executor: Executor { return Executor.init(queue: dispatchQueue) }
     public let releasePool = ReleasePool()
 
     public init() {
@@ -19,7 +20,8 @@ open class Ninja : ExecutionContext, ReleasePoolOwner {
 }
 
 open class NinjaBackground : ExecutionContext, ReleasePoolOwner {
-    public var executor: Executor { return Executor.background }
+    public let dispatchQueue = DispatchQueue.global()
+    public var executor: Executor { return Executor.init(queue: dispatchQueue) }
     public let releasePool = ReleasePool()
     
     public init() {
