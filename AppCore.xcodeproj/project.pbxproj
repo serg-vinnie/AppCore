@@ -42,6 +42,9 @@
 		E65BCB7C222F04F900F7A8BC /* NSPopUpButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB77222F04F000F7A8BC /* NSPopUpButton+Rx.swift */; };
 		E65BCB7D222F04F900F7A8BC /* NSView+TrackingArea+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */; };
 		E65BCB7E222F04F900F7A8BC /* NSProgressIndicator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */; };
+		E6A6B199224D693A00196DD3 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B198224D693A00196DD3 /* Then.swift */; };
+		E6A6B19D224D699100196DD3 /* RealmBackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B19C224D699100196DD3 /* RealmBackendService.swift */; };
+		E6A6B1A0224D69E500196DD3 /* RealmSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,9 @@
 		E65BCB77222F04F000F7A8BC /* NSPopUpButton+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPopUpButton+Rx.swift"; sourceTree = "<group>"; };
 		E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+TrackingArea+Rx.swift"; sourceTree = "<group>"; };
 		E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProgressIndicator+Rx.swift"; sourceTree = "<group>"; };
+		E6A6B198224D693A00196DD3 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
+		E6A6B19C224D699100196DD3 /* RealmBackendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBackendService.swift; sourceTree = "<group>"; };
+		E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSingleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +172,7 @@
 		E65BCAF0222EA2E800F7A8BC /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				E6A6B19E224D69DB00196DD3 /* Helpers */,
 				E65BCAF1222EA2E800F7A8BC /* App */,
 				E65BCAF9222EA2E800F7A8BC /* Ext */,
 				E65BCAFD222EA2E800F7A8BC /* Services */,
@@ -193,6 +200,7 @@
 				E65BCB74222F04F000F7A8BC /* Cocoa+Rx */,
 				E65BCAFA222EA2E800F7A8BC /* NSStoryboard+Ext.swift */,
 				E65BCAFB222EA2E800F7A8BC /* Thread+Ext.swift */,
+				E6A6B198224D693A00196DD3 /* Then.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 			children = (
 				E65BCAFE222EA2E800F7A8BC /* StatesService */,
 				E65BCB02222EA2E800F7A8BC /* SignalsService */,
+				E6A6B19C224D699100196DD3 /* RealmBackendService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -254,6 +263,14 @@
 				E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */,
 			);
 			path = "Cocoa+Rx";
+			sourceTree = "<group>";
+		};
+		E6A6B19E224D69DB00196DD3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +392,7 @@
 				E65BCB07222EA2E800F7A8BC /* AppCore.swift in Sources */,
 				E65BCB06222EA2E800F7A8BC /* Scenes.swift in Sources */,
 				E65BCB0E222EA2E800F7A8BC /* Thread+Ext.swift in Sources */,
+				E6A6B199224D693A00196DD3 /* Then.swift in Sources */,
 				E65BCB7B222F04F900F7A8BC /* NSButton+Rx.swift in Sources */,
 				E65BCB0C222EA2E800F7A8BC /* FS.swift in Sources */,
 				E65BCB15222EA2E800F7A8BC /* Signals.swift in Sources */,
@@ -382,6 +400,8 @@
 				E65BCB12222EA2E800F7A8BC /* StatesServiceItem.swift in Sources */,
 				E65BCB0B222EA2E800F7A8BC /* MVVMController.swift in Sources */,
 				E65BCB0F222EA2E800F7A8BC /* Ninja.swift in Sources */,
+				E6A6B19D224D699100196DD3 /* RealmBackendService.swift in Sources */,
+				E6A6B1A0224D69E500196DD3 /* RealmSingleton.swift in Sources */,
 				E65BCB7D222F04F900F7A8BC /* NSView+TrackingArea+Rx.swift in Sources */,
 				E65BCB0D222EA2E800F7A8BC /* NSStoryboard+Ext.swift in Sources */,
 				E65BCB7A222F04F900F7A8BC /* FlagsChangeg+Rx.swift in Sources */,
@@ -552,6 +572,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = valhalla.AppCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -582,6 +603,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = valhalla.AppCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

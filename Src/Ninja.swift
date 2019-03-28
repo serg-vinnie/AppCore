@@ -1,6 +1,6 @@
 //
 //  NinjaViewModel.swift
-//  SwiftCore
+//  AppCore
 //
 //  Created by Loki on 1/29/19.
 //  Copyright © 2019 checkazuja. All rights reserved.
