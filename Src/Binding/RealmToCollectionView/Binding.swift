@@ -11,11 +11,8 @@ import AsyncNinja
 import RealmSwift
 
 public func bind33<E>(realmQuery: Results<E>, dataSource: AsyncCollectionViewDataSource<E>, view: NSCollectionView) {
-    let sink = createSinkWith(dataSource: dataSource, to: view)
-    
     changesetChannel(from: realmQuery)
-        .bind(sink)
-    
+        .bind(createSinkWith(dataSource: dataSource, to: view))
 }
 
 public func createSinkWith<E>(dataSource: AsyncCollectionViewDataSource<E>, to view: NSCollectionView) -> Sink<(AnyRealmCollection<E>,RealmChangeset?),Void> {
