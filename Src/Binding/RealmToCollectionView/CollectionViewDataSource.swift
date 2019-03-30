@@ -11,14 +11,14 @@ import Cocoa
 import RealmSwift
 import Realm
 
-public typealias CollectionItemFactory<E: Object> = (AsyncCollectionViewDataSource<E>, NSCollectionView, IndexPath, E) -> NSCollectionViewItem
+public typealias CollectionItemFactory<E: Object> = (CollectionViewDataSource<E>, NSCollectionView, IndexPath, E) -> NSCollectionViewItem
 public typealias CollectionItemConfig<E: Object, ItemType: NSCollectionViewItem> = (ItemType, IndexPath, E) -> Void
 
-public class AsyncCollectionViewDataSource<E: Object>: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSource {
+public class CollectionViewDataSource<E: Object>: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSource {
     private var items: AnyRealmCollection<E>?
     
     // MARK: - Configuration
-    public var collectionView: NSCollectionView?
+    public weak var collectionView: NSCollectionView?
     public var animated = true
     
     // MARK: - Init
@@ -61,7 +61,7 @@ public class AsyncCollectionViewDataSource<E: Object>: NSObject, NSCollectionVie
     
     // MARK: - Proxy unimplemented data source and delegate methods
     open override func responds(to aSelector: Selector!) -> Bool {
-        if AsyncCollectionViewDataSource.instancesRespond(to: aSelector) {
+        if CollectionViewDataSource.instancesRespond(to: aSelector) {
             return true
         } else if let delegate = delegate {
             return delegate.responds(to: aSelector)

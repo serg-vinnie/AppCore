@@ -10,32 +10,18 @@ import Foundation
 import AsyncNinja
 import RealmSwift
 
-extension AsyncCollectionViewDataSource {
+extension CollectionViewDataSource {
     public func bindWith(realmQuery: Results<E>, view: NSCollectionView) {
-        changesetChannel(from: realmQuery)
-            .bind(createSinkWith(dataSource: self, to: view))
-    }
-}
-
-public func createSinkWith<E>(dataSource: AsyncCollectionViewDataSource<E>, to view: NSCollectionView) -> Sink<(AnyRealmCollection<E>,RealmChangeset?),Void> {
-    
-    return createSinkWith(dataSource: dataSource) { ds, results, changes in
-        if ds.collectionView == nil {
-            ds.collectionView = view
-        }
-        ds.collectionView?.dataSource = ds
-        ds.applyChanges(items: AnyRealmCollection<E>(results), changes: changes)
-    }
-}
-
-func createSinkWith<E>(dataSource: AsyncCollectionViewDataSource<E>, block: @escaping (AsyncCollectionViewDataSource<E>, AnyRealmCollection<E>, RealmChangeset?) -> Void)
-    -> Sink<(AnyRealmCollection<E>,RealmChangeset?),Void> {
+        self.collectionView = view
+        view.dataSource = self
         
-        return Sink(updateExecutor: Executor.main) { sink, event, executor in
-            if case let .update(element) = event {
-                block(dataSource, element.0, element.1)
-            }
-        }
+        // IMPORTANT!!!!
+        // this subscription is owned by NSCollectionView
+        // reference to self is captured by
+        
+        changesetChannel(from: realmQuery)
+            .onUpdate(context: view) { _, update in self.applyChanges(items: update.0, changes: update.1)}
+    }
 }
 
 public struct RealmChangeset {
@@ -60,6 +46,7 @@ public func changesetChannel<E: Object>(from collection: Results<E>) -> Channel<
     return producer() { producer in
         let notificationToken = collection.toAnyCollection().observe { /*do not forget*/ [weak producer] changeset in
             
+            print("update")
             switch changeset {
             case .initial(let value):
                 producer?.update((value, nil))
