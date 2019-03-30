@@ -10,9 +10,11 @@ import Foundation
 import AsyncNinja
 import RealmSwift
 
-public func bind33<E>(realmQuery: Results<E>, dataSource: AsyncCollectionViewDataSource<E>, view: NSCollectionView) {
-    changesetChannel(from: realmQuery)
-        .bind(createSinkWith(dataSource: dataSource, to: view))
+extension AsyncCollectionViewDataSource {
+    public func bindWith(realmQuery: Results<E>, view: NSCollectionView) {
+        changesetChannel(from: realmQuery)
+            .bind(createSinkWith(dataSource: self, to: view))
+    }
 }
 
 public func createSinkWith<E>(dataSource: AsyncCollectionViewDataSource<E>, to view: NSCollectionView) -> Sink<(AnyRealmCollection<E>,RealmChangeset?),Void> {
