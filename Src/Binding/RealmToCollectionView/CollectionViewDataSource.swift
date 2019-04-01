@@ -22,31 +22,17 @@ public class CollectionViewDataSource<E: Object>: NSObject, NSCollectionViewDele
     public var animated = true
     
     // MARK: - Init
-    public let itemIdentifier: String
     public let itemFactory: CollectionItemFactory<E>
     
     public weak var delegate: NSCollectionViewDelegate?
     public weak var dataSource: NSCollectionViewDataSource?
     
-    public init(itemIdentifier: String, itemFactory: @escaping CollectionItemFactory<E>) {
-        self.itemIdentifier = itemIdentifier
+    public init(itemFactory: @escaping CollectionItemFactory<E>) {
         self.itemFactory = itemFactory
     }
     
     public init<ItemType>(itemIdentifier: String, itemType: ItemType.Type, itemConfig: @escaping CollectionItemConfig<E, ItemType>) where ItemType: NSCollectionViewItem {
-        self.itemIdentifier = itemIdentifier
         self.itemFactory = { ds, cv, ip, model in
-            AppCore.log(title: "CollectionViewDataSource", msg: "itemFactory", thread: true)
-            
-//            if let xib = cv.loadAllFromXib(id: itemIdentifier) {
-//                for item in xib {
-//                    if let item1 = item as? ItemType {
-//                        itemConfig(item1, ip, model)
-//                        return item1
-//                    }
-//                }
-//            }
-            
             let item = cv.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: itemIdentifier), for: ip) as! ItemType
             itemConfig(item, ip, model)
             return item
@@ -54,7 +40,7 @@ public class CollectionViewDataSource<E: Object>: NSObject, NSCollectionViewDele
     }
     
     deinit {
-        AppCore.log(title: "CollectionViewDataSource", msg: "deinit for \(itemIdentifier)")
+        AppCore.log(title: "CollectionViewDataSource", msg: "deinit")
     }
     
     // MARK: - NSCollectionViewDataSource protocol
@@ -91,7 +77,6 @@ public class CollectionViewDataSource<E: Object>: NSObject, NSCollectionViewDele
     private let fromRow = {(row: Int) in return IndexPath(item: row, section: 0)}
     
     func applyChanges(items: AnyRealmCollection<E>, changes: RealmChangeset?) {
-        AppCore.log(title: "CollectionViewDataSource", msg: "applyChanges", thread: true)
         
         if self.items == nil {
             self.items = items
