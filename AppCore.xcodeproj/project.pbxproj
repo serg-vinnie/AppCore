@@ -47,6 +47,7 @@
 		E6A6B199224D693A00196DD3 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B198224D693A00196DD3 /* Then.swift */; };
 		E6A6B19D224D699100196DD3 /* RealmBackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B19C224D699100196DD3 /* RealmBackendService.swift */; };
 		E6A6B1A0224D69E500196DD3 /* RealmSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */; };
+		E6AEE3BD2251362A00BCA942 /* Xib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AEE3BC2251362A00BCA942 /* Xib.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		E6A6B198224D693A00196DD3 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		E6A6B19C224D699100196DD3 /* RealmBackendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBackendService.swift; sourceTree = "<group>"; };
 		E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSingleton.swift; sourceTree = "<group>"; };
+		E6AEE3BC2251362A00BCA942 /* Xib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Xib.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +292,7 @@
 		E6A6B19E224D69DB00196DD3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E6AEE3BC2251362A00BCA942 /* Xib.swift */,
 				E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */,
 			);
 			path = Helpers;
@@ -413,6 +416,7 @@
 				E65BCB10222EA2E800F7A8BC /* StatesServiceEnums.swift in Sources */,
 				E695DF78224F961500611D2B /* Binding.swift in Sources */,
 				E65BCB7C222F04F900F7A8BC /* NSPopUpButton+Rx.swift in Sources */,
+				E6AEE3BD2251362A00BCA942 /* Xib.swift in Sources */,
 				E65BCB07222EA2E800F7A8BC /* AppCore.swift in Sources */,
 				E65BCB06222EA2E800F7A8BC /* Scenes.swift in Sources */,
 				E65BCB0E222EA2E800F7A8BC /* Thread+Ext.swift in Sources */,

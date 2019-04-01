@@ -37,6 +37,16 @@ public class CollectionViewDataSource<E: Object>: NSObject, NSCollectionViewDele
         self.itemIdentifier = itemIdentifier
         self.itemFactory = { ds, cv, ip, model in
             AppCore.log(title: "CollectionViewDataSource", msg: "itemFactory", thread: true)
+            
+//            if let xib = cv.loadAllFromXib(id: itemIdentifier) {
+//                for item in xib {
+//                    if let item1 = item as? ItemType {
+//                        itemConfig(item1, ip, model)
+//                        return item1
+//                    }
+//                }
+//            }
+            
             let item = cv.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: itemIdentifier), for: ip) as! ItemType
             itemConfig(item, ip, model)
             return item

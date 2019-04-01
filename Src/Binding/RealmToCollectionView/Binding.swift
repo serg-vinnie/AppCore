@@ -17,10 +17,10 @@ extension CollectionViewDataSource {
         
         // IMPORTANT!!!!
         // this subscription is owned by NSCollectionView
-        // reference to self is captured by
+        // reference to self is captured by closure
         
         changesetChannel(from: realmQuery)
-            .onUpdate(context: view) { _, update in self.applyChanges(items: update.0, changes: update.1)}
+            .onUpdate(context: view, executor: .immediate) { _, update in self.applyChanges(items: update.0, changes: update.1)}
     }
 }
 
