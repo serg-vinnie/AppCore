@@ -46,7 +46,6 @@ public func changesetChannel<E: Object>(from collection: Results<E>) -> Channel<
     return producer() { producer in
         let notificationToken = collection.toAnyCollection().observe { /*do not forget*/ [weak producer] changeset in
             
-            print("update")
             switch changeset {
             case .initial(let value):
                 producer?.update((value, nil))
@@ -58,6 +57,6 @@ public func changesetChannel<E: Object>(from collection: Results<E>) -> Channel<
         }
         
         producer._asyncNinja_retainUntilFinalization(notificationToken)
-        producer._asyncNinja_notifyFinalization { print("Realm subscription released") }
+        producer._asyncNinja_notifyFinalization { AppCore.log(title: "RealmChangeset", msg: "subscription released") }
     }
 }
