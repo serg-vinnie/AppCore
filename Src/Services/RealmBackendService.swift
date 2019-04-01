@@ -22,7 +22,7 @@ open class RealmBackendService {
         } catch let error {
             AppCore.log(title: serviceName, msg: "can't init realm: \(config.fileURL!.path)", thread: true)
             AppCore.log(title: serviceName, error: error, thread: true)
-            AppCore.log(title: serviceName, msg: "try delete files in app folder \n\(FS.appFolder())")
+            AppCore.log(title: serviceName, msg: "try delete files in app folder \n\(FS.appFolder().path)")
             fatalError()
         }
         
