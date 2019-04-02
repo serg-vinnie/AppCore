@@ -35,3 +35,25 @@ public struct Signal {
         }
     }
 }
+
+public struct CollectionSignal {
+    public struct Delete {
+        public let key: String
+        public init(key: String) { self.key = key }
+    }
+    public struct Rename {
+        public let key      : String
+        public let newName  : String
+        public init(key: String, newName: String) { self.key = key; self.newName = newName}
+    }
+    public struct SetUrl {
+        public let key      : String
+        public let url      : URL
+        public init(key: String, url: URL) { self.key = key; self.url = url}
+    }
+    public struct SetIcon {
+        public let key      : String
+        public let url      : URL
+        public init(key: String, url: URL) { self.key = key; self.url = url}
+    }
+}
