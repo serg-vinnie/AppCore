@@ -17,8 +17,8 @@ public protocol FileSystemEntity {
     var iconPath    : String    { get set }
 }
 
-@objcMembers public class CollectionEntity: Object, FileSystemEntity {
-    public override static func primaryKey() -> String? { return "key" }
+@objcMembers open class CollectionEntity: Object, FileSystemEntity {
+    open override static func primaryKey() -> String? { return "key" }
     
     public dynamic var key                 : String    = UUID().uuidString
     public dynamic var alias               : String    = ""
