@@ -144,7 +144,7 @@ public class FS {
     @discardableResult
     public class func copy(from: URL, to: URL, force: Bool = true) -> Bool {
         let fileManager = FileManager.default
-        guard fileManager.fileExists(atPath: from.absoluteString) else { return false }
+        guard fileManager.fileExists(atPath: from.path) else { return false }
         
         if force {
             FS.delete(to)
