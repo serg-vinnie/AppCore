@@ -48,8 +48,8 @@
 		E6A6B19D224D699100196DD3 /* RealmBackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B19C224D699100196DD3 /* RealmBackendService.swift */; };
 		E6A6B1A0224D69E500196DD3 /* RealmSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */; };
 		E6AEE3BD2251362A00BCA942 /* Xib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AEE3BC2251362A00BCA942 /* Xib.swift */; };
+		E6B33197225554610060CB6C /* ThumbnailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B33196225554610060CB6C /* ThumbnailService.swift */; };
 		E6DC5B982253EB2D00123606 /* CollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B972253EB2D00123606 /* CollectionService.swift */; };
-		E6DC5B9B2253EBC100123606 /* ThumbnailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B9A2253EBC100123606 /* ThumbnailService.swift */; };
 		E6DC5B9D2253EECB00123606 /* CollectionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */; };
 /* End PBXBuildFile section */
 
@@ -108,8 +108,8 @@
 		E6A6B19C224D699100196DD3 /* RealmBackendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBackendService.swift; sourceTree = "<group>"; };
 		E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSingleton.swift; sourceTree = "<group>"; };
 		E6AEE3BC2251362A00BCA942 /* Xib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Xib.swift; sourceTree = "<group>"; };
+		E6B33196225554610060CB6C /* ThumbnailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailService.swift; sourceTree = "<group>"; };
 		E6DC5B972253EB2D00123606 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = "<group>"; };
-		E6DC5B9A2253EBC100123606 /* ThumbnailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailService.swift; sourceTree = "<group>"; };
 		E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,7 +221,7 @@
 		E65BCAFD222EA2E800F7A8BC /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E6DC5B992253EBC100123606 /* ThumbnailService */,
+				E6B33195225554470060CB6C /* ThumbnailService */,
 				E6DC5B962253EB1600123606 /* Collection */,
 				E65BCAFE222EA2E800F7A8BC /* StatesService */,
 				E65BCB02222EA2E800F7A8BC /* SignalsService */,
@@ -306,6 +306,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		E6B33195225554470060CB6C /* ThumbnailService */ = {
+			isa = PBXGroup;
+			children = (
+				E6B33196225554610060CB6C /* ThumbnailService.swift */,
+			);
+			path = ThumbnailService;
+			sourceTree = "<group>";
+		};
 		E6DC5B962253EB1600123606 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,15 +321,6 @@
 				E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */,
 			);
 			path = Collection;
-			sourceTree = "<group>";
-		};
-		E6DC5B992253EBC100123606 /* ThumbnailService */ = {
-			isa = PBXGroup;
-			children = (
-				E6DC5B9A2253EBC100123606 /* ThumbnailService.swift */,
-			);
-			name = ThumbnailService;
-			path = ../../../TaoGit/TaoGit/Services/ThumbnailService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,6 +450,7 @@
 				E65BCB7B222F04F900F7A8BC /* NSButton+Rx.swift in Sources */,
 				E65BCB0C222EA2E800F7A8BC /* FS.swift in Sources */,
 				E65BCB15222EA2E800F7A8BC /* Signals.swift in Sources */,
+				E6B33197225554610060CB6C /* ThumbnailService.swift in Sources */,
 				E65BCB11222EA2E800F7A8BC /* StatesService.swift in Sources */,
 				E65BCB12222EA2E800F7A8BC /* StatesServiceItem.swift in Sources */,
 				E6DC5B9D2253EECB00123606 /* CollectionEntity.swift in Sources */,
@@ -458,7 +458,6 @@
 				E65BCB0F222EA2E800F7A8BC /* Ninja.swift in Sources */,
 				E6A6B19D224D699100196DD3 /* RealmBackendService.swift in Sources */,
 				E6A6B1A0224D69E500196DD3 /* RealmSingleton.swift in Sources */,
-				E6DC5B9B2253EBC100123606 /* ThumbnailService.swift in Sources */,
 				E65BCB7D222F04F900F7A8BC /* NSView+TrackingArea+Rx.swift in Sources */,
 				E65BCB0D222EA2E800F7A8BC /* NSStoryboard+Ext.swift in Sources */,
 				E65BCB7A222F04F900F7A8BC /* FlagsChangeg+Rx.swift in Sources */,

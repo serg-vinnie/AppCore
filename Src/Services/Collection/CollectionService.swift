@@ -10,8 +10,6 @@ import Foundation
 import RealmSwift
 import AsyncNinja
 
-
-
 private func fileName(alias: String, env: ServiceEnvironment) -> String {
     switch env {
     case .Release: return alias
