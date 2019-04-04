@@ -37,6 +37,9 @@ public struct Signal {
 }
 
 public struct CollectionSignal {
+    public struct Create {
+        public init() { }
+    }
     public struct Delete {
         public let key: String
         public init(key: String) { self.key = key }

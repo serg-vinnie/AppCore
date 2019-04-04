@@ -22,7 +22,7 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
     let alias : String
     public let db : RealmBackendService
     public let thumbnails : ThumbnailService
-    let signals = SignalsService()
+    public let signals = SignalsService()
     
     public init(alias: String, env: ServiceEnvironment) {
         self.alias = alias
@@ -35,14 +35,20 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
         
         super.init()
         
-        subscribeTo(signals: AppCore.signals)
+        subscribeTo(signals: signals)
     }
     
     deinit {
         AppCore.log(title: "CollectionService - \(alias)", msg: "deinit")
     }
     
+    public func queryAllItems() -> Results<Entity> {
+        return db.allObjects(ofType: Entity.self)
+    }
+    
     func subscribeTo(signals: SignalsService) {
+        signals.subscribeFor(CollectionSignal.Create.self)
+            .onUpdate(context: self) { ctx, signal in ctx.addRepo() }
         signals.subscribeFor(CollectionSignal.Delete.self)
             .onUpdate(context: self) { ctx, signal in ctx.deleteRepoWith(key: signal.key) }
         signals.subscribeFor(CollectionSignal.Rename.self)
