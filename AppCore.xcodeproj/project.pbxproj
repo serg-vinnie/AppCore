@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E60B2AE52256112500D2363B /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B2AE42256112500D2363B /* CollectionViewItem.swift */; };
 		E629DC18223A72C900669FD3 /* NSWindow+Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */; };
 		E65BCAE0222EA26100F7A8BC /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCAD6222EA26100F7A8BC /* AppCore.framework */; };
 		E65BCAE5222EA26100F7A8BC /* AppCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCAE4222EA26100F7A8BC /* AppCoreTests.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E60B2AE42256112500D2363B /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
 		E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSWindow+Fade.swift"; sourceTree = "<group>"; };
 		E65BCAD6222EA26100F7A8BC /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65BCAD9222EA26100F7A8BC /* AppCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCore.h; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 			children = (
 				E6DC5B972253EB2D00123606 /* CollectionService.swift */,
 				E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */,
+				E60B2AE42256112500D2363B /* CollectionViewItem.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				E6DC5B982253EB2D00123606 /* CollectionService.swift in Sources */,
 				E65BCB14222EA2E800F7A8BC /* SignalsService.swift in Sources */,
 				E629DC18223A72C900669FD3 /* NSWindow+Fade.swift in Sources */,
+				E60B2AE52256112500D2363B /* CollectionViewItem.swift in Sources */,
 				E65BCB13222EA2E800F7A8BC /* SignalDispatcher.swift in Sources */,
 				E65BCB10222EA2E800F7A8BC /* StatesServiceEnums.swift in Sources */,
 				E695DF78224F961500611D2B /* Binding.swift in Sources */,
