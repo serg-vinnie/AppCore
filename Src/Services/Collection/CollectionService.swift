@@ -48,9 +48,9 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
     
     func subscribeTo(signals: SignalsService) {
         signals.subscribeFor(CollectionSignal.Create.self)
-            .onUpdate(context: self) { ctx, signal in ctx.addRepo() }
+            .onUpdate(context: self) { ctx, signal in ctx.addItem() }
         signals.subscribeFor(CollectionSignal.Delete.self)
-            .onUpdate(context: self) { ctx, signal in ctx.deleteRepoWith(key: signal.key) }
+            .onUpdate(context: self) { ctx, signal in ctx.deleteItem(key: signal.key) }
         signals.subscribeFor(CollectionSignal.Rename.self)
             .onUpdate(context: self) { ctx, signal in ctx.rename(key: signal.key, with: signal.newName) }
         signals.subscribeFor(CollectionSignal.SetUrl.self)
@@ -59,30 +59,30 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
             .onUpdate(context: self) { ctx, signal in ctx.setIcon(key: signal.key, url: signal.url) }
     }
     
-    public func addRepo() {
-        let repo = Entity()
-        repo.alias = "repo \(db.allObjects(ofType: Entity.self).count)"
+    public func addItem() {
+        let entity = Entity()
+        entity.alias = "\(alias) \(db.allObjects(ofType: Entity.self).count)"
         
-        db.add(object: repo)
+        db.add(object: entity)
     }
     
-    func deleteRepoWith(key: String) {
-        AppCore.log(title: "CollectionService" , msg: "delete \(key)", thread: true)
+    func deleteItem(key: String) {
+        AppCore.log(title: "CollectionService - \(alias)" , msg: "delete \(key)", thread: true)
         
-        guard let repo : Entity = db.objectWith(key: key)  else { return }
-        db.delete(object: repo)
+        guard let entity : Entity = db.objectWith(key: key)  else { return }
+        db.delete(object: entity)
     }
     
     func rename(key: String, with newName: String) {
-        guard let repo : Entity = db.objectWith(key: key)  else { return }
+        guard let entity : Entity = db.objectWith(key: key)  else { return }
         
         do {
             try db.realm.write {
                 if newName.count > 0 {
-                    repo.alias = newName
+                    entity.alias = newName
                 } else {
-                    let tmp = repo.alias
-                    repo.alias = tmp
+                    let tmp = entity.alias
+                    entity.alias = tmp
                 }
                 
             }
