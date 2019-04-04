@@ -29,7 +29,7 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
         var config = Realm.Configuration()
         config.fileURL         = FS.urlFor(file: fileName(alias: alias, env: env))
         config.objectTypes     = [Entity.self] 
-        db = RealmBackendService(config: config, serviceName: "RepoListService")
+        db = RealmBackendService(config: config, serviceName: "CollectionService")
         
         thumbnails = ThumbnailService(folder: alias)
         
@@ -67,7 +67,7 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
     }
     
     func deleteRepoWith(key: String) {
-        AppCore.log(title: "RepoListService" , msg: "delete \(key)", thread: true)
+        AppCore.log(title: "CollectionService" , msg: "delete \(key)", thread: true)
         
         guard let repo : Entity = db.objectWith(key: key)  else { return }
         db.delete(object: repo)
@@ -87,7 +87,7 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
                 
             }
         }catch {
-            AppCore.log(title: "RepoListService", error: error)
+            AppCore.log(title: "CollectionService", error: error)
         }
     }
     
@@ -104,7 +104,7 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
                 entity.pathIsValid = validate(url: url)
             }
         }catch {
-            AppCore.log(title: "RepoListService", error: error)
+            AppCore.log(title: "CollectionService", error: error)
         }
     }
     
@@ -116,7 +116,7 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
                 entity.iconPath = thumbnails.replace(file: entity.iconPath, with: url) ?? ""
             }
         }catch {
-            AppCore.log(title: "RepoListService", error: error)
+            AppCore.log(title: "CollectionService", error: error)
         }
     }
 }
