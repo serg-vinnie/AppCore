@@ -8,14 +8,14 @@
   "tvOS" : [
     {
       "name" : "RxAlamofire",
-      "hash" : "2d633fd53d6dd7158965fbe2c5de61509d919676be71b03950416b9444ffbdcc"
+      "hash" : "2685cba59813be58b1ceeded19c2277132374eb45c91090c1808f5314f9ea404"
     }
   ],
-  "commitish" : "f8b0b00ad6253dbf9c1deb0e77bc3fb1b5178ec0",
+  "commitish" : "8332895e218d4c03d483663fb85ce34bbcf12766",
   "iOS" : [
     {
       "name" : "RxAlamofire",
-      "hash" : "b4a8203f8fe6017f8ffeb9714479639e1189d792d08e88e8921866b929e55386"
+      "hash" : "fea204fc3e3ba50d22962d809e7d95e82911e463d1aa35e73f21d78e99f2fad1"
     }
   ]
 }

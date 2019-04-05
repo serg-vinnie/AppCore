@@ -2,26 +2,26 @@
   "Mac" : [
     {
       "name" : "Minizip",
-      "hash" : "369488450224119c2cdecdf4f9f43028e031e51761405a0babfc0ad7399a6222"
+      "hash" : "4437845e6ae30a2aa35084c973089ffb47954a7ca629283079ce7e9a61b4779d"
     }
   ],
   "watchOS" : [
     {
       "name" : "Minizip",
-      "hash" : "f79bf76c60bc7246cddb666a0c026fa854a644bf9eb8dfda6c41a877d195bcb8"
+      "hash" : "cf501d2250aa9d2563015c2e0c29ca66ff6ad15ad6bf05571c90177e2fb6c378"
     }
   ],
   "tvOS" : [
     {
       "name" : "Minizip",
-      "hash" : "f3e8aad55dc88201e2e83064f4a37adff93916f07781c2d8fcf55918fc44741d"
+      "hash" : "b203d81648f353d74b88c4bd993c9fc664ac87f85c0b2872f1a8790c3a1ab237"
     }
   ],
   "commitish" : "1.4.0",
   "iOS" : [
     {
       "name" : "Minizip",
-      "hash" : "22daefd2e6deac56217afa146ec350545c18a2a559b5efaeb6a675bbe3cbce0b"
+      "hash" : "ecd99e4ab21777adb9b1307e98a39d930969b7050145aea2902caa0d824cccad"
     }
   ]
 }

@@ -2,7 +2,7 @@
   "Mac" : [
     {
       "name" : "Zip",
-      "hash" : "bd5fe9a18a916f01399a17b130683cee1a25c686bbf57d51cdf6698f32f057e7"
+      "hash" : "b29cec1e8b9169f7779a0b638945e668cb0b0c4e650ef228c24e16e900316973"
     }
   ],
   "watchOS" : [
@@ -11,14 +11,14 @@
   "tvOS" : [
     {
       "name" : "Zip",
-      "hash" : "4b86f103c7b72684e938980b3c02910eb8a9922299964ad0255810d77590ab44"
+      "hash" : "35c8f32e156507e1de8c32324cd76a885d85171cd49237af035c03e44a788049"
     }
   ],
   "commitish" : "1.1.0",
   "iOS" : [
     {
       "name" : "Zip",
-      "hash" : "20a0f48e057b19f565de871d28cd97a760b3b2e2ff6559f7315098939a1c7081"
+      "hash" : "37a005e01cc3299587fa69a377a698580eb7e5f01ba86f7a1137f0c976e5cae2"
     }
   ]
 }

@@ -2,26 +2,26 @@
   "Mac" : [
     {
       "name" : "AsyncNinja",
-      "hash" : "9c08109444a52c3d610160c4ee6bc9c86ffb994dd78ee230966be22f9b026bdf"
+      "hash" : "b830117be1931e270713984ae49d4bfc5cf39bb33868b8ae5fa803c14d585554"
     }
   ],
   "watchOS" : [
     {
       "name" : "AsyncNinja",
-      "hash" : "0401f8e43601ece0ff02877ab25b04d9189632cc13aa0ab718358022d5b84673"
+      "hash" : "33681969648ec9c35e85b597c7c9023c320d3a51b0935a8ce6417131a0b98109"
     }
   ],
   "tvOS" : [
     {
       "name" : "AsyncNinja",
-      "hash" : "5e7592e5ab4698820955f585dc8f87818bc8c3c27c23694320d146394c5f5bee"
+      "hash" : "0f948bca995a998b2fee7036c15deeadc540883a1468221f6d3d2f2dfabe6aa9"
     }
   ],
-  "commitish" : "10f0af11e6f17591fd57f30c7b5118f69efa79e0",
+  "commitish" : "d47c5d5e8242c3fc4c87cc7fc59e5dee6bef204f",
   "iOS" : [
     {
       "name" : "AsyncNinja",
-      "hash" : "3aac952b01dfaa26b74f31be4df25802307088b6c38e4acc82a4207539e19ab3"
+      "hash" : "730134c7b372ff11ea606fbafaaa0da416cdc5d7ce12e907b4b548c660f22f35"
     }
   ]
 }

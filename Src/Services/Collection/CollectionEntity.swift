@@ -18,7 +18,7 @@ public protocol FileSystemEntity {
 }
 
 @objcMembers open class CollectionEntity: Object, FileSystemEntity {
-    open override static func primaryKey() -> String? { return "key" }
+    public override static func primaryKey() -> String? { return "key" }
     
     public dynamic var key                 : String    = UUID().uuidString
     public dynamic var alias               : String    = ""

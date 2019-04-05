@@ -1,87 +1,87 @@
 {
   "Mac" : [
     {
+      "name" : "RxAtomic",
+      "hash" : "7a5d6cb7c050d5692df59cdb299c6706d0d116ba06b356b6c7e991ee02825151"
+    },
+    {
       "name" : "RxBlocking",
-      "hash" : "29410cee26a1694ee02099ce3fd80994ce64b35ac43213a54603fc240dcdfdc7"
+      "hash" : "e7927edc012cccfb683c6bb08a8f4d1577b3b608e9845d081bbb229d448bf1ab"
     },
     {
       "name" : "RxTest",
-      "hash" : "c1f747f30696a88fcd67babce2eeeb4d190fdbb1095f6eb1c84d92b54ab2d89f"
-    },
-    {
-      "name" : "RxAtomic",
-      "hash" : "8c31d5920979f29526569f4d7b5020713e849c291ce8eec046343ca7ee553e9c"
-    },
-    {
-      "name" : "RxCocoa",
-      "hash" : "2c2af2822a7cd69fcdcc39d155bd49d2f0aacbfac9a996737743f0116e345877"
+      "hash" : "b5db35947546309483c47a5c32011ff1c10936fed3b9dbe8cb9c3c72b2ba715e"
     },
     {
       "name" : "RxSwift",
-      "hash" : "45b565ac36bff672d1b81ba531f6213bd864bbc763c2e764ea5e419f930c4753"
+      "hash" : "b34420e9baf7e37731452e8bdc2e96134eea725026574b1b7f7a938bbcd56cd1"
+    },
+    {
+      "name" : "RxCocoa",
+      "hash" : "49c4a7e25d2b43a15a702c862b7af1bb213ca8095076fc0b32e99fca9e5439c5"
     }
   ],
   "watchOS" : [
     {
       "name" : "RxAtomic",
-      "hash" : "e18c4090c5e6fe02e4884852ac3971de9040918e36d4c8013e46fd388d9ab0c6"
+      "hash" : "254b8caf07dca08206d79351b798d80580f9fe7c594425148a9c430dfcc3a6ef"
     },
     {
       "name" : "RxBlocking",
-      "hash" : "88a789d0a48544ab7435f40a5380c60a72663683a5611ccddc886da1c560a662"
+      "hash" : "46d1b95c311a9ba090f120dbe759a17698d749abd53625ed9aa6e9267a82702e"
     },
     {
       "name" : "RxCocoa",
-      "hash" : "c0080622484310d49e562aad0e5cf6bd1516123ef96dd51e81409f38d76355c1"
+      "hash" : "ba530f767cdc99533326b8a923faa1800435e3024437473af1e7e9d7a5fd5959"
     },
     {
       "name" : "RxSwift",
-      "hash" : "3dd76af31d9543f46251ff22b541c20ef2694c0163fee25a7d7af94cb6559697"
+      "hash" : "314ec343bad80f9c16ab4d969babcb1e2b48a0722d92ba4c76b5e29c12484909"
     }
   ],
   "tvOS" : [
     {
       "name" : "RxBlocking",
-      "hash" : "704f701da0bbf01a2645165a4f2790ecf89b8553baefbc611d2e1da525ef5a4d"
+      "hash" : "5f761257156e3fc990064e979e6dd8a4db3090f6629fbcdcf7411206acdc4aaa"
     },
     {
       "name" : "RxAtomic",
-      "hash" : "b1fb015e35127c28928340bf9c9207b5a6f3d4e122d26cdde0c4cee078b5b26c"
+      "hash" : "3d204e7b18f1d22355806c3703eb1efb052b8162f502fd9f2f89bf12325f2e56"
     },
     {
       "name" : "RxTest",
-      "hash" : "7d2fcd6b2db3ea152e273068025253fd483db7eb2444d0ca1bb865d7908735cd"
-    },
-    {
-      "name" : "RxCocoa",
-      "hash" : "fa94851ae456d433be54eb2c5e2fcccb72df943b493936742d7465df2aa71a49"
+      "hash" : "8ce1484ef1c6f2c6d0c343be2b52308675d257c3a6703a5cbcd6cc0b6002bd73"
     },
     {
       "name" : "RxSwift",
-      "hash" : "ec86d4db37914cf0c3c172fc633c8e6e7a176b135bacfa8e3dd4cb44d4df0406"
+      "hash" : "45f4dba26fc6699333c7b75d1656ac48693b13ba026c0f34c1425ae57c0f2992"
+    },
+    {
+      "name" : "RxCocoa",
+      "hash" : "44191be93c79beb7ea0c7ecd6e92c654e2b0b623b6a86c2351fc610dd541c20e"
     }
   ],
-  "commitish" : "4.4.2",
+  "commitish" : "4.5.0",
   "iOS" : [
     {
       "name" : "RxAtomic",
-      "hash" : "319c6c2dfa4457b958e92c2e1f8e31f08414612c6f4ff6dcaa4dcd3a3619fa5f"
-    },
-    {
-      "name" : "RxTest",
-      "hash" : "cc17f14ff4f7b7395c233e2c867290929b3c230c542c86169385458266445ac0"
+      "hash" : "5058b1fc0ab721a9d1d139ee106a9969a28b1a355c509eb17d26bc6b19e04529"
     },
     {
       "name" : "RxBlocking",
-      "hash" : "8c303e5f071fc74473e36b0d964dc81a2f450713f67666aff09f7fe848d96073"
+      "hash" : "5cfc4edac27b7618999801bcbed527654baf54db7ab8b98e29e68965c2af9f8e"
+    },
+    {
+      "name" : "RxTest",
+      "hash" : "46f43c538b9db1a53f6efd52baaa8153a3fdbd081c4be916078730807947d14c"
     },
     {
       "name" : "RxCocoa",
-      "hash" : "485cd808d8679e7a7fdc396903ffe35fe46d2afd462af2dba69b2522e20863f2"
+      "hash" : "83d2b829400acb6e48efc81e2218f01f0bf21f7116e1b2595d4b61aa045d62eb"
     },
     {
       "name" : "RxSwift",
-      "hash" : "358e24db313ad047348d0cfd45ac74e98653272a35742a95f61d3ebd5a4cb07a"
+      "hash" : "085b4ee5e3be6f7da0b95d036f8cdc449e466851c50f3808629c9853c4dcf050"
     }
   ]
 }
