@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-public protocol FileSystemEntity {
+public protocol CollectionEntityProtocol {
     var key         : String    { get set }
     var alias       : String    { get set }
     var path        : String    { get set }
@@ -17,7 +17,7 @@ public protocol FileSystemEntity {
     var iconPath    : String    { get set }
 }
 
-@objcMembers open class CollectionEntity: Object, FileSystemEntity {
+@objcMembers open class CollectionEntity: Object, CollectionEntityProtocol {
     public override static func primaryKey() -> String? { return "key" }
     
     public dynamic var key                 : String    = UUID().uuidString

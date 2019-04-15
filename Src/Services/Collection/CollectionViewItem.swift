@@ -8,9 +8,20 @@
 
 import AppKit
 
-open class CollectionViewItem: NSCollectionViewItem {
-    public var signals : SignalsService?
-    public var key : String = ""
+protocol CollectionViewItemProtocol {
+    var key         : String            { get set }
+    var alias       : String            { get set }
+    var image       : NSImage?          { get set }
+    var signals     : SignalsService?   { get set }
+}
+
+open class CollectionViewItem: NSCollectionViewItem, CollectionViewItemProtocol {
+    //CollectionViewItemProtocol
+    public var key      : String = ""
+    public var alias    : String { get { return textField?.stringValue ?? "" } set { textField?.stringValue = newValue } }
+    public var image    : NSImage? { get { return imageView?.image } set { imageView?.image = newValue }}
+    public var signals  : SignalsService?
+    
     
     override open func viewDidLoad() {
         super.viewDidLoad()
