@@ -14,9 +14,9 @@ public typealias CustomItemConfig<EntityType: CollectionEntity, ItemType: Collec
 /////////////////////////////////////
 /// CollectionService extension
 ////////////////////////////////////
-public extension CollectionService {
-    func binder() -> CollectionServiceBinder<Entity,CollectionViewItem> {
-        return CollectionServiceBinder(service: self)
+public extension CollectionService where Entity : CollectionEntity {
+    func binder<ItemType: CollectionViewItem>(itemType: ItemType.Type) -> CollectionServiceBinder<Entity,ItemType> {
+        return CollectionServiceBinder<Entity,ItemType>(service: self)
     }
 }
 
