@@ -9,13 +9,13 @@
 import Foundation
 import RealmSwift
 
-public typealias CustomItemConfig<EntityType: CollectionEntity, ItemType: NSCollectionViewItem> = (ItemType, EntityType) -> Void
+public typealias CustomItemConfig<EntityType: CollectionEntity, ItemType: CollectionViewItem> = (ItemType, EntityType) -> Void
 
-public class CollectionServiceBinder<EntityType: CollectionEntity, ItemType: NSCollectionViewItem> {
+public class CollectionServiceBinder<EntityType: CollectionEntity, ItemType: CollectionViewItem> {
     private var service         : CollectionService<EntityType>
     private var customConfig    : CustomItemConfig<EntityType,ItemType>?
     private var defaultImage    : NSImage?
-    private var delegate   : NSCollectionViewDelegate?
+    private var delegate        : NSCollectionViewDelegate?
     
     public init(service: CollectionService<EntityType>) {
         self.service = service
@@ -42,28 +42,15 @@ public class CollectionServiceBinder<EntityType: CollectionEntity, ItemType: NSC
     
     public func bindTo(view: NSCollectionView, itemId: String, storyboard: NSStoryboard) {
         let dataSource = CollectionViewDataSource<EntityType>(
-            itemFactory: collectionItemFactory(storyboard: storyboard, id: itemId, service: service, defaultImage: defaultImage))
+            itemFactory: collectionItemFactory(storyboard: storyboard, id: itemId, service: service, defaultImage: defaultImage, customConfig: customConfig))
         dataSource.delegate = delegate
         dataSource.bindWith(realmQuery: service.queryAllItems(), view: view)
     }
-    
-    
 }
 
-public extension CollectionService {
-    func bindTo(view: NSCollectionView, itemId: String, storyboard: NSStoryboard, defaultImage: NSImage?, delegate: NSCollectionViewDelegate) {
-        let dataSource = CollectionViewDataSource<Entity>(
-            itemFactory: collectionItemFactory(storyboard: storyboard, id: itemId, service: self, defaultImage: defaultImage))
-        
-        dataSource.delegate = delegate
-        dataSource.bindWith(realmQuery: self.queryAllItems(), view: view)
-    }
-}
-
-public func collectionItemFactory<E: CollectionEntity>(storyboard: NSStoryboard, id: String, service: CollectionService<E>, defaultImage: NSImage?) -> CollectionItemFactory<E> {
+public func collectionItemFactory<E: CollectionEntity, V: CollectionViewItem>(storyboard: NSStoryboard, id: String, service: CollectionService<E>, defaultImage: NSImage?, customConfig: CustomItemConfig<E,V>?) -> CollectionItemFactory<E> {
     return { dataSource, view, indexPath, realmItem in
-        let item = storyboard.viewController(id: id) as! CollectionViewItem
-        let realmItem = realmItem as CollectionEntityProtocol
+        let item = storyboard.viewController(id: id) as! V
         
         item.key        = realmItem.key
         item.alias      = realmItem.alias
@@ -74,6 +61,8 @@ public func collectionItemFactory<E: CollectionEntity>(storyboard: NSStoryboard,
         } else {
             item.image = defaultImage
         }
+        
+        customConfig?(item,realmItem)
         
         return item
     }

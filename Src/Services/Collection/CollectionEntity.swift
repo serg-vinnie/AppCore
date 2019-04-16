@@ -9,15 +9,15 @@
 import Foundation
 import RealmSwift
 
-public protocol CollectionEntityProtocol {
-    var key         : String    { get set }
-    var alias       : String    { get set }
-    var path        : String    { get set }
-    var pathIsValid : Bool      { get set }
-    var iconPath    : String    { get set }
-}
+//public protocol CollectionEntityProtocol {
+//    var key         : String    { get set }
+//    var alias       : String    { get set }
+//    var path        : String    { get set }
+//    var pathIsValid : Bool      { get set }
+//    var iconPath    : String    { get set }
+//}
 
-@objcMembers open class CollectionEntity: Object, CollectionEntityProtocol {
+@objcMembers open class CollectionEntity: Object {
     public override static func primaryKey() -> String? { return "key" }
     
     public dynamic var key                 : String    = UUID().uuidString
