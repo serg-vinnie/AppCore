@@ -11,6 +11,18 @@ import RealmSwift
 
 public typealias CustomItemConfig<EntityType: CollectionEntity, ItemType: CollectionViewItem> = (ItemType, EntityType) -> Void
 
+/////////////////////////////////////
+/// CollectionService extension
+////////////////////////////////////
+public extension CollectionService {
+    func binder() -> CollectionServiceBinder<Entity,CollectionViewItem> {
+        return CollectionServiceBinder(service: self)
+    }
+}
+
+/////////////////////////////////////
+/// CollectionService Binder Class
+////////////////////////////////////
 public class CollectionServiceBinder<EntityType: CollectionEntity, ItemType: CollectionViewItem> {
     private var service         : CollectionService<EntityType>
     private var customConfig    : CustomItemConfig<EntityType,ItemType>?
