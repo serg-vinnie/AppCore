@@ -21,7 +21,7 @@ public extension CollectionService where Entity : CollectionEntity {
 }
 
 /////////////////////////////////////
-/// CollectionService Binder Class
+/// CollectionViewBinder Binder Class
 ////////////////////////////////////
 public class CollectionViewBinder<EntityType: CollectionEntity> {
     private var service         : CollectionService<EntityType>

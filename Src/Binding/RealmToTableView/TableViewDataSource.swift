@@ -11,8 +11,8 @@ import Cocoa
 import RealmSwift
 import Realm
 
-public typealias TableCellFactory<E: Object> = (TableViewDataSource<E>, NSTableView, Int, E) -> NSTableCellView
-public typealias TableCellConfig<E: Object, CellType: NSTableCellView> = (CellType, Int, E) -> Void
+public typealias TableCellFactory<E: Object> = (TableViewDataSource<E>, NSTableView, Int, String?, E) -> NSTableCellView
+public typealias TableCellConfig<E: Object, CellType: NSTableCellView> = (CellType, Int, String?, E) -> Void
 
 open class TableViewDataSource<E: Object>: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     
@@ -40,9 +40,9 @@ open class TableViewDataSource<E: Object>: NSObject, NSTableViewDataSource, NSTa
     
     public init<CellType>(cellIdentifier: String, cellType: CellType.Type, cellConfig: @escaping TableCellConfig<E, CellType>) where CellType: NSTableCellView {
         self.cellIdentifier = cellIdentifier
-        self.cellFactory = { ds, tv, row, model in
+        self.cellFactory = { ds, tv, row, colID, model in
             let cell = tv.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: tv) as! CellType
-            cellConfig(cell, row, model)
+            cellConfig(cell, row, colID, model)
             return cell
         }
     }
@@ -53,7 +53,8 @@ open class TableViewDataSource<E: Object>: NSObject, NSTableViewDataSource, NSTa
     }
     
     public func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        return cellFactory(self, tableView, row, items![row])
+        let columnId = tableColumn?.identifier.rawValue
+        return cellFactory(self, tableView, row, columnId, items![row])
     }
     
     // MARK: - Proxy unimplemented data source and delegate methods
