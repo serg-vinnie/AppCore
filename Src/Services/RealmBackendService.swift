@@ -97,11 +97,11 @@ open class RealmBackendService {
 }
 
 public extension RealmBackendService {
-    public func log(msg: String) {
+    func log(msg: String) {
         AppCore.log(title: serviceName, msg: msg, thread: true)
     }
     
-    public func log(error: Error) {
+    func log(error: Error) {
         AppCore.log(title: serviceName, error: error, thread: true)
     }
 }
