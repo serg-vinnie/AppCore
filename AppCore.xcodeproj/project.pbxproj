@@ -51,6 +51,7 @@
 		E6A6B1A0224D69E500196DD3 /* RealmSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */; };
 		E6AEE3BD2251362A00BCA942 /* Xib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AEE3BC2251362A00BCA942 /* Xib.swift */; };
 		E6B33197225554610060CB6C /* ThumbnailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B33196225554610060CB6C /* ThumbnailService.swift */; };
+		E6C346EF22667C240042A1D2 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C346EE22667C240042A1D2 /* TableViewDataSource.swift */; };
 		E6DC5B982253EB2D00123606 /* CollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B972253EB2D00123606 /* CollectionService.swift */; };
 		E6DC5B9D2253EECB00123606 /* CollectionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */; };
 /* End PBXBuildFile section */
@@ -113,6 +114,7 @@
 		E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSingleton.swift; sourceTree = "<group>"; };
 		E6AEE3BC2251362A00BCA942 /* Xib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Xib.swift; sourceTree = "<group>"; };
 		E6B33196225554610060CB6C /* ThumbnailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailService.swift; sourceTree = "<group>"; };
+		E6C346EE22667C240042A1D2 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		E6DC5B972253EB2D00123606 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = "<group>"; };
 		E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -287,6 +289,7 @@
 		E695DF71224F90AF00611D2B /* Binding */ = {
 			isa = PBXGroup;
 			children = (
+				E6C346ED22667C000042A1D2 /* RealmToTableView */,
 				E695DF72224F90B700611D2B /* RealmToCollectionView */,
 			);
 			path = Binding;
@@ -316,6 +319,14 @@
 				E6B33196225554610060CB6C /* ThumbnailService.swift */,
 			);
 			path = ThumbnailService;
+			sourceTree = "<group>";
+		};
+		E6C346ED22667C000042A1D2 /* RealmToTableView */ = {
+			isa = PBXGroup;
+			children = (
+				E6C346EE22667C240042A1D2 /* TableViewDataSource.swift */,
+			);
+			path = RealmToTableView;
 			sourceTree = "<group>";
 		};
 		E6DC5B962253EB1600123606 /* Collection */ = {
@@ -450,6 +461,7 @@
 				E695DF78224F961500611D2B /* Binding.swift in Sources */,
 				E65BCB7C222F04F900F7A8BC /* NSPopUpButton+Rx.swift in Sources */,
 				E6AEE3BD2251362A00BCA942 /* Xib.swift in Sources */,
+				E6C346EF22667C240042A1D2 /* TableViewDataSource.swift in Sources */,
 				E65BCB07222EA2E800F7A8BC /* AppCore.swift in Sources */,
 				E65BCB06222EA2E800F7A8BC /* Scenes.swift in Sources */,
 				E65BCB0E222EA2E800F7A8BC /* Thread+Ext.swift in Sources */,

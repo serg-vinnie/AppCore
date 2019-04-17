@@ -24,6 +24,20 @@ extension CollectionViewDataSource {
     }
 }
 
+extension TableViewDataSource {
+    public func bindWith(realmQuery: Results<E>, view: NSTableView) {
+        self.tableView = view
+        view.dataSource = self
+        
+        // IMPORTANT!!!!
+        // this subscription is owned by NSTableView
+        // reference to self is captured by closure
+        
+        changesetChannel(from: realmQuery)
+            .onUpdate(context: view, executor: .immediate) { _, update in self.applyChanges(items: update.0, changes: update.1)}
+    }
+}
+
 public struct RealmChangeset {
     /// the indexes in the collection that were deleted
     public let deleted: [Int]
