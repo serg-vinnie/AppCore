@@ -43,7 +43,7 @@
 		E65BCB7C222F04F900F7A8BC /* NSPopUpButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB77222F04F000F7A8BC /* NSPopUpButton+Rx.swift */; };
 		E65BCB7D222F04F900F7A8BC /* NSView+TrackingArea+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */; };
 		E65BCB7E222F04F900F7A8BC /* NSProgressIndicator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */; };
-		E67825842264BE5100391616 /* CollectionServiceBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67825832264BE5100391616 /* CollectionServiceBinding.swift */; };
+		E67825842264BE5100391616 /* CollectionViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67825832264BE5100391616 /* CollectionViewBinder.swift */; };
 		E695DF76224F938F00611D2B /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */; };
 		E695DF78224F961500611D2B /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E695DF77224F961500611D2B /* Binding.swift */; };
 		E6A6B199224D693A00196DD3 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B198224D693A00196DD3 /* Then.swift */; };
@@ -106,7 +106,7 @@
 		E65BCB77222F04F000F7A8BC /* NSPopUpButton+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPopUpButton+Rx.swift"; sourceTree = "<group>"; };
 		E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+TrackingArea+Rx.swift"; sourceTree = "<group>"; };
 		E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProgressIndicator+Rx.swift"; sourceTree = "<group>"; };
-		E67825832264BE5100391616 /* CollectionServiceBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionServiceBinding.swift; sourceTree = "<group>"; };
+		E67825832264BE5100391616 /* CollectionViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewBinder.swift; sourceTree = "<group>"; };
 		E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		E695DF77224F961500611D2B /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		E6A6B198224D693A00196DD3 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
@@ -299,6 +299,7 @@
 		E695DF72224F90B700611D2B /* RealmToCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				E67825832264BE5100391616 /* CollectionViewBinder.swift */,
 				E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */,
 			);
 			path = RealmToCollectionView;
@@ -335,7 +336,6 @@
 				E6DC5B972253EB2D00123606 /* CollectionService.swift */,
 				E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */,
 				E60B2AE42256112500D2363B /* CollectionViewItem.swift */,
-				E67825832264BE5100391616 /* CollectionServiceBinding.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -467,7 +467,7 @@
 				E65BCB0E222EA2E800F7A8BC /* Thread+Ext.swift in Sources */,
 				E6A6B199224D693A00196DD3 /* Then.swift in Sources */,
 				E65BCB7B222F04F900F7A8BC /* NSButton+Rx.swift in Sources */,
-				E67825842264BE5100391616 /* CollectionServiceBinding.swift in Sources */,
+				E67825842264BE5100391616 /* CollectionViewBinder.swift in Sources */,
 				E65BCB0C222EA2E800F7A8BC /* FS.swift in Sources */,
 				E65BCB15222EA2E800F7A8BC /* Signals.swift in Sources */,
 				E6B33197225554610060CB6C /* ThumbnailService.swift in Sources */,
