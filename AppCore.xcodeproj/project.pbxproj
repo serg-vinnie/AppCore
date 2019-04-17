@@ -45,7 +45,7 @@
 		E65BCB7E222F04F900F7A8BC /* NSProgressIndicator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */; };
 		E67825842264BE5100391616 /* CollectionServiceBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67825832264BE5100391616 /* CollectionServiceBinding.swift */; };
 		E695DF76224F938F00611D2B /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */; };
-		E695DF78224F961500611D2B /* CollectionServiceBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E695DF77224F961500611D2B /* CollectionServiceBinder.swift */; };
+		E695DF78224F961500611D2B /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E695DF77224F961500611D2B /* Binding.swift */; };
 		E6A6B199224D693A00196DD3 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B198224D693A00196DD3 /* Then.swift */; };
 		E6A6B19D224D699100196DD3 /* RealmBackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B19C224D699100196DD3 /* RealmBackendService.swift */; };
 		E6A6B1A0224D69E500196DD3 /* RealmSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */; };
@@ -108,7 +108,7 @@
 		E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProgressIndicator+Rx.swift"; sourceTree = "<group>"; };
 		E67825832264BE5100391616 /* CollectionServiceBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionServiceBinding.swift; sourceTree = "<group>"; };
 		E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
-		E695DF77224F961500611D2B /* CollectionServiceBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionServiceBinder.swift; sourceTree = "<group>"; };
+		E695DF77224F961500611D2B /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		E6A6B198224D693A00196DD3 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		E6A6B19C224D699100196DD3 /* RealmBackendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBackendService.swift; sourceTree = "<group>"; };
 		E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSingleton.swift; sourceTree = "<group>"; };
@@ -289,7 +289,7 @@
 		E695DF71224F90AF00611D2B /* Binding */ = {
 			isa = PBXGroup;
 			children = (
-				E695DF77224F961500611D2B /* CollectionServiceBinder.swift */,
+				E695DF77224F961500611D2B /* Binding.swift */,
 				E6C346ED22667C000042A1D2 /* RealmToTableView */,
 				E695DF72224F90B700611D2B /* RealmToCollectionView */,
 			);
@@ -458,7 +458,7 @@
 				E60B2AE52256112500D2363B /* CollectionViewItem.swift in Sources */,
 				E65BCB13222EA2E800F7A8BC /* SignalDispatcher.swift in Sources */,
 				E65BCB10222EA2E800F7A8BC /* StatesServiceEnums.swift in Sources */,
-				E695DF78224F961500611D2B /* CollectionServiceBinder.swift in Sources */,
+				E695DF78224F961500611D2B /* Binding.swift in Sources */,
 				E65BCB7C222F04F900F7A8BC /* NSPopUpButton+Rx.swift in Sources */,
 				E6AEE3BD2251362A00BCA942 /* Xib.swift in Sources */,
 				E6C346EF22667C240042A1D2 /* TableViewDataSource.swift in Sources */,

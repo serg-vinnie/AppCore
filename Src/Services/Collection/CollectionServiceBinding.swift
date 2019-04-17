@@ -15,15 +15,15 @@ public typealias CustomItemConfig<EntityType: CollectionEntity, ItemType: Collec
 /// CollectionService extension
 ////////////////////////////////////
 public extension CollectionService where Entity : CollectionEntity {
-    func collectionViewBinder() -> CollectionServiceBinder<Entity> {
-        return CollectionServiceBinder<Entity>(service: self)
+    func collectionViewBinder() -> CollectionViewBinder<Entity> {
+        return CollectionViewBinder<Entity>(service: self)
     }
 }
 
 /////////////////////////////////////
 /// CollectionService Binder Class
 ////////////////////////////////////
-public class CollectionServiceBinder<EntityType: CollectionEntity> {
+public class CollectionViewBinder<EntityType: CollectionEntity> {
     private var service         : CollectionService<EntityType>
     private var defaultImage    : NSImage?
     private var delegate        : NSCollectionViewDelegate?
@@ -36,12 +36,12 @@ public class CollectionServiceBinder<EntityType: CollectionEntity> {
         AppCore.log(title: "CollectionServiceBinder", msg: "deinit")
     }
     
-    public func setDefault(image: NSImage?) -> CollectionServiceBinder {
+    public func setDefault(image: NSImage?) -> CollectionViewBinder {
         defaultImage = image
         return self
     }
     
-    public func set(delegate : NSCollectionViewDelegate?) -> CollectionServiceBinder {
+    public func set(delegate : NSCollectionViewDelegate?) -> CollectionViewBinder {
         self.delegate = delegate
         return self
     }
