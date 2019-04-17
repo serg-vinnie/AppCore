@@ -15,17 +15,16 @@ public typealias CustomItemConfig<EntityType: CollectionEntity, ItemType: Collec
 /// CollectionService extension
 ////////////////////////////////////
 public extension CollectionService where Entity : CollectionEntity {
-    func binder<ItemType: CollectionViewItem>(itemType: ItemType.Type) -> CollectionServiceBinder<Entity,ItemType> {
-        return CollectionServiceBinder<Entity,ItemType>(service: self)
+    func collectionViewBinder() -> CollectionServiceBinder<Entity> {
+        return CollectionServiceBinder<Entity>(service: self)
     }
 }
 
 /////////////////////////////////////
 /// CollectionService Binder Class
 ////////////////////////////////////
-public class CollectionServiceBinder<EntityType: CollectionEntity, ItemType: CollectionViewItem> {
+public class CollectionServiceBinder<EntityType: CollectionEntity> {
     private var service         : CollectionService<EntityType>
-    private var customConfig    : CustomItemConfig<EntityType,ItemType>?
     private var defaultImage    : NSImage?
     private var delegate        : NSCollectionViewDelegate?
     
@@ -34,12 +33,7 @@ public class CollectionServiceBinder<EntityType: CollectionEntity, ItemType: Col
     }
     
     deinit {
-        AppCore.log(title: "CustomItemConfig", msg: "deinit")
-    }
-    
-    public func setCustomConfig(_ config: @escaping CustomItemConfig<EntityType,ItemType>) -> CollectionServiceBinder {
-        customConfig = config
-        return self
+        AppCore.log(title: "CollectionServiceBinder", msg: "deinit")
     }
     
     public func setDefault(image: NSImage?) -> CollectionServiceBinder {
@@ -52,9 +46,10 @@ public class CollectionServiceBinder<EntityType: CollectionEntity, ItemType: Col
         return self
     }
     
-    public func bindTo(view: NSCollectionView, itemId: String, storyboard: NSStoryboard) {
-        let dataSource = CollectionViewDataSource<EntityType>(
-            itemFactory: collectionItemFactory(storyboard: storyboard, id: itemId, service: service, defaultImage: defaultImage, customConfig: customConfig))
+    public func bindTo<ItemType>(view: NSCollectionView, itemId: String, storyboard: NSStoryboard, config: @escaping CustomItemConfig<EntityType,ItemType> = {_,_ in }) {
+        let dataSource = CollectionViewDataSource<EntityType>(itemFactory: collectionItemFactory(
+            storyboard: storyboard, id: itemId, service: service, defaultImage: defaultImage, customConfig: config))
+        
         dataSource.delegate = delegate
         dataSource.bindWith(realmQuery: service.queryAllItems(), view: view)
     }
