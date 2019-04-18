@@ -110,11 +110,14 @@ public class Scenes {
         }
     }
     
-    public func show<WC>(wnd: WC.Type) {
-        show(wnd: ObjectIdentifier(wnd).hashValue)
+    public func show<WC>(wnd: WC.Type, block: (WC)->Void = { _ in }) {
+        if let wc = show(wnd: ObjectIdentifier(wnd).hashValue) as? WC {
+            block(wc)
+        }
     }
     
-    public func show(wnd: Int) {
+    @discardableResult
+    public func show(wnd: Int) -> NSWindowController? {
         if let wc = resolve(wnd: wnd) {
             if wc.window?.isVisible ?? false {
                 NSApp.activate(ignoringOtherApps: true)
@@ -122,11 +125,12 @@ public class Scenes {
             } else {
                 wc.showWindow(nil)
             }
-            
+            return wc
         } else {
             AppCore.log(title: "Scenes", msg: "can't resolve Window Controller : \(wnd)")
             assert(false)
         }
+        return nil
     }
     
     public func showIntegrityFailure() {
