@@ -22,8 +22,16 @@ func AppCoreContainer(env : ServiceEnvironment) -> Container {
 }
     
 public extension Container {
-    public func `do`(_ block: (Container) throws -> Void) rethrows {
+    func `do`(_ block: (Container) throws -> Void) rethrows {
         try block(self)
+    }
+}
+
+public func fileName(alias: String, env: ServiceEnvironment) -> String {
+    switch env {
+    case .Release: return alias
+    case .Debug:   return "\(alias)_dbg.realm"
+    case .Test:    return "\(alias)_tst.realm"
     }
 }
 
