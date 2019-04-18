@@ -14,6 +14,7 @@ extension CollectionViewDataSource {
     public func bindWith(realmQuery: Results<E>, view: NSCollectionView) {
         self.collectionView = view
         view.dataSource = self
+        view.delegate = self
         
         // IMPORTANT!!!!
         // this subscription is owned by NSCollectionView
@@ -28,6 +29,7 @@ extension TableViewDataSource {
     public func bindWith(realmQuery: Results<E>, view: NSTableView) {
         self.tableView = view
         view.dataSource = self
+        view.delegate = self
         
         // IMPORTANT!!!!
         // this subscription is owned by NSTableView
