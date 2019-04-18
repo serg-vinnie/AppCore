@@ -10,26 +10,15 @@ import Foundation
 import RealmSwift
 import AsyncNinja
 
-private func fileName(alias: String, env: ServiceEnvironment) -> String {
-    switch env {
-    case .Release: return alias
-    case .Debug:   return "\(alias)_dbg.realm"
-    case .Test:    return "\(alias)_tst.realm"
-    }
-}
-
 open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
     let alias : String
     public let db : RealmBackendService
     public let thumbnails : ThumbnailService
     public let signals = SignalsService()
     
-    public init(alias: String, env: ServiceEnvironment) {
+    public init(alias: String, db: RealmBackendService) {
         self.alias = alias
-        var config = Realm.Configuration()
-        config.fileURL         = FS.urlFor(file: fileName(alias: alias, env: env))
-        config.objectTypes     = [Entity.self] 
-        db = RealmBackendService(config: config, serviceName: "CollectionService")
+        self.db = db
         
         thumbnails = ThumbnailService(folder: alias)
         

@@ -13,16 +13,14 @@ import RxRealm
 
 open class RealmBackendService {
     public let realm : Realm
-    public let serviceName : String
     
-    public init(config: Realm.Configuration, serviceName: String) {
-        self.serviceName = serviceName
+    public init(config: Realm.Configuration) {
         do {
             realm = try Realm(configuration: config)
         } catch let error {
-            AppCore.log(title: serviceName, msg: "can't init realm: \(config.fileURL!.path)", thread: true)
-            AppCore.log(title: serviceName, error: error, thread: true)
-            AppCore.log(title: serviceName, msg: "try delete files in app folder \n\(FS.appFolder().path)")
+            AppCore.log(title: "RealmBackendService", msg: "can't init realm: \(config.fileURL!.path)", thread: true)
+            AppCore.log(title: "RealmBackendService", error: error, thread: true)
+            AppCore.log(title: "RealmBackendService", msg: "try delete files in app folder \n\(FS.appFolder().path)")
             fatalError()
         }
         
@@ -98,10 +96,10 @@ open class RealmBackendService {
 
 public extension RealmBackendService {
     func log(msg: String) {
-        AppCore.log(title: serviceName, msg: msg, thread: true)
+        AppCore.log(title: "RealmBackendService", msg: msg, thread: true)
     }
     
     func log(error: Error) {
-        AppCore.log(title: serviceName, error: error, thread: true)
+        AppCore.log(title: "RealmBackendService", error: error, thread: true)
     }
 }
