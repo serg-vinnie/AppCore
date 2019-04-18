@@ -28,6 +28,7 @@ public class ThumbnailService { // bla
         AppCore.log(title: "ThumbnailService", msg: dst.path)
         AppCore.log(title: "ThumbnailService", msg: dst.lastPathComponent)
         
+        FS.makeSureDirExist(url.deletingLastPathComponent().path)
         FS.copy(from: url, to: dst)
         
         return dst.lastPathComponent
