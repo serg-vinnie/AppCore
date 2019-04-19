@@ -37,7 +37,7 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
     
     func subscribeTo(signals: SignalsService) {
         signals.subscribeFor(CollectionSignal.Create.self)
-            .onUpdate(context: self) { ctx, signal in ctx.addItem() }
+            .onUpdate(context: self) { ctx, signal in ctx.addItem() {_ in} }
         signals.subscribeFor(CollectionSignal.Delete.self)
             .onUpdate(context: self) { ctx, signal in ctx.deleteItem(key: signal.key) }
         signals.subscribeFor(CollectionSignal.Rename.self)
@@ -48,21 +48,27 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
             .onUpdate(context: self) { ctx, signal in ctx.setIcon(key: signal.key, url: signal.url) }
     }
     
-    public func addItem() {
+    public func addItem(block: (Entity) -> Void) {
         let entity = Entity()
         entity.alias = "\(alias) \(db.allObjects(ofType: Entity.self).count)"
+        
+        block(entity)
         
         db.add(object: entity)
     }
     
-    func deleteItem(key: String) {
+    public func deleteItem(key: String) {
         AppCore.log(title: "CollectionService - \(alias)" , msg: "delete \(key)", thread: true)
         
         guard let entity : Entity = db.objectWith(key: key)  else { return }
         db.delete(object: entity)
     }
     
-    func rename(key: String, with newName: String) {
+    public func getItemBy(key: String) -> Entity? {
+        return db.objectWith(key: key)
+    }
+    
+    public func rename(key: String, with newName: String) {
         guard let entity : Entity = db.objectWith(key: key)  else { return }
         
         do {

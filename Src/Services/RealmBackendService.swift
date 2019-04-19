@@ -25,7 +25,12 @@ open class RealmBackendService {
         }
         
         #if DEBUG
-        log(msg: "realm: \(config.fileURL!.path)")
+        if let url = config.fileURL {
+            log(msg: "realm file: \(url)")
+        }
+        if let memoryId = config.inMemoryIdentifier {
+            log(msg: "realm memory id: \(memoryId)")
+        }
         #endif
     }
     
