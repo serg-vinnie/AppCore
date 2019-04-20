@@ -26,7 +26,7 @@ extension CollectionViewDataSource {
 }
 
 extension TableViewDataSource {
-    public func bindWith(realmQuery: Results<E>, view: NSTableView) {
+    public func bindWith(realmQuery: Results<EntityType>, view: NSTableView) {
         self.tableView = view
         view.dataSource = self
         view.delegate = self

@@ -53,6 +53,7 @@
 		E6B33197225554610060CB6C /* ThumbnailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B33196225554610060CB6C /* ThumbnailService.swift */; };
 		E6C346EF22667C240042A1D2 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C346EE22667C240042A1D2 /* TableViewDataSource.swift */; };
 		E6C346F3226736F70042A1D2 /* TableViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C346F2226736F70042A1D2 /* TableViewBinder.swift */; };
+		E6CF23E4226B560F0004C436 /* NSView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CF23E3226B560F0004C436 /* NSView+Ext.swift */; };
 		E6DC5B982253EB2D00123606 /* CollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B972253EB2D00123606 /* CollectionService.swift */; };
 		E6DC5B9D2253EECB00123606 /* CollectionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */; };
 /* End PBXBuildFile section */
@@ -117,6 +118,7 @@
 		E6B33196225554610060CB6C /* ThumbnailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailService.swift; sourceTree = "<group>"; };
 		E6C346EE22667C240042A1D2 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		E6C346F2226736F70042A1D2 /* TableViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewBinder.swift; sourceTree = "<group>"; };
+		E6CF23E3226B560F0004C436 /* NSView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+Ext.swift"; sourceTree = "<group>"; };
 		E6DC5B972253EB2D00123606 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = "<group>"; };
 		E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -278,6 +280,7 @@
 		E65BCB74222F04F000F7A8BC /* Cocoa+Rx */ = {
 			isa = PBXGroup;
 			children = (
+				E6CF23E3226B560F0004C436 /* NSView+Ext.swift */,
 				E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */,
 				E65BCB75222F04F000F7A8BC /* FlagsChangeg+Rx.swift */,
 				E65BCB76222F04F000F7A8BC /* NSButton+Rx.swift */,
@@ -474,6 +477,7 @@
 				E65BCB0C222EA2E800F7A8BC /* FS.swift in Sources */,
 				E65BCB15222EA2E800F7A8BC /* Signals.swift in Sources */,
 				E6C346F3226736F70042A1D2 /* TableViewBinder.swift in Sources */,
+				E6CF23E4226B560F0004C436 /* NSView+Ext.swift in Sources */,
 				E6B33197225554610060CB6C /* ThumbnailService.swift in Sources */,
 				E65BCB11222EA2E800F7A8BC /* StatesService.swift in Sources */,
 				E65BCB12222EA2E800F7A8BC /* StatesServiceItem.swift in Sources */,

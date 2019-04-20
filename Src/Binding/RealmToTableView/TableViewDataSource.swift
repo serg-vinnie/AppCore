@@ -11,12 +11,11 @@ import Cocoa
 import RealmSwift
 import Realm
 
-public typealias TableCellFactory<E: Object> = (TableViewDataSource<E>, NSTableView, Int, String?, E) -> NSTableCellView
-public typealias TableCellConfig<E: Object, CellType: NSTableCellView> = (CellType, Int, String?, E) -> Void
+public typealias TableCellFactory<EntityType: Object> = (NSTableView, Int, String?, EntityType) -> NSTableCellView
 
-open class TableViewDataSource<E: Object>: NSObject, NSTableViewDataSource, NSTableViewDelegate {
+open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     
-    private var items: AnyRealmCollection<E>?
+    private var items: AnyRealmCollection<EntityType>?
     
     // MARK: - Configuration
     public var tableView: NSTableView?
@@ -29,20 +28,18 @@ open class TableViewDataSource<E: Object>: NSObject, NSTableViewDataSource, NSTa
     public weak var delegate: NSTableViewDelegate?
     public weak var dataSource: NSTableViewDataSource?
     
-    // MARK: - Init
-    public let cellIdentifier: String
-    public let cellFactory: TableCellFactory<E>
+    public let cellFactory: TableCellFactory<EntityType>
     
-    public init(cellIdentifier: String, cellFactory: @escaping TableCellFactory<E>) {
-        self.cellIdentifier = cellIdentifier
-        self.cellFactory = cellFactory
-    }
-    
-    public init<CellType>(cellIdentifier: String, cellType: CellType.Type, cellConfig: @escaping TableCellConfig<E, CellType>) where CellType: NSTableCellView {
-        self.cellIdentifier = cellIdentifier
-        self.cellFactory = { ds, tv, row, colID, model in
-            let cell = tv.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: tv) as! CellType
-            cellConfig(cell, row, colID, model)
+    public init(cellConfigs : [String:(NSTableCellView,EntityType)->Void]) {
+        cellFactory = { tableView, row, column, entity in
+            guard
+                let id = column, 
+                let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: id), owner: tableView) as? NSTableCellView,
+                let config = cellConfigs[id]
+                else { return NSTableCellView() }
+            
+            config(cell,entity)
+            
             return cell
         }
     }
@@ -54,7 +51,7 @@ open class TableViewDataSource<E: Object>: NSObject, NSTableViewDataSource, NSTa
     
     public func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let columnId = tableColumn?.identifier.rawValue
-        return cellFactory(self, tableView, row, columnId, items![row])
+        return cellFactory(tableView, row, columnId, items![row])
     }
     
     // MARK: - Proxy unimplemented data source and delegate methods
@@ -77,7 +74,7 @@ open class TableViewDataSource<E: Object>: NSObject, NSTableViewDataSource, NSTa
     // MARK: - Applying changeset to the table view
     private let fromRow = {(row: Int) in return IndexPath(item: row, section: 0)}
     
-    func applyChanges(items: AnyRealmCollection<E>, changes: RealmChangeset?) {
+    func applyChanges(items: AnyRealmCollection<EntityType>, changes: RealmChangeset?) {
         if self.items == nil {
             self.items = items
         }

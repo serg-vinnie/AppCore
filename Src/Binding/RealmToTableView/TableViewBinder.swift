@@ -24,6 +24,7 @@ public extension CollectionService where Entity : CollectionEntity {
 public class TableViewBinder<EntityType: CollectionEntity> {
     private var service         : CollectionService<EntityType>
     private var delegate        : NSTableViewDelegate?
+    private var cellConfigs     = [String:(NSTableCellView,EntityType)->Void]()
     
     public init(service: CollectionService<EntityType>) {
         self.service = service
@@ -33,35 +34,30 @@ public class TableViewBinder<EntityType: CollectionEntity> {
         AppCore.log(title: "TableViewBinder", msg: "deinit")
     }
     
+    public func cell(id: String, block: @escaping (NSTableCellView,EntityType) -> Void) -> TableViewBinder {
+        cellConfigs[id] = block
+        
+        return self
+    }
+    
+    public func cellButton(id: String, block: @escaping (NSButton,EntityType)->Void) -> TableViewBinder {
+        cellConfigs[id] = { cellView, entity in
+            if let btn = cellView.subViews(type: NSButton.self).first {
+                block(btn,entity)
+            }
+        }
+        
+        return self
+    }
+    
     public func set(delegate : NSTableViewDelegate?) -> TableViewBinder {
         self.delegate = delegate
         return self
     }
     
-    public func bindTo<CellType>(view: NSTableView, cellId: String, cellType: CellType.Type, cellConfig: @escaping TableCellConfig<EntityType,CellType> = {_,_,_,_ in }) {
-        let dataSource = TableViewDataSource<EntityType>(cellIdentifier: cellId, cellType: cellType, cellConfig: cellConfig)
-        
+    public func bind(view: NSTableView) {
+        let dataSource = TableViewDataSource<EntityType>(cellConfigs: cellConfigs)
         dataSource.delegate = delegate
         dataSource.bindWith(realmQuery: service.queryAllItems(), view: view)
     }
 }
-
-//public func collectionItemFactory<E: CollectionEntity, V: CollectionViewItem>(storyboard: NSStoryboard, id: String, service: CollectionService<E>, defaultImage: NSImage?, customConfig: CustomItemConfig<E,V>?) -> CollectionItemFactory<E> {
-//    return { dataSource, view, indexPath, realmItem in
-//        let item = storyboard.viewController(id: id) as! V
-//
-//        item.key        = realmItem.key
-//        item.alias      = realmItem.alias
-//        item.signals    = service.signals
-//
-//        if realmItem.iconPath.count > 0 {
-//            item.image = NSImage(byReferencingFile: service.thumbnails.url.appendingPathComponent(realmItem.iconPath).path)
-//        } else {
-//            item.image = defaultImage
-//        }
-//
-//        customConfig?(item,realmItem)
-//
-//        return item
-//    }
-//}
