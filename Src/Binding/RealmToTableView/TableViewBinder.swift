@@ -64,6 +64,26 @@ public class TableViewBinder<EntityType: CollectionEntity> {
         return self
     }
     
+    public func cellButtonState(id:String, _ keyPath: ReferenceWritableKeyPath<EntityType, Bool>) -> TableViewBinder {
+        cellConfigs[id] = { cellView, entity in
+            if let btn = cellView.subViews(type: NSButton.self).first {
+                btn.state = entity[keyPath: keyPath] ? .on : .off
+                
+                let key = entity.key
+                
+                btn.actionChannel().onUpdate(context: cellView) { [weak self] ctx, action in
+                    guard let state = action.objectValue as? NSButton.StateValue else { return }
+
+                    self?.service.db.updateObjectWith(key: key, ofType: EntityType.self) { obj in
+                        obj[keyPath: keyPath] = (state == .on)
+                    }
+                }
+            }
+        }
+        
+        return self
+    }
+    
     public func set(delegate : NSTableViewDelegate?) -> TableViewBinder {
         self.delegate = delegate
         return self
