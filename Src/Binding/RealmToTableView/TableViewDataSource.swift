@@ -102,7 +102,7 @@ open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSou
         tableView.beginUpdates()
         tableView.removeRows(at: IndexSet(changes.deleted), withAnimation: rowAnimations.delete)
         tableView.insertRows(at: IndexSet(changes.inserted), withAnimation: rowAnimations.insert)
-        tableView.reloadData(forRowIndexes: IndexSet(changes.updated), columnIndexes: IndexSet([0]))
+        tableView.reloadData(forRowIndexes: IndexSet(changes.updated), columnIndexes: IndexSet(Array(0 ..< tableView.numberOfColumns)))
         tableView.endUpdates()
     }
 }
