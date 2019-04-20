@@ -40,6 +40,20 @@ public class TableViewBinder<EntityType: CollectionEntity> {
         return self
     }
     
+    public func cellText(id: String, _ keyPath: KeyPath<EntityType, String>) -> TableViewBinder {
+        cellConfigs[id] = { cellView, entity in
+            cellView.textField?.stringValue = entity[keyPath: keyPath]
+        }
+        return self
+    }
+    
+    public func cellText(id: String, _ text: String) -> TableViewBinder  {
+        cellConfigs[id] = { cellView, entity in
+            cellView.textField?.stringValue = text
+        }
+        return self
+    }
+    
     public func cellButton(id: String, block: @escaping (NSButton,EntityType)->Void) -> TableViewBinder {
         cellConfigs[id] = { cellView, entity in
             if let btn = cellView.subViews(type: NSButton.self).first {
