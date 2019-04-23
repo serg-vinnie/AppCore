@@ -36,7 +36,9 @@ public class ThumbnailService { // bla
     }
     
     public func replace(file: String, with url: URL) -> String? {
-        FS.delete(self.url.appendingPathComponent(file))
+        if file.count > 0 {
+            FS.delete(self.url.appendingPathComponent(file))
+        }
         return add(url: url)
     }
     

@@ -45,7 +45,7 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
         signals.subscribeFor(CollectionSignal.SetUrl.self)
             .onUpdate(context: self) { ctx, signal in ctx.setPath(key: signal.key, url: signal.url) }
         signals.subscribeFor(CollectionSignal.SetIcon.self)
-            .onUpdate(context: self) { ctx, signal in ctx.setIcon(key: signal.key, url: signal.url) }
+            .onUpdate(context: self, executor: Executor.immediate) { ctx, signal in ctx.setIcon(key: signal.key, url: signal.url) }
     }
     
     @discardableResult
