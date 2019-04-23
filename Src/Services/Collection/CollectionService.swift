@@ -48,13 +48,33 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
             .onUpdate(context: self) { ctx, signal in ctx.setIcon(key: signal.key, url: signal.url) }
     }
     
-    public func addItem(block: (Entity) -> Void) {
+    @discardableResult
+    public func addItem(block: (Entity) -> Void) -> Entity {
         let entity = Entity()
         entity.alias = "\(alias) \(db.allObjects(ofType: Entity.self).count)"
         
         block(entity)
         
         db.add(object: entity)
+        return entity
+    }
+    
+    public func getItemBy(alias: String, caseSensetive: Bool, createIfNecessary: Bool) -> Entity? {
+        if caseSensetive {
+            if let entity = db.realm.objects(Entity.self).first(where: { $0.alias == alias }) {
+                return entity
+            }
+        } else {
+            if let entity = db.realm.objects(Entity.self).first(where: { $0.alias.uppercased() == alias.uppercased() }) {
+                return entity
+            }
+        }
+        
+        if createIfNecessary {
+            return addItem() { $0.alias = alias }
+        }
+        
+        return nil
     }
     
     public func deleteItem(key: String) {

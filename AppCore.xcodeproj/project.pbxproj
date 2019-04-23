@@ -56,6 +56,7 @@
 		E6CF23E4226B560F0004C436 /* NSView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CF23E3226B560F0004C436 /* NSView+Ext.swift */; };
 		E6DC5B982253EB2D00123606 /* CollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B972253EB2D00123606 /* CollectionService.swift */; };
 		E6DC5B9D2253EECB00123606 /* CollectionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */; };
+		E6E59409226EF84C0006EF4C /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E59408226EF84C0006EF4C /* StringExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		E6CF23E3226B560F0004C436 /* NSView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+Ext.swift"; sourceTree = "<group>"; };
 		E6DC5B972253EB2D00123606 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = "<group>"; };
 		E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEntity.swift; sourceTree = "<group>"; };
+		E6E59408226EF84C0006EF4C /* StringExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 		E65BCAF9222EA2E800F7A8BC /* Ext */ = {
 			isa = PBXGroup;
 			children = (
+				E6E59408226EF84C0006EF4C /* StringExt.swift */,
 				E65BCB74222F04F000F7A8BC /* Cocoa+Rx */,
 				E65BCAFA222EA2E800F7A8BC /* NSStoryboard+Ext.swift */,
 				E65BCAFB222EA2E800F7A8BC /* Thread+Ext.swift */,
@@ -477,6 +480,7 @@
 				E65BCB0C222EA2E800F7A8BC /* FS.swift in Sources */,
 				E65BCB15222EA2E800F7A8BC /* Signals.swift in Sources */,
 				E6C346F3226736F70042A1D2 /* TableViewBinder.swift in Sources */,
+				E6E59409226EF84C0006EF4C /* StringExt.swift in Sources */,
 				E6CF23E4226B560F0004C436 /* NSView+Ext.swift in Sources */,
 				E6B33197225554610060CB6C /* ThumbnailService.swift in Sources */,
 				E65BCB11222EA2E800F7A8BC /* StatesService.swift in Sources */,
