@@ -10,11 +10,13 @@ import Foundation
 import Cocoa
 import RealmSwift
 import Realm
+import AsyncNinja
 
 public typealias CollectionItemFactory<E: Object> = (CollectionViewDataSource<E>, NSCollectionView, IndexPath, E) -> NSCollectionViewItem
 public typealias CollectionItemConfig<E: Object, ItemType: NSCollectionViewItem> = (ItemType, IndexPath, E) -> Void
 
 public class CollectionViewDataSource<E: Object>: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSource {
+    let cancelation = CancellationToken()
     private var items: AnyRealmCollection<E>?
     
     // MARK: - Configuration

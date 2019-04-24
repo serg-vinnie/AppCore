@@ -93,5 +93,11 @@ public class TableViewBinder<EntityType: CollectionEntity> {
         let dataSource = TableViewDataSource<EntityType>(cellConfigs: cellConfigs)
         dataSource.delegate = delegate
         dataSource.bindWith(realmQuery: service.queryAllItems(), view: view)
+        
+        for col in view.tableColumns {
+            guard col.identifier.rawValue.count > 0 else { continue }
+            
+            col.sortDescriptorPrototype = NSSortDescriptor(key: col.identifier.rawValue, ascending: true)
+        }
     }
 }

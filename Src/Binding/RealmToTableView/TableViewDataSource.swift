@@ -10,11 +10,12 @@ import Foundation
 import Cocoa
 import RealmSwift
 import Realm
+import AsyncNinja
 
 public typealias TableCellFactory<EntityType: Object> = (NSTableView, Int, String?, EntityType) -> NSTableCellView
 
 open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSource, NSTableViewDelegate {
-    
+    let cancelation = CancellationToken()
     private var items: AnyRealmCollection<EntityType>?
     
     // MARK: - Configuration
@@ -52,6 +53,11 @@ open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSou
     public func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let columnId = tableColumn?.identifier.rawValue
         return cellFactory(tableView, row, columnId, items![row])
+    }
+    
+    public func tableView(_ tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
+        print(oldDescriptors)
+        print(tableView.sortDescriptors)
     }
     
     // MARK: - Proxy unimplemented data source and delegate methods
