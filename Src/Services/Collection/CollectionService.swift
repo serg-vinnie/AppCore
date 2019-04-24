@@ -134,4 +134,12 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
             AppCore.log(title: "CollectionService", error: error)
         }
     }
+    
+    public func thumbnailUrl(relativePath: String?) -> URL? {
+        if let path = relativePath {
+            return thumbnails.url.appendingPathComponent(path)
+        } else {
+            return nil
+        }
+    }
 }
