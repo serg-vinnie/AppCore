@@ -20,7 +20,7 @@ extension CollectionViewDataSource {
         // this subscription is owned by NSCollectionView
         // reference to self is captured by closure
         
-        changesetChannel(from: realmQuery, cancelation: cancelation)
+        changesetChannel(from: realmQuery)
             .onUpdate(context: view, executor: .immediate)
                 { _, update in self.applyChanges(items: update.0, changes: update.1)}
     }
@@ -35,7 +35,7 @@ extension TableViewDataSource {
         // IMPORTANT!!!!
         // this subscription is owned by NSTableView
         // reference to self is captured by closure
-        changesetChannel(from: realmQuery, cancelation: cancelation)
+        changesetChannel(from: realmQuery)
             .onUpdate(context: view, executor: .immediate) { _, update in self.applyChanges(items: update.0, changes: update.1)}
     }
 }
@@ -57,9 +57,9 @@ public struct RealmChangeset {
     }
 }
 
-public func changesetChannel<E: Object>(from collection: Results<E>, cancelation: CancellationToken) -> Channel<(AnyRealmCollection<E>, RealmChangeset?), Void> {
+public func changesetChannel<E: Object>(from collection: Results<E>) -> Channel<(AnyRealmCollection<E>, RealmChangeset?), Void> {
     
-    return producer(cancellationToken: cancelation) { producer in
+    return producer() { producer in
         let notificationToken = collection.toAnyCollection().observe { /*do not forget*/ [weak producer] changeset in
             
             switch changeset {

@@ -15,7 +15,7 @@ import AsyncNinja
 public typealias TableCellFactory<EntityType: Object> = (NSTableView, Int, String?, EntityType) -> NSTableCellView
 
 open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSource, NSTableViewDelegate {
-    let cancelation = CancellationToken()
+    let sorting     = Producer<[NSSortDescriptor],Void>()
     private var items: AnyRealmCollection<EntityType>?
     
     // MARK: - Configuration
@@ -56,8 +56,7 @@ open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSou
     }
     
     public func tableView(_ tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
-        print(oldDescriptors)
-        print(tableView.sortDescriptors)
+        sorting.update(tableView.sortDescriptors)
     }
     
     // MARK: - Proxy unimplemented data source and delegate methods
