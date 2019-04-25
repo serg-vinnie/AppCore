@@ -49,6 +49,7 @@ open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSou
     }
     
     deinit {
+        //cancelationToken.cancel()
         AppCore.log(title: "TableViewDataSource", msg: "deinit")
     }
     

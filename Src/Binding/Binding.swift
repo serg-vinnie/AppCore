@@ -33,6 +33,7 @@ extension TableViewDataSource {
         view.delegate = self
         
         let producer = Producer<(AnyRealmCollection<EntityType>, RealmChangeset?), Void>()
+        //cancelationToken.add(cancellable: producer)
         self.producer = producer
         
         self.sorting.onUpdate(executor: Executor.main) { [weak self] sortDescriptors in
