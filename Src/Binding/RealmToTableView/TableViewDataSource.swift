@@ -18,8 +18,8 @@ open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSou
     var notificationToken: NotificationToken?
     var cancelationToken = CancellationToken()
     let sorting     = Producer<[NSSortDescriptor],Void>()
-    var producer    : Producer<(AnyRealmCollection<EntityType>, RealmChangeset?), Void>?
-    private var items: AnyRealmCollection<EntityType>?
+    weak var producer    : Producer<(AnyRealmCollection<EntityType>, RealmChangeset?), Void>?
+    var items: AnyRealmCollection<EntityType>?
     
     // MARK: - Configuration
     public var tableView: NSTableView?
@@ -48,6 +48,10 @@ open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSou
         }
     }
     
+    deinit {
+        AppCore.log(title: "TableViewDataSource", msg: "deinit")
+    }
+    
     // MARK: - UITableViewDataSource protocol
     public func numberOfRows(in tableView: NSTableView) -> Int {
         return items?.count ?? 0
@@ -59,7 +63,6 @@ open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSou
     }
     
     public func tableView(_ tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
-        print("sortDescriptorsDidChange")
         sorting.update(tableView.sortDescriptors)
     }
     

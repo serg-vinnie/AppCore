@@ -25,6 +25,7 @@ public class TableViewBinder<EntityType: CollectionEntity> {
     private var service         : CollectionService<EntityType>
     private var delegate        : NSTableViewDelegate?
     private var cellConfigs     = [String:(NSTableCellView,EntityType)->Void]()
+    private var cellSort        = [String:String]()
     
     public init(service: CollectionService<EntityType>) {
         self.service = service
@@ -40,7 +41,8 @@ public class TableViewBinder<EntityType: CollectionEntity> {
         return self
     }
     
-    public func cellText(id: String, _ keyPath: KeyPath<EntityType, String>) -> TableViewBinder {
+    public func cellText(id: String, _ keyPath: KeyPath<EntityType, String>, sortKeyPath: String? = nil) -> TableViewBinder {
+        cellSort[id] = sortKeyPath
         cellConfigs[id] = { cellView, entity in
             cellView.textField?.stringValue = entity[keyPath: keyPath]
         }
@@ -95,9 +97,11 @@ public class TableViewBinder<EntityType: CollectionEntity> {
         dataSource.bindWith(realmQuery: service.queryAllItems(), view: view)
         
         for col in view.tableColumns {
-            guard col.identifier.rawValue.count > 0 else { continue }
+            let columnID = col.identifier.rawValue
+            guard columnID.count > 0        else { continue }
+            guard cellSort[columnID] != nil else { continue }
             
-            col.sortDescriptorPrototype = NSSortDescriptor(key: col.identifier.rawValue, ascending: true)
+            col.sortDescriptorPrototype = NSSortDescriptor(key: cellSort[columnID], ascending: true)
         }
     }
 }
