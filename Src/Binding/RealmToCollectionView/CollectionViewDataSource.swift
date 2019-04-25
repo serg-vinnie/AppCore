@@ -16,6 +16,7 @@ public typealias CollectionItemFactory<E: Object> = (CollectionViewDataSource<E>
 public typealias CollectionItemConfig<E: Object, ItemType: NSCollectionViewItem> = (ItemType, IndexPath, E) -> Void
 
 public class CollectionViewDataSource<E: Object>: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSource {
+    let sorting     = Producer<[NSSortDescriptor],Void>()
     private var items: AnyRealmCollection<E>?
     
     // MARK: - Configuration

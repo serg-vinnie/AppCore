@@ -15,7 +15,10 @@ import AsyncNinja
 public typealias TableCellFactory<EntityType: Object> = (NSTableView, Int, String?, EntityType) -> NSTableCellView
 
 open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSource, NSTableViewDelegate {
+    var notificationToken: NotificationToken?
+    var cancelationToken = CancellationToken()
     let sorting     = Producer<[NSSortDescriptor],Void>()
+    var producer    : Producer<(AnyRealmCollection<EntityType>, RealmChangeset?), Void>?
     private var items: AnyRealmCollection<EntityType>?
     
     // MARK: - Configuration
@@ -56,6 +59,7 @@ open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSou
     }
     
     public func tableView(_ tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
+        print("sortDescriptorsDidChange")
         sorting.update(tableView.sortDescriptors)
     }
     
@@ -80,6 +84,7 @@ open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSou
     private let fromRow = {(row: Int) in return IndexPath(item: row, section: 0)}
     
     func applyChanges(items: AnyRealmCollection<EntityType>, changes: RealmChangeset?) {
+        print("apply changes")
         if self.items == nil {
             self.items = items
         }
