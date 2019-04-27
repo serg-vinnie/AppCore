@@ -11,14 +11,11 @@ import AsyncNinja
 import RealmSwift
 
 class RealmDataSource<EntityType: Object> : Ninja {
-    private var realmQuery  : Results<EntityType>             // initial collection
-    public  var items       : AnyRealmCollection<EntityType>  // filtered and sorted collection
-    
-    private var notificationToken: NotificationToken?
-    
-    private var sorting     = [NSSortDescriptor]()
-    private var predicate   : NSPredicate?                    // filtering
-    
+    private var realmQuery          : Results<EntityType>             // initial collection
+    private var items               : AnyRealmCollection<EntityType>  // filtered and sorted collection
+    private var notificationToken   : NotificationToken?
+    private var sorting             = [NSSortDescriptor]()
+    private var predicate           : NSPredicate?                    // filtering
     
     // output
     var producer = Producer<(AnyRealmCollection<EntityType>, RealmChangeset?), Void>()
