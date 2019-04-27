@@ -94,7 +94,7 @@ public class TableViewBinder<EntityType: CollectionEntity> {
     public func bind(view: NSTableView) {
         let dataSource = TableViewDataSource<EntityType>(cellConfigs: cellConfigs)
         dataSource.delegate = delegate
-        dataSource.bindWith(realmQuery: service.queryAllItems(), view: view)
+        dataSource.bindWith(collectionService: service, view: view)
         
         for col in view.tableColumns {
             let columnID = col.identifier.rawValue

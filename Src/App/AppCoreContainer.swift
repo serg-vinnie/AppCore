@@ -14,8 +14,8 @@ import SwinjectAutoregistration
 func AppCoreContainer(env : ServiceEnvironment) -> Container {
     return Container(defaultObjectScope: .container) { c in
         c.register(ServiceEnvironment.self) { _ in return env }
+        c.register(SignalsService.self)     { _ in return SignalsService.main }
         
-        c.autoregister(SignalsService.self,      initializer: SignalsService.init)
         c.autoregister(StatesService.self,       initializer: StatesService.init)
         c.autoregister(Scenes.self,              initializer: Scenes.init)        
     }

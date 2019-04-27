@@ -59,4 +59,13 @@ public struct CollectionSignal {
         public let url      : URL
         public init(key: String, url: URL) { self.key = key; self.url = url}
     }
+    
+    public struct Sort {
+        public let descriptors : [NSSortDescriptor]
+        public init(descriptors : [NSSortDescriptor]) { self.descriptors = descriptors }
+    }
+    public struct Filter {
+        public let predicate: NSPredicate?
+        public init(predicate: NSPredicate?) { self.predicate = predicate }
+    }
 }

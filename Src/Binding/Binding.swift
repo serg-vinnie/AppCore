@@ -26,45 +26,22 @@ extension CollectionViewDataSource {
     }
 }
 
-extension TableViewDataSource {
-    public func bindWith(realmQuery: Results<EntityType>, view: NSTableView) {
+extension TableViewDataSource where EntityType : CollectionEntity {
+    public func bindWith(collectionService: CollectionService<EntityType>, view: NSTableView)  {
         self.tableView = view
         view.dataSource = self
         view.delegate = self
         
-        let producer = Producer<(AnyRealmCollection<EntityType>, RealmChangeset?), Void>()
-        //cancelationToken.add(cancellable: producer)
-        self.producer = producer
+        self.signals = collectionService.signals
         
-        self.sorting.onUpdate(executor: Executor.main) { [weak self] sortDescriptors in
-            self?.notificationToken?.invalidate()
-            self?.cancelationToken.cancel()
-            self?.cancelationToken = CancellationToken()
-            
-            self?.items = apply(sorting: sortDescriptors, to: realmQuery).toAnyCollection()
-            
-            self?.notificationToken = self?.items?.observe { changeset in
-                print("new changeset")
-                switch changeset {
-                case .initial(let value):
-                    self?.producer?.update((value, nil))
-                case .update(let value, let deletions, let insertions, let modifications):
-                    self?.producer?.update((value, RealmChangeset(deleted: deletions, inserted: insertions, updated: modifications)))
-                case .error(let error):
-                    self?.producer?.fail(error)
-                }
-            }
-            
-        }._asyncNinja_notifyFinalization { print("sorting.onUpdate finalize") }
+        realmData = RealmDataSource(realmQuery: collectionService.queryAllItems(), signals: collectionService.signals)
         
         // IMPORTANT!!!!
         // this subscription is owned by NSTableView
         // reference to self is captured by closure
-        self.producer?
-            .onUpdate(context: view, executor: .immediate) { _, update in self.applyChanges(items: update.0, changes: update.1); print("old")}
-            ._asyncNinja_notifyFinalization { print("finalize") }
-        
-        self.sorting.update([])
+        realmData?.producer
+            .onUpdate(context: view, executor: .immediate) { _, update in self.applyChanges(items: update.0, changes: update.1)}
+            ._asyncNinja_notifyFinalization { print("TableViewDataSource subscription finalize") }
     }
 }
 
@@ -105,6 +82,7 @@ public func changesetChannel<E: Object>(from collection: Results<E>) -> Channel<
 }
 
 
+// to delete >>
 func apply<E: Object>(sorting: [NSSortDescriptor], to collection: Results<E>) -> Results<E> {
     var result = collection
     for item in sorting {

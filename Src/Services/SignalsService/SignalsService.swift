@@ -26,6 +26,7 @@ import AsyncNinja
 import RxSwift
 
 final public class SignalsService {
+    public static var main : SignalsService { return SignalsService() }
     var dispatchers = [Int:Any]()
     
     public func send<Signal>(signal: Signal) {

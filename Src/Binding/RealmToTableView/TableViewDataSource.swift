@@ -15,14 +15,12 @@ import AsyncNinja
 public typealias TableCellFactory<EntityType: Object> = (NSTableView, Int, String?, EntityType) -> NSTableCellView
 
 open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSource, NSTableViewDelegate {
-    var notificationToken: NotificationToken?
-    var cancelationToken = CancellationToken()
-    let sorting     = Producer<[NSSortDescriptor],Void>()
-    weak var producer    : Producer<(AnyRealmCollection<EntityType>, RealmChangeset?), Void>?
+    var realmData: RealmDataSource<EntityType>?
+    var signals: SignalsService?
     var items: AnyRealmCollection<EntityType>?
     
     // MARK: - Configuration
-    public var tableView: NSTableView?
+    public weak var tableView: NSTableView?
     public var animated = true
     public var rowAnimations = (
         insert: NSTableView.AnimationOptions.effectFade,
@@ -49,7 +47,6 @@ open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSou
     }
     
     deinit {
-        //cancelationToken.cancel()
         AppCore.log(title: "TableViewDataSource", msg: "deinit")
     }
     
@@ -59,12 +56,14 @@ open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSou
     }
     
     public func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        guard let items = items else { return nil }
+        
         let columnId = tableColumn?.identifier.rawValue
-        return cellFactory(tableView, row, columnId, items![row])
+        return cellFactory(tableView, row, columnId, items[row])
     }
     
     public func tableView(_ tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
-        sorting.update(tableView.sortDescriptors)
+        signals?.send(signal: CollectionSignal.Sort(descriptors: tableView.sortDescriptors))
     }
     
     // MARK: - Proxy unimplemented data source and delegate methods
@@ -88,10 +87,8 @@ open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSou
     private let fromRow = {(row: Int) in return IndexPath(item: row, section: 0)}
     
     func applyChanges(items: AnyRealmCollection<EntityType>, changes: RealmChangeset?) {
-        print("apply changes")
-        if self.items == nil {
-            self.items = items
-        }
+        print("apply changes \(String(describing: changes))")
+        self.items = items
         
         guard let tableView = tableView else {
             fatalError("You have to bind a table view to the data source.")
