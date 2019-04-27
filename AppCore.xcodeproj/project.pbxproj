@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E60808592274485B0035F488 /* RealmDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60808582274485B0035F488 /* RealmDataSource.swift */; };
 		E60B2AE52256112500D2363B /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B2AE42256112500D2363B /* CollectionViewItem.swift */; };
 		E629DC18223A72C900669FD3 /* NSWindow+Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */; };
 		E65BCAE0222EA26100F7A8BC /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCAD6222EA26100F7A8BC /* AppCore.framework */; };
@@ -70,6 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E60808582274485B0035F488 /* RealmDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataSource.swift; sourceTree = "<group>"; };
 		E60B2AE42256112500D2363B /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
 		E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSWindow+Fade.swift"; sourceTree = "<group>"; };
 		E65BCAD6222EA26100F7A8BC /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -300,6 +302,7 @@
 				E695DF77224F961500611D2B /* Binding.swift */,
 				E6C346ED22667C000042A1D2 /* RealmToTableView */,
 				E695DF72224F90B700611D2B /* RealmToCollectionView */,
+				E60808582274485B0035F488 /* RealmDataSource.swift */,
 			);
 			path = Binding;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				E65BCB0D222EA2E800F7A8BC /* NSStoryboard+Ext.swift in Sources */,
 				E65BCB7A222F04F900F7A8BC /* FlagsChangeg+Rx.swift in Sources */,
 				E65BCB7E222F04F900F7A8BC /* NSProgressIndicator+Rx.swift in Sources */,
+				E60808592274485B0035F488 /* RealmDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

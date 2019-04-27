@@ -39,7 +39,7 @@ public class AppCore {
 }
 
 public extension AppCore {
-    public static func log(title: String, msg: String, thread: Bool = false) {
+    static func log(title: String, msg: String, thread: Bool = false) {
         if thread {
             print("[\(title)] (\(Thread.current.dbgName)) \(msg)")
         } else {
@@ -47,7 +47,7 @@ public extension AppCore {
         }
     }
     
-    public static func log(title: String, error: Error, thread: Bool = false) {
+    static func log(title: String, error: Error, thread: Bool = false) {
         if thread {
             print("[\(title) ERROR] (\(Thread.current.dbgName)) \(error.localizedDescription)")
         }else {

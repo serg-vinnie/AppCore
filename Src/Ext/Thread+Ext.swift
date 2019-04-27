@@ -27,7 +27,7 @@ import Foundation
 
 public extension Thread {
     
-    public var dbgName: String {
+    var dbgName: String {
         if let currentOperationQueue = OperationQueue.current?.name {
             
             if currentOperationQueue.contains("OperationQueue") {

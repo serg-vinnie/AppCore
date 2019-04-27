@@ -67,22 +67,22 @@ public class StatesService {
 }
 
 public extension StatesService { // type as key
-    public func set<KeyType, ValueType>(value: ValueType, forKey key: KeyType.Type) {
+    func set<KeyType, ValueType>(value: ValueType, forKey key: KeyType.Type) {
         let hash = ObjectIdentifier(key).hashValue
         set(value: value, forKey: hash)
     }
     
-    public func valueFor<KeyType, ValueType>(key: KeyType.Type) -> ValueType? {
+    func valueFor<KeyType, ValueType>(key: KeyType.Type) -> ValueType? {
         let hash = ObjectIdentifier(key).hashValue
         return getItem(key: hash)?.value
     }
     
-    public func subscribeFor<KeyType, ValueType>(key: KeyType.Type, type: ValueType.Type) -> Producer<ValueType,Void> {
+    func subscribeFor<KeyType, ValueType>(key: KeyType.Type, type: ValueType.Type) -> Producer<ValueType,Void> {
         let hash = ObjectIdentifier(key).hashValue
         return subscribeFor(key: hash, type: type)
     }
     
-    public func subscribeRxFor<KeyType, ValueType>(key: KeyType.Type, type: ValueType.Type) -> Observable<ValueType> {
+    func subscribeRxFor<KeyType, ValueType>(key: KeyType.Type, type: ValueType.Type) -> Observable<ValueType> {
         let hash = ObjectIdentifier(key).hashValue
         return subscribeRxFor(key: hash, type: type)
     }

@@ -13,7 +13,7 @@ import RxCocoa
 #if os(macOS)
 public extension Reactive where Base: NSButton {
 
-    public var title: ControlProperty<String> {
+    var title: ControlProperty<String> {
         return base.rx.controlProperty(
             getter: { $0.title },
             setter: { (control: NSButton, text: String) in control.title = text }

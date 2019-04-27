@@ -99,7 +99,7 @@ open class MVVMController<MyView,MyViewModel> : NSViewController, NSWindowDelega
 }
 
 public extension MVVMController {
-    public func presentSheet(_ viewController: NSViewController?) {
+    func presentSheet(_ viewController: NSViewController?) {
         if sheetController === viewController {
             return
         }

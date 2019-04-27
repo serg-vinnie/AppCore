@@ -27,20 +27,20 @@ public extension Reactive where Base: NSPopUpButton {
         return popupMenu
     }
     
-    public func setEnumeratedItemsFrom(array: [String]) {
+    func setEnumeratedItemsFrom(array: [String]) {
         Observable.just(array.enumerated().map { ($0.element, $0.offset) })
             .bind(to: menuItems)
             .dispose()
     }
     
-    public var menuItems: Binder<[(String,Int)]> {
+    var menuItems: Binder<[(String,Int)]> {
         return Binder(self.base) { (owner, value) in
             owner.menu = self.createPopUpMenu(items: value)
         }
     }
 
     /// Reactive wrapper for control event.
-    public var itemSelectedTag: ControlProperty<Int> {
+    var itemSelectedTag: ControlProperty<Int> {
         return base.rx.controlProperty(
             getter: { control in
                 guard let item = control.selectedItem else { return -1 }
