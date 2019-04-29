@@ -1,0 +1,27 @@
+{
+  "Mac" : [
+    {
+      "name" : "ZipArchive",
+      "hash" : "a80b2c21666ae8b7db7670dddfa76b426ea4070dca75c2f8cd750764e9d0ba01"
+    }
+  ],
+  "watchOS" : [
+    {
+      "name" : "ZipArchive",
+      "hash" : "2ffae09efb89a6fc4bb117475fad2152d238734eb46e526f5cc475d86a54cde6"
+    }
+  ],
+  "tvOS" : [
+    {
+      "name" : "ZipArchive",
+      "hash" : "92f11918072cac82023e7494e216a951b58d6a0e671aae32ccf94c134c62aa57"
+    }
+  ],
+  "commitish" : "v2.1.5",
+  "iOS" : [
+    {
+      "name" : "ZipArchive",
+      "hash" : "66385376d39fa4550a64c27b4bd935b143115b3975a0398f7bf70f362f07a96a"
+    }
+  ]
+}

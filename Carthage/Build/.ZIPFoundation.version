@@ -1,0 +1,31 @@
+{
+  "Mac" : [
+    {
+      "name" : "ZIPFoundation",
+      "hash" : "d999f16a675fa40b369134e09c727ae1e9cdf7a6814430067bd81a599798eb56",
+      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+    }
+  ],
+  "watchOS" : [
+    {
+      "name" : "ZIPFoundation",
+      "hash" : "baa0694a687d765d41ddf5e08616f76e2e38ac666b4d394949e1b47b15494721",
+      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+    }
+  ],
+  "tvOS" : [
+    {
+      "name" : "ZIPFoundation",
+      "hash" : "a733a09afb719ca1843991f6d98bc24d6ef60345e4d4bccc27deedd5756a7dbc",
+      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+    }
+  ],
+  "commitish" : "0.9.9",
+  "iOS" : [
+    {
+      "name" : "ZIPFoundation",
+      "hash" : "a182d90ed1add549d739b42c46121adce0663e5072445e2b4e9b667e3f57a87e",
+      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+    }
+  ]
+}
