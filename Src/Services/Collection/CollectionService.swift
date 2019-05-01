@@ -84,6 +84,10 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
         db.delete(object: entity)
     }
     
+    public func deleteAll() {
+        db.deleteAll(type: Entity.self);
+    }
+    
     public func getItemBy(key: String) -> Entity? {
         return db.objectWith(key: key)
     }
