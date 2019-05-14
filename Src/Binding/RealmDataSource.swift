@@ -10,6 +10,23 @@ import Foundation
 import AsyncNinja
 import RealmSwift
 
+public struct RealmChangeset {
+    /// the indexes in the collection that were deleted
+    public let deleted: [Int]
+    
+    /// the indexes in the collection that were inserted
+    public let inserted: [Int]
+    
+    /// the indexes in the collection that were modified
+    public let updated: [Int]
+    
+    public init(deleted: [Int], inserted: [Int], updated: [Int]) {
+        self.deleted = deleted
+        self.inserted = inserted
+        self.updated = updated
+    }
+}
+
 class RealmDataSource<EntityType: Object> : Ninja {
     private var realmQuery          : Results<EntityType>             // initial collection
     private var items               : AnyRealmCollection<EntityType>  // filtered and sorted collection

@@ -299,10 +299,10 @@
 		E695DF71224F90AF00611D2B /* Binding */ = {
 			isa = PBXGroup;
 			children = (
+				E60808582274485B0035F488 /* RealmDataSource.swift */,
 				E695DF77224F961500611D2B /* Binding.swift */,
 				E6C346ED22667C000042A1D2 /* RealmToTableView */,
 				E695DF72224F90B700611D2B /* RealmToCollectionView */,
-				E60808582274485B0035F488 /* RealmDataSource.swift */,
 			);
 			path = Binding;
 			sourceTree = "<group>";

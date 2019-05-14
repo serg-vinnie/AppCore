@@ -51,7 +51,7 @@ public class CollectionViewBinder<EntityType: CollectionEntity> {
             storyboard: storyboard, id: itemId, service: service, defaultImage: defaultImage, customConfig: config))
         
         dataSource.delegate = delegate
-        dataSource.bindWith(realmQuery: service.queryAllItems(), view: view)
+        dataSource.bindWith(collectionService: service, view: view)
     }
 }
 
