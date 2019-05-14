@@ -57,6 +57,7 @@
 		E6CF23E4226B560F0004C436 /* NSView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CF23E3226B560F0004C436 /* NSView+Ext.swift */; };
 		E6DC5B982253EB2D00123606 /* CollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B972253EB2D00123606 /* CollectionService.swift */; };
 		E6DC5B9D2253EECB00123606 /* CollectionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */; };
+		E6DD1251228B569A00EF2C8A /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6DD1250228B569A00EF2C8A /* CollectionViewItem.xib */; };
 		E6E59409226EF84C0006EF4C /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E59408226EF84C0006EF4C /* StringExt.swift */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,7 @@
 		E6CF23E3226B560F0004C436 /* NSView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+Ext.swift"; sourceTree = "<group>"; };
 		E6DC5B972253EB2D00123606 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = "<group>"; };
 		E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEntity.swift; sourceTree = "<group>"; };
+		E6DD1250228B569A00EF2C8A /* CollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CollectionViewItem.xib; path = Src/Services/CollectionViewItem.xib; sourceTree = SOURCE_ROOT; };
 		E6E59408226EF84C0006EF4C /* StringExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -345,6 +347,7 @@
 		E6DC5B962253EB1600123606 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
+				E6DD1250228B569A00EF2C8A /* CollectionViewItem.xib */,
 				E6DC5B972253EB2D00123606 /* CollectionService.swift */,
 				E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */,
 				E60B2AE42256112500D2363B /* CollectionViewItem.swift */,
@@ -444,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E65BCB17222EA35100F7A8BC /* Cartfile in Resources */,
+				E6DD1251228B569A00EF2C8A /* CollectionViewItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,9 +30,9 @@ public class CollectionViewDataSource<E: Object>: NSObject, NSCollectionViewDele
     public weak var delegate: NSCollectionViewDelegate?
     public weak var dataSource: NSCollectionViewDataSource?
     
-    public init(itemFactory: @escaping CollectionItemFactory<E>) {
-        self.itemFactory = itemFactory
-    }
+//    public init(itemFactory: @escaping CollectionItemFactory<E>) {
+//        self.itemFactory = itemFactory
+//    }
     
     public init<ItemType>(itemIdentifier: String, itemType: ItemType.Type, itemConfig: @escaping CollectionItemConfig<E, ItemType>) where ItemType: NSCollectionViewItem {
         self.itemFactory = { ds, cv, ip, model in

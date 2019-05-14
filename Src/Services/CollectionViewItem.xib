@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="128" height="165"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qb9-Fa-qqh">
+                    <rect key="frame" x="0.0" y="37" width="128" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="128" id="8KU-cY-hL1"/>
+                        <constraint firstAttribute="height" constant="128" id="Zcg-UY-FWs"/>
+                        <constraint firstAttribute="width" constant="128" id="aWS-IY-UcI"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="ajm-yc-0aB"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="G9S-FZ-7PB"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kTt-6K-LrU">
+                    <rect key="frame" x="44" y="10" width="41" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="MSM-D7-5Bt">
+                        <font key="font" metaFont="systemBlack" size="13"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Qb9-Fa-qqh" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="Bn4-L6-bgZ"/>
+                <constraint firstAttribute="bottom" secondItem="kTt-6K-LrU" secondAttribute="bottom" constant="10" id="HY8-OZ-piW"/>
+                <constraint firstItem="kTt-6K-LrU" firstAttribute="top" secondItem="Qb9-Fa-qqh" secondAttribute="bottom" constant="10" id="M6k-eY-Dfj"/>
+                <constraint firstItem="Qb9-Fa-qqh" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="POE-Bc-oFI"/>
+                <constraint firstAttribute="trailing" secondItem="Qb9-Fa-qqh" secondAttribute="trailing" id="hBU-L6-7Ap"/>
+                <constraint firstItem="kTt-6K-LrU" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="hZw-uu-WQi"/>
+            </constraints>
+            <point key="canvasLocation" x="-14" y="102"/>
+        </customView>
+        <customObject id="oXT-g0-iOl" customClass="CollectionViewItem" customModule="AppCore">
+            <connections>
+                <outlet property="imageView" destination="Qb9-Fa-qqh" id="0fm-c9-BZs"/>
+                <outlet property="textField" destination="kTt-6K-LrU" id="tQg-Wr-0Bb"/>
+                <outlet property="view" destination="c22-O7-iKe" id="JcH-bI-caS"/>
+            </connections>
+        </customObject>
+    </objects>
+</document>
