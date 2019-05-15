@@ -47,15 +47,21 @@ public class CollectionViewBinder<EntityType: CollectionEntity> {
     }
     
     public func bindTo<ItemType>(view: NSCollectionView, itemId: String = "CollectionViewItem", config: @escaping CustomItemConfig<EntityType,ItemType> = {_,_ in }) {
+        
+        // prepare values to pass into closure
+        let signals = service.signals
+        let thumbnailsUrl = service.thumbnails.url
+        let defaultImage = self.defaultImage
+        
         let dataSource = CollectionViewDataSource<EntityType>(itemIdentifier: itemId, itemType: ItemType.self) { item, idx, realmItem  in
             item.key        = realmItem.key
             item.alias      = realmItem.alias
-            item.signals    = self.service.signals
+            item.signals    = signals
             
             if realmItem.iconPath.count > 0 {
-                item.image = NSImage(byReferencingFile: self.service.thumbnails.url.appendingPathComponent(realmItem.iconPath).path)
+                item.image = NSImage(byReferencingFile: thumbnailsUrl.appendingPathComponent(realmItem.iconPath).path)
             } else {
-                item.image = self.defaultImage
+                item.image = defaultImage
             }
             
             config(item,realmItem)

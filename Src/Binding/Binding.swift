@@ -10,8 +10,8 @@ import Foundation
 import AsyncNinja
 import RealmSwift
 
-extension CollectionViewDataSource where E : CollectionEntity { // Rename E -> EntityType
-    public func bindWith(collectionService: CollectionService<E>, view: NSCollectionView) {
+extension CollectionViewDataSource where EntityType : CollectionEntity {
+    public func bindWith(collectionService: CollectionService<EntityType>, view: NSCollectionView) {
         self.collectionView = view
         view.dataSource = self
         view.delegate = self
@@ -23,10 +23,9 @@ extension CollectionViewDataSource where E : CollectionEntity { // Rename E -> E
         // IMPORTANT!!!!
         // this subscription is owned by NSCollectionView
         // reference to self is captured by closure
-        
         realmData?.producer
-            .onUpdate(context: view, executor: .immediate)
-                { _, update in self.applyChanges(items: update.0, changes: update.1)}
+            .onUpdate(context: view, executor: .immediate) { _, update in self.applyChanges(items: update.0, changes: update.1)}
+            ._asyncNinja_notifyFinalization { print("TableViewDataSource subscription finalize") }
     }
 }
 

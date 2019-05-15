@@ -125,7 +125,7 @@
 		E6CF23E3226B560F0004C436 /* NSView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+Ext.swift"; sourceTree = "<group>"; };
 		E6DC5B972253EB2D00123606 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = "<group>"; };
 		E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEntity.swift; sourceTree = "<group>"; };
-		E6DD1250228B569A00EF2C8A /* CollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CollectionViewItem.xib; path = Src/Services/CollectionViewItem.xib; sourceTree = SOURCE_ROOT; };
+		E6DD1250228B569A00EF2C8A /* CollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CollectionViewItem.xib; path = Src/Binding/RealmToCollectionView/CollectionViewItem/CollectionViewItem.xib; sourceTree = SOURCE_ROOT; };
 		E6E59408226EF84C0006EF4C /* StringExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -312,6 +312,7 @@
 		E695DF72224F90B700611D2B /* RealmToCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				E6DD1252228BF28A00EF2C8A /* CollectionViewItem */,
 				E67825832264BE5100391616 /* CollectionViewBinder.swift */,
 				E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */,
 			);
@@ -347,12 +348,19 @@
 		E6DC5B962253EB1600123606 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
-				E6DD1250228B569A00EF2C8A /* CollectionViewItem.xib */,
 				E6DC5B972253EB2D00123606 /* CollectionService.swift */,
 				E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */,
-				E60B2AE42256112500D2363B /* CollectionViewItem.swift */,
 			);
 			path = Collection;
+			sourceTree = "<group>";
+		};
+		E6DD1252228BF28A00EF2C8A /* CollectionViewItem */ = {
+			isa = PBXGroup;
+			children = (
+				E60B2AE42256112500D2363B /* CollectionViewItem.swift */,
+				E6DD1250228B569A00EF2C8A /* CollectionViewItem.xib */,
+			);
+			path = CollectionViewItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

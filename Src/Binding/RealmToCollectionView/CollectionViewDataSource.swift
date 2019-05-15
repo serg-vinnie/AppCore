@@ -12,29 +12,29 @@ import RealmSwift
 import Realm
 import AsyncNinja
 
-public typealias CollectionItemFactory<E: Object> = (CollectionViewDataSource<E>, NSCollectionView, IndexPath, E) -> NSCollectionViewItem
-public typealias CollectionItemConfig<E: Object, ItemType: NSCollectionViewItem> = (ItemType, IndexPath, E) -> Void
+public typealias CollectionItemFactory<EntityType: Object> = (CollectionViewDataSource<EntityType>, NSCollectionView, IndexPath, EntityType) -> NSCollectionViewItem
+public typealias CollectionItemConfig<EntityType: Object, ItemType: NSCollectionViewItem> = (ItemType, IndexPath, EntityType) -> Void
 
-public class CollectionViewDataSource<E: Object>: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSource {
-    var realmData: RealmDataSource<E>?
+public class CollectionViewDataSource<EntityType: Object>: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSource {
+    var realmData: RealmDataSource<EntityType>?
     var signals: SignalsService?
-    var items: AnyRealmCollection<E>?
+    var items: AnyRealmCollection<EntityType>?
     
     // MARK: - Configuration
     public weak var collectionView: NSCollectionView?
     public var animated = true
     
     // MARK: - Init
-    public let itemFactory: CollectionItemFactory<E>
+    public let itemFactory: CollectionItemFactory<EntityType>
     
     public weak var delegate: NSCollectionViewDelegate?
     public weak var dataSource: NSCollectionViewDataSource?
     
-//    public init(itemFactory: @escaping CollectionItemFactory<E>) {
-//        self.itemFactory = itemFactory
-//    }
+    public init(itemFactory: @escaping CollectionItemFactory<EntityType>) {
+        self.itemFactory = itemFactory
+    }
     
-    public init<ItemType>(itemIdentifier: String, itemType: ItemType.Type, itemConfig: @escaping CollectionItemConfig<E, ItemType>) where ItemType: NSCollectionViewItem {
+    public init<ItemType>(itemIdentifier: String, itemType: ItemType.Type, itemConfig: @escaping CollectionItemConfig<EntityType, ItemType>) where ItemType: NSCollectionViewItem {
         self.itemFactory = { ds, cv, ip, model in
             let item = cv.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: itemIdentifier), for: ip) as! ItemType
             itemConfig(item, ip, model)
@@ -79,11 +79,9 @@ public class CollectionViewDataSource<E: Object>: NSObject, NSCollectionViewDele
     // MARK: - Applying changeset to the collection view
     private let fromRow = {(row: Int) in return IndexPath(item: row, section: 0)}
     
-    func applyChanges(items: AnyRealmCollection<E>, changes: RealmChangeset?) {
+    func applyChanges(items: AnyRealmCollection<EntityType>, changes: RealmChangeset?) {
         
-        if self.items == nil {
-            self.items = items
-        }
+        self.items = items
         
         guard let collectionView = collectionView else {
             fatalError("You have to bind a collection view to the data source.")
