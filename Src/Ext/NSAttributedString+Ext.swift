@@ -11,11 +11,11 @@ import Swift
 
 public extension NSMutableAttributedString {
     func format(range: Range<Int>, with attributes: [NSAttributedString.Key : Any]) -> NSMutableAttributedString {
-        if range.lowerBound == range.upperBound {
+        if range.lowerBound == range.upperBound  || range.upperBound >= string.count{
             return self
         }
-        print("Range: \(range) for \(string.count): \(string)")
-        //addAttributes(attributes, range: NSRange(location: range.lowerBound, length: range.upperBound))
+
+        addAttributes(attributes, range: NSRange(location: range.lowerBound, length: range.upperBound - range.lowerBound))
         return self
     }
 }
