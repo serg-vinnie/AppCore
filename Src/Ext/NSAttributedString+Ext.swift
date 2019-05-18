@@ -9,6 +9,13 @@
 import Foundation
 import Swift
 
+public extension NSMutableAttributedString {
+    func format(range: Range<Int>, with attributes: [NSAttributedString.Key : Any]) -> NSMutableAttributedString {
+        addAttributes(attributes, range: NSRange(location: range.lowerBound, length: range.upperBound))
+        return self
+    }
+}
+
 public extension Sequence where Element: NSAttributedString {
     func joinWith(separator: NSAttributedString) -> NSAttributedString {
         var isFirst = true
