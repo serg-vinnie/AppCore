@@ -94,23 +94,23 @@ public class Scenes {
         return item.wnd as? WC
     }
     
-    public func resolve<WC>(wnd: WC.Type) -> WC? where WC : NSWindowController {
+    public func resolve<WC>(_ wnd: WC.Type) -> WC? where WC : NSWindowController {
         return resolve(wnd: ObjectIdentifier(wnd).hashValue) as? WC
     }
     
-    public func resolve<VC>(_ key: VC.Type) -> VC? where VC : NSViewController {
-        return resolve(ObjectIdentifier(key).hashValue) as? VC
+    public func resolve<VC>(_ view: VC.Type) -> VC? where VC : NSViewController {
+        return resolve(ObjectIdentifier(view).hashValue) as? VC
     }
     
-    public func show<VC>(_ key: VC.Type) where VC : NSViewController {
-        if let vc = resolve(key) {
+    public func show<VC>(_ view: VC.Type) where VC : NSViewController {
+        if let vc = resolve(view) {
             presentInWindow(vc: vc)
         } else {
-            AppCore.log(title: "Scenes", msg: "can't resolve View Controller : \(key)")
+            AppCore.log(title: "Scenes", msg: "can't resolve View Controller : \(view)")
         }
     }
     
-    public func show<WC>(wnd: WC.Type, block: (WC)->Void = { _ in }) {
+    public func show<WC>(_ wnd: WC.Type, block: (WC)->Void = { _ in }) {
         if let wc = show(wnd: ObjectIdentifier(wnd).hashValue) as? WC {
             block(wc)
         }
@@ -136,6 +136,12 @@ public class Scenes {
     public func showIntegrityFailure() {
         let name = Bundle.main.infoDictionary?["CFBundleName"] ?? "application"
         alert(msg: "Application Integrity Failure", text: "please delete \(name) and reinstall it again from App Store")
+    }
+}
+
+public extension Scenes {
+    func `do`(_ block: (Scenes) throws -> Void) rethrows {
+        try block(self)
     }
 }
 

@@ -9,7 +9,7 @@
 import Foundation
 
 public extension Array {
-    public func mapTo<Element2,JointType>(_ arr: Array<Element2>, mapper: (Element?,Element2?)->(JointType)) -> [JointType]
+    func mapTo<Element2,JointType>(_ arr: Array<Element2>, mapper: (Element?,Element2?)->(JointType)) -> [JointType]
     {
         var result = [JointType]()
         
@@ -33,27 +33,27 @@ public extension Array {
         return result
     }
     
-    public func sum<T: Numeric>(_ getter: (Element)->(T)) -> T {
+    func sum<T: Numeric>(_ getter: (Element)->(T)) -> T {
         return self.map(getter).reduce(0, +)
     }
     
-    public func join(_ getter: (Element)->(String)) -> String {
+    func join(_ getter: (Element)->(String)) -> String {
         return self.map(getter).reduce("", +)
     }
     
-    public func splitBy(_ chunkSize: Int) -> [[Element]] {
+    func splitBy(_ chunkSize: Int) -> [[Element]] {
         return stride(from: 0, to: self.count, by: chunkSize).map {
             Array(self[$0..<Swift.min($0 + chunkSize, self.count)])
         }
     }
     
-    public mutating func removeFirst(where predicate: (Element)->(Bool)) {
+    mutating func removeFirst(where predicate: (Element)->(Bool)) {
         if let idx = self.index(where: predicate) {
             remove(at: idx)
         }
     }
     
-    public func recursiveFlatMap(_ getter: (Element)->([Element])) -> [Element] {
+    func recursiveFlatMap(_ getter: (Element)->([Element])) -> [Element] {
         var results = [Element]()
         results.append(contentsOf: self)
         
