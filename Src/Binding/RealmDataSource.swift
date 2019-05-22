@@ -27,7 +27,7 @@ public struct RealmChangeset {
     }
 }
 
-class RealmDataSource<EntityType: Object> : Ninja {
+public class RealmDataSource<EntityType: Object> : Ninja {
     private var realmQuery          : Results<EntityType>             // initial collection
     private var items               : AnyRealmCollection<EntityType>  // filtered and sorted collection
     private var notificationToken   : NotificationToken?
@@ -35,13 +35,15 @@ class RealmDataSource<EntityType: Object> : Ninja {
     private var predicate           : NSPredicate?                    // filtering
     
     // output
-    var producer = Producer<(AnyRealmCollection<EntityType>, RealmChangeset?), Void>()
+    public var stream : Channel<(AnyRealmCollection<EntityType>, RealmChangeset?), Void> { return producer }
+    
+    private var producer = Producer<(AnyRealmCollection<EntityType>, RealmChangeset?), Void>()
     
     // input
     // CollectionSignal.Filter
     // CollectionSignal.Sort
     
-    init(realmQuery: Results<EntityType>, signals: SignalsService) {
+    public init(realmQuery: Results<EntityType>, signals: SignalsService) {
         self.realmQuery = realmQuery
         self.items = realmQuery.toAnyCollection()
         
@@ -55,7 +57,7 @@ class RealmDataSource<EntityType: Object> : Ninja {
             .onUpdate(context: self) { ctx, signal in ctx.sorting = signal.descriptors; ctx.updateSubscription() }
     }
     
-    func updateSubscription() {
+    private func updateSubscription() {
         // apply sorting and filtering
         items = realmQuery.apply(sorting: sorting).apply(predicate: predicate).toAnyCollection()
         

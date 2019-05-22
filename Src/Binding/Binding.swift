@@ -23,7 +23,7 @@ extension CollectionViewDataSource where EntityType : CollectionEntity {
         // IMPORTANT!!!!
         // this subscription is owned by NSCollectionView
         // reference to self is captured by closure
-        realmData?.producer
+        realmData?.stream
             .onUpdate(context: view, executor: .immediate) { _, update in self.applyChanges(items: update.0, changes: update.1)}
             ._asyncNinja_notifyFinalization { print("TableViewDataSource subscription finalize") }
     }
@@ -42,7 +42,7 @@ extension TableViewDataSource where EntityType : CollectionEntity {
         // IMPORTANT!!!!
         // this subscription is owned by NSTableView
         // reference to self is captured by closure
-        realmData?.producer
+        realmData?.stream
             .onUpdate(context: view, executor: .immediate) { _, update in self.applyChanges(items: update.0, changes: update.1)}
             ._asyncNinja_notifyFinalization { print("TableViewDataSource subscription finalize") }
     }
