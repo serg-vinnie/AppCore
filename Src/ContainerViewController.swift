@@ -8,30 +8,14 @@
 
 import Foundation
 
-import Cocoa
-import RxSwift
-import RxCocoa
-
 open class ContainerViewController : NSViewController {
-    public let bag          = DisposeBag()
     
     private(set) var content               : NSViewController?
     public       var transitionOptions     : NSViewController.TransitionOptions = [.crossfade, .allowUserInteraction]
     public       var immediateTransition   = false
-    private(set) var inTransition          = BehaviorRelay<Bool>(value: false)
+    private(set) var inTransition          = false //BehaviorRelay<Bool>(value: false)
     
-    public lazy var nextController   : BehaviorRelay<NSViewController?> =  {
-        let behavior = BehaviorRelay<NSViewController?>(value: nil)
-        
-        behavior
-            //.throttle(1, scheduler: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] next in
-                guard let next = next else { return }
-                self?.transitionTo(controller: next)
-            }).disposed(by: bag)
-        
-        return behavior
-    }()
+    public var nextController   : NSViewController? { didSet { transitionTo(controller: nextController) } }
     
     public func display(controller: NSViewController) {
         remove(content: content)
@@ -45,7 +29,12 @@ open class ContainerViewController : NSViewController {
         content = controller
     }
     
-    public func transitionTo(controller: NSViewController) {
+    public func transitionTo(controller: NSViewController?) {
+        guard let controller = controller else {
+            if let content = content { remove(content: content) }
+            return
+        }
+        
         guard let content = content else {      //don't do transition if empty – just dispay
             display(controller: controller);
             return
@@ -61,16 +50,18 @@ open class ContainerViewController : NSViewController {
         }
         
         addChild(controller)
-        inTransition.accept(true)
+        inTransition = true
         
-        transition(from: content, to: controller, options: transitionOptions) {
-            self.remove(content: content)
+        transition(from: content, to: controller, options: transitionOptions) { [weak self] in
+            self?.remove(content: content)
             
             controller.view.translatesAutoresizingMaskIntoConstraints = false
-            controller.view.fitTo(view: self.view)
+            if let view = self?.view {
+                controller.view.fitTo(view: view)
+            }
             
-            self.content = controller
-            self.inTransition.accept(false)
+            self?.content = controller
+            self?.inTransition = false
         }
     }
     
