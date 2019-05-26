@@ -83,6 +83,7 @@ open class MVVMController<MyView,MyViewModel> : NSViewController, NSWindowDelega
     public func closeWith(reason: String) {
         closeNotify(reason: reason)
         if self.parent != nil {
+            print("going to dismiss \(type(of: self)) \(#file)")
             dismiss(self)
         } else {
             view.window?.close()
