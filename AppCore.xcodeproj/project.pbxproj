@@ -85,6 +85,7 @@
 		E65BCB7D222F04F900F7A8BC /* NSView+TrackingArea+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */; };
 		E65BCB7E222F04F900F7A8BC /* NSProgressIndicator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */; };
 		E67825842264BE5100391616 /* CollectionViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67825832264BE5100391616 /* CollectionViewBinder.swift */; };
+		E6957155229AA6DD002FD962 /* NSViewController+SliderGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6957154229AA6DD002FD962 /* NSViewController+SliderGroup.swift */; };
 		E695DF76224F938F00611D2B /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */; };
 		E695DF78224F961500611D2B /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E695DF77224F961500611D2B /* Binding.swift */; };
 		E6A6B199224D693A00196DD3 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B198224D693A00196DD3 /* Then.swift */; };
@@ -193,6 +194,7 @@
 		E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+TrackingArea+Rx.swift"; sourceTree = "<group>"; };
 		E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProgressIndicator+Rx.swift"; sourceTree = "<group>"; };
 		E67825832264BE5100391616 /* CollectionViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewBinder.swift; sourceTree = "<group>"; };
+		E6957154229AA6DD002FD962 /* NSViewController+SliderGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+SliderGroup.swift"; sourceTree = "<group>"; };
 		E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		E695DF77224F961500611D2B /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		E6A6B198224D693A00196DD3 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				E614657E22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift */,
+				E6957154229AA6DD002FD962 /* NSViewController+SliderGroup.swift */,
 			);
 			path = AsyncNinja;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				E630E1DA2292F74300CFEED4 /* SettingsContext.swift in Sources */,
 				E6A6B19D224D699100196DD3 /* RealmBackendService.swift in Sources */,
 				E6A6B1A0224D69E500196DD3 /* RealmSingleton.swift in Sources */,
+				E6957155229AA6DD002FD962 /* NSViewController+SliderGroup.swift in Sources */,
 				E630E1D42292F70A00CFEED4 /* ConfigBackendProtocol.swift in Sources */,
 				E65BCB7D222F04F900F7A8BC /* NSView+TrackingArea+Rx.swift in Sources */,
 				E630E2022293076E00CFEED4 /* iCloudRx-Auth.swift in Sources */,
