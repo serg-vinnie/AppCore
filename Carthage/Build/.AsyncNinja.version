@@ -2,29 +2,29 @@
   "Mac" : [
     {
       "name" : "AsyncNinja",
-      "hash" : "e9b19238a71e3796651db6f0a362b03b33df299ec65a40aeae1a678a062379c8",
+      "hash" : "8f380f3c7e33a88d9f6c838d3c9f2ea11ed1fa143bda34dbeacc8ea37c3733a8",
       "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
     }
   ],
   "watchOS" : [
     {
       "name" : "AsyncNinja",
-      "hash" : "dd3b88508962b1844f8831be1d837759ae1a6a837c6315f60bc0b9f493586c78",
+      "hash" : "c83af14e41e05ddd70b90192e9e7cb8af585fbb281e731b360bc45095d968164",
       "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
     }
   ],
   "tvOS" : [
     {
       "name" : "AsyncNinja",
-      "hash" : "ae11a61ee355f653ca08a0952a35b05fa4f05e0b1c852542ae170419f018aada",
+      "hash" : "2ebcc8a58b63a03116796d1a686ad878fb124a57fbd20cfa1e1086c08a4bb16d",
       "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
     }
   ],
-  "commitish" : "182e44116110f52735c7a7d7c30e82ac8726d58e",
+  "commitish" : "de5a83858da6c16498c2c99314446e7efb65946d",
   "iOS" : [
     {
       "name" : "AsyncNinja",
-      "hash" : "81469cdb2bc2ed874bfe8b00c13144ff3c2fa81bc29cbfea08f7d498f3f96209",
+      "hash" : "4198aa4776d7a6a679cae2eaced7825e1140eeeedd43f83dd5c70dffc06c31ab",
       "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
     }
   ]
