@@ -11,7 +11,6 @@ import Cocoa
 import RxCocoa
 
 public class ModifierFlagsRx {
-    
     public let changed = BehaviorRelay<NSEvent.ModifierFlags>(value: NSEvent.ModifierFlags())
     
     
@@ -41,5 +40,4 @@ public class ModifierFlagsRx {
             NSEvent.removeMonitor(global)
         }
     }
-
 }
