@@ -63,7 +63,6 @@ public class RealmDataSource<EntityType: Object> : Ninja {
         
         // update subscription
         notificationToken = items.observe { [weak producer] changeset in
-            print("new changeset")
             switch changeset {
             case .initial(let value):
                 producer?.update((value, nil))

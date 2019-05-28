@@ -43,6 +43,7 @@ public class ConfigR<T : Equatable>  {
     }
     
     private func set(value: T) {
+        AppCore.log(title: "ConfigR", msg: "\(key) - \(value)", thread: true)
         store.set(value: value, key: key)
         valueR.value = value
         valueRx.accept(value)
