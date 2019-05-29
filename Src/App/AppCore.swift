@@ -36,10 +36,13 @@ public class AppCore {
     // Containers
     public static var mvvmContainer : Container?    // MVVMController resolves ViewModel from this container
     public static let container     = AppCoreContainer(env: env)
+    
+    public static var logFilters = [String]()
 }
 
 public extension AppCore {
     static func log(title: String, msg: String, thread: Bool = false) {
+        guard shouldPass(title: title) else { return }
         if thread {
             print("[\(title)] (\(Thread.current.dbgName)) \(msg)")
         } else {
@@ -48,10 +51,19 @@ public extension AppCore {
     }
     
     static func log(title: String, error: Error, thread: Bool = false) {
+        guard shouldPass(title: title) else { return }
         if thread {
             print("[\(title) ERROR] (\(Thread.current.dbgName)) \(error.localizedDescription)")
         }else {
             print("[\(title) ERROR] \(error.localizedDescription)")
+        }
+    }
+    
+    static private func shouldPass(title: String) -> Bool {
+        if logFilters.count == 0 {
+            return true
+        } else {
+            return logFilters.contains(title)
         }
     }
 }
