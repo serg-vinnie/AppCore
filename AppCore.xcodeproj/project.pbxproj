@@ -86,6 +86,7 @@
 		E65BCB7C222F04F900F7A8BC /* NSPopUpButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB77222F04F000F7A8BC /* NSPopUpButton+Rx.swift */; };
 		E65BCB7D222F04F900F7A8BC /* NSView+TrackingArea+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */; };
 		E65BCB7E222F04F900F7A8BC /* NSProgressIndicator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */; };
+		E664576922A183F10059AB1B /* NSPopUpButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664576822A183F10059AB1B /* NSPopUpButton+Ext.swift */; };
 		E67825842264BE5100391616 /* CollectionViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67825832264BE5100391616 /* CollectionViewBinder.swift */; };
 		E6957155229AA6DD002FD962 /* NSViewController+SliderGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6957154229AA6DD002FD962 /* NSViewController+SliderGroup.swift */; };
 		E695DF76224F938F00611D2B /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */; };
@@ -197,6 +198,7 @@
 		E65BCB77222F04F000F7A8BC /* NSPopUpButton+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPopUpButton+Rx.swift"; sourceTree = "<group>"; };
 		E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+TrackingArea+Rx.swift"; sourceTree = "<group>"; };
 		E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProgressIndicator+Rx.swift"; sourceTree = "<group>"; };
+		E664576822A183F10059AB1B /* NSPopUpButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopUpButton+Ext.swift"; sourceTree = "<group>"; };
 		E67825832264BE5100391616 /* CollectionViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewBinder.swift; sourceTree = "<group>"; };
 		E6957154229AA6DD002FD962 /* NSViewController+SliderGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+SliderGroup.swift"; sourceTree = "<group>"; };
 		E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 			children = (
 				E614657D229984F5001EC0C0 /* AsyncNinja */,
 				E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */,
+				E664576822A183F10059AB1B /* NSPopUpButton+Ext.swift */,
 				E6CF23E3226B560F0004C436 /* NSView+Ext.swift */,
 				E614654522941E56001EC0C0 /* DictionaryExt.swift */,
 				E614654322941BF1001EC0C0 /* NSStackView+Ext.swift */,
@@ -666,6 +669,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E664576922A183F10059AB1B /* NSPopUpButton+Ext.swift in Sources */,
 				E630E2052293076E00CFEED4 /* iCloudRx-UserID.swift in Sources */,
 				E695DF76224F938F00611D2B /* CollectionViewDataSource.swift in Sources */,
 				E630E1D62292F70A00CFEED4 /* ConfigRx.swift in Sources */,
