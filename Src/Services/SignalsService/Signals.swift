@@ -35,8 +35,10 @@ public struct Signal {
         }
     }
     
-    public struct StatusBarClick {
-        public init() {} 
+    public struct StatusBar {
+        public struct Click {
+            public init() {}
+        }
     }
 }
 

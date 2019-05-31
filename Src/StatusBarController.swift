@@ -40,7 +40,7 @@ public class StatusBarController : NSObject {
 private extension StatusBarController {
     @objc func onClick() {
         switchPopOver()
-        AppCore.signals.send(signal: Signal.StatusBarClick())
+        AppCore.signals.send(signal: Signal.StatusBar.Click())
     }
 
     func switchPopOver() {

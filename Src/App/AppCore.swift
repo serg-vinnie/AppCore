@@ -38,6 +38,15 @@ public class AppCore {
     public static let container     = AppCoreContainer(env: env)
     
     public static var logFilters = [String]()
+    
+    private static var statusBar : StatusBarController?
+}
+
+public extension AppCore {
+    static func initStatusBar(img: NSImage) {
+        statusBar = StatusBarController()
+        statusBar?.set(img: img)
+    }
 }
 
 public extension AppCore {
