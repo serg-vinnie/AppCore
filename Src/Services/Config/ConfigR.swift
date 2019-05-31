@@ -58,8 +58,10 @@ public class ConfigREnum<T: RawRepresentable> where T.RawValue : Equatable  {
     public let context         : ExecutionContext
     
     public var didChange      : Channel<T, Void> { return valueR }
+    public var didChangeRx    : Observable<T>    { return valueRx.asObservable() }
     
     private let valueR : DynamicProperty<T>
+    private let valueRx : BehaviorRelay<T>
 
     public var value           : T {
         set { set(value: newValue) }
@@ -75,8 +77,10 @@ public class ConfigREnum<T: RawRepresentable> where T.RawValue : Equatable  {
         if let storedValue = store.value(key: key, ofType: T.RawValue.self) as? T.RawValue {
             let value = T(rawValue: storedValue)
             self.valueR = context.makeDynamicProperty(value ?? defaultValue)
+            self.valueRx = BehaviorRelay<T>(value: value ?? defaultValue)
         } else {
             self.valueR = context.makeDynamicProperty(defaultValue)
+            self.valueRx = BehaviorRelay<T>(value: defaultValue)
         }
     }
 
@@ -87,5 +91,6 @@ public class ConfigREnum<T: RawRepresentable> where T.RawValue : Equatable  {
     private func set(value: T) {
         store.set(value: value.rawValue, key: key)
         valueR.value = value
+        valueRx.accept(value)
     }
 }
