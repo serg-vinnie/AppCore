@@ -9,16 +9,16 @@
 import Foundation
 import AsyncNinja
 
-public extension NSEvent.ModifierFlags {
-    static func localAndGlobalMonitor() -> Channel<NSEvent.ModifierFlags,Void> {
-        return merge(localMonitor(), globalMonitor())
+public extension NSEvent {
+    static func localAndGlobalMonitor(matching mask: NSEvent.EventTypeMask) -> Channel<NSEvent,Void> {
+        return merge(localMonitor(matching: mask), globalMonitor(matching: mask))
             .mapCompletion() { _ in () }
     }
     
-    static func localMonitor() -> Channel<NSEvent.ModifierFlags,Void> {
+    static func localMonitor(matching mask: NSEvent.EventTypeMask) -> Channel<NSEvent,Void> {
         return producer() { producer in
-            let monitor = NSEvent.addLocalMonitorForEvents(matching: .flagsChanged) { [weak producer] in
-                producer?.update($0.modifierFlags)
+            let monitor = NSEvent.addLocalMonitorForEvents(matching: mask) { [weak producer] in
+                producer?.update($0)
                 return $0
             }
             
@@ -29,11 +29,10 @@ public extension NSEvent.ModifierFlags {
         }
     }
     
-    static func globalMonitor() -> Channel<NSEvent.ModifierFlags,Void> {
+    static func globalMonitor(matching mask: NSEvent.EventTypeMask) -> Channel<NSEvent,Void> {
         return producer() { producer in
-            let monitor = NSEvent.addLocalMonitorForEvents(matching: .flagsChanged) { [weak producer] in
-                producer?.update($0.modifierFlags)
-                return $0
+            let monitor = NSEvent.addGlobalMonitorForEvents(matching: mask) { [weak producer] in
+                producer?.update($0)
             }
             
             producer._asyncNinja_notifyFinalization() {
