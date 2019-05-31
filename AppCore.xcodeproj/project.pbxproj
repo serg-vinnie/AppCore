@@ -19,6 +19,7 @@
 		E614654622941E56001EC0C0 /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614654522941E56001EC0C0 /* DictionaryExt.swift */; };
 		E614657F22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614657E22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift */; };
 		E629DC18223A72C900669FD3 /* NSWindow+Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */; };
+		E62E99F8229FFBF600B93C2F /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62E99F7229FFBF600B93C2F /* StatusBarController.swift */; };
 		E630E1B82292F47C00CFEED4 /* NSViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1B72292F47C00CFEED4 /* NSViewController+Ext.swift */; };
 		E630E1CD2292F64100CFEED4 /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1CC2292F64100CFEED4 /* ArrayExt.swift */; };
 		E630E1D42292F70A00CFEED4 /* ConfigBackendProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1CF2292F70A00CFEED4 /* ConfigBackendProtocol.swift */; };
@@ -126,6 +127,7 @@
 		E614654522941E56001EC0C0 /* DictionaryExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExt.swift; sourceTree = "<group>"; };
 		E614657E22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+TrackingArea+Ninja.swift"; sourceTree = "<group>"; };
 		E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSWindow+Fade.swift"; sourceTree = "<group>"; };
+		E62E99F7229FFBF600B93C2F /* StatusBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		E630E1B72292F47C00CFEED4 /* NSViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSViewController+Ext.swift"; sourceTree = "<group>"; };
 		E630E1CC2292F64100CFEED4 /* ArrayExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExt.swift; sourceTree = "<group>"; };
 		E630E1CF2292F70A00CFEED4 /* ConfigBackendProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigBackendProtocol.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 		E65BCAF0222EA2E800F7A8BC /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				E62E99F7229FFBF600B93C2F /* StatusBarController.swift */,
 				E630E1DB2292FE4A00CFEED4 /* ContainerViewController.swift */,
 				E695DF71224F90AF00611D2B /* Binding */,
 				E6A6B19E224D69DB00196DD3 /* Helpers */,
@@ -696,6 +699,7 @@
 				E65BCB06222EA2E800F7A8BC /* Scenes.swift in Sources */,
 				E630E2072293076E00CFEED4 /* iCloudNinjaService.swift in Sources */,
 				E630E2082293076E00CFEED4 /* iCloudNinja-Fetch.swift in Sources */,
+				E62E99F8229FFBF600B93C2F /* StatusBarController.swift in Sources */,
 				E657568E228D4CA0004C10F6 /* NSAttributedString+Ext.swift in Sources */,
 				E630E1FF2293076E00CFEED4 /* iCloudRx-Delete.swift in Sources */,
 				E65BCB0E222EA2E800F7A8BC /* Thread+Ext.swift in Sources */,
