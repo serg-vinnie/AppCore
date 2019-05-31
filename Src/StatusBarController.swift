@@ -7,20 +7,17 @@
 //
 
 import Foundation
+import AsyncNinja
 
 public class StatusBarController : NSObject {
     private let icon         = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     private var popover      :  NSPopover?
-    //private var eventMonitor : EventMonitor?
+    private var monitorToken = CancellationToken()
     
     public var isVisible : Bool { set { icon.isVisible = newValue } get { return icon.isVisible } }
     
     public override init() {
         super.init()
-        
-//        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] _ in
-//            self?.showPopOver(false)
-//        }
 
         icon.action = #selector(onClick)
         icon.button?.target = self
@@ -43,6 +40,7 @@ public class StatusBarController : NSObject {
 private extension StatusBarController {
     @objc func onClick() {
         switchPopOver()
+        AppCore.signals.send(signal: Signal.StatusBarClick())
     }
 
     func switchPopOver() {
@@ -58,10 +56,19 @@ private extension StatusBarController {
         
         if show {
             pop.show(relativeTo: btn.bounds, of: btn, preferredEdge: NSRectEdge.minY)
-            //eventMonitor?.start()
+            startMonitor()
         } else {
             pop.performClose(self)
-            //eventMonitor?.stop()
+            stopMonitor()
         }
+    }
+    
+    func startMonitor() {
+        NSEvent.globalMonitor(matching: [.leftMouseDown, .rightMouseDown], cancellationToken: monitorToken)
+            .onUpdate(context: popover!) { [weak self] _, _ in self?.showPopOver(false) }
+    }
+    
+    func stopMonitor() {
+        monitorToken.cancel()
     }
 }

@@ -29,8 +29,8 @@ public extension NSEvent {
         }
     }
     
-    static func globalMonitor(matching mask: NSEvent.EventTypeMask) -> Channel<NSEvent,Void> {
-        return producer() { producer in
+    static func globalMonitor(matching mask: NSEvent.EventTypeMask, cancellationToken: CancellationToken? = nil) -> Channel<NSEvent,Void> {
+        return producer(cancellationToken: cancellationToken) { producer in
             let monitor = NSEvent.addGlobalMonitorForEvents(matching: mask) { [weak producer] in
                 producer?.update($0)
             }
