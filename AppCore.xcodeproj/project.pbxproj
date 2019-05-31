@@ -50,7 +50,7 @@
 		E630E20B2293076E00CFEED4 /* iCloudNinja-Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1F72293076E00CFEED4 /* iCloudNinja-Query.swift */; };
 		E630E20C2293076E00CFEED4 /* iCloudNinja-Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1F82293076E00CFEED4 /* iCloudNinja-Delete.swift */; };
 		E649783B2290B78A00AB9E8C /* FlippedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649783A2290B78A00AB9E8C /* FlippedView.swift */; };
-		E6555C0F229BE7A50086E214 /* ModifierFlags+Ninja.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6555C0E229BE7A50086E214 /* ModifierFlags+Ninja.swift */; };
+		E6555C0F229BE7A50086E214 /* NSEvent+Ninja.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6555C0E229BE7A50086E214 /* NSEvent+Ninja.swift */; };
 		E657568E228D4CA0004C10F6 /* NSAttributedString+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E657568D228D4CA0004C10F6 /* NSAttributedString+Ext.swift */; };
 		E65BCAE0222EA26100F7A8BC /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCAD6222EA26100F7A8BC /* AppCore.framework */; };
 		E65BCAE5222EA26100F7A8BC /* AppCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCAE4222EA26100F7A8BC /* AppCoreTests.swift */; };
@@ -158,7 +158,7 @@
 		E630E1F72293076E00CFEED4 /* iCloudNinja-Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudNinja-Query.swift"; sourceTree = "<group>"; };
 		E630E1F82293076E00CFEED4 /* iCloudNinja-Delete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudNinja-Delete.swift"; sourceTree = "<group>"; };
 		E649783A2290B78A00AB9E8C /* FlippedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlippedView.swift; sourceTree = "<group>"; };
-		E6555C0E229BE7A50086E214 /* ModifierFlags+Ninja.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModifierFlags+Ninja.swift"; sourceTree = "<group>"; };
+		E6555C0E229BE7A50086E214 /* NSEvent+Ninja.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+Ninja.swift"; sourceTree = "<group>"; };
 		E657568D228D4CA0004C10F6 /* NSAttributedString+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Ext.swift"; sourceTree = "<group>"; };
 		E65BCAD6222EA26100F7A8BC /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65BCAD9222EA26100F7A8BC /* AppCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCore.h; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 			children = (
 				E614657E22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift */,
 				E6957154229AA6DD002FD962 /* NSViewController+SliderGroup.swift */,
-				E6555C0E229BE7A50086E214 /* ModifierFlags+Ninja.swift */,
+				E6555C0E229BE7A50086E214 /* NSEvent+Ninja.swift */,
 			);
 			path = AsyncNinja;
 			sourceTree = "<group>";
@@ -679,7 +679,7 @@
 				E629DC18223A72C900669FD3 /* NSWindow+Fade.swift in Sources */,
 				E630E2042293076E00CFEED4 /* iCloudRx-Subscribe.swift in Sources */,
 				E60B2AE52256112500D2363B /* CollectionViewItem.swift in Sources */,
-				E6555C0F229BE7A50086E214 /* ModifierFlags+Ninja.swift in Sources */,
+				E6555C0F229BE7A50086E214 /* NSEvent+Ninja.swift in Sources */,
 				E65BCB13222EA2E800F7A8BC /* SignalDispatcher.swift in Sources */,
 				E65BCB10222EA2E800F7A8BC /* StatesServiceEnums.swift in Sources */,
 				E630E2092293076E00CFEED4 /* iCloudNinja-Push.swift in Sources */,
