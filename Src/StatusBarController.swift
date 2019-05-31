@@ -9,12 +9,22 @@
 import Foundation
 import AsyncNinja
 
+public extension Signal {
+    struct StatusBar {
+        public struct Click { public init() {} }
+        public struct Visible {
+            public let isVisible : Bool
+            public init(_ value: Bool) {
+                self.isVisible = value
+            }
+        }
+    }
+}
+
 public class StatusBarController : NSObject {
     private let icon         = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     private var popover      :  NSPopover?
     private var monitorToken = CancellationToken()
-    
-    public var isVisible : Bool { set { icon.isVisible = newValue } get { return icon.isVisible } }
     
     public override init() {
         super.init()

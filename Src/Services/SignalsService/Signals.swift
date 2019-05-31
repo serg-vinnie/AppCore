@@ -34,18 +34,6 @@ public struct Signal {
             self.reason = reason
         }
     }
-    
-    public struct StatusBar {
-        public struct Click {
-            public init() {}
-        }
-        public struct Visible {
-            public let isVisible : Bool
-            public init(_ value: Bool) {
-                self.isVisible = value
-            }
-        }
-    }
 }
 
 public struct CollectionSignal {
