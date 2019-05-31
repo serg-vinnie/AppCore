@@ -21,12 +21,12 @@ public extension Signal {
     }
 }
 
-public class StatusBarController : NSObject {
+class StatusBarController : NSObject {
     private let icon         = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     private var popover      :  NSPopover?
     private var monitorToken = CancellationToken()
     
-    public override init() {
+    override init() {
         super.init()
 
         icon.action = #selector(onClick)
@@ -37,11 +37,11 @@ public class StatusBarController : NSObject {
             .onUpdate() { [weak self] signal in self?.icon.isVisible = signal.isVisible }
     }
     
-    public func set(img: NSImage) {
+    func set(img: NSImage) {
         icon.image = img
     }
     
-    public func setPopOver(controller: NSViewController) {
+    func setPopOver(controller: NSViewController) {
         if popover == nil {
             popover = NSPopover()
             popover!.behavior = NSPopover.Behavior.transient
