@@ -22,6 +22,9 @@ public class StatusBarController : NSObject {
         icon.action = #selector(onClick)
         icon.button?.target = self
         icon.image = AppCore.bundle.image(forResource: "statusBarDebug")
+        
+        AppCore.signals.subscribeFor(Signal.StatusBar.Visible.self)
+            .onUpdate() { [weak self] signal in self?.icon.isVisible = signal.isVisible }
     }
     
     public func set(img: NSImage) {

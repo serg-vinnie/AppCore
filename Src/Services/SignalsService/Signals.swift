@@ -39,6 +39,12 @@ public struct Signal {
         public struct Click {
             public init() {}
         }
+        public struct Visible {
+            public let isVisible : Bool
+            public init(_ value: Bool) {
+                self.isVisible = value
+            }
+        }
     }
 }
 
