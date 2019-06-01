@@ -8,6 +8,7 @@
 
 import Foundation
 import AsyncNinja
+import Swinject
 
 
 public class Daemon {
@@ -15,9 +16,11 @@ public class Daemon {
         public var executor: Executor { return Executor.init(queue: DispatchQueue.main) }
         public let releasePool = ReleasePool()
         let signals : SignalsService
+        let container: Container
         
-        required public init(signals : SignalsService) {
+        required public init(signals : SignalsService, container: Container) {
             self.signals = signals
+            self.container = container
         }
     }
     
@@ -25,23 +28,22 @@ public class Daemon {
         public var executor: Executor { return Executor.init(queue: DispatchQueue.global()) }
         public let releasePool = ReleasePool()
         let signals : SignalsService
+        let container: Container
         
-        required public init(signals : SignalsService) {
+        required public init(signals: SignalsService, container: Container) {
             self.signals = signals
+            self.container = container
         }
     }
 }
 
 public class DaemonsService {
-    let signals : SignalsService
     var daemons = [Any]()
     
-    public init(signals: SignalsService) {
-        self.signals = signals
-        
+    public init(signals: SignalsService, container: Container) {
         for item in subclasses(of: Daemon.Main.self) {
             AppCore.log(title: "DaemonsService", msg: "adding item \(item)")
-            let inst = item.init(signals: signals)
+            let inst = item.init(signals: signals, container: container)
             daemons.append(inst)
         }
     }
