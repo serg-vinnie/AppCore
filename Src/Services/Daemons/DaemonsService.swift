@@ -20,6 +20,16 @@ public class Daemon {
             self.signals = signals
         }
     }
+    
+    open class Global : ExecutionContext, ReleasePoolOwner {
+        public var executor: Executor { return Executor.init(queue: DispatchQueue.global()) }
+        public let releasePool = ReleasePool()
+        let signals : SignalsService
+        
+        required public init(signals : SignalsService) {
+            self.signals = signals
+        }
+    }
 }
 
 public class DaemonsService {
@@ -30,7 +40,7 @@ public class DaemonsService {
         self.signals = signals
         
         for item in subclasses(of: Daemon.Main.self) {
-            AppCore.log(title: "DaemonsService", msg: "\(item)")
+            AppCore.log(title: "DaemonsService", msg: "adding item \(item)")
             let inst = item.init(signals: signals)
             daemons.append(inst)
         }
