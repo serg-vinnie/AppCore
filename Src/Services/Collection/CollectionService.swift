@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 import AsyncNinja
 
-open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
+open class CollectionService<Entity> : NinjaContext.Main where Entity : CollectionEntity {
     let alias : String
     public let db : RealmBackendService
     public let thumbnails : ThumbnailService

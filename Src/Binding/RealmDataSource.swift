@@ -27,7 +27,7 @@ public struct RealmChangeset {
     }
 }
 
-public class RealmDataSource<EntityType: Object> : Ninja {
+public class RealmDataSource<EntityType: Object> : NinjaContext.Main {
     private var realmQuery          : Results<EntityType>             // initial collection
     private var items               : AnyRealmCollection<EntityType>  // filtered and sorted collection
     private var notificationToken   : NotificationToken?
