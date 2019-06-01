@@ -43,6 +43,8 @@ public class iCloudChangeFetcher {
                 case .recordCreated: self.recordIDsCreated.append(recordID)
                 case .recordUpdated: self.recordIDsUpdated.append(recordID)
                 case .recordDeleted: self.recordIDsDeleted.append(recordID)
+                @unknown default:
+                    fatalError()
                 }
             }
         }
@@ -77,7 +79,7 @@ public class iCloudChangeFetcher {
 }
 
 public extension iCloudChangeFetcher {
-    public var serverChangeToken: CKServerChangeToken? {
+    var serverChangeToken: CKServerChangeToken? {
         get {
             guard let data = UserDefaults.standard.value(forKey: changeTokenKey) as? Data else {
                 return nil

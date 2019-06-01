@@ -94,23 +94,23 @@ public class iCloudRxService {
 }
 
 public extension iCloudRxService {
-    public func queryRecordsOf(type: String, predicate: NSPredicate? = nil) -> Observable<[CKRecord]> {
+    func queryRecordsOf(type: String, predicate: NSPredicate? = nil) -> Observable<[CKRecord]> {
         let queryAll = CKQuery(recordType: type, predicate: predicate ?? NSPredicate(value: true))
         return query(queryAll)
     }
     
-    public func delete(records: Observable<[CKRecord]>) -> Observable<[CKRecord.ID]> {
+    func delete(records: Observable<[CKRecord]>) -> Observable<[CKRecord.ID]> {
         return delete(IDs: records.map { $0.map { $0.recordID } })
     }
     
-    public func deleteBy(query: CKQuery) -> Observable<[CKRecord.ID]>  {
+    func deleteBy(query: CKQuery) -> Observable<[CKRecord.ID]>  {
         let queryResult = self.query(query)
             .map { $0.map { $0.recordID } }
         
         return delete(IDs: queryResult)
     }
     
-    public func deleteRecordsOf(type: String) -> Observable<[CKRecord.ID]> {
+    func deleteRecordsOf(type: String) -> Observable<[CKRecord.ID]> {
         return delete(records: queryRecordsOf(type: type))
     }
 }

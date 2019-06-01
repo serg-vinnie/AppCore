@@ -48,7 +48,7 @@ public extension Array {
     }
     
     mutating func removeFirst(where predicate: (Element)->(Bool)) {
-        if let idx = self.index(where: predicate) {
+        if let idx = self.firstIndex(where: predicate) {
             remove(at: idx)
         }
     }

@@ -81,7 +81,7 @@ open class iCloudSubscriptions {
             }
             
             if let id = id {
-                if let index = self.subscriptions.index(of: subscription) {
+                if let index = self.subscriptions.firstIndex(of: subscription) {
                     self.subscriptions.remove(at: index)
                 }
                 print("subscription deleted \(id)")
@@ -102,7 +102,7 @@ open class iCloudSubscriptions {
             }
             if let ids = deletedIDs {
                 for id in ids {
-                    if let idx = self.subscriptions.index(where: { $0.subscriptionID == id }) {
+                    if let idx = self.subscriptions.firstIndex(where: { $0.subscriptionID == id }) {
                         self.subscriptions.remove(at: idx)
                     }
                 }
