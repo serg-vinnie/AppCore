@@ -87,6 +87,7 @@
 		E65BCB7D222F04F900F7A8BC /* NSView+TrackingArea+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */; };
 		E65BCB7E222F04F900F7A8BC /* NSProgressIndicator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */; };
 		E664576922A183F10059AB1B /* NSPopUpButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664576822A183F10059AB1B /* NSPopUpButton+Ext.swift */; };
+		E664576C22A2783A0059AB1B /* SubclassesOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664576B22A2783A0059AB1B /* SubclassesOf.swift */; };
 		E67825842264BE5100391616 /* CollectionViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67825832264BE5100391616 /* CollectionViewBinder.swift */; };
 		E6957155229AA6DD002FD962 /* NSViewController+SliderGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6957154229AA6DD002FD962 /* NSViewController+SliderGroup.swift */; };
 		E695DF76224F938F00611D2B /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */; };
@@ -199,6 +200,7 @@
 		E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+TrackingArea+Rx.swift"; sourceTree = "<group>"; };
 		E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProgressIndicator+Rx.swift"; sourceTree = "<group>"; };
 		E664576822A183F10059AB1B /* NSPopUpButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopUpButton+Ext.swift"; sourceTree = "<group>"; };
+		E664576B22A2783A0059AB1B /* SubclassesOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubclassesOf.swift; sourceTree = "<group>"; };
 		E67825832264BE5100391616 /* CollectionViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewBinder.swift; sourceTree = "<group>"; };
 		E6957154229AA6DD002FD962 /* NSViewController+SliderGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+SliderGroup.swift"; sourceTree = "<group>"; };
 		E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 				E649783A2290B78A00AB9E8C /* FlippedView.swift */,
 				E6AEE3BC2251362A00BCA942 /* Xib.swift */,
 				E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */,
+				E664576B22A2783A0059AB1B /* SubclassesOf.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				E65BCB06222EA2E800F7A8BC /* Scenes.swift in Sources */,
 				E630E2072293076E00CFEED4 /* iCloudNinjaService.swift in Sources */,
 				E630E2082293076E00CFEED4 /* iCloudNinja-Fetch.swift in Sources */,
+				E664576C22A2783A0059AB1B /* SubclassesOf.swift in Sources */,
 				E62E99F8229FFBF600B93C2F /* StatusBarController.swift in Sources */,
 				E657568E228D4CA0004C10F6 /* NSAttributedString+Ext.swift in Sources */,
 				E630E1FF2293076E00CFEED4 /* iCloudRx-Delete.swift in Sources */,
