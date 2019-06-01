@@ -27,15 +27,4 @@ public class NinjaContext {
             
         }
     }
-    
-    public class Daemon {
-        open class Main : ExecutionContext, ReleasePoolOwner {
-            public var executor: Executor { return Executor.init(queue: DispatchQueue.main) }
-            public let releasePool = ReleasePool()
-            
-            public init() {
-                
-            }
-        }
-    }
 }

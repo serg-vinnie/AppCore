@@ -88,6 +88,7 @@
 		E65BCB7E222F04F900F7A8BC /* NSProgressIndicator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */; };
 		E664576922A183F10059AB1B /* NSPopUpButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664576822A183F10059AB1B /* NSPopUpButton+Ext.swift */; };
 		E664576C22A2783A0059AB1B /* SubclassesOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664576B22A2783A0059AB1B /* SubclassesOf.swift */; };
+		E664576F22A2848D0059AB1B /* DaemonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664576E22A2848D0059AB1B /* DaemonsService.swift */; };
 		E67825842264BE5100391616 /* CollectionViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67825832264BE5100391616 /* CollectionViewBinder.swift */; };
 		E6957155229AA6DD002FD962 /* NSViewController+SliderGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6957154229AA6DD002FD962 /* NSViewController+SliderGroup.swift */; };
 		E695DF76224F938F00611D2B /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */; };
@@ -201,6 +202,7 @@
 		E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProgressIndicator+Rx.swift"; sourceTree = "<group>"; };
 		E664576822A183F10059AB1B /* NSPopUpButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopUpButton+Ext.swift"; sourceTree = "<group>"; };
 		E664576B22A2783A0059AB1B /* SubclassesOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubclassesOf.swift; sourceTree = "<group>"; };
+		E664576E22A2848D0059AB1B /* DaemonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaemonsService.swift; sourceTree = "<group>"; };
 		E67825832264BE5100391616 /* CollectionViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewBinder.swift; sourceTree = "<group>"; };
 		E6957154229AA6DD002FD962 /* NSViewController+SliderGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+SliderGroup.swift"; sourceTree = "<group>"; };
 		E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 		E65BCAFD222EA2E800F7A8BC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E664576D22A2846D0059AB1B /* Daemons */,
 				E630E1DF2293076D00CFEED4 /* iCloud */,
 				E630E1CE2292F70A00CFEED4 /* Config */,
 				E6B33195225554470060CB6C /* ThumbnailService */,
@@ -487,6 +490,14 @@
 				E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */,
 			);
 			path = "Cocoa+Rx";
+			sourceTree = "<group>";
+		};
+		E664576D22A2846D0059AB1B /* Daemons */ = {
+			isa = PBXGroup;
+			children = (
+				E664576E22A2848D0059AB1B /* DaemonsService.swift */,
+			);
+			path = Daemons;
 			sourceTree = "<group>";
 		};
 		E695DF71224F90AF00611D2B /* Binding */ = {
@@ -748,6 +759,7 @@
 				E630E1D42292F70A00CFEED4 /* ConfigBackendProtocol.swift in Sources */,
 				E65BCB7D222F04F900F7A8BC /* NSView+TrackingArea+Rx.swift in Sources */,
 				E630E2022293076E00CFEED4 /* iCloudRx-Auth.swift in Sources */,
+				E664576F22A2848D0059AB1B /* DaemonsService.swift in Sources */,
 				E65BCB0D222EA2E800F7A8BC /* NSStoryboard+Ext.swift in Sources */,
 				E65BCB7A222F04F900F7A8BC /* FlagsChangeg+Rx.swift in Sources */,
 				E65BCB7E222F04F900F7A8BC /* NSProgressIndicator+Rx.swift in Sources */,
