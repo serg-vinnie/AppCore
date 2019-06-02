@@ -24,7 +24,6 @@ public extension Signal {
 class StatusBarController : NSObject {
     private let icon         = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     private var popover      :  NSPopover?
-    private var monitorToken = CancellationToken()
     
     override init() {
         super.init()
@@ -72,16 +71,12 @@ private extension StatusBarController {
             startMonitor()
         } else {
             pop.performClose(self)
-            stopMonitor()
         }
     }
     
     func startMonitor() {
-        NSEvent.globalMonitor(matching: [.leftMouseDown, .rightMouseDown], cancellationToken: monitorToken)
+        NSEvent.globalMonitor(matching: [.leftMouseDown, .rightMouseDown])
+            .take(first: 1, last: 0)
             .onUpdate(context: popover!) { [weak self] _, _ in self?.showPopOver(false) }
-    }
-    
-    func stopMonitor() {
-        monitorToken.cancel()
     }
 }
