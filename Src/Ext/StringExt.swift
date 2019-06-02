@@ -63,7 +63,7 @@ public extension String {
     }
     
     func indexInt(of char: Character) -> Int? {
-        return firstIndex(of: char)?.encodedOffset
+        return firstIndex(of: char)?.utf16Offset(in: self)
     }
     
     ///  Created by DragonCherry on 5/11/17.
