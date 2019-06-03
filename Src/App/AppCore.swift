@@ -44,9 +44,10 @@ public class AppCore {
 }
 
 public extension AppCore {
-    static func initStatusBar(img: NSImage) {
+    static func initStatusBar(img: NSImage, menu: NSMenu? = nil) {
         statusBar = StatusBarController()
         statusBar?.set(img: img)
+        if let menu = menu { statusBar?.set(menu: menu) }
     }
     
     static func initDaemonService(signals: SignalsService? = nil, container: Container? = nil) {

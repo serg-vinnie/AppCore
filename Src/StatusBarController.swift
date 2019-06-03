@@ -40,6 +40,10 @@ class StatusBarController : NSObject {
         icon.image = img
     }
     
+    func set(menu: NSMenu) {
+        icon.menu = menu
+    }
+    
     func setPopOver(controller: NSViewController) {
         if popover == nil {
             popover = NSPopover()
