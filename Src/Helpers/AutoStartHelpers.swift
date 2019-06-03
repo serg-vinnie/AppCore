@@ -33,7 +33,7 @@ public class AutoStartHelper {
         }
     }
     
-    func runLauncherAndListenForTermination() {
+    public func runLauncherAndListenForTermination() {
         if !isAppRunning(id: hostAppId) {
             DistributedNotificationCenter.default()
                 .addObserver(self, selector: #selector(terminate), name: NotificationAppDidStart, object: nil)
