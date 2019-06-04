@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 import AsyncNinja
 
-open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
+open class CollectionService<Entity> : NinjaContext.Main where Entity : CollectionEntity {
     let alias : String
     public let db : RealmBackendService
     public let thumbnails : ThumbnailService
@@ -82,6 +82,10 @@ open class CollectionService<Entity> : Ninja where Entity : CollectionEntity {
         
         guard let entity : Entity = db.objectWith(key: key)  else { return }
         db.delete(object: entity)
+    }
+    
+    public func deleteAll() {
+        db.deleteAll(type: Entity.self);
     }
     
     public func getItemBy(key: String) -> Entity? {

@@ -9,22 +9,22 @@
 import Foundation
 import AsyncNinja
 
-open class Ninja : ExecutionContext, ReleasePoolOwner {
-    public let dispatchQueue = DispatchQueue.main
-    public var executor: Executor { return Executor.init(queue: dispatchQueue) }
-    public let releasePool = ReleasePool()
-
-    public init() {
+public class NinjaContext {
+    open class Main : ExecutionContext, ReleasePoolOwner {
+        public var executor: Executor { return Executor.init(queue: DispatchQueue.main) }
+        public let releasePool = ReleasePool()
         
+        public init() {
+            
+        }
     }
-}
-
-open class NinjaBackground : ExecutionContext, ReleasePoolOwner {
-    public let dispatchQueue = DispatchQueue.global()
-    public var executor: Executor { return Executor.init(queue: dispatchQueue) }
-    public let releasePool = ReleasePool()
     
-    public init() {
+    open class Global : ExecutionContext, ReleasePoolOwner {
+        public var executor: Executor { return Executor.init(queue: DispatchQueue.global()) }
+        public let releasePool = ReleasePool()
         
+        public init() {
+            
+        }
     }
 }

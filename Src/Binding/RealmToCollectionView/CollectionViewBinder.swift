@@ -46,31 +46,28 @@ public class CollectionViewBinder<EntityType: CollectionEntity> {
         return self
     }
     
-    public func bindTo<ItemType>(view: NSCollectionView, itemId: String, storyboard: NSStoryboard, config: @escaping CustomItemConfig<EntityType,ItemType> = {_,_ in }) {
-        let dataSource = CollectionViewDataSource<EntityType>(itemFactory: collectionItemFactory(
-            storyboard: storyboard, id: itemId, service: service, defaultImage: defaultImage, customConfig: config))
+    public func bindTo<ItemType>(view: NSCollectionView, itemId: String = "CollectionViewItem", config: @escaping CustomItemConfig<EntityType,ItemType> = {_,_ in }) {
         
-        dataSource.delegate = delegate
-        dataSource.bindWith(realmQuery: service.queryAllItems(), view: view)
-    }
-}
-
-public func collectionItemFactory<E: CollectionEntity, V: CollectionViewItem>(storyboard: NSStoryboard, id: String, service: CollectionService<E>, defaultImage: NSImage?, customConfig: CustomItemConfig<E,V>?) -> CollectionItemFactory<E> {
-    return { dataSource, view, indexPath, realmItem in
-        let item = storyboard.viewController(id: id) as! V
+        // prepare values to pass into closure
+        let signals = service.signals
+        let thumbnailsUrl = service.thumbnails.url
+        let defaultImage = self.defaultImage
         
-        item.key        = realmItem.key
-        item.alias      = realmItem.alias
-        item.signals    = service.signals
-        
-        if realmItem.iconPath.count > 0 {
-            item.image = NSImage(byReferencingFile: service.thumbnails.url.appendingPathComponent(realmItem.iconPath).path)
-        } else {
-            item.image = defaultImage
+        let dataSource = CollectionViewDataSource<EntityType>(itemIdentifier: itemId, itemType: ItemType.self) { item, idx, realmItem  in
+            item.key        = realmItem.key
+            item.alias      = realmItem.alias
+            item.signals    = signals
+            
+            if realmItem.iconPath.count > 0 {
+                item.image = NSImage(byReferencingFile: thumbnailsUrl.appendingPathComponent(realmItem.iconPath).path)
+            } else {
+                item.image = defaultImage
+            }
+            
+            config(item,realmItem)
         }
         
-        customConfig?(item,realmItem)
-        
-        return item
+        dataSource.delegate = delegate
+        dataSource.bindWith(collectionService: service, view: view)
     }
 }

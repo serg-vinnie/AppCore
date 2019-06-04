@@ -9,7 +9,49 @@
 /* Begin PBXBuildFile section */
 		E60808592274485B0035F488 /* RealmDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60808582274485B0035F488 /* RealmDataSource.swift */; };
 		E60B2AE52256112500D2363B /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B2AE42256112500D2363B /* CollectionViewItem.swift */; };
+		E614653822940CB3001EC0C0 /* DispatchHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614653722940CB3001EC0C0 /* DispatchHelpers.swift */; };
+		E614653A22940D06001EC0C0 /* OperationOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614653922940D06001EC0C0 /* OperationOrder.swift */; };
+		E614653C2294167D001EC0C0 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614653B2294167D001EC0C0 /* Environment.swift */; };
+		E614653E229416B0001EC0C0 /* TimerZbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614653D229416AF001EC0C0 /* TimerZbs.swift */; };
+		E6146540229416FB001EC0C0 /* MathHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614653F229416FB001EC0C0 /* MathHelpers.swift */; };
+		E61465422294190D001EC0C0 /* AutoStartHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61465412294190C001EC0C0 /* AutoStartHelpers.swift */; };
+		E614654422941BF1001EC0C0 /* NSStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614654322941BF1001EC0C0 /* NSStackView+Ext.swift */; };
+		E614654622941E56001EC0C0 /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614654522941E56001EC0C0 /* DictionaryExt.swift */; };
+		E614657F22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614657E22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift */; };
 		E629DC18223A72C900669FD3 /* NSWindow+Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */; };
+		E62E99F8229FFBF600B93C2F /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62E99F7229FFBF600B93C2F /* StatusBarController.swift */; };
+		E630E1B82292F47C00CFEED4 /* NSViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1B72292F47C00CFEED4 /* NSViewController+Ext.swift */; };
+		E630E1CD2292F64100CFEED4 /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1CC2292F64100CFEED4 /* ArrayExt.swift */; };
+		E630E1D42292F70A00CFEED4 /* ConfigBackendProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1CF2292F70A00CFEED4 /* ConfigBackendProtocol.swift */; };
+		E630E1D52292F70A00CFEED4 /* ConfigCloudKeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1D02292F70A00CFEED4 /* ConfigCloudKeyValue.swift */; };
+		E630E1D62292F70A00CFEED4 /* ConfigRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1D12292F70A00CFEED4 /* ConfigRx.swift */; };
+		E630E1D72292F70A00CFEED4 /* ConfigR.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1D22292F70A00CFEED4 /* ConfigR.swift */; };
+		E630E1D82292F70A00CFEED4 /* ConfigUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1D32292F70A00CFEED4 /* ConfigUserDefaults.swift */; };
+		E630E1DA2292F74300CFEED4 /* SettingsContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1D92292F74200CFEED4 /* SettingsContext.swift */; };
+		E630E1DC2292FE4A00CFEED4 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1DB2292FE4A00CFEED4 /* ContainerViewController.swift */; };
+		E630E1F92293076E00CFEED4 /* iCloudDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1E12293076D00CFEED4 /* iCloudDelete.swift */; };
+		E630E1FA2293076E00CFEED4 /* iCloudQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1E22293076D00CFEED4 /* iCloudQuery.swift */; };
+		E630E1FB2293076E00CFEED4 /* iCloudChangeFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1E32293076D00CFEED4 /* iCloudChangeFetcher.swift */; };
+		E630E1FC2293076E00CFEED4 /* iCloudFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1E42293076D00CFEED4 /* iCloudFetcher.swift */; };
+		E630E1FD2293076E00CFEED4 /* iCloudSubscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1E52293076D00CFEED4 /* iCloudSubscriptions.swift */; };
+		E630E1FE2293076E00CFEED4 /* iCloudRxSubscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1E72293076D00CFEED4 /* iCloudRxSubscriptions.swift */; };
+		E630E1FF2293076E00CFEED4 /* iCloudRx-Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1E92293076D00CFEED4 /* iCloudRx-Delete.swift */; };
+		E630E2002293076E00CFEED4 /* iCloudRx-Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1EA2293076D00CFEED4 /* iCloudRx-Push.swift */; };
+		E630E2012293076E00CFEED4 /* iCloudRx-Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1EB2293076D00CFEED4 /* iCloudRx-Fetch.swift */; };
+		E630E2022293076E00CFEED4 /* iCloudRx-Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1EC2293076D00CFEED4 /* iCloudRx-Auth.swift */; };
+		E630E2032293076E00CFEED4 /* iCloudRx-Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1ED2293076D00CFEED4 /* iCloudRx-Query.swift */; };
+		E630E2042293076E00CFEED4 /* iCloudRx-Subscribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1EE2293076D00CFEED4 /* iCloudRx-Subscribe.swift */; };
+		E630E2052293076E00CFEED4 /* iCloudRx-UserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1EF2293076D00CFEED4 /* iCloudRx-UserID.swift */; };
+		E630E2062293076E00CFEED4 /* iCloudRxService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1F02293076D00CFEED4 /* iCloudRxService.swift */; };
+		E630E2072293076E00CFEED4 /* iCloudNinjaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1F22293076E00CFEED4 /* iCloudNinjaService.swift */; };
+		E630E2082293076E00CFEED4 /* iCloudNinja-Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1F42293076E00CFEED4 /* iCloudNinja-Fetch.swift */; };
+		E630E2092293076E00CFEED4 /* iCloudNinja-Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1F52293076E00CFEED4 /* iCloudNinja-Push.swift */; };
+		E630E20A2293076E00CFEED4 /* iCloudNinja-Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1F62293076E00CFEED4 /* iCloudNinja-Status.swift */; };
+		E630E20B2293076E00CFEED4 /* iCloudNinja-Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1F72293076E00CFEED4 /* iCloudNinja-Query.swift */; };
+		E630E20C2293076E00CFEED4 /* iCloudNinja-Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1F82293076E00CFEED4 /* iCloudNinja-Delete.swift */; };
+		E649783B2290B78A00AB9E8C /* FlippedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649783A2290B78A00AB9E8C /* FlippedView.swift */; };
+		E6555C0F229BE7A50086E214 /* NSEvent+Ninja.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6555C0E229BE7A50086E214 /* NSEvent+Ninja.swift */; };
+		E657568E228D4CA0004C10F6 /* NSAttributedString+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E657568D228D4CA0004C10F6 /* NSAttributedString+Ext.swift */; };
 		E65BCAE0222EA26100F7A8BC /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCAD6222EA26100F7A8BC /* AppCore.framework */; };
 		E65BCAE5222EA26100F7A8BC /* AppCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCAE4222EA26100F7A8BC /* AppCoreTests.swift */; };
 		E65BCAE7222EA26100F7A8BC /* AppCore.h in Headers */ = {isa = PBXBuildFile; fileRef = E65BCAD9222EA26100F7A8BC /* AppCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,7 +86,11 @@
 		E65BCB7C222F04F900F7A8BC /* NSPopUpButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB77222F04F000F7A8BC /* NSPopUpButton+Rx.swift */; };
 		E65BCB7D222F04F900F7A8BC /* NSView+TrackingArea+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */; };
 		E65BCB7E222F04F900F7A8BC /* NSProgressIndicator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */; };
+		E664576922A183F10059AB1B /* NSPopUpButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664576822A183F10059AB1B /* NSPopUpButton+Ext.swift */; };
+		E664576C22A2783A0059AB1B /* SubclassesOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664576B22A2783A0059AB1B /* SubclassesOf.swift */; };
+		E664576F22A2848D0059AB1B /* DaemonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664576E22A2848D0059AB1B /* DaemonsService.swift */; };
 		E67825842264BE5100391616 /* CollectionViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67825832264BE5100391616 /* CollectionViewBinder.swift */; };
+		E6957155229AA6DD002FD962 /* NSViewController+SliderGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6957154229AA6DD002FD962 /* NSViewController+SliderGroup.swift */; };
 		E695DF76224F938F00611D2B /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */; };
 		E695DF78224F961500611D2B /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E695DF77224F961500611D2B /* Binding.swift */; };
 		E6A6B199224D693A00196DD3 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B198224D693A00196DD3 /* Then.swift */; };
@@ -57,6 +103,7 @@
 		E6CF23E4226B560F0004C436 /* NSView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CF23E3226B560F0004C436 /* NSView+Ext.swift */; };
 		E6DC5B982253EB2D00123606 /* CollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B972253EB2D00123606 /* CollectionService.swift */; };
 		E6DC5B9D2253EECB00123606 /* CollectionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */; };
+		E6DD1251228B569A00EF2C8A /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6DD1250228B569A00EF2C8A /* CollectionViewItem.xib */; };
 		E6E59409226EF84C0006EF4C /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E59408226EF84C0006EF4C /* StringExt.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,7 +120,49 @@
 /* Begin PBXFileReference section */
 		E60808582274485B0035F488 /* RealmDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataSource.swift; sourceTree = "<group>"; };
 		E60B2AE42256112500D2363B /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
+		E614653722940CB3001EC0C0 /* DispatchHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchHelpers.swift; sourceTree = "<group>"; };
+		E614653922940D06001EC0C0 /* OperationOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationOrder.swift; sourceTree = "<group>"; };
+		E614653B2294167D001EC0C0 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		E614653D229416AF001EC0C0 /* TimerZbs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerZbs.swift; sourceTree = "<group>"; };
+		E614653F229416FB001EC0C0 /* MathHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathHelpers.swift; sourceTree = "<group>"; };
+		E61465412294190C001EC0C0 /* AutoStartHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoStartHelpers.swift; sourceTree = "<group>"; };
+		E614654322941BF1001EC0C0 /* NSStackView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSStackView+Ext.swift"; sourceTree = "<group>"; };
+		E614654522941E56001EC0C0 /* DictionaryExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExt.swift; sourceTree = "<group>"; };
+		E614657E22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+TrackingArea+Ninja.swift"; sourceTree = "<group>"; };
 		E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSWindow+Fade.swift"; sourceTree = "<group>"; };
+		E62E99F7229FFBF600B93C2F /* StatusBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
+		E630E1B72292F47C00CFEED4 /* NSViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSViewController+Ext.swift"; sourceTree = "<group>"; };
+		E630E1CC2292F64100CFEED4 /* ArrayExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExt.swift; sourceTree = "<group>"; };
+		E630E1CF2292F70A00CFEED4 /* ConfigBackendProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigBackendProtocol.swift; sourceTree = "<group>"; };
+		E630E1D02292F70A00CFEED4 /* ConfigCloudKeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigCloudKeyValue.swift; sourceTree = "<group>"; };
+		E630E1D12292F70A00CFEED4 /* ConfigRx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigRx.swift; sourceTree = "<group>"; };
+		E630E1D22292F70A00CFEED4 /* ConfigR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigR.swift; sourceTree = "<group>"; };
+		E630E1D32292F70A00CFEED4 /* ConfigUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigUserDefaults.swift; sourceTree = "<group>"; };
+		E630E1D92292F74200CFEED4 /* SettingsContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsContext.swift; sourceTree = "<group>"; };
+		E630E1DB2292FE4A00CFEED4 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		E630E1E12293076D00CFEED4 /* iCloudDelete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloudDelete.swift; sourceTree = "<group>"; };
+		E630E1E22293076D00CFEED4 /* iCloudQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloudQuery.swift; sourceTree = "<group>"; };
+		E630E1E32293076D00CFEED4 /* iCloudChangeFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloudChangeFetcher.swift; sourceTree = "<group>"; };
+		E630E1E42293076D00CFEED4 /* iCloudFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloudFetcher.swift; sourceTree = "<group>"; };
+		E630E1E52293076D00CFEED4 /* iCloudSubscriptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloudSubscriptions.swift; sourceTree = "<group>"; };
+		E630E1E72293076D00CFEED4 /* iCloudRxSubscriptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloudRxSubscriptions.swift; sourceTree = "<group>"; };
+		E630E1E92293076D00CFEED4 /* iCloudRx-Delete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudRx-Delete.swift"; sourceTree = "<group>"; };
+		E630E1EA2293076D00CFEED4 /* iCloudRx-Push.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudRx-Push.swift"; sourceTree = "<group>"; };
+		E630E1EB2293076D00CFEED4 /* iCloudRx-Fetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudRx-Fetch.swift"; sourceTree = "<group>"; };
+		E630E1EC2293076D00CFEED4 /* iCloudRx-Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudRx-Auth.swift"; sourceTree = "<group>"; };
+		E630E1ED2293076D00CFEED4 /* iCloudRx-Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudRx-Query.swift"; sourceTree = "<group>"; };
+		E630E1EE2293076D00CFEED4 /* iCloudRx-Subscribe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudRx-Subscribe.swift"; sourceTree = "<group>"; };
+		E630E1EF2293076D00CFEED4 /* iCloudRx-UserID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudRx-UserID.swift"; sourceTree = "<group>"; };
+		E630E1F02293076D00CFEED4 /* iCloudRxService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloudRxService.swift; sourceTree = "<group>"; };
+		E630E1F22293076E00CFEED4 /* iCloudNinjaService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloudNinjaService.swift; sourceTree = "<group>"; };
+		E630E1F42293076E00CFEED4 /* iCloudNinja-Fetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudNinja-Fetch.swift"; sourceTree = "<group>"; };
+		E630E1F52293076E00CFEED4 /* iCloudNinja-Push.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudNinja-Push.swift"; sourceTree = "<group>"; };
+		E630E1F62293076E00CFEED4 /* iCloudNinja-Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudNinja-Status.swift"; sourceTree = "<group>"; };
+		E630E1F72293076E00CFEED4 /* iCloudNinja-Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudNinja-Query.swift"; sourceTree = "<group>"; };
+		E630E1F82293076E00CFEED4 /* iCloudNinja-Delete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudNinja-Delete.swift"; sourceTree = "<group>"; };
+		E649783A2290B78A00AB9E8C /* FlippedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlippedView.swift; sourceTree = "<group>"; };
+		E6555C0E229BE7A50086E214 /* NSEvent+Ninja.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+Ninja.swift"; sourceTree = "<group>"; };
+		E657568D228D4CA0004C10F6 /* NSAttributedString+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Ext.swift"; sourceTree = "<group>"; };
 		E65BCAD6222EA26100F7A8BC /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65BCAD9222EA26100F7A8BC /* AppCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCore.h; sourceTree = "<group>"; };
 		E65BCADA222EA26100F7A8BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,7 +200,11 @@
 		E65BCB77222F04F000F7A8BC /* NSPopUpButton+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPopUpButton+Rx.swift"; sourceTree = "<group>"; };
 		E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+TrackingArea+Rx.swift"; sourceTree = "<group>"; };
 		E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProgressIndicator+Rx.swift"; sourceTree = "<group>"; };
+		E664576822A183F10059AB1B /* NSPopUpButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopUpButton+Ext.swift"; sourceTree = "<group>"; };
+		E664576B22A2783A0059AB1B /* SubclassesOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubclassesOf.swift; sourceTree = "<group>"; };
+		E664576E22A2848D0059AB1B /* DaemonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaemonsService.swift; sourceTree = "<group>"; };
 		E67825832264BE5100391616 /* CollectionViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewBinder.swift; sourceTree = "<group>"; };
+		E6957154229AA6DD002FD962 /* NSViewController+SliderGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+SliderGroup.swift"; sourceTree = "<group>"; };
 		E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		E695DF77224F961500611D2B /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		E6A6B198224D693A00196DD3 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
@@ -124,6 +217,7 @@
 		E6CF23E3226B560F0004C436 /* NSView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+Ext.swift"; sourceTree = "<group>"; };
 		E6DC5B972253EB2D00123606 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = "<group>"; };
 		E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEntity.swift; sourceTree = "<group>"; };
+		E6DD1250228B569A00EF2C8A /* CollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CollectionViewItem.xib; path = Src/Binding/RealmToCollectionView/CollectionViewItem/CollectionViewItem.xib; sourceTree = SOURCE_ROOT; };
 		E6E59408226EF84C0006EF4C /* StringExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +250,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E614657D229984F5001EC0C0 /* AsyncNinja */ = {
+			isa = PBXGroup;
+			children = (
+				E614657E22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift */,
+				E6957154229AA6DD002FD962 /* NSViewController+SliderGroup.swift */,
+				E6555C0E229BE7A50086E214 /* NSEvent+Ninja.swift */,
+			);
+			path = AsyncNinja;
+			sourceTree = "<group>";
+		};
+		E630E1CE2292F70A00CFEED4 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				E630E1D92292F74200CFEED4 /* SettingsContext.swift */,
+				E630E1CF2292F70A00CFEED4 /* ConfigBackendProtocol.swift */,
+				E630E1D02292F70A00CFEED4 /* ConfigCloudKeyValue.swift */,
+				E630E1D12292F70A00CFEED4 /* ConfigRx.swift */,
+				E630E1D22292F70A00CFEED4 /* ConfigR.swift */,
+				E630E1D32292F70A00CFEED4 /* ConfigUserDefaults.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		E630E1DF2293076D00CFEED4 /* iCloud */ = {
+			isa = PBXGroup;
+			children = (
+				E630E1E02293076D00CFEED4 /* Obsolete */,
+				E630E1E62293076D00CFEED4 /* Rx */,
+				E630E1F12293076D00CFEED4 /* Re */,
+			);
+			path = iCloud;
+			sourceTree = "<group>";
+		};
+		E630E1E02293076D00CFEED4 /* Obsolete */ = {
+			isa = PBXGroup;
+			children = (
+				E630E1E12293076D00CFEED4 /* iCloudDelete.swift */,
+				E630E1E22293076D00CFEED4 /* iCloudQuery.swift */,
+				E630E1E32293076D00CFEED4 /* iCloudChangeFetcher.swift */,
+				E630E1E42293076D00CFEED4 /* iCloudFetcher.swift */,
+				E630E1E52293076D00CFEED4 /* iCloudSubscriptions.swift */,
+			);
+			path = Obsolete;
+			sourceTree = "<group>";
+		};
+		E630E1E62293076D00CFEED4 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				E630E1E72293076D00CFEED4 /* iCloudRxSubscriptions.swift */,
+				E630E1E82293076D00CFEED4 /* Actions */,
+				E630E1F02293076D00CFEED4 /* iCloudRxService.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
+		E630E1E82293076D00CFEED4 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				E630E1E92293076D00CFEED4 /* iCloudRx-Delete.swift */,
+				E630E1EA2293076D00CFEED4 /* iCloudRx-Push.swift */,
+				E630E1EB2293076D00CFEED4 /* iCloudRx-Fetch.swift */,
+				E630E1EC2293076D00CFEED4 /* iCloudRx-Auth.swift */,
+				E630E1ED2293076D00CFEED4 /* iCloudRx-Query.swift */,
+				E630E1EE2293076D00CFEED4 /* iCloudRx-Subscribe.swift */,
+				E630E1EF2293076D00CFEED4 /* iCloudRx-UserID.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		E630E1F12293076D00CFEED4 /* Re */ = {
+			isa = PBXGroup;
+			children = (
+				E630E1F22293076E00CFEED4 /* iCloudNinjaService.swift */,
+				E630E1F32293076E00CFEED4 /* Actions */,
+			);
+			path = Re;
+			sourceTree = "<group>";
+		};
+		E630E1F32293076E00CFEED4 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				E630E1F42293076E00CFEED4 /* iCloudNinja-Fetch.swift */,
+				E630E1F52293076E00CFEED4 /* iCloudNinja-Push.swift */,
+				E630E1F62293076E00CFEED4 /* iCloudNinja-Status.swift */,
+				E630E1F72293076E00CFEED4 /* iCloudNinja-Query.swift */,
+				E630E1F82293076E00CFEED4 /* iCloudNinja-Delete.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
 		E65BCACC222EA26100F7A8BC = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +382,8 @@
 		E65BCAF0222EA2E800F7A8BC /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				E62E99F7229FFBF600B93C2F /* StatusBarController.swift */,
+				E630E1DB2292FE4A00CFEED4 /* ContainerViewController.swift */,
 				E695DF71224F90AF00611D2B /* Binding */,
 				E6A6B19E224D69DB00196DD3 /* Helpers */,
 				E65BCAF1222EA2E800F7A8BC /* App */,
@@ -224,7 +410,16 @@
 		E65BCAF9222EA2E800F7A8BC /* Ext */ = {
 			isa = PBXGroup;
 			children = (
+				E614657D229984F5001EC0C0 /* AsyncNinja */,
+				E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */,
+				E664576822A183F10059AB1B /* NSPopUpButton+Ext.swift */,
+				E6CF23E3226B560F0004C436 /* NSView+Ext.swift */,
+				E614654522941E56001EC0C0 /* DictionaryExt.swift */,
+				E614654322941BF1001EC0C0 /* NSStackView+Ext.swift */,
+				E630E1CC2292F64100CFEED4 /* ArrayExt.swift */,
+				E630E1B72292F47C00CFEED4 /* NSViewController+Ext.swift */,
 				E6E59408226EF84C0006EF4C /* StringExt.swift */,
+				E657568D228D4CA0004C10F6 /* NSAttributedString+Ext.swift */,
 				E65BCB74222F04F000F7A8BC /* Cocoa+Rx */,
 				E65BCAFA222EA2E800F7A8BC /* NSStoryboard+Ext.swift */,
 				E65BCAFB222EA2E800F7A8BC /* Thread+Ext.swift */,
@@ -236,6 +431,9 @@
 		E65BCAFD222EA2E800F7A8BC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E664576D22A2846D0059AB1B /* Daemons */,
+				E630E1DF2293076D00CFEED4 /* iCloud */,
+				E630E1CE2292F70A00CFEED4 /* Config */,
 				E6B33195225554470060CB6C /* ThumbnailService */,
 				E6DC5B962253EB1600123606 /* Collection */,
 				E65BCAFE222EA2E800F7A8BC /* StatesService */,
@@ -285,8 +483,6 @@
 		E65BCB74222F04F000F7A8BC /* Cocoa+Rx */ = {
 			isa = PBXGroup;
 			children = (
-				E6CF23E3226B560F0004C436 /* NSView+Ext.swift */,
-				E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */,
 				E65BCB75222F04F000F7A8BC /* FlagsChangeg+Rx.swift */,
 				E65BCB76222F04F000F7A8BC /* NSButton+Rx.swift */,
 				E65BCB77222F04F000F7A8BC /* NSPopUpButton+Rx.swift */,
@@ -296,13 +492,21 @@
 			path = "Cocoa+Rx";
 			sourceTree = "<group>";
 		};
+		E664576D22A2846D0059AB1B /* Daemons */ = {
+			isa = PBXGroup;
+			children = (
+				E664576E22A2848D0059AB1B /* DaemonsService.swift */,
+			);
+			path = Daemons;
+			sourceTree = "<group>";
+		};
 		E695DF71224F90AF00611D2B /* Binding */ = {
 			isa = PBXGroup;
 			children = (
+				E60808582274485B0035F488 /* RealmDataSource.swift */,
 				E695DF77224F961500611D2B /* Binding.swift */,
 				E6C346ED22667C000042A1D2 /* RealmToTableView */,
 				E695DF72224F90B700611D2B /* RealmToCollectionView */,
-				E60808582274485B0035F488 /* RealmDataSource.swift */,
 			);
 			path = Binding;
 			sourceTree = "<group>";
@@ -310,6 +514,7 @@
 		E695DF72224F90B700611D2B /* RealmToCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				E6DD1252228BF28A00EF2C8A /* CollectionViewItem */,
 				E67825832264BE5100391616 /* CollectionViewBinder.swift */,
 				E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */,
 			);
@@ -319,8 +524,16 @@
 		E6A6B19E224D69DB00196DD3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E61465412294190C001EC0C0 /* AutoStartHelpers.swift */,
+				E614653F229416FB001EC0C0 /* MathHelpers.swift */,
+				E614653D229416AF001EC0C0 /* TimerZbs.swift */,
+				E614653B2294167D001EC0C0 /* Environment.swift */,
+				E614653922940D06001EC0C0 /* OperationOrder.swift */,
+				E614653722940CB3001EC0C0 /* DispatchHelpers.swift */,
+				E649783A2290B78A00AB9E8C /* FlippedView.swift */,
 				E6AEE3BC2251362A00BCA942 /* Xib.swift */,
 				E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */,
+				E664576B22A2783A0059AB1B /* SubclassesOf.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -347,9 +560,17 @@
 			children = (
 				E6DC5B972253EB2D00123606 /* CollectionService.swift */,
 				E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */,
-				E60B2AE42256112500D2363B /* CollectionViewItem.swift */,
 			);
 			path = Collection;
+			sourceTree = "<group>";
+		};
+		E6DD1252228BF28A00EF2C8A /* CollectionViewItem */ = {
+			isa = PBXGroup;
+			children = (
+				E60B2AE42256112500D2363B /* CollectionViewItem.swift */,
+				E6DD1250228B569A00EF2C8A /* CollectionViewItem.xib */,
+			);
+			path = CollectionViewItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,6 +665,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E65BCB17222EA35100F7A8BC /* Cartfile in Resources */,
+				E6DD1251228B569A00EF2C8A /* CollectionViewItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,42 +683,88 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E664576922A183F10059AB1B /* NSPopUpButton+Ext.swift in Sources */,
+				E630E2052293076E00CFEED4 /* iCloudRx-UserID.swift in Sources */,
 				E695DF76224F938F00611D2B /* CollectionViewDataSource.swift in Sources */,
+				E630E1D62292F70A00CFEED4 /* ConfigRx.swift in Sources */,
 				E65BCB0A222EA2E800F7A8BC /* ServiceEnvironment.swift in Sources */,
 				E65BCB09222EA2E800F7A8BC /* AppCoreContainer.swift in Sources */,
 				E6DC5B982253EB2D00123606 /* CollectionService.swift in Sources */,
 				E65BCB14222EA2E800F7A8BC /* SignalsService.swift in Sources */,
+				E614653822940CB3001EC0C0 /* DispatchHelpers.swift in Sources */,
+				E630E20B2293076E00CFEED4 /* iCloudNinja-Query.swift in Sources */,
+				E630E1FD2293076E00CFEED4 /* iCloudSubscriptions.swift in Sources */,
 				E629DC18223A72C900669FD3 /* NSWindow+Fade.swift in Sources */,
+				E630E2042293076E00CFEED4 /* iCloudRx-Subscribe.swift in Sources */,
 				E60B2AE52256112500D2363B /* CollectionViewItem.swift in Sources */,
+				E6555C0F229BE7A50086E214 /* NSEvent+Ninja.swift in Sources */,
 				E65BCB13222EA2E800F7A8BC /* SignalDispatcher.swift in Sources */,
 				E65BCB10222EA2E800F7A8BC /* StatesServiceEnums.swift in Sources */,
+				E630E2092293076E00CFEED4 /* iCloudNinja-Push.swift in Sources */,
+				E630E20A2293076E00CFEED4 /* iCloudNinja-Status.swift in Sources */,
+				E630E1DC2292FE4A00CFEED4 /* ContainerViewController.swift in Sources */,
+				E630E1FC2293076E00CFEED4 /* iCloudFetcher.swift in Sources */,
+				E614653C2294167D001EC0C0 /* Environment.swift in Sources */,
+				E630E1D82292F70A00CFEED4 /* ConfigUserDefaults.swift in Sources */,
+				E630E1B82292F47C00CFEED4 /* NSViewController+Ext.swift in Sources */,
 				E695DF78224F961500611D2B /* Binding.swift in Sources */,
 				E65BCB7C222F04F900F7A8BC /* NSPopUpButton+Rx.swift in Sources */,
 				E6AEE3BD2251362A00BCA942 /* Xib.swift in Sources */,
+				E614653E229416B0001EC0C0 /* TimerZbs.swift in Sources */,
+				E630E2012293076E00CFEED4 /* iCloudRx-Fetch.swift in Sources */,
 				E6C346EF22667C240042A1D2 /* TableViewDataSource.swift in Sources */,
 				E65BCB07222EA2E800F7A8BC /* AppCore.swift in Sources */,
 				E65BCB06222EA2E800F7A8BC /* Scenes.swift in Sources */,
+				E630E2072293076E00CFEED4 /* iCloudNinjaService.swift in Sources */,
+				E630E2082293076E00CFEED4 /* iCloudNinja-Fetch.swift in Sources */,
+				E664576C22A2783A0059AB1B /* SubclassesOf.swift in Sources */,
+				E62E99F8229FFBF600B93C2F /* StatusBarController.swift in Sources */,
+				E657568E228D4CA0004C10F6 /* NSAttributedString+Ext.swift in Sources */,
+				E630E1FF2293076E00CFEED4 /* iCloudRx-Delete.swift in Sources */,
 				E65BCB0E222EA2E800F7A8BC /* Thread+Ext.swift in Sources */,
 				E6A6B199224D693A00196DD3 /* Then.swift in Sources */,
+				E614653A22940D06001EC0C0 /* OperationOrder.swift in Sources */,
+				E630E1CD2292F64100CFEED4 /* ArrayExt.swift in Sources */,
 				E65BCB7B222F04F900F7A8BC /* NSButton+Rx.swift in Sources */,
+				E630E1D52292F70A00CFEED4 /* ConfigCloudKeyValue.swift in Sources */,
 				E67825842264BE5100391616 /* CollectionViewBinder.swift in Sources */,
+				E630E2002293076E00CFEED4 /* iCloudRx-Push.swift in Sources */,
+				E630E1FE2293076E00CFEED4 /* iCloudRxSubscriptions.swift in Sources */,
+				E614657F22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift in Sources */,
 				E65BCB0C222EA2E800F7A8BC /* FS.swift in Sources */,
 				E65BCB15222EA2E800F7A8BC /* Signals.swift in Sources */,
+				E630E2032293076E00CFEED4 /* iCloudRx-Query.swift in Sources */,
+				E630E1FA2293076E00CFEED4 /* iCloudQuery.swift in Sources */,
+				E630E20C2293076E00CFEED4 /* iCloudNinja-Delete.swift in Sources */,
 				E6C346F3226736F70042A1D2 /* TableViewBinder.swift in Sources */,
 				E6E59409226EF84C0006EF4C /* StringExt.swift in Sources */,
+				E630E1F92293076E00CFEED4 /* iCloudDelete.swift in Sources */,
+				E649783B2290B78A00AB9E8C /* FlippedView.swift in Sources */,
 				E6CF23E4226B560F0004C436 /* NSView+Ext.swift in Sources */,
+				E630E1FB2293076E00CFEED4 /* iCloudChangeFetcher.swift in Sources */,
 				E6B33197225554610060CB6C /* ThumbnailService.swift in Sources */,
 				E65BCB11222EA2E800F7A8BC /* StatesService.swift in Sources */,
+				E6146540229416FB001EC0C0 /* MathHelpers.swift in Sources */,
 				E65BCB12222EA2E800F7A8BC /* StatesServiceItem.swift in Sources */,
+				E630E2062293076E00CFEED4 /* iCloudRxService.swift in Sources */,
 				E6DC5B9D2253EECB00123606 /* CollectionEntity.swift in Sources */,
 				E65BCB0B222EA2E800F7A8BC /* MVVMController.swift in Sources */,
+				E61465422294190D001EC0C0 /* AutoStartHelpers.swift in Sources */,
+				E630E1D72292F70A00CFEED4 /* ConfigR.swift in Sources */,
 				E65BCB0F222EA2E800F7A8BC /* Ninja.swift in Sources */,
+				E630E1DA2292F74300CFEED4 /* SettingsContext.swift in Sources */,
 				E6A6B19D224D699100196DD3 /* RealmBackendService.swift in Sources */,
 				E6A6B1A0224D69E500196DD3 /* RealmSingleton.swift in Sources */,
+				E6957155229AA6DD002FD962 /* NSViewController+SliderGroup.swift in Sources */,
+				E630E1D42292F70A00CFEED4 /* ConfigBackendProtocol.swift in Sources */,
 				E65BCB7D222F04F900F7A8BC /* NSView+TrackingArea+Rx.swift in Sources */,
+				E630E2022293076E00CFEED4 /* iCloudRx-Auth.swift in Sources */,
+				E664576F22A2848D0059AB1B /* DaemonsService.swift in Sources */,
 				E65BCB0D222EA2E800F7A8BC /* NSStoryboard+Ext.swift in Sources */,
 				E65BCB7A222F04F900F7A8BC /* FlagsChangeg+Rx.swift in Sources */,
 				E65BCB7E222F04F900F7A8BC /* NSProgressIndicator+Rx.swift in Sources */,
+				E614654622941E56001EC0C0 /* DictionaryExt.swift in Sources */,
+				E614654422941BF1001EC0C0 /* NSStackView+Ext.swift in Sources */,
 				E60808592274485B0035F488 /* RealmDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,7 +17,6 @@ public extension CollectionService where Entity : CollectionEntity {
     }
 }
 
-
 /////////////////////////////////////
 /// TableViewBinder Binder Class
 ////////////////////////////////////

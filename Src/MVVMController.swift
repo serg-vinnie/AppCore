@@ -18,7 +18,6 @@ open class MVVMController<MyView,MyViewModel> : NSViewController, NSWindowDelega
     public lazy var myView             = { view as! MyView }()
     public var      myViewModel        : MyViewModel! { didSet { viewModelDidSet() } }
     open var        wndShouldClose     : Bool { return true }
-    open var        viewDidLoadNotify  : Bool { return false }
     open var        fixedSizeView      : Bool { return false }
     open var        setTitle           : String { return "" }
     open var        resolveViewModel   : Bool { return true }
@@ -84,6 +83,7 @@ open class MVVMController<MyView,MyViewModel> : NSViewController, NSWindowDelega
     public func closeWith(reason: String) {
         closeNotify(reason: reason)
         if self.parent != nil {
+            print("going to dismiss \(type(of: self)) \(#file)")
             dismiss(self)
         } else {
             view.window?.close()

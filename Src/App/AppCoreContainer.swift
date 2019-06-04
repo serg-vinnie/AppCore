@@ -9,13 +9,29 @@
 import Foundation
 import Swinject
 import SwinjectAutoregistration
+import CloudKit
 
+fileprivate let publicDB  = CKContainer.default().publicCloudDatabase
+fileprivate let privateDB = CKContainer.default().privateCloudDatabase
+fileprivate let cloudQueueID = "iCloudThread"
 
 func AppCoreContainer(env : ServiceEnvironment) -> Container {
     return Container(defaultObjectScope: .container) { c in
         c.register(ServiceEnvironment.self) { _ in return env }
-        c.register(SignalsService.self)     { _ in return SignalsService.main }
         
+        c.register(ConfigBackend.self) { r in r.resolve(ConfigUserDefaults.self)! }
+        c.autoregister(ConfigUserDefaults.self, initializer: ConfigUserDefaults.init)
+        
+        c.register(iCloudRxService.self, name: "public") { _ in
+            iCloudRxService(container: CKContainer.default(), cloudDB:publicDB, queueId: cloudQueueID)
+        }
+        //c.register(iCloudRxService.self) { r in r.resolve(iCloudRxService.self, name: "public")! }
+        
+        c.register(iCloudRxService.self, name: "private") { _ in
+            iCloudRxService(container: CKContainer.default(), cloudDB: privateDB, queueId: cloudQueueID)
+        }
+        
+        c.register(SignalsService.self)     { _ in return SignalsService.main }
         c.autoregister(StatesService.self,       initializer: StatesService.init)
         c.autoregister(Scenes.self,              initializer: Scenes.init)        
     }

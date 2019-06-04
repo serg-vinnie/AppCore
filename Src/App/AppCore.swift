@@ -36,10 +36,28 @@ public class AppCore {
     // Containers
     public static var mvvmContainer : Container?    // MVVMController resolves ViewModel from this container
     public static let container     = AppCoreContainer(env: env)
+    
+    public static var logFilters = [String]()
+    
+    private static var statusBar : StatusBarController?
+    private static var daemons : DaemonsService?
+}
+
+public extension AppCore {
+    static func initStatusBar(img: NSImage, menu: NSMenu? = nil) {
+        statusBar = StatusBarController()
+        statusBar?.set(img: img)
+        if let menu = menu { statusBar?.set(menu: menu) }
+    }
+    
+    static func initDaemonService(signals: SignalsService? = nil, container: Container? = nil) {
+        daemons = DaemonsService(signals: signals ?? AppCore.signals, container: container ?? AppCore.container)
+    }
 }
 
 public extension AppCore {
     static func log(title: String, msg: String, thread: Bool = false) {
+        guard shouldPass(title: title) else { return }
         if thread {
             print("[\(title)] (\(Thread.current.dbgName)) \(msg)")
         } else {
@@ -48,10 +66,19 @@ public extension AppCore {
     }
     
     static func log(title: String, error: Error, thread: Bool = false) {
+        guard shouldPass(title: title) else { return }
         if thread {
             print("[\(title) ERROR] (\(Thread.current.dbgName)) \(error.localizedDescription)")
         }else {
             print("[\(title) ERROR] \(error.localizedDescription)")
+        }
+    }
+    
+    static private func shouldPass(title: String) -> Bool {
+        if logFilters.count == 0 {
+            return true
+        } else {
+            return logFilters.contains(title)
         }
     }
 }
