@@ -58,19 +58,21 @@ public extension AppCore {
 public extension AppCore {
     static func log(title: String, msg: String, thread: Bool = false) {
         guard shouldPass(title: title) else { return }
+        
+        
         if thread {
-            print("[\(title)] (\(Thread.current.dbgName)) \(msg)")
+            print("\(time) [\(title)] (\(Thread.current.dbgName)) \(msg)")
         } else {
-            print("[\(title)]: \(msg)")
+            print("\(time) [\(title)]: \(msg)")
         }
     }
     
     static func log(title: String, error: Error, thread: Bool = false) {
         guard shouldPass(title: title) else { return }
         if thread {
-            print("[\(title) ERROR] (\(Thread.current.dbgName)) \(error.localizedDescription)")
+            print("\(time) [\(title) ERROR] (\(Thread.current.dbgName)) \(error.localizedDescription)")
         }else {
-            print("[\(title) ERROR] \(error.localizedDescription)")
+            print("\(time) [\(title) ERROR] \(error.localizedDescription)")
         }
     }
     
@@ -81,6 +83,14 @@ public extension AppCore {
             return logFilters.contains(title)
         }
     }
+    
+    private static var time : String { return debugDateFormatter.string(from: Date()) }
+    
+    private static let debugDateFormatter: DateFormatter = { () -> DateFormatter in
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss.SSSS"
+        return dateFormatter
+    }()
 }
 
 
