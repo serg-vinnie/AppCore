@@ -18,33 +18,39 @@ public extension Signal {
                 self.isVisible = value
             }
         }
+        public struct SetImage {
+            public let img: NSImage
+            public init(_ img: NSImage) {
+                self.img = img
+            }
+        }
     }
 }
 
-class StatusBarController : NSObject {
+public class StatusBarController : NSObject {
     private let icon         = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     private var popover      :  NSPopover?
     
-    override init() {
+    public override init() {
         super.init()
 
         icon.action = #selector(onClick)
         icon.button?.target = self
-        icon.image = AppCore.bundle.image(forResource: "statusBarDebug")
-        
-        AppCore.signals.subscribeFor(Signal.StatusBar.Visible.self)
-            .onUpdate() { [weak self] signal in self?.icon.isVisible = signal.isVisible }
     }
     
-    func set(img: NSImage) {
+    public func set(visible: Bool) {
+        icon.isVisible = visible
+    }
+    
+    public func set(img: NSImage) {
         icon.image = img
     }
     
-    func set(menu: NSMenu) {
+    public func set(menu: NSMenu) {
         icon.menu = menu
     }
     
-    func setPopOver(controller: NSViewController) {
+    public func setPopOver(controller: NSViewController) {
         if popover == nil {
             popover = NSPopover()
             popover!.behavior = NSPopover.Behavior.transient

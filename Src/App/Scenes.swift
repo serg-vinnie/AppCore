@@ -110,9 +110,12 @@ public class Scenes {
         }
     }
     
-    public func show<WC>(_ wnd: WC.Type, block: (WC)->Void = { _ in }) {
+    public func show<WC>(_ wnd: WC.Type, activate: Bool = false, block: (WC)->Void = { _ in }) {
         if let wc = show(wnd: ObjectIdentifier(wnd).hashValue) as? WC {
             block(wc)
+        }
+        if activate {
+            NSApplication.shared.activate(ignoringOtherApps: true)
         }
     }
     

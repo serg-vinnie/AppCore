@@ -15,11 +15,9 @@ public class Daemon {
     open class Main : ExecutionContext, ReleasePoolOwner {
         public var executor: Executor { return Executor.init(queue: DispatchQueue.main) }
         public let releasePool = ReleasePool()
-        let signals : SignalsService
         let container: Container
         
-        required public init(signals : SignalsService, container: Container) {
-            self.signals = signals
+        required public init(container: Container) {
             self.container = container
         }
     }
@@ -27,11 +25,9 @@ public class Daemon {
     open class Global : ExecutionContext, ReleasePoolOwner {
         public var executor: Executor { return Executor.init(queue: DispatchQueue.global()) }
         public let releasePool = ReleasePool()
-        let signals : SignalsService
         let container: Container
         
-        required public init(signals: SignalsService, container: Container) {
-            self.signals = signals
+        required public init(container: Container) {
             self.container = container
         }
     }
@@ -40,10 +36,10 @@ public class Daemon {
 public class DaemonsService {
     var daemons = [Any]()
     
-    public init(signals: SignalsService, container: Container) {
+    public init(container: Container) {
         for item in subclasses(of: Daemon.Main.self) {
             AppCore.log(title: "DaemonsService", msg: "adding item \(item)")
-            let inst = item.init(signals: signals, container: container)
+            let inst = item.init(container: container)
             daemons.append(inst)
         }
     }

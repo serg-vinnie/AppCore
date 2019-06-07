@@ -39,19 +39,12 @@ public class AppCore {
     
     public static var logFilters = [String]()
     
-    private static var statusBar : StatusBarController?
     private static var daemons : DaemonsService?
 }
 
-public extension AppCore {
-    static func initStatusBar(img: NSImage, menu: NSMenu? = nil) {
-        statusBar = StatusBarController()
-        statusBar?.set(img: img)
-        if let menu = menu { statusBar?.set(menu: menu) }
-    }
-    
+public extension AppCore {    
     static func initDaemonService(signals: SignalsService? = nil, container: Container? = nil) {
-        daemons = DaemonsService(signals: signals ?? AppCore.signals, container: container ?? AppCore.container)
+        daemons = DaemonsService(container: container ?? AppCore.container)
     }
 }
 
