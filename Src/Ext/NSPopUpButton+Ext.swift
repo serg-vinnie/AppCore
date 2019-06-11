@@ -10,8 +10,13 @@ import Foundation
 import AsyncNinja
 
 public extension NSPopUpButton {
+    
+    func setItemsWithTags(_ items: [(String,Int)]) {
+        self.menu = createPopUpMenu(items: items)
+    }
+    
     func setItemWith(titles: [String]) {
-        self.menu = createPopUpMenu(items: titles.enumerated().map { ($0.element, $0.offset) })
+        self.menu = createPopUpMenu(items: titles.enumerated().map { ($0.element, $0.element.count) })
     }
     
     private func createPopUpMenu(items: [(String,Int)]) -> NSMenu {
@@ -21,6 +26,7 @@ public extension NSPopUpButton {
             let menuItem = NSMenuItem()
             menuItem.title = title
             menuItem.tag = tag
+            print("crating MenuItem \(title) with TAG \(tag)")
             popupMenu.addItem(menuItem)
         }
         
