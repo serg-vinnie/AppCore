@@ -10,7 +10,7 @@ import Foundation
 import AsyncNinja
 
 public extension ExecutionContext where Self: NSViewController {
-    func initGroupFor(slider: NSSlider, valueText: NSTextField,  config: ConfigR<Int64>, title: String) {
+    func initGroupFor(slider: NSSlider, valueText: NSTextField,  config: ConfigR<Int64>, title: String, autoHide: Bool = true) {
         
         let sliderValue = slider.rp.integerValue
             .skip(first: 1, last: 0)
@@ -30,6 +30,6 @@ public extension ExecutionContext where Self: NSViewController {
         sliderValue
             .debounce(interval: 1)
             .delayedUpdate(timeout: 1)
-            .onUpdate(context: self) { _,_ in valueText.isHidden = true }
+            .onUpdate(context: self) { _,_ in valueText.isHidden = autoHide ? true : false }
     }
 }
