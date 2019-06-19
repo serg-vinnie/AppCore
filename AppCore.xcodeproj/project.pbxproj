@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E60329D522B295830020984D /* LocalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60329D422B295830020984D /* LocalizationService.swift */; };
 		E60808592274485B0035F488 /* RealmDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60808582274485B0035F488 /* RealmDataSource.swift */; };
 		E60B2AE52256112500D2363B /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B2AE42256112500D2363B /* CollectionViewItem.swift */; };
 		E614653822940CB3001EC0C0 /* DispatchHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614653722940CB3001EC0C0 /* DispatchHelpers.swift */; };
@@ -118,6 +119,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E60329D422B295830020984D /* LocalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationService.swift; sourceTree = "<group>"; };
 		E60808582274485B0035F488 /* RealmDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataSource.swift; sourceTree = "<group>"; };
 		E60B2AE42256112500D2363B /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
 		E614653722940CB3001EC0C0 /* DispatchHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchHelpers.swift; sourceTree = "<group>"; };
@@ -250,6 +252,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E60329D322B2953C0020984D /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				E60329D422B295830020984D /* LocalizationService.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		E614657D229984F5001EC0C0 /* AsyncNinja */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +441,7 @@
 		E65BCAFD222EA2E800F7A8BC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E60329D322B2953C0020984D /* Localization */,
 				E664576D22A2846D0059AB1B /* Daemons */,
 				E630E1DF2293076D00CFEED4 /* iCloud */,
 				E630E1CE2292F70A00CFEED4 /* Config */,
@@ -697,6 +708,7 @@
 				E629DC18223A72C900669FD3 /* NSWindow+Fade.swift in Sources */,
 				E630E2042293076E00CFEED4 /* iCloudRx-Subscribe.swift in Sources */,
 				E60B2AE52256112500D2363B /* CollectionViewItem.swift in Sources */,
+				E60329D522B295830020984D /* LocalizationService.swift in Sources */,
 				E6555C0F229BE7A50086E214 /* NSEvent+Ninja.swift in Sources */,
 				E65BCB13222EA2E800F7A8BC /* SignalDispatcher.swift in Sources */,
 				E65BCB10222EA2E800F7A8BC /* StatesServiceEnums.swift in Sources */,
