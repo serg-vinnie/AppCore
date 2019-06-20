@@ -50,6 +50,11 @@
 		E630E20A2293076E00CFEED4 /* iCloudNinja-Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1F62293076E00CFEED4 /* iCloudNinja-Status.swift */; };
 		E630E20B2293076E00CFEED4 /* iCloudNinja-Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1F72293076E00CFEED4 /* iCloudNinja-Query.swift */; };
 		E630E20C2293076E00CFEED4 /* iCloudNinja-Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1F82293076E00CFEED4 /* iCloudNinja-Delete.swift */; };
+		E642906E22BB909A0005781E /* LocalizationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E642906D22BB909A0005781E /* LocalizationEntity.swift */; };
+		E642906F22BB90C50005781E /* LocalizationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E642906D22BB909A0005781E /* LocalizationEntity.swift */; };
+		E642907122BB91A50005781E /* LocalizatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E642907022BB91A50005781E /* LocalizatorProtocol.swift */; };
+		E642907222BB91B30005781E /* LocalizatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E642907022BB91A50005781E /* LocalizatorProtocol.swift */; };
+		E642907422BB91D40005781E /* LocalizatorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E642907322BB91D40005781E /* LocalizatorExtensions.swift */; };
 		E649783B2290B78A00AB9E8C /* FlippedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649783A2290B78A00AB9E8C /* FlippedView.swift */; };
 		E6555C0F229BE7A50086E214 /* NSEvent+Ninja.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6555C0E229BE7A50086E214 /* NSEvent+Ninja.swift */; };
 		E657568E228D4CA0004C10F6 /* NSAttributedString+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E657568D228D4CA0004C10F6 /* NSAttributedString+Ext.swift */; };
@@ -162,6 +167,9 @@
 		E630E1F62293076E00CFEED4 /* iCloudNinja-Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudNinja-Status.swift"; sourceTree = "<group>"; };
 		E630E1F72293076E00CFEED4 /* iCloudNinja-Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudNinja-Query.swift"; sourceTree = "<group>"; };
 		E630E1F82293076E00CFEED4 /* iCloudNinja-Delete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudNinja-Delete.swift"; sourceTree = "<group>"; };
+		E642906D22BB909A0005781E /* LocalizationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationEntity.swift; sourceTree = "<group>"; };
+		E642907022BB91A50005781E /* LocalizatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizatorProtocol.swift; sourceTree = "<group>"; };
+		E642907322BB91D40005781E /* LocalizatorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizatorExtensions.swift; sourceTree = "<group>"; };
 		E649783A2290B78A00AB9E8C /* FlippedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlippedView.swift; sourceTree = "<group>"; };
 		E6555C0E229BE7A50086E214 /* NSEvent+Ninja.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+Ninja.swift"; sourceTree = "<group>"; };
 		E657568D228D4CA0004C10F6 /* NSAttributedString+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Ext.swift"; sourceTree = "<group>"; };
@@ -256,6 +264,9 @@
 			isa = PBXGroup;
 			children = (
 				E60329D422B295830020984D /* LocalizationService.swift */,
+				E642906D22BB909A0005781E /* LocalizationEntity.swift */,
+				E642907022BB91A50005781E /* LocalizatorProtocol.swift */,
+				E642907322BB91D40005781E /* LocalizatorExtensions.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -708,6 +719,7 @@
 				E629DC18223A72C900669FD3 /* NSWindow+Fade.swift in Sources */,
 				E630E2042293076E00CFEED4 /* iCloudRx-Subscribe.swift in Sources */,
 				E60B2AE52256112500D2363B /* CollectionViewItem.swift in Sources */,
+				E642907122BB91A50005781E /* LocalizatorProtocol.swift in Sources */,
 				E60329D522B295830020984D /* LocalizationService.swift in Sources */,
 				E6555C0F229BE7A50086E214 /* NSEvent+Ninja.swift in Sources */,
 				E65BCB13222EA2E800F7A8BC /* SignalDispatcher.swift in Sources */,
@@ -720,6 +732,7 @@
 				E630E1D82292F70A00CFEED4 /* ConfigUserDefaults.swift in Sources */,
 				E630E1B82292F47C00CFEED4 /* NSViewController+Ext.swift in Sources */,
 				E695DF78224F961500611D2B /* Binding.swift in Sources */,
+				E642906E22BB909A0005781E /* LocalizationEntity.swift in Sources */,
 				E65BCB7C222F04F900F7A8BC /* NSPopUpButton+Rx.swift in Sources */,
 				E6AEE3BD2251362A00BCA942 /* Xib.swift in Sources */,
 				E614653E229416B0001EC0C0 /* TimerZbs.swift in Sources */,
@@ -768,6 +781,7 @@
 				E6A6B19D224D699100196DD3 /* RealmBackendService.swift in Sources */,
 				E6A6B1A0224D69E500196DD3 /* RealmSingleton.swift in Sources */,
 				E6957155229AA6DD002FD962 /* NSViewController+SliderGroup.swift in Sources */,
+				E642907422BB91D40005781E /* LocalizatorExtensions.swift in Sources */,
 				E630E1D42292F70A00CFEED4 /* ConfigBackendProtocol.swift in Sources */,
 				E65BCB7D222F04F900F7A8BC /* NSView+TrackingArea+Rx.swift in Sources */,
 				E630E2022293076E00CFEED4 /* iCloudRx-Auth.swift in Sources */,
@@ -786,6 +800,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E65BCAE5222EA26100F7A8BC /* AppCoreTests.swift in Sources */,
+				E642906F22BB90C50005781E /* LocalizationEntity.swift in Sources */,
+				E642907222BB91B30005781E /* LocalizatorProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

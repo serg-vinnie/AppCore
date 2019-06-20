@@ -9,21 +9,18 @@
 import Foundation
 import Realm
 import RealmSwift
+import Swinject
 
-class LocalizationEntity: Object {
-    override static func primaryKey() -> String? { return "key" }
+
+public let LOCALIZATION_STATE = "LOCALIZATION_STATE"
+
+public class LocalizatorService : LocalizatorProtocol {
+    public var lang = Language.en
     
-    @objc dynamic var key: String? = nil
-    @objc dynamic var en: String? = nil
-    @objc dynamic var ru: String? = nil
-    @objc dynamic var ua: String? = nil
-}
-
-public class LocalizatoinService {
     let realm : Realm
-    var lang = Language.en
+    let states : StatesService
     
-    public init(url: URL, schemaVersion: UInt64) {
+    public init(url: URL, schemaVersion: UInt64, container: Container) {
         var config = Realm.Configuration.defaultConfiguration
         config.readOnly = true
         config.fileURL = url
@@ -32,6 +29,8 @@ public class LocalizatoinService {
         //config.migrationBlock = { migration, oldVersion in }
         
         realm = try! Realm(configuration: config)
+        
+        states = container.resolve(StatesService.self)!
     }
     
     public func stringBy(id: String) -> String {
@@ -46,12 +45,12 @@ public class LocalizatoinService {
         case .ru: return obj.ru ?? en
         }
     }
-}
-
-public extension LocalizatoinService {
-    enum Language {
-        case en
-        case ua
-        case ru
+    
+    public func set(lang: Language) {
+        self.lang = lang
+        states.set(value: self as LocalizatorProtocol, forKey: LOCALIZATION_STATE)
     }
 }
+
+
+
