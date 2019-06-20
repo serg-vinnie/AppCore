@@ -9,7 +9,7 @@
 import AsyncNinja
 
 public extension LocalizatorService {
-    enum Language {
+    enum Language : String {
         case en
         case ua
         case ru
