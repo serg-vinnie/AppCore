@@ -9,7 +9,7 @@
 import AsyncNinja
 
 public extension LocalizatorService {
-    enum Language : String {
+    enum Language : String, CaseIterable {
         case en
         case ua
         case ru
@@ -27,7 +27,14 @@ public extension LocalizatorService {
 }
 
 public extension StatesService {
-    var localizationDidChange : Producer<LocalizatorProtocol, Void> {
-        return self.subscribeFor(key: LOCALIZATION_STATE, valueOfType: LocalizatorProtocol.self)
+    var localizationDidChange : Producer<LocalizationState, Void> {
+        return self.subscribeFor(key: LOCALIZATION_STATE, valueOfType: LocalizationState.self)
+    }
+}
+
+public extension ExecutionContext {
+    func localize(id: String) -> Channel<String?,Void> {
+        return AppCore.states.localizationDidChange
+            .map(context: self) { _, loc in loc.stringBy(id: id) }
     }
 }

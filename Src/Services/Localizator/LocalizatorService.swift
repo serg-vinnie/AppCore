@@ -47,8 +47,9 @@ public class LocalizatorService : LocalizatorProtocol {
     }
     
     public func set(lang: Language) {
+        AppCore.log(title: "LocalizatorService", msg: "switching to: \(lang)")
         self.lang = lang
-        states.set(value: self as LocalizatorProtocol, forKey: LOCALIZATION_STATE)
+        states.set(value: LocalizationState(localizator: self), forKey: LOCALIZATION_STATE)
     }
 }
 

@@ -26,7 +26,6 @@ public extension NSPopUpButton {
             let menuItem = NSMenuItem()
             menuItem.title = title
             menuItem.tag = tag
-            AppCore.log(title: "NSPopUpButton", msg: "crating MenuItem \(title) with TAG \(tag)")
             popupMenu.addItem(menuItem)
         }
         

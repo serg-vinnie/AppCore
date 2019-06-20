@@ -12,3 +12,16 @@ public protocol LocalizatorProtocol {
     var lang : LocalizatorService.Language { get }
     func stringBy(id: String) -> String
 }
+
+public struct LocalizationState { // states service accespts only structs
+    private let localizator : LocalizatorProtocol
+    init(localizator: LocalizatorProtocol) {
+        self.localizator = localizator
+    }
+    
+    func stringBy(id: String) -> String {
+        return localizator.stringBy(id: id)
+    }
+    
+    var lang : LocalizatorService.Language { return localizator.lang }
+}
