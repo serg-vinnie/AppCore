@@ -13,6 +13,16 @@ public extension LocalizatorService {
         case en
         case ua
         case ru
+        
+        public static var system : Language {
+            switch (Locale.current.languageCode!)
+            {
+            case "en":  return .en
+            case "uk":  return .ua
+            case "ru":  return .ru
+            default: return .en
+            }
+        }
     }
 }
 
