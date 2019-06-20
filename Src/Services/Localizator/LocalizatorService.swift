@@ -15,7 +15,7 @@ import Swinject
 public let LOCALIZATION_STATE = "LOCALIZATION_STATE"
 
 public class LocalizatorService : LocalizatorProtocol {
-    public var lang = Language.en
+    public private(set) var lang = Language.en
     
     let realm : Realm
     let states : StatesService
