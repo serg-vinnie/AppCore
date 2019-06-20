@@ -260,7 +260,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E60329D322B2953C0020984D /* Localization */ = {
+		E60329D322B2953C0020984D /* Localizator */ = {
 			isa = PBXGroup;
 			children = (
 				E60329D422B295830020984D /* LocalizatorService.swift */,
@@ -268,7 +268,7 @@
 				E642907022BB91A50005781E /* LocalizatorProtocol.swift */,
 				E642907322BB91D40005781E /* LocalizatorExtensions.swift */,
 			);
-			path = Localization;
+			path = Localizator;
 			sourceTree = "<group>";
 		};
 		E614657D229984F5001EC0C0 /* AsyncNinja */ = {
@@ -452,7 +452,7 @@
 		E65BCAFD222EA2E800F7A8BC /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E60329D322B2953C0020984D /* Localization */,
+				E60329D322B2953C0020984D /* Localizator */,
 				E664576D22A2846D0059AB1B /* Daemons */,
 				E630E1DF2293076D00CFEED4 /* iCloud */,
 				E630E1CE2292F70A00CFEED4 /* Config */,
