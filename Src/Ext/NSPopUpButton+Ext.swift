@@ -12,6 +12,7 @@ import AsyncNinja
 public extension NSPopUpButton {
     
     typealias Data = ([(String,Int)],Int)
+    typealias ChannelsSet = (Channel<String?, Void>?, Channel<NSPopUpButton.Data, Void>?, Channel<String?, Void>?)
     
     static func localizedData<T : Hashable>(localizer: LocalizationState, selectedItem: T, items: [(String,Int)]) -> Data {
         let localizedItems = items.map { (localizer.stringBy(id: $0.0),$0.1) }
@@ -47,4 +48,22 @@ public extension NSPopUpButton {
         return popupMenu
     }
 
+}
+
+
+public extension NinjaContext.Main {
+    func popUpTrio<T : Hashable>(titleId: String, values: [(String,Int)], descriptions: [Int:String], didChange: Channel<T, Void>) -> NSPopUpButton.ChannelsSet {
+        let title = AppCore.states.localizationDidChange
+            .map(context: self) { _, localizer in localizer.stringBy(id: titleId) as String? }
+        
+        let data = self.combineLatest(AppCore.states.localizationDidChange, didChange)
+            .map(context: self) { _, arg in NSPopUpButton.localizedData(localizer: arg.0, selectedItem: arg.1, items: values) }
+            .mapSuccess { _,_ in () }
+        
+        let descriptions = self.combineLatest(AppCore.states.localizationDidChange, didChange)
+            .map(context: self) { _, args in args.0.stringBy(id: descriptions[args.1.hashValue]!) as String? }
+            .mapSuccess() { _,_ in () }
+        
+        return (title, data, descriptions)
+    }
 }
