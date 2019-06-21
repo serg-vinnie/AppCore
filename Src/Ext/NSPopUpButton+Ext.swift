@@ -11,6 +11,21 @@ import AsyncNinja
 
 public extension NSPopUpButton {
     
+    typealias Data = ([(String,Int)],Int)
+    
+    static func localizedData<T : Hashable>(localizer: LocalizationState, selectedItem: T, items: [(String,Int)]) -> Data {
+        let localizedItems = items.map { (localizer.stringBy(id: $0.0),$0.1) }
+        return (localizedItems, selectedItem.hashValue)
+    }
+    
+    func set(data: Data) {
+        let (items, selectedItemTag) = data
+        
+        self.setItemsWithTags(items)
+        self.selectItem(withTag: selectedItemTag)
+        self.sizeToFit()
+    }
+    
     func setItemsWithTags(_ items: [(String,Int)]) {
         self.menu = createPopUpMenu(items: items)
     }
