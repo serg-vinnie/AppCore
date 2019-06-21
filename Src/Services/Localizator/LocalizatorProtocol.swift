@@ -19,9 +19,9 @@ public struct LocalizationState { // states service accespts only structs
         self.localizator = localizator
     }
     
-    func stringBy(id: String) -> String {
+    public func stringBy(id: String) -> String {
         return localizator.stringBy(id: id)
     }
     
-    var lang : LocalizatorService.Language { return localizator.lang }
+    public var lang : LocalizatorService.Language { return localizator.lang }
 }
