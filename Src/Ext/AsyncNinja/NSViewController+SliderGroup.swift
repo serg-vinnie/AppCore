@@ -36,11 +36,11 @@ public extension ExecutionContext where Self: NSViewController {
     func initGroupFor(slider: NSSlider, valueText: NSTextField,  config: ConfigR<Int64>, title: Channel<String?,Void>, autoHide: Bool = true) {
         
         let sliderValue = slider.rp.integerValue
-            .skip(first: 1, last: 0)
             .filter() { $0 != nil }
             .map { Int64($0!) }
         
         sliderValue
+            .skip(first: 1, last: 0)
             .onUpdate(context: self) { _, value in
                 config.value = value
                 valueText.isHidden = false
