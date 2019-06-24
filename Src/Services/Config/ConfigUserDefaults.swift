@@ -21,6 +21,7 @@ public class ConfigUserDefaults : ConfigBackend {
     
     public func clear() {
         store.removePersistentDomain(forName: name)
+        store.synchronize()
     }
     
     public func set(value: Any?, key: String) {
