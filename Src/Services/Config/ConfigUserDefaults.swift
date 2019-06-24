@@ -38,6 +38,11 @@ public class ConfigUserDefaults : ConfigBackend {
     }
     
     public func value<T>(key: String, ofType: T.Type) -> Any? where T : Equatable {
+        
+        if store.object(forKey: key) == nil {
+            return nil
+        }
+        
         switch ofType {
             
         case is Int64.Type:     return (store.object(forKey: key) as? NSNumber)?.int64Value
