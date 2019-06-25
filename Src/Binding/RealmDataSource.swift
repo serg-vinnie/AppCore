@@ -43,7 +43,7 @@ public class RealmDataSource<EntityType: Object> : NinjaContext.Main {
     // CollectionSignal.Filter
     // CollectionSignal.Sort
     
-    public init(realmQuery: Results<EntityType>, signals: SignalsService) {
+    public init(realmQuery: Results<EntityType>, signals: SignalsService?) {
         self.realmQuery = realmQuery
         self.items = realmQuery.toAnyCollection()
         
@@ -51,9 +51,9 @@ public class RealmDataSource<EntityType: Object> : NinjaContext.Main {
         
         updateSubscription()
         
-        signals.subscribeFor(CollectionSignal.Filter.self)
+        signals?.subscribeFor(CollectionSignal.Filter.self)
             .onUpdate(context: self) { ctx, signal in ctx.predicate = signal.predicate; ctx.updateSubscription() }
-        signals.subscribeFor(CollectionSignal.Sort.self)
+        signals?.subscribeFor(CollectionSignal.Sort.self)
             .onUpdate(context: self) { ctx, signal in ctx.sorting = signal.descriptors; ctx.updateSubscription() }
     }
     
