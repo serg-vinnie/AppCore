@@ -37,7 +37,15 @@ public class DaemonsService {
     var daemons = [Any]()
     
     public init(container: Container) {
-        for item in subclasses(of: Daemon.Main.self) {
+        let allClasses = AllClasses()
+        
+        for item in allClasses.subclasses(of: Daemon.Main.self) {
+            AppCore.log(title: "DaemonsService", msg: "adding item \(item)")
+            let inst = item.init(container: container)
+            daemons.append(inst)
+        }
+        
+        for item in allClasses.subclasses(of: Daemon.Global.self) {
             AppCore.log(title: "DaemonsService", msg: "adding item \(item)")
             let inst = item.init(container: container)
             daemons.append(inst)

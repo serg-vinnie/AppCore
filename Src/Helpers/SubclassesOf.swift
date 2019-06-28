@@ -8,6 +8,31 @@
 
 import Foundation
 
+public class AllClasses {
+    var count: UInt32 = 0
+    let allClasses : AutoreleasingUnsafeMutablePointer<AnyClass>
+    
+    init() {
+        allClasses = objc_copyClassList(&count)!
+    }
+    
+    public func subclasses<T>(of theClass: T) -> [T] {
+        var result: [T] = []
+        let classPtr = address(of: theClass)
+        
+        for n in 0 ..< count {
+            let someClass: AnyClass = allClasses[Int(n)]
+            guard let someSuperClass = class_getSuperclass(someClass),
+                address(of: someSuperClass) == classPtr
+                else { continue }
+            
+            result.append(someClass as! T)
+        }
+        
+        return result
+    }
+}
+
 public func subclasses<T>(of theClass: T) -> [T] {
     var count: UInt32 = 0, result: [T] = []
     let allClasses = objc_copyClassList(&count)!
@@ -15,7 +40,10 @@ public func subclasses<T>(of theClass: T) -> [T] {
     
     for n in 0 ..< count {
         let someClass: AnyClass = allClasses[Int(n)]
-        guard let someSuperClass = class_getSuperclass(someClass), address(of: someSuperClass) == classPtr else { continue }
+        guard let someSuperClass = class_getSuperclass(someClass),
+            address(of: someSuperClass) == classPtr
+            else { continue }
+        
         result.append(someClass as! T)
     }
     
