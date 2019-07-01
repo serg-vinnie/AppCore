@@ -35,7 +35,7 @@ public class LocalizatorService : LocalizatorProtocol {
     
     public func stringBy(id: String) -> String {
         guard let obj = realm.object(ofType: LocalizationEntity.self, forPrimaryKey: id)
-            else { return "[wrong id]" }
+            else { return "[\(id)]" }
 
         let en = obj.en ?? "[\(id)]"
         
