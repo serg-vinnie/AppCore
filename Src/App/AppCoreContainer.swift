@@ -31,6 +31,8 @@ func AppCoreContainer(env : ServiceEnvironment) -> Container {
             iCloudRxService(container: CKContainer.default(), cloudDB: privateDB, queueId: cloudQueueID)
         }
         
+        c.autoregister(iCloundNinjaPrivate.self,    initializer: iCloundNinjaPrivate.init)
+        c.autoregister(iCloundNinjaPublic.self,     initializer: iCloundNinjaPublic.init)
         
         
         c.register(SignalsService.self)     { _ in return SignalsService.main }
