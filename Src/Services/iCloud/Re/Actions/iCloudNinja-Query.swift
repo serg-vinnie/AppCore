@@ -13,7 +13,7 @@ func performRecursive(operation: CKQueryOperation, cloudDB: CKDatabase, batchSiz
     AppCore.log(title: "iCloudNinja", msg: "performRecursive operation")
     
     return Producer<CKRecord,Void>()
-        .iterate(operation: operation, cloudDB: cloudDB, batchSize: batchSize) { producer, operation in
+        .iterate(operation: operation, transform: { CKQueryOperation(cursor: $0) }) { producer, operation in
             
             AppCore.log(title: "iCloudNinja", msg: "perform operation")
             producer.bind(operation: operation)
@@ -38,7 +38,7 @@ private extension Producer where Update == CKRecord, Success == CKQueryOperation
 private extension Producer where Update == CKRecord, Success == Void {
 
     @discardableResult
-    func iterate(operation: CKQueryOperation, cloudDB: CKDatabase, batchSize: Int, block: @escaping (Producer<CKRecord,CKQueryOperation.Cursor?>, CKQueryOperation)->()) -> Producer<CKRecord,Void> {
+    func iterate(operation: CKQueryOperation, transform: @escaping (CKQueryOperation.Cursor)->(CKQueryOperation), block: @escaping (Producer<CKRecord,CKQueryOperation.Cursor?>, CKQueryOperation)->()) -> Producer<CKRecord,Void> {
         let p = Producer<CKRecord,CKQueryOperation.Cursor?>()
         block(p, operation)
         p.onUpdate() { self.update($0) }
@@ -46,7 +46,7 @@ private extension Producer where Update == CKRecord, Success == Void {
      
         p.onSuccess() { cursor in
             if let cursor = cursor {
-                self.iterate(operation: CKQueryOperation(cursor: cursor), cloudDB: cloudDB, batchSize: batchSize, block: block)
+                self.iterate(operation: transform(cursor), transform: transform, block: block)
             } else {
                 self.succeed(())
             }

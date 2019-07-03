@@ -36,7 +36,7 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     public let container  : CKContainer
     public let cloudDB    : CKDatabase
     
-    public var batchSize  = 30 //0
+    public var batchSize  = 300
     
     public init(container: CKContainer, cloudDB: CKDatabase, queueId: String) {
         //self.internalQueue = DispatchQueue(label: queueId)
