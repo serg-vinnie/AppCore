@@ -13,8 +13,8 @@ func iCloudNinjaPush(records: [CKRecord], cloudDB: CKDatabase) -> Future<[CKReco
     let promise = Promise<[CKRecord]>()
     let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
     operation.modifyRecordsCompletionBlock = { records, _, error in
-        if let records = records        { promise.succeed(records) }
         if let error = error            { log(error: error); promise.fail(error) }
+        if let records = records        { promise.succeed(records) }
     }
     cloudDB.add(operation)
     
@@ -22,5 +22,5 @@ func iCloudNinjaPush(records: [CKRecord], cloudDB: CKDatabase) -> Future<[CKReco
 }
 
 fileprivate func log(error: Error) {
-    AppCore.log(title: "iCloudNinjaPush", error: error, thread: true)
+    AppCore.log(title: "iCloudNinja", error: error, thread: true)
 }

@@ -24,5 +24,5 @@ func iCloudNinjaDelete(IDs: [CKRecord.ID], batchSize: Int, cloudDB: CKDatabase) 
 }
 
 fileprivate func log(error: Error) {
-    AppCore.log(title: "iCloudNinjaDelete", error: error)
+    AppCore.log(title: "iCloudNinja", error: error)
 }
