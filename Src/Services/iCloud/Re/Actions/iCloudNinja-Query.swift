@@ -43,7 +43,7 @@ private extension Producer where Update == [CKRecord], Success == Void {
         
         let p = Producer<CKRecord,CKQueryOperation.Cursor?>()
         block(p, operation)
-        p.onUpdate() { records.append($0) }//self.update($0) }
+        p.onUpdate() { records.append($0) } 
         p.onFailure { self.fail($0) }
      
         p.onSuccess() { cursor in
@@ -64,5 +64,5 @@ fileprivate func log(error: Error) {
 }
 
 fileprivate func log(msg: String) {
-    AppCore.log(title: "iCloudNinja", msg: msg)
+    AppCore.log(title: "iCloudNinja", msg: msg, thread: true)
 }
