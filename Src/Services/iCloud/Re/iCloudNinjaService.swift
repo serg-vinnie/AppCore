@@ -95,41 +95,40 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
         }
     }
     
-    public func fetch2(query: CKQuery) -> Channel<CKRecord, Void> {
-        return performRecursive(operation: CKQueryOperation(query: query), cloudDB: cloudDB, batchSize: batchSize)
-            .onUpdate(context: self) { me, record in log(msg: "fetch2 upd \(record.recordID.recordName)")}
+    public func fetch(query: CKQuery) -> Channel<CKRecord, Void> {
+        return perform(operation: CKQueryOperation(query: query), cloudDB: cloudDB, batchSize: batchSize)
             .mapSuccess { _ in () }
     }
     
 //    public func fetch(query: CKQuery) -> Channel<[CKRecord], Void> {
 //        return channel(context: self) { ctx, update in
 //            var operation : CKQueryOperation? = CKQueryOperation(query: query)
-//            
+//
 //            repeat {
 //                guard let next = operation else { return }
-//                
+//
 //                let(records, cursor) = perform(operation: next, cloudDB: ctx.cloudDB, batchSize: ctx.batchSize).waitForAll()
-//                
+//
 //                if records.count > 0 {
 //                    update(records)
 //                    AppCore.log(title: "iCloudNinja", msg: "fetched \(records.count) records", thread: true)
 //                }
-//                
+//
 //                switch cursor {
 //                case let .success(cursor):
 //                    operation = cursor != nil ? CKQueryOperation(cursor: cursor!) : nil
-//                    
+//
 //                case let .failure(error):
 //                    throw error
 //                }
-//                
+//
 //            } while true
 //        }
 //    }
     
     public func fetchRecordsOf(type: String, predicate: NSPredicate? = nil) -> Channel<CKRecord, Void> {
         let queryAll = CKQuery(recordType: type, predicate: predicate ?? NSPredicate(value: true))
-        return fetch2(query: queryAll)
+        return fetch(query: queryAll)
     }
     
     public func delete(IDs: [CKRecord.ID], skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {

@@ -9,8 +9,8 @@
 import CloudKit
 import AsyncNinja
 
-func performRecursive(operation: CKQueryOperation, cloudDB: CKDatabase, batchSize: Int) -> Channel<CKRecord, Void> {
-    AppCore.log(title: "iCloudNinja", msg: "performRecursive operation")
+func perform(operation: CKQueryOperation, cloudDB: CKDatabase, batchSize: Int) -> Channel<CKRecord, Void> {
+    AppCore.log(title: "iCloudNinja", msg: "perform operation")
     
     return Producer<CKRecord,Void>()
         .iterate(operation: operation, transform: { CKQueryOperation(cursor: $0) }) { producer, operation in
@@ -26,7 +26,6 @@ func performRecursive(operation: CKQueryOperation, cloudDB: CKDatabase, batchSiz
 private extension Producer where Update == CKRecord, Success == CKQueryOperation.Cursor? {
     func bind(operation: CKQueryOperation) {
         operation.recordFetchedBlock = {
-            log(msg: "did fetch \($0.recordID.recordName)");
             self.update($0) }
         operation.queryCompletionBlock = { cursor, error in
             if let error = error { self.fail(error) }
