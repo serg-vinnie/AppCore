@@ -105,28 +105,28 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
         return fetch(query: queryAll)
     }
     
-    public func delete(IDs: [CKRecord.ID], skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {
-        return channel(context: self) { ctx, update in
-            for batch in IDs.splitBy(ctx.batchSize) {
-                log(msg: "going to delete \(batch.count) records")
-                
-                switch iCloudNinjaDelete(IDs: batch, batchSize: ctx.batchSize, cloudDB: ctx.cloudDB).wait() {
-                    
-                case let .success(deletedRecords):
-                    update(deletedRecords)
-                    
-                case let .failure(error):
-                    if !skipErrors {
-                        throw error
-                    }
-                }
-            }
-        }
-    }
+//    public func delete(IDs: [CKRecord.ID], skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {
+//        return channel(context: self) { ctx, update in
+//            for batch in IDs.splitBy(ctx.batchSize) {
+//                log(msg: "going to delete \(batch.count) records")
+//
+//                switch iCloudNinjaDelete(IDs: batch, batchSize: ctx.batchSize, cloudDB: ctx.cloudDB).wait() {
+//
+//                case let .success(deletedRecords):
+//                    update(deletedRecords)
+//
+//                case let .failure(error):
+//                    if !skipErrors {
+//                        throw error
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     public func delete(IDs: Channel<[CKRecord.ID], Void>, skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {
         return IDs
-            .flatMap(context: self) { ctx, ids in ctx.delete(IDs: ids, skipErrors: skipErrors)}
+            .flatMap(context: self) { me, ids in iCloudNinjaDelete(IDs: ids, batchSize: me.batchSize, cloudDB: me.cloudDB) }
     }
     
     public func deleteRecordsOf(type: String, skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {

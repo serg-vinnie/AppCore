@@ -9,18 +9,16 @@
 import CloudKit
 import AsyncNinja
 
-func iCloudNinjaDelete(IDs: [CKRecord.ID], batchSize: Int, cloudDB: CKDatabase) -> Future<[CKRecord.ID]> {
-    let promise = Promise<[CKRecord.ID]>()
-    
-    let delete =  CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: IDs)
-    delete.modifyRecordsCompletionBlock = { _, deletedRecordIDs, error in
-        if let IDs = deletedRecordIDs   { promise.succeed(IDs) }
-        if let error = error            { log(error: error); promise.fail(error) }
+func iCloudNinjaDelete(IDs: [CKRecord.ID], batchSize: Int, cloudDB: CKDatabase) -> Channel<[CKRecord.ID],Void> {
+    return producer() { producer in
+        let delete =  CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: IDs)
+        delete.modifyRecordsCompletionBlock = { _, deletedRecordIDs, error in
+            if let IDs = deletedRecordIDs   { producer.update(IDs); producer.succeed(()) }
+            if let error = error            { log(error: error); producer.fail(error) }
+        }
+        
+        cloudDB.add(delete)
     }
-    
-    cloudDB.add(delete)
-    
-    return promise
 }
 
 fileprivate func log(error: Error) {
