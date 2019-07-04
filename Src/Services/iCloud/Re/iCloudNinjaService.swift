@@ -95,7 +95,7 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
         }
     }
     
-    public func fetch(query: CKQuery) -> Channel<CKRecord, Void> {
+    public func fetch(query: CKQuery) -> Channel<[CKRecord], Void> {
         return perform(operation: CKQueryOperation(query: query), cloudDB: cloudDB, batchSize: batchSize)
             .mapSuccess { _ in () }
     }
@@ -126,7 +126,7 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
 //        }
 //    }
     
-    public func fetchRecordsOf(type: String, predicate: NSPredicate? = nil) -> Channel<CKRecord, Void> {
+    public func fetchRecordsOf(type: String, predicate: NSPredicate? = nil) -> Channel<[CKRecord], Void> {
         let queryAll = CKQuery(recordType: type, predicate: predicate ?? NSPredicate(value: true))
         return fetch(query: queryAll)
     }

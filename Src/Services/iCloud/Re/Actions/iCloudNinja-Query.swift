@@ -9,10 +9,10 @@
 import CloudKit
 import AsyncNinja
 
-func perform(operation: CKQueryOperation, cloudDB: CKDatabase, batchSize: Int) -> Channel<CKRecord, Void> {
+func perform(operation: CKQueryOperation, cloudDB: CKDatabase, batchSize: Int) -> Channel<[CKRecord], Void> {
     AppCore.log(title: "iCloudNinja", msg: "perform operation")
     
-    return Producer<CKRecord,Void>()
+    return Producer<[CKRecord],Void>()
         .iterate(operation: operation, transform: { CKQueryOperation(cursor: $0) }) { producer, operation in
             
             AppCore.log(title: "iCloudNinja", msg: "perform operation")
@@ -34,16 +34,20 @@ private extension Producer where Update == CKRecord, Success == CKQueryOperation
     }
 }
 
-private extension Producer where Update == CKRecord, Success == Void {
+private extension Producer where Update == [CKRecord], Success == Void {
 
     @discardableResult
-    func iterate(operation: CKQueryOperation, transform: @escaping (CKQueryOperation.Cursor)->(CKQueryOperation), block: @escaping (Producer<CKRecord,CKQueryOperation.Cursor?>, CKQueryOperation)->()) -> Producer<CKRecord,Void> {
+    func iterate(operation: CKQueryOperation, transform: @escaping (CKQueryOperation.Cursor)->(CKQueryOperation), block: @escaping (Producer<CKRecord,CKQueryOperation.Cursor?>, CKQueryOperation)->()) -> Producer<[CKRecord],Void> {
+        var records = [CKRecord]()
+        records.reserveCapacity(400)
+        
         let p = Producer<CKRecord,CKQueryOperation.Cursor?>()
         block(p, operation)
-        p.onUpdate() { self.update($0) }
+        p.onUpdate() { records.append($0) }//self.update($0) }
         p.onFailure { self.fail($0) }
      
         p.onSuccess() { cursor in
+            self.update(records)
             if let cursor = cursor {
                 self.iterate(operation: transform(cursor), transform: transform, block: block)
             } else {
