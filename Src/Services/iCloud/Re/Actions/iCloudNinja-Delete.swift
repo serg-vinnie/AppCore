@@ -13,7 +13,7 @@ func iCloudNinjaDelete(IDs: [CKRecord.ID], batchSize: Int, cloudDB: CKDatabase) 
     return producer() { producer in
         let delete =  CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: IDs)
         delete.modifyRecordsCompletionBlock = { _, deletedRecordIDs, error in
-            if let IDs = deletedRecordIDs   { producer.update(IDs); producer.succeed(()) }
+            if let IDs = deletedRecordIDs   { log(msg: "\(IDs.count) deleted"); producer.update(IDs); producer.succeed(()) }
             if let error = error            { log(error: error); producer.fail(error) }
         }
         
@@ -23,4 +23,8 @@ func iCloudNinjaDelete(IDs: [CKRecord.ID], batchSize: Int, cloudDB: CKDatabase) 
 
 fileprivate func log(error: Error) {
     AppCore.log(title: "iCloudNinja", error: error)
+}
+
+fileprivate func log(msg: String) {
+    AppCore.log(title: "iCloudNinja", msg: msg, thread: true)
 }
