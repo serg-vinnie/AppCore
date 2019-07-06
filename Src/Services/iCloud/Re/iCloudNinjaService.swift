@@ -57,25 +57,14 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
         return status.success ?? .couldNotDetermine
     }
     
-    public func push(records: [CKRecord], skipErrors: Bool = false) -> Channel<[CKRecord], Void> {
-        return channel(context: self) { ctx, update in
-            for batch in records.splitBy(ctx.batchSize) {
-                
-                log(msg: "going to push \(batch.count) records")
-                
-                switch iCloudNinjaPush(records: batch, cloudDB: ctx.cloudDB).wait() {
-                    
-                case let .success(pushedRecords):
-                    update(pushedRecords)
-                    
-                case let .failure(error):
-                    if !skipErrors {
-                        throw error
-                    }
-                }
-                
-            }
-        }
+    public func push(records: Channel<[CKRecord],Void>) -> Channel<[CKRecord], Void> {
+        return records
+            .flatMap(context: self) { $0.split(records: $1) }
+            .flatMap(context: self) { me, recs in return iCloudNinjaPush(records: recs, cloudDB: me.cloudDB) }
+    }
+
+    private func split(records: [CKRecord]) -> Channel<[CKRecord],Void> {
+        return channel(updates: records.splitBy(batchSize), success: ())
     }
     
     public func fetch(IDs: [CKRecord.ID]) -> Channel<[CKRecord], Void> {
@@ -104,25 +93,6 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
         let queryAll = CKQuery(recordType: type, predicate: predicate ?? NSPredicate(value: true))
         return fetch(query: queryAll)
     }
-    
-//    public func delete(IDs: [CKRecord.ID], skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {
-//        return channel(context: self) { ctx, update in
-//            for batch in IDs.splitBy(ctx.batchSize) {
-//                log(msg: "going to delete \(batch.count) records")
-//
-//                switch iCloudNinjaDelete(IDs: batch, batchSize: ctx.batchSize, cloudDB: ctx.cloudDB).wait() {
-//
-//                case let .success(deletedRecords):
-//                    update(deletedRecords)
-//
-//                case let .failure(error):
-//                    if !skipErrors {
-//                        throw error
-//                    }
-//                }
-//            }
-//        }
-//    }
     
     public func delete(IDs: Channel<[CKRecord.ID], Void>, skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {
         return IDs
