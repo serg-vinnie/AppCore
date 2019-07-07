@@ -59,12 +59,12 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     
     public func push(records: Channel<[CKRecord],Void>) -> Channel<[CKRecord], Void> {
         return records
-            .flatMap(context: self) { $0.split(records: $1) }
+            .flatMap(context: self) { $0.split(items: $1) }
             .flatMap(context: self) { me, recs in return iCloudNinjaPush(records: recs, cloudDB: me.cloudDB) }
     }
 
-    private func split(records: [CKRecord]) -> Channel<[CKRecord],Void> {
-        return channel(updates: records.splitBy(batchSize), success: ())
+    private func split<T>(items: [T]) -> Channel<[T],Void> {
+        return channel(updates: items.splitBy(batchSize), success: ())
     }
     
     public func fetch(IDs: [CKRecord.ID]) -> Channel<[CKRecord], Void> {
@@ -96,7 +96,8 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     
     public func delete(IDs: Channel<[CKRecord.ID], Void>, skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {
         return IDs
-            .flatMap(context: self) { me, ids in iCloudNinjaDelete(IDs: ids, batchSize: me.batchSize, cloudDB: me.cloudDB) }
+            .flatMap(context: self) { $0.split(items: $1) }
+            .flatMap(context: self) { me, ids in iCloudNinjaDelete(IDs: ids, cloudDB: me.cloudDB) }
     }
     
     public func deleteRecordsOf(type: String, skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {

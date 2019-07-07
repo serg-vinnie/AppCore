@@ -9,7 +9,7 @@
 import CloudKit
 import AsyncNinja
 
-func iCloudNinjaDelete(IDs: [CKRecord.ID], batchSize: Int, cloudDB: CKDatabase) -> Channel<[CKRecord.ID],Void> {
+func iCloudNinjaDelete(IDs: [CKRecord.ID], cloudDB: CKDatabase) -> Channel<[CKRecord.ID],Void> {
     return producer() { producer in
         let delete =  CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: IDs)
         delete.modifyRecordsCompletionBlock = { _, deletedRecordIDs, error in
