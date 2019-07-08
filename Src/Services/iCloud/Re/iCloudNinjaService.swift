@@ -84,6 +84,11 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
         }
     }
     
+    public func fetchWithChangeToken() -> Channel<CKQueryNotification, CKServerChangeToken> {
+        return container.fetch(token: serverChangeToken)
+            .onSuccess(context: self) {me, token in me.serverChangeToken = token }
+    }
+    
     public func fetch(query: CKQuery) -> Channel<[CKRecord], Void> {
         return cloudDB.perform(operation: CKQueryOperation(query: query), batchSize: batchSize)
             .mapSuccess { _ in () }
