@@ -19,7 +19,7 @@
 		E614654422941BF1001EC0C0 /* NSStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614654322941BF1001EC0C0 /* NSStackView+Ext.swift */; };
 		E614654622941E56001EC0C0 /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614654522941E56001EC0C0 /* DictionaryExt.swift */; };
 		E614657F22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614657E22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift */; };
-		E620B04722D39D4D00EEC230 /* iCloudNinja-FetchChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = E620B04622D39D4D00EEC230 /* iCloudNinja-FetchChanges.swift */; };
+		E620B04722D39D4D00EEC230 /* CKContainer+Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E620B04622D39D4D00EEC230 /* CKContainer+Fetch.swift */; };
 		E629DC18223A72C900669FD3 /* NSWindow+Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */; };
 		E62E99F8229FFBF600B93C2F /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62E99F7229FFBF600B93C2F /* StatusBarController.swift */; };
 		E630E1B82292F47C00CFEED4 /* NSViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1B72292F47C00CFEED4 /* NSViewController+Ext.swift */; };
@@ -137,7 +137,7 @@
 		E614654322941BF1001EC0C0 /* NSStackView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSStackView+Ext.swift"; sourceTree = "<group>"; };
 		E614654522941E56001EC0C0 /* DictionaryExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExt.swift; sourceTree = "<group>"; };
 		E614657E22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+TrackingArea+Ninja.swift"; sourceTree = "<group>"; };
-		E620B04622D39D4D00EEC230 /* iCloudNinja-FetchChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iCloudNinja-FetchChanges.swift"; sourceTree = "<group>"; };
+		E620B04622D39D4D00EEC230 /* CKContainer+Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKContainer+Fetch.swift"; sourceTree = "<group>"; };
 		E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSWindow+Fade.swift"; sourceTree = "<group>"; };
 		E62E99F7229FFBF600B93C2F /* StatusBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		E630E1B72292F47C00CFEED4 /* NSViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSViewController+Ext.swift"; sourceTree = "<group>"; };
@@ -359,7 +359,7 @@
 				E630E1F62293076E00CFEED4 /* iCloudNinja-Status.swift */,
 				E630E1F72293076E00CFEED4 /* iCloudNinja-Query.swift */,
 				E630E1F82293076E00CFEED4 /* iCloudNinja-Delete.swift */,
-				E620B04622D39D4D00EEC230 /* iCloudNinja-FetchChanges.swift */,
+				E620B04622D39D4D00EEC230 /* CKContainer+Fetch.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -757,7 +757,7 @@
 				E630E1D52292F70A00CFEED4 /* ConfigCloudKeyValue.swift in Sources */,
 				E67825842264BE5100391616 /* CollectionViewBinder.swift in Sources */,
 				E630E2002293076E00CFEED4 /* iCloudRx-Push.swift in Sources */,
-				E620B04722D39D4D00EEC230 /* iCloudNinja-FetchChanges.swift in Sources */,
+				E620B04722D39D4D00EEC230 /* CKContainer+Fetch.swift in Sources */,
 				E630E1FE2293076E00CFEED4 /* iCloudRxSubscriptions.swift in Sources */,
 				E614657F22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift in Sources */,
 				E65BCB0C222EA2E800F7A8BC /* FS.swift in Sources */,
