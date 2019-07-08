@@ -44,7 +44,9 @@ public class AppCore {
 
 public extension AppCore {    
     static func initDaemonService(signals: SignalsService? = nil, container: Container? = nil) {
-        daemons = DaemonsService(container: container ?? AppCore.container)
+        if daemons == nil {
+            daemons = DaemonsService(container: container ?? AppCore.container)
+        }
     }
 }
 
