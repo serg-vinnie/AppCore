@@ -111,3 +111,29 @@ fileprivate func log(msg: String) {
     AppCore.log(title: "iCloudNinja", msg: msg, thread: true)
 }
 
+
+private let changeTokenKey = "iCloudNinja.changeToken"
+
+public extension iCloudNinjaService {
+    var serverChangeToken: CKServerChangeToken? {
+        get {
+            guard let data = UserDefaults.standard.value(forKey: changeTokenKey) as? Data else {
+                return nil
+            }
+            
+            guard let token = NSKeyedUnarchiver.unarchiveObject(with: data) as? CKServerChangeToken else {
+                return nil
+            }
+            
+            return token
+        }
+        set {
+            if let token = newValue {
+                let data = NSKeyedArchiver.archivedData(withRootObject: token)
+                UserDefaults.standard.set(data, forKey: changeTokenKey)
+            } else {
+                UserDefaults.standard.removeObject(forKey: changeTokenKey)
+            }
+        }
+    }
+}

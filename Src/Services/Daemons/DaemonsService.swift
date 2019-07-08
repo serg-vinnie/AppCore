@@ -50,5 +50,7 @@ public class DaemonsService {
             let inst = item.init(container: container)
             daemons.append(inst)
         }
+        
+        AppCore.signals.send(signal: Signal.DaemonsDidInit())
     }
 }

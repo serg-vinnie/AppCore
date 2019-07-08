@@ -34,6 +34,10 @@ public struct Signal {
             self.reason = reason
         }
     }
+    
+    public struct DaemonsDidInit {
+        public init() { }
+    }
 }
 
 public struct CollectionSignal {
