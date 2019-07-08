@@ -9,15 +9,17 @@
 import CloudKit
 import AsyncNinja
 
-func iCloudNinjaDelete(IDs: [CKRecord.ID], cloudDB: CKDatabase) -> Channel<[CKRecord.ID],Void> {
-    return producer() { producer in
-        let delete =  CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: IDs)
-        delete.modifyRecordsCompletionBlock = { _, deletedRecordIDs, error in
-            if let IDs = deletedRecordIDs   { log(msg: "\(IDs.count) deleted"); producer.update(IDs); producer.succeed(()) }
-            if let error = error            { log(error: error); producer.fail(error) }
+public extension CKDatabase {
+    func delete(IDs: [CKRecord.ID]) -> Channel<[CKRecord.ID],Void> {
+        return producer() { producer in
+            let delete =  CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: IDs)
+            delete.modifyRecordsCompletionBlock = { _, deletedRecordIDs, error in
+                if let IDs = deletedRecordIDs   { log(msg: "\(IDs.count) deleted"); producer.update(IDs); producer.succeed(()) }
+                if let error = error            { log(error: error); producer.fail(error) }
+            }
+            
+            self.add(delete)
         }
-        
-        cloudDB.add(delete)
     }
 }
 

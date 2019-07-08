@@ -97,7 +97,7 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     public func delete(IDs: Channel<[CKRecord.ID], Void>, skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {
         return IDs
             .flatMap(context: self) { $0.split(items: $1) }
-            .flatMap(context: self) { me, ids in iCloudNinjaDelete(IDs: ids, cloudDB: me.cloudDB) }
+            .flatMap(context: self) { me, ids in me.cloudDB.delete(IDs: ids) }
     }
     
     public func deleteRecordsOf(type: String, skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {
