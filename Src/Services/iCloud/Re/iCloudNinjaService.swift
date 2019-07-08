@@ -60,7 +60,7 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     public func push(records: Channel<[CKRecord],Void>) -> Channel<[CKRecord], Void> {
         return records
             .flatMap(context: self) { $0.split(items: $1) }
-            .flatMap(context: self) { me, recs in return iCloudNinjaPush(records: recs, cloudDB: me.cloudDB) }
+            .flatMap(context: self) { me, recs in me.cloudDB.push(records: recs) }
     }
 
     private func split<T>(items: [T]) -> Channel<[T],Void> {
@@ -85,7 +85,7 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     }
     
     public func fetch(query: CKQuery) -> Channel<[CKRecord], Void> {
-        return perform(operation: CKQueryOperation(query: query), cloudDB: cloudDB, batchSize: batchSize)
+        return cloudDB.perform(operation: CKQueryOperation(query: query), batchSize: batchSize)
             .mapSuccess { _ in () }
     }
     

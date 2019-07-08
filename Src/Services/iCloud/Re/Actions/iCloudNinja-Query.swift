@@ -9,18 +9,21 @@
 import CloudKit
 import AsyncNinja
 
-func perform(operation: CKQueryOperation, cloudDB: CKDatabase, batchSize: Int) -> Channel<[CKRecord], Void> {
-    AppCore.log(title: "iCloudNinja", msg: "perform operation")
-    
-    return Producer<[CKRecord],Void>()
-        .iterate(operation: operation, transform: { CKQueryOperation(cursor: $0) }) { producer, operation in
-            
-            AppCore.log(title: "iCloudNinja", msg: "perform operation")
-            producer.bind(operation: operation)
-            
-            operation.resultsLimit = batchSize
-            cloudDB.add(operation)
+public extension CKDatabase {
+    func perform(operation: CKQueryOperation, batchSize: Int) -> Channel<[CKRecord], Void> {
+        AppCore.log(title: "iCloudNinja", msg: "perform operation")
+        
+        return Producer<[CKRecord],Void>()
+            .iterate(operation: operation, transform: { CKQueryOperation(cursor: $0) }) { producer, operation in
+                
+                AppCore.log(title: "iCloudNinja", msg: "perform operation")
+                producer.bind(operation: operation)
+                
+                operation.resultsLimit = batchSize
+                self.add(operation)
+        }
     }
+
 }
 
 private extension Producer where Update == CKRecord, Success == CKQueryOperation.Cursor? {

@@ -9,25 +9,17 @@
 import CloudKit
 import AsyncNinja
 
-func iCloudNinjaPush(records: [CKRecord], cloudDB: CKDatabase) -> Channel<[CKRecord],Void> {
-    return producer() { producer in
-        let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
-        operation.modifyRecordsCompletionBlock = { records, _, error in
-            if let error = error            { log(error: error); producer.fail(error) }
-            if let records = records        { producer.update(records); producer.succeed(()) }
+public extension CKDatabase {
+    func push(records: [CKRecord]) -> Channel<[CKRecord],Void> {
+        return producer() { producer in
+            let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
+            operation.modifyRecordsCompletionBlock = { records, _, error in
+                if let error = error            { log(error: error); producer.fail(error) }
+                if let records = records        { producer.update(records); producer.succeed(()) }
+            }
+            self.add(operation)
         }
-        cloudDB.add(operation)
     }
-    
-//    let promise = Promise<[CKRecord]>()
-//    let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
-//    operation.modifyRecordsCompletionBlock = { records, _, error in
-//        if let error = error            { log(error: error); promise.fail(error) }
-//        if let records = records        { promise.succeed(records) }
-//    }
-//    cloudDB.add(operation)
-//
-//    return promise
 }
 
 fileprivate func log(error: Error) {
