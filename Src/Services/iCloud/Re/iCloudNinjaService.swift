@@ -90,7 +90,6 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     
     public func fetch(query: CKQuery) -> Channel<[CKRecord], Void> {
         return cloudDB.perform(operation: CKQueryOperation(query: query), batchSize: batchSize)
-            .mapSuccess { _ in () }
     }
     
     public func fetchRecordsOf(type: String, predicate: NSPredicate? = nil) -> Channel<[CKRecord], Void> {

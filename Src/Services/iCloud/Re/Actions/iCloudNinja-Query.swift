@@ -11,12 +11,12 @@ import AsyncNinja
 
 public extension CKDatabase {
     func perform(operation: CKQueryOperation, batchSize: Int) -> Channel<[CKRecord], Void> {
-        AppCore.log(title: "iCloudNinja", msg: "perform operation")
+        log(msg: "perform operation")
         
         return Producer<[CKRecord],Void>()
             .iterate(operation: operation, transform: { CKQueryOperation(cursor: $0) }) { producer, operation in
                 
-                AppCore.log(title: "iCloudNinja", msg: "perform operation")
+                log(msg: "perform operation")
                 producer.bind(operation: operation)
                 
                 operation.resultsLimit = batchSize
@@ -29,9 +29,12 @@ public extension CKDatabase {
 private extension Producer where Update == CKRecord, Success == CKQueryOperation.Cursor? {
     func bind(operation: CKQueryOperation) {
         operation.recordFetchedBlock = {
-            self.update($0) }
+            log(msg: "fetched \($0.recordType) \($0.recordID.recordName)")
+            self.update($0)
+        }
         operation.queryCompletionBlock = { cursor, error in
-            if let error = error { self.fail(error) }
+            
+            if let error = error { log(error: error); self.fail(error) }
             self.succeed(cursor)
         }
     }
@@ -50,12 +53,18 @@ private extension Producer where Update == [CKRecord], Success == Void {
         p.onFailure { self.fail($0) }
      
         p.onSuccess() { cursor in
+            
             self.update(records)
             if let cursor = cursor {
+                log(msg: "Operation step succeded. Going to perform next step")
                 self.iterate(operation: transform(cursor), transform: transform, block: block)
             } else {
+                log(msg: "Operation completed")
                 self.succeed(())
             }
+        }.onFailure() { error in
+            log(msg: "operation step failed")
+            log(error: error)
         }
         
         return self
