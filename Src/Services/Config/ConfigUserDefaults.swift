@@ -52,6 +52,7 @@ public class ConfigUserDefaults : ConfigBackend {
         case is Double.Type:    return store.double(forKey: key)
         case is Bool.Type:      return store.bool(forKey: key)
         case is String.Type:    return store.string(forKey: key)
+        case is (Data?).Type:   return store.value(forKey: key) as? Data
         default: fatalError()
         }
 

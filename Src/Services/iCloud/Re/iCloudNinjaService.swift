@@ -84,9 +84,8 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
         }
     }
     
-    public func fetchWithChangeToken() -> Channel<CKQueryNotification, CKServerChangeToken> {
-        return container.fetch(token: serverChangeToken)
-            .onSuccess(context: self) {me, token in me.serverChangeToken = token }
+    public func fetchChangeWith(token: CKServerChangeToken?) -> Channel<CKQueryNotification, CKServerChangeToken> {
+        return container.fetch(token: token)
     }
     
     public func fetch(query: CKQuery) -> Channel<[CKRecord], Void> {
@@ -114,31 +113,4 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
 
 fileprivate func log(msg: String) {
     AppCore.log(title: "iCloudNinja", msg: msg, thread: true)
-}
-
-
-private let changeTokenKey = "iCloudNinja.changeToken"
-
-public extension iCloudNinjaService {
-    var serverChangeToken: CKServerChangeToken? {
-        get {
-            guard let data = UserDefaults.standard.value(forKey: changeTokenKey) as? Data else {
-                return nil
-            }
-            
-            guard let token = NSKeyedUnarchiver.unarchiveObject(with: data) as? CKServerChangeToken else {
-                return nil
-            }
-            
-            return token
-        }
-        set {
-            if let token = newValue {
-                let data = NSKeyedArchiver.archivedData(withRootObject: token)
-                UserDefaults.standard.set(data, forKey: changeTokenKey)
-            } else {
-                UserDefaults.standard.removeObject(forKey: changeTokenKey)
-            }
-        }
-    }
 }
