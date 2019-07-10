@@ -11,6 +11,7 @@ import AsyncNinja
 
 public extension CKDatabase {
     func delete(IDs: [CKRecord.ID]) -> Channel<[CKRecord.ID],Void> {
+        log(msg: "going to delete \(IDs.count) records")
         return producer() { producer in
             let delete =  CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: IDs)
             delete.modifyRecordsCompletionBlock = { _, deletedRecordIDs, error in

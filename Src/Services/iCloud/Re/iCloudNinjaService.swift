@@ -107,6 +107,14 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
         let ids = fetchRecordsOf(type: type).map { $0.map { $0.recordID } }
         return delete(IDs: ids, skipErrors: skipErrors)
     }
+    
+    public func subscribe(to subscription: CKSubscription) -> Future<CKSubscription> {
+        return cloudDB.subscribe(subscription)
+    }
+    
+    public func fetchAllSubscriptions() -> Future<[CKSubscription]> {
+        return cloudDB.fetchAllSubscriptions()
+    }
 }
 
 

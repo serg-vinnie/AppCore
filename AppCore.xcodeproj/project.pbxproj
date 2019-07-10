@@ -97,6 +97,7 @@
 		E664576C22A2783A0059AB1B /* SubclassesOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664576B22A2783A0059AB1B /* SubclassesOf.swift */; };
 		E664576F22A2848D0059AB1B /* DaemonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664576E22A2848D0059AB1B /* DaemonsService.swift */; };
 		E67825842264BE5100391616 /* CollectionViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67825832264BE5100391616 /* CollectionViewBinder.swift */; };
+		E692B8EC22D63BB5000C3865 /* iCloudNinja-Subscribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E692B8EB22D63BB5000C3865 /* iCloudNinja-Subscribe.swift */; };
 		E6957155229AA6DD002FD962 /* NSViewController+SliderGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6957154229AA6DD002FD962 /* NSViewController+SliderGroup.swift */; };
 		E695DF76224F938F00611D2B /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */; };
 		E695DF78224F961500611D2B /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E695DF77224F961500611D2B /* Binding.swift */; };
@@ -216,6 +217,7 @@
 		E664576B22A2783A0059AB1B /* SubclassesOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubclassesOf.swift; sourceTree = "<group>"; };
 		E664576E22A2848D0059AB1B /* DaemonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaemonsService.swift; sourceTree = "<group>"; };
 		E67825832264BE5100391616 /* CollectionViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewBinder.swift; sourceTree = "<group>"; };
+		E692B8EB22D63BB5000C3865 /* iCloudNinja-Subscribe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iCloudNinja-Subscribe.swift"; sourceTree = "<group>"; };
 		E6957154229AA6DD002FD962 /* NSViewController+SliderGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+SliderGroup.swift"; sourceTree = "<group>"; };
 		E695DF75224F938F00611D2B /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		E695DF77224F961500611D2B /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				E630E1F72293076E00CFEED4 /* iCloudNinja-Query.swift */,
 				E630E1F82293076E00CFEED4 /* iCloudNinja-Delete.swift */,
 				E620B04622D39D4D00EEC230 /* CKContainer+Fetch.swift */,
+				E692B8EB22D63BB5000C3865 /* iCloudNinja-Subscribe.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				E630E1DC2292FE4A00CFEED4 /* ContainerViewController.swift in Sources */,
 				E630E1FC2293076E00CFEED4 /* iCloudFetcher.swift in Sources */,
 				E614653C2294167D001EC0C0 /* Environment.swift in Sources */,
+				E692B8EC22D63BB5000C3865 /* iCloudNinja-Subscribe.swift in Sources */,
 				E630E1D82292F70A00CFEED4 /* ConfigUserDefaults.swift in Sources */,
 				E630E1B82292F47C00CFEED4 /* NSViewController+Ext.swift in Sources */,
 				E695DF78224F961500611D2B /* Binding.swift in Sources */,
