@@ -37,4 +37,9 @@ public extension ExecutionContext {
         return AppCore.states.localizationDidChange
             .map(context: self) { _, loc in loc.stringBy(id: id) }
     }
+    
+    func localize(id: String) -> Channel<String,Void> {
+        return AppCore.states.localizationDidChange
+            .map(context: self) { _, loc in loc.stringBy(id: id) }
+    }
 }
