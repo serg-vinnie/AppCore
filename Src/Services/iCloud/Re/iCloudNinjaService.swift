@@ -115,6 +115,10 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     public func fetchAllSubscriptions() -> Future<[CKSubscription]> {
         return cloudDB.fetchAllSubscriptions()
     }
+    
+    public func userRecordID() -> Future<CKRecord.ID> {
+        return container.userRecordID()
+    }
 }
 
 
