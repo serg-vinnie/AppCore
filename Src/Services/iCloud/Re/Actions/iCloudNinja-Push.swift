@@ -11,6 +11,7 @@ import AsyncNinja
 
 public extension CKDatabase {
     func push(records: [CKRecord]) -> Channel<[CKRecord],Void> {
+        log(msg: "pushing \(records.count) records")
         return producer() { producer in
             let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
             operation.modifyRecordsCompletionBlock = { records, _, error in
@@ -21,6 +22,11 @@ public extension CKDatabase {
         }
     }
 }
+
+fileprivate func log(msg: String) {
+    AppCore.log(title: "iCloudNinja", msg: msg, thread: true)
+}
+
 
 fileprivate func log(error: Error) {
     AppCore.log(title: "iCloudNinja", error: error, thread: true)

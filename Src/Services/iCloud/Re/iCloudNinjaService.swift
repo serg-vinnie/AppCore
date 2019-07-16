@@ -62,6 +62,10 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
             .flatMap(context: self) { $0.split(items: $1) }
             .flatMap(context: self) { me, recs in me.cloudDB.push(records: recs) }
     }
+    
+    public func push(records: [CKRecord]) -> Channel<[CKRecord], Void> {
+        return cloudDB.push(records: records)
+    }
 
     private func split<T>(items: [T]) -> Channel<[T],Void> {
         return channel(updates: items.splitBy(batchSize), success: ())
@@ -116,7 +120,11 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
         return cloudDB.fetchAllSubscriptions()
     }
     
-    public func userRecordID() -> Future<CKRecord.ID> {
+//    public func userRecordID() -> Future<CKRecord.ID> {
+//        return container.userRecordID()
+//    }
+    
+    public func userRecordID() -> Channel<CKRecord.ID,Void> {
         return container.userRecordID()
     }
 }
