@@ -29,8 +29,8 @@ public class iCloundNinjaPublic : iCloudNinjaService {
 
 
 public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
-    //public let internalQueue : DispatchQueue
-    public var executor: Executor { return Executor.default }
+    public let internalQueue = DispatchQueue(label: "iCloudNinjaService")
+    public var executor: Executor { return Executor(queue: self.internalQueue) }
     public let releasePool = ReleasePool()
     
     public let container  : CKContainer
@@ -59,8 +59,8 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     
     public func push(records: Channel<[CKRecord],Void>) -> Channel<[CKRecord], Void> {
         return records
-            .flatMap(context: self) { $0.split(items: $1) }
-            .flatMap(context: self) { me, recs in me.cloudDB.push(records: recs) }
+          .flatMap(context: self, executor: Executor.default) { $0.split(items: $1) }
+          .flatMap(context: self, executor: Executor.default) { me, recs in me.cloudDB.push(records: recs) }
     }
     
     public func push(records: [CKRecord]) -> Channel<[CKRecord], Void> {
@@ -91,8 +91,8 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     
     public func delete(IDs: Channel<[CKRecord.ID], Void>, skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {
         return IDs
-            .flatMap(context: self) { $0.split(items: $1) }
-            .flatMap(context: self) { me, ids in me.cloudDB.delete(IDs: ids) }
+            .flatMap(context: self, executor: Executor.default) { $0.split(items: $1) }
+            .flatMap(context: self, executor: Executor.default) { me, ids in me.cloudDB.delete(IDs: ids) }
     }
     
     public func deleteRecordsOf(type: String, skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {
