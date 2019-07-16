@@ -35,6 +35,7 @@ private extension Producer where Update == CKRecord, Success == CKQueryOperation
         operation.queryCompletionBlock = { cursor, error in
             
             if let error = error { log(error: error); self.fail(error) }
+            sleep(1) // TODO: remove it someday
             self.succeed(cursor)
         }
     }

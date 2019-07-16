@@ -71,21 +71,9 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
         return channel(updates: items.splitBy(batchSize), success: ())
     }
     
-    public func fetch(IDs: [CKRecord.ID]) -> Channel<[CKRecord], Void> {
-        return channel(context: self) { ctx, update in
-            for batch in IDs.splitBy(ctx.batchSize) {
-                log(msg: "going to push \(batch.count) records")
-                
-                switch iCloudNinjaFetch(ids: batch, cloudDB: ctx.cloudDB).wait() {
-                    
-                case let .success(fetchedRecords):
-                    let records = fetchedRecords.map { $0.value }
-                    update(records)
-                case let .failure(error):
-                    throw error
-                }
-            }
-        }
+    public func fetch(IDs: [CKRecord.ID]) -> Channel<[CKRecord.ID:CKRecord], Void> {
+        return cloudDB.fetch(IDs: IDs)
+            .asChannel()
     }
     
     public func fetchChangeWith(token: CKServerChangeToken?) -> Channel<CKQueryNotification, CKServerChangeToken> {
@@ -120,11 +108,7 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
         return cloudDB.fetchAllSubscriptions()
     }
     
-//    public func userRecordID() -> Future<CKRecord.ID> {
-//        return container.userRecordID()
-//    }
-    
-    public func userRecordID() -> Channel<CKRecord.ID,Void> {
+    public func userRecordID() -> Future<CKRecord.ID> {
         return container.userRecordID()
     }
 }
@@ -132,4 +116,17 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
 
 fileprivate func log(msg: String) {
     AppCore.log(title: "iCloudNinja", msg: msg, thread: true)
+}
+
+public extension Future {
+    func asChannel(debugID: String? = nil) -> Channel<Success,Void> {
+        return producer() { [weak self] producer in
+            producer.debugID = debugID
+            self?.onFailure { producer.fail($0) }
+            self?.onSuccess {
+                producer.update($0);
+                sleep(1)
+                producer.succeed() }
+        }
+    }
 }

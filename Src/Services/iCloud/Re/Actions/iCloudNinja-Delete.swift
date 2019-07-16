@@ -15,7 +15,8 @@ public extension CKDatabase {
         return producer() { producer in
             let delete =  CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: IDs)
             delete.modifyRecordsCompletionBlock = { _, deletedRecordIDs, error in
-                if let IDs = deletedRecordIDs   { log(msg: "\(IDs.count) deleted"); producer.update(IDs); producer.succeed(()) }
+                // TODO: remove sleep(1) someday
+                if let IDs = deletedRecordIDs   { log(msg: "\(IDs.count) deleted"); producer.update(IDs); sleep(1); producer.succeed(()) }
                 if let error = error            { log(error: error); producer.fail(error) }
             }
             

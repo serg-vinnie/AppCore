@@ -23,19 +23,4 @@ public extension CKContainer {
             }
         }
     }
-    
-    func userRecordID() -> Channel<CKRecord.ID, Void> {
-        return producer() { [weak self] producer in
-            self?.fetchUserRecordID { recordID, error in
-                if let error = error {
-                    producer.fail(error)
-                }
-                if let id = recordID {
-                    AppCore.log(title: "iCloudNinja", msg: "user id did fetch (channel) \(id.recordName)")
-                    producer.update(id)
-                    producer.succeed()
-                }
-            }
-        }
-    }
 }

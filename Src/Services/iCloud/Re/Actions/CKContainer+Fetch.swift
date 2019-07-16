@@ -25,6 +25,7 @@ public extension CKContainer {
                     log(error: error)
                     producer.fail(error)
                 } else if let token = newToken {
+                    sleep(1) // TODO: remove it someday
                     log(msg: "new CHANGE TOKEN received \(token.debugDescription)")
                     producer.succeed(token)
                 }
