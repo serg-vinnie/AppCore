@@ -17,7 +17,7 @@ public extension CKContainer {
                     promise.fail(error)
                 }
                 if let id = recordID {
-                    AppCore.log(title: "iCloudNinja", msg: "user id did fetch (future) \(id.recordName)")
+                    AppCore.log(title: "iCloudNinja", msg: "user id did fetch \(id.recordName)")
                     promise.succeed(id)
                 }
             }

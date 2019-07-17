@@ -10,24 +10,23 @@ import CloudKit
 import AsyncNinja
 
 public extension CKContainer {
-    func fetch(token: CKServerChangeToken?) -> Channel<CKQueryNotification,CKServerChangeToken> {
-        return producer() { producer in
+    func fetch(token: CKServerChangeToken?, executor: Executor) -> Channel<CKQueryNotification,CKServerChangeToken> {
+        return producer(executor: executor) { producer in
             let operation = CKFetchNotificationChangesOperation(previousServerChangeToken: token)
             
             operation.notificationChangedBlock = { notification in
                 guard let notification = notification as? CKQueryNotification else { return }
                 
-                producer.update(notification)
+                producer.update(notification, from: executor)
             }
             
             operation.fetchNotificationChangesCompletionBlock = { newToken, error in
                 if let error = error {
                     log(error: error)
-                    producer.fail(error)
+                    producer.fail(error, from: executor)
                 } else if let token = newToken {
-                    sleep(1) // TODO: remove it someday
                     log(msg: "new CHANGE TOKEN received \(token.debugDescription)")
-                    producer.succeed(token)
+                    producer.succeed(token, from: executor)
                 }
             }
             

@@ -10,33 +10,32 @@ import CloudKit
 import AsyncNinja
 
 public extension CKDatabase {
-    func perform(operation: CKQueryOperation, batchSize: Int) -> Channel<[CKRecord], Void> {
+    func perform(operation: CKQueryOperation, batchSize: Int, executor: Executor) -> Channel<[CKRecord], Void> {
         log(msg: "perform operation")
         
         return Producer<[CKRecord],Void>()
-            .iterate(operation: operation, transform: { CKQueryOperation(cursor: $0) }) { producer, operation in
+            .iterate(operation: operation, executor: executor) { [weak self] producer, operation in
                 
                 log(msg: "perform operation")
-                producer.bind(operation: operation)
+                producer.bind(operation: operation, executor: executor)
                 
                 operation.resultsLimit = batchSize
-                self.add(operation)
+                self?.add(operation)
         }
     }
 
 }
 
 private extension Producer where Update == CKRecord, Success == CKQueryOperation.Cursor? {
-    func bind(operation: CKQueryOperation) {
-        operation.recordFetchedBlock = {
+    func bind(operation: CKQueryOperation, executor: Executor) {
+        operation.recordFetchedBlock = { [weak self] in
             log(msg: "fetched \($0.recordType) \($0.recordID.recordName)")
-            self.update($0)
+            self?.update($0, from: executor)
         }
-        operation.queryCompletionBlock = { cursor, error in
+        operation.queryCompletionBlock = { [weak self] cursor, error in
             
-            if let error = error { log(error: error); self.fail(error) }
-            sleep(1) // TODO: remove it someday
-            self.succeed(cursor)
+            if let error = error { log(error: error); self?.fail(error, from: executor) }
+            self?.succeed(cursor, from: executor)
         }
     }
 }
@@ -44,28 +43,29 @@ private extension Producer where Update == CKRecord, Success == CKQueryOperation
 private extension Producer where Update == [CKRecord], Success == Void {
 
     @discardableResult
-    func iterate(operation: CKQueryOperation, transform: @escaping (CKQueryOperation.Cursor)->(CKQueryOperation), block: @escaping (Producer<CKRecord,CKQueryOperation.Cursor?>, CKQueryOperation)->()) -> Producer<[CKRecord],Void> {
+    func iterate(operation: CKQueryOperation, executor: Executor, block: @escaping (Producer<CKRecord,CKQueryOperation.Cursor?>, CKQueryOperation)->()) -> Producer<[CKRecord],Void> {
         var records = [CKRecord]()
         records.reserveCapacity(400)
         
-        let p = Producer<CKRecord,CKQueryOperation.Cursor?>()
-        block(p, operation)
-        p.onUpdate() { records.append($0) } 
-        p.onFailure { self.fail($0) }
-     
-        p.onSuccess() { cursor in
-            
-            self.update(records)
-            if let cursor = cursor {
-                log(msg: "Operation step succeded. Going to perform next step")
-                self.iterate(operation: transform(cursor), transform: transform, block: block)
-            } else {
-                log(msg: "Operation completed")
-                self.succeed(())
-            }
-        }.onFailure() { error in
-            log(msg: "operation step failed")
-            log(error: error)
+        let producer = Producer<CKRecord,CKQueryOperation.Cursor?>()
+        block(producer, operation)
+        
+        producer
+            .onUpdate(executor: executor) { records.append($0) }
+            .onSuccess(executor: executor) { [weak self] cursor in
+                
+                self?.update(records, from: executor)
+                if let cursor = cursor {
+                    log(msg: "Operation step succeded. Going to perform next step")
+                    self?.iterate(operation: CKQueryOperation(cursor: cursor), executor: executor, block: block)
+                } else {
+                    log(msg: "Operation completed")
+                    self?.succeed(from: executor)
+                }
+            }.onFailure(executor: executor) { [weak self] error in
+                log(msg: "operation step failed")
+                log(error: error)
+                self?.fail(error, from: executor)
         }
         
         return self

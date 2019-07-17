@@ -78,11 +78,11 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     }
     
     public func fetchChangeWith(token: CKServerChangeToken?) -> Channel<CKQueryNotification, CKServerChangeToken> {
-        return container.fetch(token: token)
+        return container.fetch(token: token, executor: executor)
     }
     
     public func fetch(query: CKQuery) -> Channel<[CKRecord], Void> {
-        return cloudDB.perform(operation: CKQueryOperation(query: query), batchSize: batchSize)
+        return cloudDB.perform(operation: CKQueryOperation(query: query), batchSize: batchSize, executor: executor)
     }
     
     public func fetchRecordsOf(type: String, predicate: NSPredicate? = nil) -> Channel<[CKRecord], Void> {
@@ -121,7 +121,7 @@ fileprivate func log(msg: String) {
 
 public extension Future {
     func asChannel(executor: Executor) -> Channel<Success,Void> {
-        return producer() { [weak self] producer in
+        return producer(executor: executor) { [weak self] producer in
             self?.onFailure { producer.fail($0, from: executor) }
             self?.onSuccess {
                 producer.update($0, from: executor);
