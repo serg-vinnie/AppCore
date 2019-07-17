@@ -51,6 +51,13 @@ public extension AppCore {
 }
 
 public extension AppCore {
+    static func sleep(for seconds: Double) {
+        let time = useconds_t(1000000 * seconds)
+        usleep(time)
+    }
+}
+
+public extension AppCore {
     static func log(title: String, msg: String, thread: Bool = false) {
         guard shouldPass(title: title) else { return }
         

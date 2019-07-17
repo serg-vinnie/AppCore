@@ -125,7 +125,7 @@ public extension Future {
             self.onFailure { producer.fail($0, from: executor) }
             self.onSuccess {
                 producer.update($0, from: executor);
-                sleep(1)
+                AppCore.sleep(for: 0.5)
                 producer.succeed(from: executor) }
         }
     }
