@@ -10,13 +10,17 @@ import CloudKit
 import RxSwift
 import AsyncNinja
 
-func iCloudNinjaAccountStatus(container: CKContainer) -> Future<CKAccountStatus> {
-    let promise = Promise<CKAccountStatus>()
-    container.accountStatus() { status, error in // CKAccountStatus, Error?
-        promise.succeed(status)
-        if let error = error {
-            promise.fail(error)
+public extension CKContainer {
+    func status() -> Future<CKAccountStatus> {
+        return promise() { [weak self] promise in
+            
+            self?.accountStatus{ status, error in // CKAccountStatus, Error?
+                promise.succeed(status)
+                if let error = error {
+                    promise.fail(error)
+                }
+            }
+            
         }
     }
-    return promise
 }

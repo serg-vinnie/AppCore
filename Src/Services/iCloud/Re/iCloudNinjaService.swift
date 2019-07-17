@@ -45,7 +45,7 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     }
     
     public func waitForAuth(retryAfterSeconds: UInt32 = 30) -> Future<Void> {
-        return future(context: self) { ctx in
+        return future(context: self, executor: .default) { ctx in
             while ctx.status() != .available {
                 sleep(retryAfterSeconds)
             }
@@ -53,7 +53,7 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     }
     
     public func status() -> CKAccountStatus {
-        let status = iCloudNinjaAccountStatus(container: container).wait()
+        let status = container.status().wait()
         return status.success ?? .couldNotDetermine
     }
     
@@ -121,10 +121,11 @@ fileprivate func log(msg: String) {
 
 public extension Future {
     func asChannel(executor: Executor) -> Channel<Success,Void> {
-        return producer(executor: executor) { [weak self] producer in
-            self?.onFailure { producer.fail($0, from: executor) }
-            self?.onSuccess {
+        return producer(executor: executor) { producer in
+            self.onFailure { producer.fail($0, from: executor) }
+            self.onSuccess {
                 producer.update($0, from: executor);
+                sleep(1)
                 producer.succeed(from: executor) }
         }
     }
