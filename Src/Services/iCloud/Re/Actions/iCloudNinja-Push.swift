@@ -10,16 +10,17 @@ import CloudKit
 import AsyncNinja
 
 public extension CKDatabase {
-    func push(records: [CKRecord]) -> Channel<[CKRecord],Void> {
+    func push(records: [CKRecord]) -> Future<[CKRecord]> {
+        
         log(msg: "pushing \(records.count) records")
-        return producer() { producer in
+        
+        return promise() { [weak self] promise in
             let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
             operation.modifyRecordsCompletionBlock = { records, _, error in
-                // TODO: remove sleep(1) someday
-                if let error = error            { log(error: error); producer.fail(error) }
-                if let records = records        { producer.update(records); sleep(1); producer.succeed(()) }
+                if let records = records        { log(msg: "\(records.count) did push");    promise.succeed(records) }
+                if let error = error            { log(error: error);                        promise.fail(error) }
             }
-            self.add(operation)
+            self?.add(operation)
         }
     }
 }

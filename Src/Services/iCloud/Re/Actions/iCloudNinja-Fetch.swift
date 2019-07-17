@@ -11,7 +11,9 @@ import AsyncNinja
 
 public extension CKDatabase {
     func fetch(IDs: [CKRecord.ID]) -> Future<[CKRecord.ID:CKRecord]> {
+        
         log(msg:"going to fetch \(IDs.count) records")
+        
         return promise() { [weak self] promise in
             let fetch = CKFetchRecordsOperation(recordIDs: IDs)
             
@@ -24,19 +26,6 @@ public extension CKDatabase {
         }
     }
 }
-
-//func iCloudNinjaFetch(ids: [CKRecord.ID], cloudDB: CKDatabase) -> Future<[CKRecord.ID:CKRecord]> {
-//    let promise = Promise<[CKRecord.ID:CKRecord]>()
-//
-//    let fetch = CKFetchRecordsOperation(recordIDs: ids)
-//    fetch.fetchRecordsCompletionBlock = { records, error in
-//        if let records = records        { promise.succeed(records) }
-//        if let error = error            { log(error: error); promise.fail(error) }
-//    }
-//    cloudDB.add(fetch)
-//
-//    return promise
-//}
 
 fileprivate func log(msg: String) {
     AppCore.log(title: "iCloudNinja", msg: msg, thread: true)

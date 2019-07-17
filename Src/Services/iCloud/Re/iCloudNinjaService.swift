@@ -12,25 +12,25 @@ import CloudKit
 
 fileprivate let publicDB  = CKContainer.default().publicCloudDatabase
 fileprivate let privateDB = CKContainer.default().privateCloudDatabase
-fileprivate let cloudQueueID = "iCloudThread"
+
+fileprivate let cloudExecutor = Executor(queue: DispatchQueue(label: "iCloudQueue"))
 
 public class iCloundNinjaPrivate : iCloudNinjaService {
     init() {
-        super.init(container: CKContainer.default(), cloudDB: privateDB, queueId: cloudQueueID)
+        super.init(container: CKContainer.default(), cloudDB: privateDB, executor: cloudExecutor)
     }
 }
 
 public class iCloundNinjaPublic : iCloudNinjaService {
     init() {
-        super.init(container: CKContainer.default(), cloudDB: publicDB, queueId: cloudQueueID)
+        super.init(container: CKContainer.default(), cloudDB: publicDB, executor: cloudExecutor)
     }
 }
 
 
 
 public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
-    public let internalQueue = DispatchQueue(label: "iCloudNinjaService")
-    public var executor: Executor { return Executor(queue: self.internalQueue) }
+    public let executor: Executor
     public let releasePool = ReleasePool()
     
     public let container  : CKContainer
@@ -38,8 +38,8 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     
     public var batchSize  = 300
     
-    public init(container: CKContainer, cloudDB: CKDatabase, queueId: String) {
-        //self.internalQueue = DispatchQueue(label: queueId)
+    public init(container: CKContainer, cloudDB: CKDatabase, executor: Executor) {
+        self.executor = executor
         self.container  = container
         self.cloudDB    = cloudDB
     }
@@ -60,11 +60,12 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     public func push(records: Channel<[CKRecord],Void>) -> Channel<[CKRecord], Void> {
         return records
           .flatMap(context: self, executor: Executor.default) { $0.split(items: $1) }
-          .flatMap(context: self, executor: Executor.default) { me, recs in me.cloudDB.push(records: recs) }
+          .flatMap(context: self, executor: Executor.default) { $0.push(records: $1) }
     }
     
     public func push(records: [CKRecord]) -> Channel<[CKRecord], Void> {
         return cloudDB.push(records: records)
+            .asChannel(executor: executor)
     }
 
     private func split<T>(items: [T]) -> Channel<[T],Void> {
@@ -73,7 +74,7 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     
     public func fetch(IDs: [CKRecord.ID]) -> Channel<[CKRecord.ID:CKRecord], Void> {
         return cloudDB.fetch(IDs: IDs)
-            .asChannel()
+            .asChannel(executor: executor)
     }
     
     public func fetchChangeWith(token: CKServerChangeToken?) -> Channel<CKQueryNotification, CKServerChangeToken> {
@@ -92,7 +93,7 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     public func delete(IDs: Channel<[CKRecord.ID], Void>, skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {
         return IDs
             .flatMap(context: self, executor: Executor.default) { $0.split(items: $1) }
-            .flatMap(context: self, executor: Executor.default) { me, ids in me.cloudDB.delete(IDs: ids) }
+            .flatMap(context: self, executor: Executor.default) { me, ids in me.cloudDB.delete(IDs: ids).asChannel(executor: me.executor) }
     }
     
     public func deleteRecordsOf(type: String, skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {
@@ -119,14 +120,12 @@ fileprivate func log(msg: String) {
 }
 
 public extension Future {
-    func asChannel(debugID: String? = nil) -> Channel<Success,Void> {
+    func asChannel(executor: Executor) -> Channel<Success,Void> {
         return producer() { [weak self] producer in
-            producer.debugID = debugID
-            self?.onFailure { producer.fail($0) }
+            self?.onFailure { producer.fail($0, from: executor) }
             self?.onSuccess {
-                producer.update($0);
-                sleep(1)
-                producer.succeed() }
+                producer.update($0, from: executor);
+                producer.succeed(from: executor) }
         }
     }
 }
