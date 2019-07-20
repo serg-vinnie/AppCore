@@ -69,7 +69,13 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     }
 
     private func split<T>(items: [T]) -> Channel<[T],Void> {
-        return channel(updates: items.splitBy(batchSize), success: ())
+        return producer(executor: .default) { me, producer in
+            for batch in items.splitBy(me.batchSize) {
+                producer.update(batch)
+            }
+            AppCore.sleep(for: 0.5)
+            producer.succeed(())
+        }
     }
     
     public func fetch(IDs: [CKRecord.ID]) -> Channel<[CKRecord.ID:CKRecord], Void> {
