@@ -17,11 +17,13 @@ public class ConfigR<T : Equatable>  {
     public let key             : String
     public let defaultValue    : T
     
-    public var didSet           : Channel<T, Void> { return valueR }
-    public var didChangeRx      : Observable<T>    { return valueRx.asObservable() }
+    public var didSet           : Channel<T, Void>      { return valueR }
+    public var didSetFromTo     : Channel<(T,T),Void>   { return valueFromTo }
+    public var didChangeRx      : Observable<T>         { return valueRx.asObservable() }
     
-    private let valueR  : DynamicProperty<T>
-    private let valueRx : BehaviorRelay<T>
+    private let valueR          : DynamicProperty<T>
+    private let valueFromTo     = Producer<(T,T),Void>()
+    private let valueRx         : BehaviorRelay<T>
     
     public var value           : T {
         set { set(value: newValue) }
@@ -45,6 +47,7 @@ public class ConfigR<T : Equatable>  {
     private func set(value: T) {
         AppCore.log(title: "ConfigR", msg: "\(key) - \(value)", thread: true)
         store.set(value: value, key: key)
+        valueFromTo.update((valueR.value,value))
         valueR.value = value
         valueRx.accept(value)
     }
@@ -57,11 +60,13 @@ public class ConfigREnum<T: RawRepresentable> where T.RawValue : Equatable  {
     public let defaultValue    : T
     public let context         : ExecutionContext
     
-    public var didChange      : Channel<T, Void> { return valueR }
-    public var didChangeRx    : Observable<T>    { return valueRx.asObservable() }
+    public var didChange        : Channel<T, Void>      { return valueR }
+    public var didSetFromTo     : Channel<(T,T),Void>   { return valueFromTo }
+    public var didChangeRx      : Observable<T>         { return valueRx.asObservable() }
     
-    private let valueR : DynamicProperty<T>
-    private let valueRx : BehaviorRelay<T>
+    private let valueR          : DynamicProperty<T>
+    private let valueFromTo     = Producer<(T,T),Void>()
+    private let valueRx         : BehaviorRelay<T>
 
     public var value           : T {
         set { set(value: newValue) }
