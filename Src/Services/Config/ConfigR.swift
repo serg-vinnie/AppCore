@@ -17,8 +17,8 @@ public class ConfigR<T : Equatable>  {
     public let key             : String
     public let defaultValue    : T
     
-    public var didChange      : Channel<T, Void> { return valueR }
-    public var didChangeRx    : Observable<T>    { return valueRx.asObservable() }
+    public var didSet           : Channel<T, Void> { return valueR }
+    public var didChangeRx      : Observable<T>    { return valueRx.asObservable() }
     
     private let valueR  : DynamicProperty<T>
     private let valueRx : BehaviorRelay<T>
