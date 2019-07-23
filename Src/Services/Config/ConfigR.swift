@@ -95,6 +95,7 @@ public class ConfigREnum<T: RawRepresentable> where T.RawValue : Equatable  {
 
     private func set(value: T) {
         store.set(value: value.rawValue, key: key)
+        valueFromTo.update((valueR.value,value))
         valueR.value = value
         valueRx.accept(value)
     }
