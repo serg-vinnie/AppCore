@@ -60,7 +60,7 @@ public class ConfigREnum<T: RawRepresentable> where T.RawValue : Equatable  {
     public let defaultValue    : T
     public let context         : ExecutionContext
     
-    public var didChange        : Channel<T, Void>      { return valueR }
+    public var didSet           : Channel<T, Void>      { return valueR }
     public var didSetFromTo     : Channel<(T,T),Void>   { return valueFromTo }
     public var didChangeRx      : Observable<T>         { return valueRx.asObservable() }
     
