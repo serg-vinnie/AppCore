@@ -17,7 +17,15 @@ open class ContainerViewController : NSViewController {
     
     public var nextController   : NSViewController? { didSet { transitionTo(controller: nextController) } }
     
-    public func display(controller: NSViewController) {
+    public func switchTo(controller: NSViewController, transition: Bool) {
+        if transition {
+            transitionTo(controller: controller)
+        } else {
+            display(controller: controller)
+        }
+    }
+    
+    private func display(controller: NSViewController) {
         remove(content: content)
         
         addChild(controller)
@@ -29,7 +37,7 @@ open class ContainerViewController : NSViewController {
         content = controller
     }
     
-    public func transitionTo(controller: NSViewController?) {
+    private func transitionTo(controller: NSViewController?) {
         guard let controller = controller else {
             if let content = content { remove(content: content) }
             return
