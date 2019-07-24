@@ -94,6 +94,9 @@ public class CollectionViewDataSource<EntityType: Object>: NSObject, NSCollectio
         
         guard let changes = changes else {
             collectionView.reloadData()
+            DispatchQueue.main.async { [weak signals] in
+                signals?.send(signal: CollectionSignal.DidLoadFirstData())
+            }
             return
         }
         

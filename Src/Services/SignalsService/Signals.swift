@@ -72,4 +72,7 @@ public struct CollectionSignal {
         public let predicate: NSPredicate?
         public init(predicate: NSPredicate?) { self.predicate = predicate }
     }
+    public struct DidLoadFirstData {
+        public init() { }
+    }
 }
