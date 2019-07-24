@@ -109,6 +109,7 @@
 		E6B33197225554610060CB6C /* ThumbnailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B33196225554610060CB6C /* ThumbnailService.swift */; };
 		E6C346EF22667C240042A1D2 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C346EE22667C240042A1D2 /* TableViewDataSource.swift */; };
 		E6C346F3226736F70042A1D2 /* TableViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C346F2226736F70042A1D2 /* TableViewBinder.swift */; };
+		E6C8F91022E88BEB000F4038 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C8F90F22E88BEB000F4038 /* Random.swift */; };
 		E6CF23E4226B560F0004C436 /* NSView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CF23E3226B560F0004C436 /* NSView+Ext.swift */; };
 		E6DC5B982253EB2D00123606 /* CollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B972253EB2D00123606 /* CollectionService.swift */; };
 		E6DC5B9D2253EECB00123606 /* CollectionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */; };
@@ -230,6 +231,7 @@
 		E6B33196225554610060CB6C /* ThumbnailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailService.swift; sourceTree = "<group>"; };
 		E6C346EE22667C240042A1D2 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		E6C346F2226736F70042A1D2 /* TableViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewBinder.swift; sourceTree = "<group>"; };
+		E6C8F90F22E88BEB000F4038 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		E6CF23E3226B560F0004C436 /* NSView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+Ext.swift"; sourceTree = "<group>"; };
 		E6DC5B972253EB2D00123606 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = "<group>"; };
 		E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEntity.swift; sourceTree = "<group>"; };
@@ -555,6 +557,7 @@
 		E6A6B19E224D69DB00196DD3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E6C8F90F22E88BEB000F4038 /* Random.swift */,
 				E61465412294190C001EC0C0 /* AutoStartHelpers.swift */,
 				E614653F229416FB001EC0C0 /* MathHelpers.swift */,
 				E614653D229416AF001EC0C0 /* TimerZbs.swift */,
@@ -755,6 +758,7 @@
 				E630E2082293076E00CFEED4 /* iCloudNinja-Fetch.swift in Sources */,
 				E664576C22A2783A0059AB1B /* SubclassesOf.swift in Sources */,
 				E62E99F8229FFBF600B93C2F /* StatusBarController.swift in Sources */,
+				E6C8F91022E88BEB000F4038 /* Random.swift in Sources */,
 				E657568E228D4CA0004C10F6 /* NSAttributedString+Ext.swift in Sources */,
 				E630E1FF2293076E00CFEED4 /* iCloudRx-Delete.swift in Sources */,
 				E65BCB0E222EA2E800F7A8BC /* Thread+Ext.swift in Sources */,
