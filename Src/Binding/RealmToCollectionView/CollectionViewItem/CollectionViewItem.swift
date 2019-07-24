@@ -29,12 +29,12 @@ open class CollectionViewItem: NSCollectionViewItem, CollectionViewItemProtocol 
         textField?.actionChannel()
             .map { ($0.objectValue as? String) ?? ""  }
             .onUpdate(context: self) { ctx, text in                ctx.textField?.isEditable = false
-                ctx.signals?.send(signal: CollectionSignal.Rename(key: ctx.key, newName: text))
+                ctx.signals?.send(signal: Signal.Collection.Rename(key: ctx.key, newName: text))
         }
     }
     
     @IBAction func delete(_ sender: Any) {
-        signals?.send(signal: CollectionSignal.Delete(key: key))
+        signals?.send(signal: Signal.Collection.Delete(key: key))
     }
     
     @IBAction func rename(_ sender: Any) {
@@ -59,7 +59,7 @@ open class CollectionViewItem: NSCollectionViewItem, CollectionViewItemProtocol 
         
         if (dialog.runModal() == NSApplication.ModalResponse.OK) {
             if let url = dialog.url {
-                signals?.send(signal: CollectionSignal.SetIcon(key: key, url: url))
+                signals?.send(signal: Signal.Collection.SetIcon(key: key, url: url))
             }
         }
     }

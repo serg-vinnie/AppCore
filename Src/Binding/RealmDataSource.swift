@@ -51,9 +51,9 @@ public class RealmDataSource<EntityType: Object> : NinjaContext.Main {
         
         updateSubscription()
         
-        signals?.subscribeFor(CollectionSignal.Filter.self)
+        signals?.subscribeFor(Signal.Collection.Filter.self)
             .onUpdate(context: self) { ctx, signal in ctx.predicate = signal.predicate; ctx.updateSubscription() }
-        signals?.subscribeFor(CollectionSignal.Sort.self)
+        signals?.subscribeFor(Signal.Collection.Sort.self)
             .onUpdate(context: self) { ctx, signal in ctx.sorting = signal.descriptors; ctx.updateSubscription() }
     }
     

@@ -63,7 +63,7 @@ open class TableViewDataSource<EntityType: Object>: NSObject, NSTableViewDataSou
     }
     
     public func tableView(_ tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
-        signals?.send(signal: CollectionSignal.Sort(descriptors: tableView.sortDescriptors))
+        signals?.send(signal: Signal.Collection.Sort(descriptors: tableView.sortDescriptors))
     }
     
     // MARK: - Proxy unimplemented data source and delegate methods

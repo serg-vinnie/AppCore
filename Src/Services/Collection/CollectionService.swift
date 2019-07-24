@@ -36,15 +36,15 @@ open class CollectionService<Entity> : NinjaContext.Main where Entity : Collecti
     }
     
     func subscribeTo(signals: SignalsService) {
-        signals.subscribeFor(CollectionSignal.Create.self)
+        signals.subscribeFor(Signal.Collection.Create.self)
             .onUpdate(context: self) { ctx, signal in ctx.addItem() {_ in} }
-        signals.subscribeFor(CollectionSignal.Delete.self)
+        signals.subscribeFor(Signal.Collection.Delete.self)
             .onUpdate(context: self) { ctx, signal in ctx.deleteItem(key: signal.key) }
-        signals.subscribeFor(CollectionSignal.Rename.self)
+        signals.subscribeFor(Signal.Collection.Rename.self)
             .onUpdate(context: self) { ctx, signal in ctx.rename(key: signal.key, with: signal.newName) }
-        signals.subscribeFor(CollectionSignal.SetUrl.self)
+        signals.subscribeFor(Signal.Collection.SetUrl.self)
             .onUpdate(context: self) { ctx, signal in ctx.setPath(key: signal.key, url: signal.url) }
-        signals.subscribeFor(CollectionSignal.SetIcon.self)
+        signals.subscribeFor(Signal.Collection.SetIcon.self)
             .onUpdate(context: self, executor: Executor.immediate) { ctx, signal in ctx.setIcon(key: signal.key, url: signal.url) }
     }
     

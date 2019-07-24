@@ -40,39 +40,78 @@ public struct Signal {
     }
 }
 
-public struct CollectionSignal {
-    public struct Create {
-        public init() { }
-    }
-    public struct Delete {
-        public let key: String
-        public init(key: String) { self.key = key }
-    }
-    public struct Rename {
-        public let key      : String
-        public let newName  : String
-        public init(key: String, newName: String) { self.key = key; self.newName = newName}
-    }
-    public struct SetUrl {
-        public let key      : String
-        public let url      : URL
-        public init(key: String, url: URL) { self.key = key; self.url = url}
-    }
-    public struct SetIcon {
-        public let key      : String
-        public let url      : URL
-        public init(key: String, url: URL) { self.key = key; self.url = url}
-    }
-    
-    public struct Sort {
-        public let descriptors : [NSSortDescriptor]
-        public init(descriptors : [NSSortDescriptor]) { self.descriptors = descriptors }
-    }
-    public struct Filter {
-        public let predicate: NSPredicate?
-        public init(predicate: NSPredicate?) { self.predicate = predicate }
-    }
-    public struct DidLoadFirstData {
-        public init() { }
+public extension Signal {
+    public struct Collection {
+        public struct Create {
+            public init() { }
+        }
+        public struct Delete {
+            public let key: String
+            public init(key: String) { self.key = key }
+        }
+        public struct Rename {
+            public let key      : String
+            public let newName  : String
+            public init(key: String, newName: String) { self.key = key; self.newName = newName}
+        }
+        public struct SetUrl {
+            public let key      : String
+            public let url      : URL
+            public init(key: String, url: URL) { self.key = key; self.url = url}
+        }
+        public struct SetIcon {
+            public let key      : String
+            public let url      : URL
+            public init(key: String, url: URL) { self.key = key; self.url = url}
+        }
+        
+        public struct Sort {
+            public let descriptors : [NSSortDescriptor]
+            public init(descriptors : [NSSortDescriptor]) { self.descriptors = descriptors }
+        }
+        public struct Filter {
+            public let predicate: NSPredicate?
+            public init(predicate: NSPredicate?) { self.predicate = predicate }
+        }
+        public struct DidLoadFirstData {
+            public init() { }
+        }
     }
 }
+
+//public struct CollectionSignal {
+////    public struct Create {
+////        public init() { }
+////    }
+//    public struct Delete {
+//        public let key: String
+//        public init(key: String) { self.key = key }
+//    }
+//    public struct Rename {
+//        public let key      : String
+//        public let newName  : String
+//        public init(key: String, newName: String) { self.key = key; self.newName = newName}
+//    }
+//    public struct SetUrl {
+//        public let key      : String
+//        public let url      : URL
+//        public init(key: String, url: URL) { self.key = key; self.url = url}
+//    }
+//    public struct SetIcon {
+//        public let key      : String
+//        public let url      : URL
+//        public init(key: String, url: URL) { self.key = key; self.url = url}
+//    }
+//    
+//    public struct Sort {
+//        public let descriptors : [NSSortDescriptor]
+//        public init(descriptors : [NSSortDescriptor]) { self.descriptors = descriptors }
+//    }
+//    public struct Filter {
+//        public let predicate: NSPredicate?
+//        public init(predicate: NSPredicate?) { self.predicate = predicate }
+//    }
+//    public struct DidLoadFirstData {
+//        public init() { }
+//    }
+//}
