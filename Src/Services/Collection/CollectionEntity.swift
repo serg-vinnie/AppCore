@@ -68,17 +68,17 @@ public protocol CollectionIconPathProperty {
     var iconPath    : String    { get set }
 }
 
-//@objcMembers open class CollectionEntity: Object,
-//    CollectionBaseEntity,
-//    CollectionAliasProperty,
-//    CollectionPathProperty,
-//    CollectionIconPathProperty
-//{
-//    public override static func primaryKey() -> String? { return "key" }
-//    
-//    public dynamic var key                 : String    = UUID().uuidString
-//    public dynamic var alias               : String    = ""
-//    public dynamic var path                : String    = ""
-//    public dynamic var pathIsValid         : Bool      = false
-//    public dynamic var iconPath            : String    = ""
-//}
+@objcMembers open class CollectionEntity: Object,
+    CollectionBaseEntity,
+    CollectionAliasProperty,
+    CollectionPathProperty,
+    CollectionIconPathProperty
+{
+    public override static func primaryKey() -> String? { return "key" }
+    
+    public dynamic var key                 : String    = UUID().uuidString
+    public dynamic var alias               : String    = ""
+    public dynamic var path                : String    = ""
+    public dynamic var pathIsValid         : Bool      = false
+    public dynamic var iconPath            : String    = ""
+}
