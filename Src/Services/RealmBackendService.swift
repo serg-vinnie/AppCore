@@ -42,6 +42,16 @@ open class RealmBackendService {
         return realm.object(ofType: T.self, forPrimaryKey: key)
     }
     
+    public func write(block: ()->()) {
+        do {
+            try realm.write {
+                block()
+            }
+        } catch {
+            log(error: error)
+        }
+    }
+    
     @discardableResult
     public func updateObjectWith<T>(key: String, ofType: T.Type, block: (T)->Void) -> Bool where T : Object {
         if let obj : T = objectWith(key: key) {
@@ -61,14 +71,18 @@ open class RealmBackendService {
         return realm.objects(ofType.self)
     }
     
-    public func add<T>(object: T) where T : Object {
-        add(objects: [object])
+    public func add<T>(object: T, block: (T)->() = { _ in }) where T : Object {
+        add(objects: [object]) { objects in
+            guard let obj = objects.first as? T else { return }
+            block(obj)
+        }
     }
     
-    public func add<T>(objects: [T]) where T : Object {
+    public func add<T>(objects: [T], block: ([T]) -> () = { _ in }) where T : Object {
         do {
             try realm.write {
                 realm.add(objects)
+                block(objects)
             }
         } catch {
             log(error: error)
