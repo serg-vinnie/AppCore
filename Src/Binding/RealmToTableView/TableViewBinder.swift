@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import RealmSwift
 
 /////////////////////////////////////
 /// CollectionService extension
 ////////////////////////////////////
-public extension CollectionService where Entity : CollectionEntity {
+public extension CollectionService where Entity : CollectionBaseEntity, Entity : Object {
     func tableViewBinder() -> TableViewBinder<Entity> {
         return TableViewBinder<Entity>(service: self)
     }
@@ -20,7 +21,7 @@ public extension CollectionService where Entity : CollectionEntity {
 /////////////////////////////////////
 /// TableViewBinder Binder Class
 ////////////////////////////////////
-public class TableViewBinder<EntityType: CollectionEntity> {
+public class TableViewBinder<EntityType: CollectionBaseEntity> where EntityType : Object {
     private var service         : CollectionService<EntityType>
     private var delegate        : NSTableViewDelegate?
     private var cellConfigs     = [String:(NSTableCellView,EntityType)->Void]()

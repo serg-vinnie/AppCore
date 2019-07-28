@@ -9,12 +9,12 @@
 import Foundation
 import RealmSwift
 
-public typealias CustomItemConfig<EntityType: CollectionEntity, ItemType: CollectionViewItem> = (ItemType, EntityType) -> Void
+public typealias CustomItemConfig<EntityType: CollectionBaseEntity, ItemType: CollectionViewItem> = (ItemType, EntityType) -> Void
 
 /////////////////////////////////////
 /// CollectionService extension
 ////////////////////////////////////
-public extension CollectionService where Entity : CollectionEntity {
+public extension CollectionService where Entity: Object, Entity : CollectionBaseEntity {
     func collectionViewBinder() -> CollectionViewBinder<Entity> {
         return CollectionViewBinder<Entity>(service: self)
     }
@@ -23,7 +23,7 @@ public extension CollectionService where Entity : CollectionEntity {
 /////////////////////////////////////
 /// CollectionViewBinder Binder Class
 ////////////////////////////////////
-public class CollectionViewBinder<EntityType: CollectionEntity> {
+public class CollectionViewBinder<EntityType: CollectionBaseEntity> where EntityType: Object{
     private var service         : CollectionService<EntityType>
     private var defaultImage    : NSImage?
     private var delegate        : NSCollectionViewDelegate?
@@ -55,11 +55,11 @@ public class CollectionViewBinder<EntityType: CollectionEntity> {
         
         let dataSource = CollectionViewDataSource<EntityType>(itemIdentifier: itemId, itemType: ItemType.self) { item, idx, realmItem  in
             item.key        = realmItem.key
-            item.alias      = realmItem.alias
+            item.alias      = realmItem.optionalAlias ?? ""
             item.signals    = signals
             
-            if realmItem.iconPath.count > 0 {
-                item.image = NSImage(byReferencingFile: thumbnailsUrl.appendingPathComponent(realmItem.iconPath).path)
+            if let iconPath = realmItem.optionalIconPath, iconPath.count > 0 {
+                item.image = NSImage(byReferencingFile: thumbnailsUrl.appendingPathComponent(iconPath).path)
             } else {
                 item.image = defaultImage
             }

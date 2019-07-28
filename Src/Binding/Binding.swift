@@ -29,7 +29,7 @@ extension CollectionViewDataSource where EntityType : Object, EntityType: Collec
     }
 }
 
-extension TableViewDataSource where EntityType : CollectionEntity {
+extension TableViewDataSource where EntityType : CollectionBaseEntity {
     public func bindWith(collectionService: CollectionService<EntityType>, view: NSTableView)  {
         self.tableView = view
         view.dataSource = self
