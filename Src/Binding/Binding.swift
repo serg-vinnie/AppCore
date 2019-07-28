@@ -10,7 +10,7 @@ import Foundation
 import AsyncNinja
 import RealmSwift
 
-extension CollectionViewDataSource where EntityType : CollectionEntity {
+extension CollectionViewDataSource where EntityType : Object, EntityType: CollectionBaseEntity {
     public func bindWith(collectionService: CollectionService<EntityType>, view: NSCollectionView) {
         self.collectionView = view
         view.dataSource = self

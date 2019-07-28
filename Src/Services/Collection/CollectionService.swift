@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 import AsyncNinja
 
-open class CollectionService<Entity> : NinjaContext.Main where Entity : CollectionEntity {
+open class CollectionService<Entity> : NinjaContext.Main where Entity : Object, Entity: CollectionBaseEntity {
     let alias : String
     public let db : RealmBackendService
     public let thumbnails : ThumbnailService
@@ -51,7 +51,11 @@ open class CollectionService<Entity> : NinjaContext.Main where Entity : Collecti
     @discardableResult
     public func addItem(block: (Entity) -> Void) -> Entity {
         let entity = Entity()
-        entity.alias = "\(alias) \(db.allObjects(ofType: Entity.self).count)"
+        
+        if var entity = entity as? CollectionAliasProperty {
+            entity.alias = "\(alias) \(db.allObjects(ofType: Entity.self).count)"
+        }
+        
         
         block(entity)
         
@@ -61,17 +65,17 @@ open class CollectionService<Entity> : NinjaContext.Main where Entity : Collecti
     
     public func getItemBy(alias: String, caseSensetive: Bool, createIfNecessary: Bool) -> Entity? {
         if caseSensetive {
-            if let entity = db.realm.objects(Entity.self).first(where: { $0.alias == alias }) {
+            if let entity = db.realm.objects(Entity.self).first(where: { $0.optionalAlias == alias }) {
                 return entity
             }
         } else {
-            if let entity = db.realm.objects(Entity.self).first(where: { $0.alias.uppercased() == alias.uppercased() }) {
+            if let entity = db.realm.objects(Entity.self).first(where: { $0.optionalAlias?.uppercased() == alias.uppercased() }) {
                 return entity
             }
         }
         
         if createIfNecessary {
-            return addItem() { $0.alias = alias }
+            return addItem() { $0.trySet(alias: alias) }
         }
         
         return nil
@@ -97,13 +101,7 @@ open class CollectionService<Entity> : NinjaContext.Main where Entity : Collecti
         
         do {
             try db.realm.write {
-                if newName.count > 0 {
-                    entity.alias = newName
-                } else {
-                    let tmp = entity.alias
-                    entity.alias = tmp
-                }
-                
+                entity.trySet(alias: newName)
             }
         }catch {
             AppCore.log(title: "CollectionService", error: error)
@@ -119,8 +117,8 @@ open class CollectionService<Entity> : NinjaContext.Main where Entity : Collecti
         
         do {
             try db.realm.write {
-                entity.path = url.path
-                entity.pathIsValid = validate(url: url)
+                entity.trySet(path: url.path)
+                entity.trySet(pathIsValid: validate(url: url))
             }
         }catch {
             AppCore.log(title: "CollectionService", error: error)
@@ -128,11 +126,11 @@ open class CollectionService<Entity> : NinjaContext.Main where Entity : Collecti
     }
     
     func setIcon(key:String, url: URL) {
-        guard let entity : Entity = db.objectWith(key: key)  else { return }
+        guard var entity : Entity = db.objectWith(key: key)  else { return }
         
         do {
             try db.realm.write {
-                entity.iconPath = thumbnails.replace(file: entity.iconPath, with: url) ?? ""
+                entity.optionalIconPath = thumbnails.replace(file: entity.optionalIconPath ?? "", with: url)
             }
         }catch {
             AppCore.log(title: "CollectionService", error: error)
