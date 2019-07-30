@@ -41,7 +41,7 @@ public struct Signal {
 }
 
 public extension Signal {
-    public struct Collection {
+    struct Collection {
         public struct Create {
             public init() { }
         }
@@ -74,7 +74,10 @@ public extension Signal {
             public init(predicate: NSPredicate?) { self.predicate = predicate }
         }
         public struct DidLoadFirstData {
-            public init() { }
+            public let itemsCount : Int
+            public init(itemsCount: Int) {
+                self.itemsCount = itemsCount
+            }
         }
     }
 }
