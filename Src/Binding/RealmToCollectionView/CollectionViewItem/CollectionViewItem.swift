@@ -37,7 +37,7 @@ open class CollectionViewItem: NSCollectionViewItem, CollectionViewItemProtocol 
         signals?.send(signal: Signal.Collection.Delete(key: key))
     }
     
-    @IBAction func rename(_ sender: Any) {
+    @IBAction public func rename(_ sender: Any) {
         textField?.isEditable = true
         textField?.becomeFirstResponder()
     }
