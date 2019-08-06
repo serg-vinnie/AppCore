@@ -24,6 +24,7 @@
 
 import Foundation
 import Swinject
+import os.log
 
 public class AppCore {
     
@@ -63,18 +64,18 @@ public extension AppCore {
         
         
         if thread {
-            print("\(time) [\(title)] (\(Thread.current.dbgName)) \(msg)")
+            myPrint("[\(title)] (\(Thread.current.dbgName)) \(msg)")
         } else {
-            print("\(time) [\(title)]: \(msg)")
+            myPrint("[\(title)]: \(msg)")
         }
     }
     
     static func log(title: String, error: Error, thread: Bool = false) {
         guard shouldPass(title: title) else { return }
         if thread {
-            print("\(time) [\(title) ERROR] (\(Thread.current.dbgName)) \(error.localizedDescription)")
+            myPrint("[\(title) ERROR] (\(Thread.current.dbgName)) \(error.localizedDescription)")
         }else {
-            print("\(time) [\(title) ERROR] \(error.localizedDescription)")
+            myPrint("[\(title) ERROR] \(error.localizedDescription)")
         }
     }
     
@@ -86,13 +87,21 @@ public extension AppCore {
         }
     }
     
-    private static var time : String { return debugDateFormatter.string(from: Date()) }
+    fileprivate static var time : String { return debugDateFormatter.string(from: Date()) }
     
     private static let debugDateFormatter: DateFormatter = { () -> DateFormatter in
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss.SSSS"
         return dateFormatter
     }()
+}
+
+func myPrint(_ msg: String) {
+    #if DEBUG
+        print("\(AppCore.time) " + msg)
+    #else
+        os_log("%{public}@", msg)
+    #endif
 }
 
 
