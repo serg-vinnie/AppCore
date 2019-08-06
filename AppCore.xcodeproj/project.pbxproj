@@ -107,6 +107,7 @@
 		E6A6B1A0224D69E500196DD3 /* RealmSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */; };
 		E6AEE3BD2251362A00BCA942 /* Xib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AEE3BC2251362A00BCA942 /* Xib.swift */; };
 		E6B33197225554610060CB6C /* ThumbnailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B33196225554610060CB6C /* ThumbnailService.swift */; };
+		E6C1627A22F884C90027457A /* String+sha512.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C1627922F884C90027457A /* String+sha512.swift */; };
 		E6C346EF22667C240042A1D2 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C346EE22667C240042A1D2 /* TableViewDataSource.swift */; };
 		E6C346F3226736F70042A1D2 /* TableViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C346F2226736F70042A1D2 /* TableViewBinder.swift */; };
 		E6C8F91022E88BEB000F4038 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C8F90F22E88BEB000F4038 /* Random.swift */; };
@@ -229,6 +230,7 @@
 		E6A6B19F224D69E500196DD3 /* RealmSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSingleton.swift; sourceTree = "<group>"; };
 		E6AEE3BC2251362A00BCA942 /* Xib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Xib.swift; sourceTree = "<group>"; };
 		E6B33196225554610060CB6C /* ThumbnailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailService.swift; sourceTree = "<group>"; };
+		E6C1627922F884C90027457A /* String+sha512.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+sha512.swift"; sourceTree = "<group>"; };
 		E6C346EE22667C240042A1D2 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		E6C346F2226736F70042A1D2 /* TableViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewBinder.swift; sourceTree = "<group>"; };
 		E6C8F90F22E88BEB000F4038 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 		E65BCAF9222EA2E800F7A8BC /* Ext */ = {
 			isa = PBXGroup;
 			children = (
+				E6C1627922F884C90027457A /* String+sha512.swift */,
 				E614657D229984F5001EC0C0 /* AsyncNinja */,
 				E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */,
 				E664576822A183F10059AB1B /* NSPopUpButton+Ext.swift */,
@@ -765,6 +768,7 @@
 				E6A6B199224D693A00196DD3 /* Then.swift in Sources */,
 				E614653A22940D06001EC0C0 /* OperationOrder.swift in Sources */,
 				E630E1CD2292F64100CFEED4 /* ArrayExt.swift in Sources */,
+				E6C1627A22F884C90027457A /* String+sha512.swift in Sources */,
 				E65BCB7B222F04F900F7A8BC /* NSButton+Rx.swift in Sources */,
 				E630E1D52292F70A00CFEED4 /* ConfigCloudKeyValue.swift in Sources */,
 				E67825842264BE5100391616 /* CollectionViewBinder.swift in Sources */,

@@ -13,8 +13,10 @@ import RxRealm
 
 open class RealmBackendService {
     public let realm : Realm
+    private let dbgLogId : String
     
-    public init(config: Realm.Configuration) {
+    public init(config: Realm.Configuration, dbgLogId : String? = nil) {
+        self.dbgLogId = dbgLogId ?? "RealmBackendService"
         do {
             realm = try Realm(configuration: config)
         } catch let error {
@@ -115,10 +117,10 @@ open class RealmBackendService {
 
 public extension RealmBackendService {
     func log(msg: String) {
-        AppCore.log(title: "RealmBackendService", msg: msg, thread: true)
+        AppCore.log(title: dbgLogId, msg: msg, thread: true)
     }
     
     func log(error: Error) {
-        AppCore.log(title: "RealmBackendService", error: error, thread: true)
+        AppCore.log(title: dbgLogId, error: error, thread: true)
     }
 }

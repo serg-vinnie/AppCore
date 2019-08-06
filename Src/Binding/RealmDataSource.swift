@@ -75,6 +75,24 @@ public class RealmDataSource<EntityType: Object> : NinjaContext.Main {
     }
 }
 
+public extension ExecutionContext where Self: ReleasePoolOwner {
+    func realmChangeset<E>(items: Results<E>) -> Channel<(AnyRealmCollection<E>, RealmChangeset?),Void> where E : Object {
+        return producer() { me, producer in
+            let notificationToken = items.toAnyCollection().observe { [weak producer] changeset in
+                switch changeset {
+                case .initial(let value):
+                    producer?.update((value, nil))
+                case .update(let value, let deletions, let insertions, let modifications):
+                    producer?.update((value, RealmChangeset(deleted: deletions, inserted: insertions, updated: modifications)))
+                case .error(let error):
+                    producer?.fail(error)
+                }
+            }
+            me.releasePool.insert(notificationToken)
+        }
+    }
+}
+
 private extension Results {
     func apply(sorting: [NSSortDescriptor]) -> Results {
         return sorting.reduce(self) { results, sortDescriptor in results.apply(sorting: sortDescriptor) }
