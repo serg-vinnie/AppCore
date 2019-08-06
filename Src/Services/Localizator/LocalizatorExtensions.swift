@@ -15,11 +15,13 @@ public extension LocalizatorService {
         case ru
         
         public static var system : Language {
-            switch (Locale.current.languageCode!)
+            let mainLang = Locale.preferredLanguages[0]
+            
+            switch (mainLang)
             {
-            case "en":  return .en
-            case "uk":  return .ua
-            case "ru":  return .ru
+            case _ where mainLang.hasPrefix("en"):  return .en
+            case _ where mainLang.hasPrefix("uk"):  return .ua
+            case _ where mainLang.hasPrefix("ru"):  return .ru
             default: return .en
             }
         }
