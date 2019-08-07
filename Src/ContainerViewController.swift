@@ -17,11 +17,24 @@ open class ContainerViewController : NSViewController {
     
     public var nextController   : NSViewController? { didSet { transitionTo(controller: nextController) } }
     
+    weak var prevController : NSViewController?
+    
     public func switchTo(controller: NSViewController, transition: Bool) {
+        prevController = content
         if transition {
             transitionTo(controller: controller)
         } else {
             display(controller: controller)
+        }
+    }
+    
+    public func switchToPrev(transition: Bool) {
+        if let prev = prevController {
+            if transition {
+                transitionTo(controller: prev)
+            } else {
+                display(controller: prev)
+            }
         }
     }
     

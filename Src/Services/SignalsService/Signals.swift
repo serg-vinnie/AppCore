@@ -79,5 +79,8 @@ public extension Signal {
                 self.itemsCount = itemsCount
             }
         }
+        public struct ForceReload {
+            public init() {}
+        }
     }
 }
