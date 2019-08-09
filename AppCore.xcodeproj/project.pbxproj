@@ -444,6 +444,7 @@
 		E65BCAF9222EA2E800F7A8BC /* Ext */ = {
 			isa = PBXGroup;
 			children = (
+				E6E59408226EF84C0006EF4C /* StringExt.swift */,
 				E6C1627922F884C90027457A /* String+sha512.swift */,
 				E614657D229984F5001EC0C0 /* AsyncNinja */,
 				E629DC17223A72C900669FD3 /* NSWindow+Fade.swift */,
@@ -453,7 +454,6 @@
 				E614654322941BF1001EC0C0 /* NSStackView+Ext.swift */,
 				E630E1CC2292F64100CFEED4 /* ArrayExt.swift */,
 				E630E1B72292F47C00CFEED4 /* NSViewController+Ext.swift */,
-				E6E59408226EF84C0006EF4C /* StringExt.swift */,
 				E657568D228D4CA0004C10F6 /* NSAttributedString+Ext.swift */,
 				E65BCB74222F04F000F7A8BC /* Cocoa+Rx */,
 				E65BCAFA222EA2E800F7A8BC /* NSStoryboard+Ext.swift */,
