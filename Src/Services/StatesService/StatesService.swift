@@ -47,7 +47,7 @@ public class StatesService {
         return getItem(key: key)?.value
     }
     
-    public func subscribeFor<ValueType>(key: AnyHashable, valueOfType: ValueType.Type) -> Producer<ValueType,Void> {
+    public func subscribeFor<ValueType>(key: AnyHashable, valueOfType: ValueType.Type) -> Channel<ValueType,Void> {
         if let item = getItem(key: key) as StatesServiceItem<ValueType>? {
             return item.didChange
         } else {
@@ -77,7 +77,7 @@ public extension StatesService { // type as key
         return getItem(key: hash)?.value
     }
     
-    func subscribeFor<KeyType, ValueType>(key: KeyType.Type, type: ValueType.Type) -> Producer<ValueType,Void> {
+    func subscribeFor<KeyType, ValueType>(key: KeyType.Type, type: ValueType.Type) -> Channel<ValueType,Void> {
         let hash = ObjectIdentifier(key).hashValue
         return subscribeFor(key: hash, valueOfType: type)
     }

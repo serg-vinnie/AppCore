@@ -29,7 +29,7 @@ public extension LocalizatorService {
 }
 
 public extension StatesService {
-    var localizationDidChange : Producer<LocalizationState, Void> {
+    var localizationDidChange : Channel<LocalizationState, Void> {
         return self.subscribeFor(key: LOCALIZATION_STATE, valueOfType: LocalizationState.self)
     }
 }
