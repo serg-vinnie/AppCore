@@ -33,6 +33,9 @@ open class CollectionService<Entity> : NinjaContext.Main where Entity : Object, 
     }
     
     public func queryAllItems() -> Results<Entity> {
+        if let predicate = filter {
+            return db.allObjects(ofType: Entity.self).filter(predicate)
+        }
         return db.allObjects(ofType: Entity.self)
     }
     
