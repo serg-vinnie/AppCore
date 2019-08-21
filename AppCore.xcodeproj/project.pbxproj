@@ -416,11 +416,11 @@
 		E65BCAF0222EA2E800F7A8BC /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				E65BCAF1222EA2E800F7A8BC /* App */,
 				E62E99F7229FFBF600B93C2F /* StatusBarController.swift */,
 				E630E1DB2292FE4A00CFEED4 /* ContainerViewController.swift */,
 				E695DF71224F90AF00611D2B /* Binding */,
 				E6A6B19E224D69DB00196DD3 /* Helpers */,
-				E65BCAF1222EA2E800F7A8BC /* App */,
 				E65BCAF9222EA2E800F7A8BC /* Ext */,
 				E65BCAFD222EA2E800F7A8BC /* Services */,
 				E65BCAF7222EA2E800F7A8BC /* MVVMController.swift */,

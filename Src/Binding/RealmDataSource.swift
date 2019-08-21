@@ -10,6 +10,9 @@ import Foundation
 import AsyncNinja
 import RealmSwift
 
+public let PREDICATE_TRUE = NSNumber(value: true)
+public let PREDICATE_FALSE = NSNumber(value: false)
+
 public struct RealmChangeset {
     /// the indexes in the collection that were deleted
     public let deleted: [Int]

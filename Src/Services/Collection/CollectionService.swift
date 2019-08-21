@@ -15,6 +15,7 @@ open class CollectionService<Entity> : NinjaContext.Main where Entity : Object, 
     public let db : RealmBackendService
     public let thumbnails : ThumbnailService
     public let signals = SignalsService()
+    open var filter : NSPredicate? { return nil }
     
     public init(alias: String, db: RealmBackendService) {
         self.alias = alias
@@ -81,7 +82,7 @@ open class CollectionService<Entity> : NinjaContext.Main where Entity : Object, 
         return nil
     }
     
-    public func deleteItem(key: String) {
+    open func deleteItem(key: String) {
         AppCore.log(title: "CollectionService - \(alias)" , msg: "delete \(key)", thread: true)
         
         guard let entity : Entity = db.objectWith(key: key)  else { return }
