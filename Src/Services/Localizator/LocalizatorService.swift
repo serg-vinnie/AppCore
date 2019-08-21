@@ -20,7 +20,7 @@ public class LocalizatorService : LocalizatorProtocol {
     let realm : Realm
     let states : StatesService
     
-    public init(url: URL, schemaVersion: UInt64, container: Container) {
+    public init(url: URL, schemaVersion: UInt64, states: StatesService) {
         var config = Realm.Configuration.defaultConfiguration
         config.readOnly = true
         config.fileURL = url
@@ -30,7 +30,7 @@ public class LocalizatorService : LocalizatorProtocol {
         
         realm = try! Realm(configuration: config)
         
-        states = container.resolve(StatesService.self)!
+        self.states = states //container.resolve(StatesService.self)!
     }
     
     public func stringBy(id: String) -> String {
