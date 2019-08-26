@@ -130,12 +130,11 @@ fileprivate func log(msg: String) {
 }
 
 public extension Future {
-    func asChannel(executor: Executor) -> Channel<Success,Void> {
+    func asChannel(executor: Executor = .main) -> Channel<Success,Void> {
         return producer(executor: executor) { producer in
             self.onFailure { producer.fail($0, from: executor) }
             self.onSuccess {
                 producer.update($0, from: executor);
-                AppCore.sleep(for: 0.5)
                 producer.succeed(from: executor) }
         }
     }
