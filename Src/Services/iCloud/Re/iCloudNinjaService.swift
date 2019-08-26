@@ -80,7 +80,7 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     
     public func fetch(IDs: [CKRecord.ID]) -> Channel<[CKRecord.ID:CKRecord], Void> {
         return split(items: IDs)
-            .flatMap(context: self, executor: .primary) { me, IDs in
+            .flatMap(context: self, executor: .main) { me, IDs in
                 return me.cloudDB
                     .fetch(IDs: IDs)
                     .asChannel(executor: me.executor)
