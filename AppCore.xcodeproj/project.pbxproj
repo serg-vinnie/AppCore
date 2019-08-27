@@ -53,9 +53,7 @@
 		E630E20C2293076E00CFEED4 /* iCloudNinja-Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1F82293076E00CFEED4 /* iCloudNinja-Delete.swift */; };
 		E6369A6022DC91E5001B0C9A /* iCloudNinja-FetchUserRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6369A5F22DC91E5001B0C9A /* iCloudNinja-FetchUserRecord.swift */; };
 		E642906E22BB909A0005781E /* LocalizationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E642906D22BB909A0005781E /* LocalizationEntity.swift */; };
-		E642906F22BB90C50005781E /* LocalizationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E642906D22BB909A0005781E /* LocalizationEntity.swift */; };
 		E642907122BB91A50005781E /* LocalizatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E642907022BB91A50005781E /* LocalizatorProtocol.swift */; };
-		E642907222BB91B30005781E /* LocalizatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E642907022BB91A50005781E /* LocalizatorProtocol.swift */; };
 		E642907422BB91D40005781E /* LocalizatorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E642907322BB91D40005781E /* LocalizatorExtensions.swift */; };
 		E649783B2290B78A00AB9E8C /* FlippedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649783A2290B78A00AB9E8C /* FlippedView.swift */; };
 		E6555C0F229BE7A50086E214 /* NSEvent+Ninja.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6555C0E229BE7A50086E214 /* NSEvent+Ninja.swift */; };
@@ -112,6 +110,39 @@
 		E6B9163F231536CC009ACBBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6B9163E231536CC009ACBBE /* Assets.xcassets */; };
 		E6B91642231536CC009ACBBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6B91640231536CC009ACBBE /* Main.storyboard */; };
 		E6B9164B231537D9009ACBBE /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B9164A231537D9009ACBBE /* CloudKit.framework */; };
+		E6B9164D2315387A009ACBBE /* iCloudServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9164C2315387A009ACBBE /* iCloudServiceTests.swift */; };
+		E6B9165823153A63009ACBBE /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCAD6222EA26100F7A8BC /* AppCore.framework */; };
+		E6B9165923153A63009ACBBE /* AppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCAD6222EA26100F7A8BC /* AppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E6B9165D23153A74009ACBBE /* Action.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1B222EA39600F7A8BC /* Action.framework */; };
+		E6B9165E23153A74009ACBBE /* Action.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1B222EA39600F7A8BC /* Action.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E6B9165F23153A74009ACBBE /* AsyncNinja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1C222EA39600F7A8BC /* AsyncNinja.framework */; };
+		E6B9166023153A74009ACBBE /* AsyncNinja.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1C222EA39600F7A8BC /* AsyncNinja.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E6B9166123153A74009ACBBE /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB20222EA39600F7A8BC /* Realm.framework */; };
+		E6B9166223153A74009ACBBE /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB20222EA39600F7A8BC /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E6B9166323153A74009ACBBE /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB22222EA39600F7A8BC /* RealmSwift.framework */; };
+		E6B9166423153A74009ACBBE /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB22222EA39600F7A8BC /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E6B9166523153A74009ACBBE /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB19222EA39600F7A8BC /* RxAtomic.framework */; };
+		E6B9166623153A74009ACBBE /* RxAtomic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB19222EA39600F7A8BC /* RxAtomic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E6B9166723153A74009ACBBE /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1A222EA39600F7A8BC /* RxCocoa.framework */; };
+		E6B9166823153A74009ACBBE /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1A222EA39600F7A8BC /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E6B9166923153A74009ACBBE /* RxRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1D222EA39600F7A8BC /* RxRealm.framework */; };
+		E6B9166A23153A74009ACBBE /* RxRealm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1D222EA39600F7A8BC /* RxRealm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E6B9166B23153A74009ACBBE /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1E222EA39600F7A8BC /* RxSwift.framework */; };
+		E6B9166C23153A74009ACBBE /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1E222EA39600F7A8BC /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E6B9166D23153A74009ACBBE /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1F222EA39600F7A8BC /* Swinject.framework */; };
+		E6B9166E23153A74009ACBBE /* Swinject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1F222EA39600F7A8BC /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E6B9166F23153A74009ACBBE /* SwinjectAutoregistration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB21222EA39600F7A8BC /* SwinjectAutoregistration.framework */; };
+		E6B9167023153A74009ACBBE /* SwinjectAutoregistration.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB21222EA39600F7A8BC /* SwinjectAutoregistration.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E6B9167123153AEA009ACBBE /* Action.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1B222EA39600F7A8BC /* Action.framework */; };
+		E6B9167223153AEA009ACBBE /* AsyncNinja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1C222EA39600F7A8BC /* AsyncNinja.framework */; };
+		E6B9167323153AEA009ACBBE /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB20222EA39600F7A8BC /* Realm.framework */; };
+		E6B9167423153AEA009ACBBE /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB22222EA39600F7A8BC /* RealmSwift.framework */; };
+		E6B9167523153AEA009ACBBE /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB19222EA39600F7A8BC /* RxAtomic.framework */; };
+		E6B9167623153AEA009ACBBE /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1A222EA39600F7A8BC /* RxCocoa.framework */; };
+		E6B9167723153AEA009ACBBE /* RxRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1D222EA39600F7A8BC /* RxRealm.framework */; };
+		E6B9167823153AEA009ACBBE /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1E222EA39600F7A8BC /* RxSwift.framework */; };
+		E6B9167923153AEA009ACBBE /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB1F222EA39600F7A8BC /* Swinject.framework */; };
+		E6B9167A23153AEA009ACBBE /* SwinjectAutoregistration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCB21222EA39600F7A8BC /* SwinjectAutoregistration.framework */; };
 		E6C1627A22F884C90027457A /* String+sha512.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C1627922F884C90027457A /* String+sha512.swift */; };
 		E6C346EF22667C240042A1D2 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C346EE22667C240042A1D2 /* TableViewDataSource.swift */; };
 		E6C346F3226736F70042A1D2 /* TableViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C346F2226736F70042A1D2 /* TableViewBinder.swift */; };
@@ -138,7 +169,38 @@
 			remoteGlobalIDString = E6B91637231536C9009ACBBE;
 			remoteInfo = TestHost;
 		};
+		E6B9165A23153A63009ACBBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E65BCACD222EA26100F7A8BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E65BCAD5222EA26100F7A8BC;
+			remoteInfo = AppCore;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E6B9165C23153A63009ACBBE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E6B9166A23153A74009ACBBE /* RxRealm.framework in Embed Frameworks */,
+				E6B9166223153A74009ACBBE /* Realm.framework in Embed Frameworks */,
+				E6B9166C23153A74009ACBBE /* RxSwift.framework in Embed Frameworks */,
+				E6B9166E23153A74009ACBBE /* Swinject.framework in Embed Frameworks */,
+				E6B9166423153A74009ACBBE /* RealmSwift.framework in Embed Frameworks */,
+				E6B9166823153A74009ACBBE /* RxCocoa.framework in Embed Frameworks */,
+				E6B9167023153A74009ACBBE /* SwinjectAutoregistration.framework in Embed Frameworks */,
+				E6B9165E23153A74009ACBBE /* Action.framework in Embed Frameworks */,
+				E6B9165923153A63009ACBBE /* AppCore.framework in Embed Frameworks */,
+				E6B9166023153A74009ACBBE /* AsyncNinja.framework in Embed Frameworks */,
+				E6B9166623153A74009ACBBE /* RxAtomic.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E60329D422B295830020984D /* LocalizatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizatorService.swift; sourceTree = "<group>"; };
@@ -250,6 +312,7 @@
 		E6B91643231536CC009ACBBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6B91644231536CC009ACBBE /* TestHost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestHost.entitlements; sourceTree = "<group>"; };
 		E6B9164A231537D9009ACBBE /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		E6B9164C2315387A009ACBBE /* iCloudServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudServiceTests.swift; sourceTree = "<group>"; };
 		E6C1627922F884C90027457A /* String+sha512.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+sha512.swift"; sourceTree = "<group>"; };
 		E6C346EE22667C240042A1D2 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		E6C346F2226736F70042A1D2 /* TableViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewBinder.swift; sourceTree = "<group>"; };
@@ -283,6 +346,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6B9167123153AEA009ACBBE /* Action.framework in Frameworks */,
+				E6B9167223153AEA009ACBBE /* AsyncNinja.framework in Frameworks */,
+				E6B9167323153AEA009ACBBE /* Realm.framework in Frameworks */,
+				E6B9167423153AEA009ACBBE /* RealmSwift.framework in Frameworks */,
+				E6B9167523153AEA009ACBBE /* RxAtomic.framework in Frameworks */,
+				E6B9167623153AEA009ACBBE /* RxCocoa.framework in Frameworks */,
+				E6B9167723153AEA009ACBBE /* RxRealm.framework in Frameworks */,
+				E6B9167823153AEA009ACBBE /* RxSwift.framework in Frameworks */,
+				E6B9167923153AEA009ACBBE /* Swinject.framework in Frameworks */,
+				E6B9167A23153AEA009ACBBE /* SwinjectAutoregistration.framework in Frameworks */,
 				E65BCAE0222EA26100F7A8BC /* AppCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,7 +364,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6B9166B23153A74009ACBBE /* RxSwift.framework in Frameworks */,
 				E6B9164B231537D9009ACBBE /* CloudKit.framework in Frameworks */,
+				E6B9165D23153A74009ACBBE /* Action.framework in Frameworks */,
+				E6B9166323153A74009ACBBE /* RealmSwift.framework in Frameworks */,
+				E6B9165F23153A74009ACBBE /* AsyncNinja.framework in Frameworks */,
+				E6B9166D23153A74009ACBBE /* Swinject.framework in Frameworks */,
+				E6B9166723153A74009ACBBE /* RxCocoa.framework in Frameworks */,
+				E6B9166523153A74009ACBBE /* RxAtomic.framework in Frameworks */,
+				E6B9165823153A63009ACBBE /* AppCore.framework in Frameworks */,
+				E6B9166F23153A74009ACBBE /* SwinjectAutoregistration.framework in Frameworks */,
+				E6B9166923153A74009ACBBE /* RxRealm.framework in Frameworks */,
+				E6B9166123153A74009ACBBE /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +520,7 @@
 		E65BCAE3222EA26100F7A8BC /* AppCoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				E6B9164C2315387A009ACBBE /* iCloudServiceTests.swift */,
 				E6B91639231536C9009ACBBE /* TestHost */,
 				E65BCAE4222EA26100F7A8BC /* AppCoreTests.swift */,
 				E65BCAE6222EA26100F7A8BC /* Info.plist */,
@@ -712,10 +797,12 @@
 				E6B91634231536C9009ACBBE /* Sources */,
 				E6B91635231536C9009ACBBE /* Frameworks */,
 				E6B91636231536C9009ACBBE /* Resources */,
+				E6B9165C23153A63009ACBBE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E6B9165B23153A63009ACBBE /* PBXTargetDependency */,
 			);
 			name = TestHost;
 			productName = TestHost;
@@ -908,8 +995,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E65BCAE5222EA26100F7A8BC /* AppCoreTests.swift in Sources */,
-				E642906F22BB90C50005781E /* LocalizationEntity.swift in Sources */,
-				E642907222BB91B30005781E /* LocalizatorProtocol.swift in Sources */,
+				E6B9164D2315387A009ACBBE /* iCloudServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,6 +1020,11 @@
 			isa = PBXTargetDependency;
 			target = E6B91637231536C9009ACBBE /* TestHost */;
 			targetProxy = E6B916482315372A009ACBBE /* PBXContainerItemProxy */;
+		};
+		E6B9165B23153A63009ACBBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E65BCAD5222EA26100F7A8BC /* AppCore */;
+			targetProxy = E6B9165A23153A63009ACBBE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1077,7 +1168,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = RPH4S2457V;
+				DEVELOPMENT_TEAM = 2XXXQK2Z3H;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1108,7 +1199,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = RPH4S2457V;
+				DEVELOPMENT_TEAM = 2XXXQK2Z3H;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1140,6 +1231,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = RPH4S2457V;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = AppCoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1161,6 +1256,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = RPH4S2457V;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = AppCoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1177,11 +1276,16 @@
 		E6B91646231536CC009ACBBE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AppCoreTests/TestHost/TestHost.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 2XXXQK2Z3H;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/AppCoreTests/TestHost/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1196,11 +1300,16 @@
 		E6B91647231536CC009ACBBE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AppCoreTests/TestHost/TestHost.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 2XXXQK2Z3H;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/AppCoreTests/TestHost/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
