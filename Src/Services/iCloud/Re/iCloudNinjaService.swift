@@ -13,17 +13,20 @@ import CloudKit
 fileprivate let publicDB  = CKContainer.default().publicCloudDatabase
 fileprivate let privateDB = CKContainer.default().privateCloudDatabase
 
-fileprivate let cloudExecutor = Executor(queue: DispatchQueue(label: "iCloudQueue"))
+public extension Executor {
+    static let iCloud = Executor(queue: DispatchQueue(label: "iCloudQueue"))
+    static let iCloud2 = Executor(queue: DispatchQueue(label: "iCloudQueue2"))
+}
 
 public class iCloundNinjaPrivate : iCloudNinjaService {
     init() {
-        super.init(container: CKContainer.default(), cloudDB: privateDB, executor: cloudExecutor)
+        super.init(container: CKContainer.default(), cloudDB: privateDB, executor: .iCloud)
     }
 }
 
 public class iCloundNinjaPublic : iCloudNinjaService {
     init() {
-        super.init(container: CKContainer.default(), cloudDB: publicDB, executor: cloudExecutor)
+        super.init(container: CKContainer.default(), cloudDB: publicDB, executor: .iCloud)
     }
 }
 
@@ -92,7 +95,7 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     }
     
     public func fetch(query: CKQuery) -> Channel<[CKRecord], Void> {
-        return cloudDB.perform(operation: CKQueryOperation(query: query), batchSize: batchSize, executor: executor)
+        return cloudDB.perform(operation: CKQueryOperation(query: query), batchSize: batchSize)
     }
     
     public func fetchRecordsOf(type: String, predicate: NSPredicate? = nil) -> Channel<[CKRecord], Void> {

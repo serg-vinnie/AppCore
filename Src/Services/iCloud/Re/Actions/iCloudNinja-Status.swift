@@ -12,7 +12,7 @@ import AsyncNinja
 
 public extension CKContainer {
     func status() -> Future<CKAccountStatus> {
-        return promise() { [weak self] promise in
+        return promise(executor: .iCloud) { [weak self] promise in
             
             self?.accountStatus{ status, error in // CKAccountStatus, Error?
                 promise.succeed(status)

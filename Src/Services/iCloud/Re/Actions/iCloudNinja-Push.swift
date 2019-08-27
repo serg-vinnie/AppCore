@@ -14,7 +14,7 @@ public extension CKDatabase {
         
         log(msg: "pushing \(records.count) records")
         
-        return promise() { [weak self] promise in
+        return promise(executor: .iCloud) { [weak self] promise in
             let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
             operation.modifyRecordsCompletionBlock = { records, _, error in
                 if let records = records        { log(msg: "\(records.count) did push");    promise.succeed(records) }

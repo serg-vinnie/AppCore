@@ -10,7 +10,7 @@ import CloudKit
 import AsyncNinja
 
 public extension CKDatabase {
-    func perform(operation: CKQueryOperation, batchSize: Int, executor: Executor) -> Channel<[CKRecord], Void> {
+    func perform(operation: CKQueryOperation, batchSize: Int, executor: Executor = .iCloud) -> Channel<[CKRecord], Void> {
         log(msg: "perform operation")
         
         return Producer<[CKRecord],Void>()

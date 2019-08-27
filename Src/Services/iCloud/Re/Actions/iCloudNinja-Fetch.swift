@@ -14,7 +14,7 @@ public extension CKDatabase {
         
         log(msg:"going to fetch \(IDs.count) records")
         
-        return promise() { [weak self] promise in
+        return promise(executor: .iCloud) { [weak self] promise in
             let fetch = CKFetchRecordsOperation(recordIDs: IDs)
             
             fetch.fetchRecordsCompletionBlock = { records, error in
