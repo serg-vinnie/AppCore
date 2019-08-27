@@ -1281,7 +1281,7 @@
 				CODE_SIGN_ENTITLEMENTS = AppCoreTests/TestHost/TestHost.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 2XXXQK2Z3H;
+				DEVELOPMENT_TEAM = RPH4S2457V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
@@ -1291,7 +1291,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.checkaZuja.focusitoB2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.checkaZuja.FocusitoMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -1305,7 +1305,7 @@
 				CODE_SIGN_ENTITLEMENTS = AppCoreTests/TestHost/TestHost.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 2XXXQK2Z3H;
+				DEVELOPMENT_TEAM = RPH4S2457V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
@@ -1315,7 +1315,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.checkaZuja.focusitoB2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.checkaZuja.FocusitoMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

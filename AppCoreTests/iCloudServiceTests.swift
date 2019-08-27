@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import CloudKit
 @testable import AppCore
 
 class iCloudServiceTests: XCTestCase {
@@ -34,4 +35,14 @@ class iCloudServiceTests: XCTestCase {
         }
     }
 
+}
+
+extension iCloudServiceTests {
+    func fakeRecords(count: Int) -> [CKRecord] {
+        var records = [CKRecord]()
+        for _ in 0 ..< count {
+            records.append(CKRecord(recordType: recordType))
+        }
+        return records
+    }
 }
