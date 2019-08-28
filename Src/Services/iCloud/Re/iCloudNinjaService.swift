@@ -14,8 +14,8 @@ fileprivate let publicDB  = CKContainer.default().publicCloudDatabase
 fileprivate let privateDB = CKContainer.default().privateCloudDatabase
 
 public extension Executor {
-    static let iCloud = Executor(queue: DispatchQueue(label: "iCloudQueue"))
-    static let iCloud2 = Executor(queue: DispatchQueue(label: "iCloudQueue2"))
+    static let iCloud           = Executor(queue: DispatchQueue(label: "iCloudQueue"))
+    static let iCloudFlatMap    = Executor(queue: DispatchQueue(label: "iCloudFlatMap"))
 }
 
 public class iCloundNinjaPrivate : iCloudNinjaService {
@@ -39,7 +39,7 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     public let container  : CKContainer
     public let cloudDB    : CKDatabase
     
-    public var batchSize  = 300
+    public var batchSize  = 100
     
     public init(container: CKContainer, cloudDB: CKDatabase, executor: Executor) {
         self.executor = executor
@@ -62,31 +62,25 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     
     public func push(records: Channel<[CKRecord],Void>) -> Channel<[CKRecord], Void> {
         return records
-          .flatMap(context: self, executor: Executor.default) { $0.split(items: $1) }
-          .flatMap(context: self, executor: Executor.default) { $0.push(records: $1) }
+          .flatMap(context: self, executor: .iCloudFlatMap) { $0.split(items: $1) }
+          .flatMap(context: self, executor: .iCloudFlatMap) { $0.push(records: $1) }
     }
     
     public func push(records: [CKRecord]) -> Channel<[CKRecord], Void> {
-        return cloudDB.push(records: records)
-            .asChannel(executor: executor)
-    }
-
-    private func split<T>(items: [T]) -> Channel<[T],Void> {
-        return producer(executor: .default) { me, producer in
-            for batch in items.splitBy(me.batchSize) {
-                producer.update(batch)
-            }
-            AppCore.sleep(for: 0.5)
-            producer.succeed(())
+        return split(items: records)
+            .flatMap(context: self, executor: .iCloudFlatMap) { me, records in
+                return me.cloudDB
+                    .push(records: records)
+                    .asChannel(executor: .iCloud)
         }
     }
     
     public func fetch(IDs: [CKRecord.ID]) -> Channel<[CKRecord.ID:CKRecord], Void> {
         return split(items: IDs)
-            .flatMap(context: self, executor: .main) { me, IDs in
+            .flatMap(context: self, executor: .iCloudFlatMap) { me, IDs in
                 return me.cloudDB
                     .fetch(IDs: IDs)
-                    .asChannel(executor: me.executor)
+                    .asChannel()
         }
     }
     
@@ -105,8 +99,10 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     
     public func delete(IDs: Channel<[CKRecord.ID], Void>, skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {
         return IDs
-            .flatMap(context: self, executor: Executor.default) { $0.split(items: $1) }
-            .flatMap(context: self, executor: Executor.default) { me, ids in me.cloudDB.delete(IDs: ids).asChannel(executor: me.executor) }
+            //.flatMap(context: self, executor: .iCloudFlatMap) { $0.split(items: $1) }
+            .flatMap(context: self, executor: .iCloudFlatMap) { me, ids in
+                me.cloudDB.delete(IDs: ids).asChannel(executor: .iCloud)
+        }
     }
     
     public func deleteRecordsOf(type: String, skipErrors: Bool = false) -> Channel<[CKRecord.ID], Void> {
@@ -127,18 +123,50 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     }
 }
 
+extension iCloudNinjaService {
+    func split<T>(items: [T]) -> Channel<[T],Void> {
+        return producer(executor: .iCloud, bufferSize: 0) { me, producer in
+            for batch in items.splitBy(me.batchSize) {
+                producer.update(batch)
+            }
+            producer.succeed(())
+        }
+    }
+}
+
 
 fileprivate func log(msg: String) {
     AppCore.log(title: "iCloudNinja", msg: msg, thread: true)
 }
 
 public extension Future {
-    func asChannel(executor: Executor = .main) -> Channel<Success,Void> {
+    func asChannel(executor: Executor = .iCloud) -> Channel<Success,Void> {
         return producer(executor: executor) { producer in
-            self.onFailure { producer.fail($0, from: executor) }
-            self.onSuccess {
-                producer.update($0, from: executor);
-                producer.succeed(from: executor) }
+            self.onComplete(executor: executor) { fallible in
+                switch fallible {
+                case .success(let succ):
+                    producer.update(succ, from: executor)
+                    producer.succeed(from: executor)
+                case .failure(let err):
+                    producer.fail(err, from: executor) }
+                
+            }
         }
     }
+    
+//    func asChannel(executor: Executor = .immediate) -> Channel<Success,Void> {
+//        let producer = Producer<Success,Void>(bufferSize: 0)
+//        self.onComplete(executor: executor) { fallible in
+//            switch fallible {
+//            case .success(let succ):
+//                producer.update(succ, from: executor)
+//                AppCore.sleep(for: 0.5)
+//                producer.succeed(from: executor)
+//            case .failure(let err):
+//                producer.fail(err, from: executor) }
+//
+//        }
+//        return producer
+//    }
 }
+

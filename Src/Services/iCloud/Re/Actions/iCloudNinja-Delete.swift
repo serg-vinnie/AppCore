@@ -14,7 +14,7 @@ public extension CKDatabase {
         
         log(msg: "going to delete \(IDs.count) records")
         
-        return promise() { [weak self] promise in
+        return promise(executor: .iCloud) { [weak self] promise in
             let delete =  CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: IDs)
             
             delete.modifyRecordsCompletionBlock = { _, deletedRecordIDs, error in

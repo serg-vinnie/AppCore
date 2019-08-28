@@ -13,11 +13,11 @@ public extension CKDatabase {
     func perform(operation: CKQueryOperation, batchSize: Int, executor: Executor = .iCloud) -> Channel<[CKRecord], Void> {
         log(msg: "perform operation")
         
-        return Producer<[CKRecord],Void>()
+        return Producer<[CKRecord],Void>(bufferSize: 100)
             .iterate(operation: operation, executor: executor) { [weak self] producer, operation in
                 
                 log(msg: "perform operation")
-                producer.bind(operation: operation, executor: executor)
+                producer.bind(operation: operation, executor: .iCloud)
                 
                 operation.resultsLimit = batchSize
                 self?.add(operation)
@@ -29,7 +29,7 @@ public extension CKDatabase {
 private extension Producer where Update == CKRecord, Success == CKQueryOperation.Cursor? {
     func bind(operation: CKQueryOperation, executor: Executor) {
         operation.recordFetchedBlock = { [weak self] in
-            log(msg: "fetched \($0.recordType) \($0.recordID.recordName)")
+            //log(msg: "fetched \($0.recordType) \($0.recordID.recordName)")
             self?.update($0, from: executor)
         }
         operation.queryCompletionBlock = { [weak self] cursor, error in

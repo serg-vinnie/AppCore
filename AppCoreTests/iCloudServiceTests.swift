@@ -8,6 +8,7 @@
 
 import XCTest
 import CloudKit
+import AsyncNinja
 @testable import AppCore
 
 class iCloudServiceTests: XCTestCase {
@@ -22,10 +23,90 @@ class iCloudServiceTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func testDelete() {
+        //cloudPrivate.batchSize = 100
+        let (result, completion) = cloudPrivate.deleteRecordsOf(type: recordType).waitForAll()
+    }
+    
+    func testFetch() {
+        cloudPrivate.batchSize = 100
+        let (result, _) = cloudPrivate.fetchRecordsOf(type: recordType).waitForAll()
+        print(result.map { $0.count } )
+    }
+    
+    func testPushAndDelete() {
+        let cloudDB = cloudPrivate.cloudDB
+        let pushResult = cloudDB.push(records: fakeRecords(count: 5)).wait().success!
+        XCTAssert(pushResult.count == 5)
+        sleep(3)
+        
+        let deleteResult = cloudDB.delete(IDs: pushResult.map { $0.recordID }).wait()
+        XCTAssert(deleteResult.success?.count == 5)
+    }
+    
+    func testPushAndDelete2() {
+        let COUNT = 8
+        
+        
+        let cloudDB = cloudPrivate.cloudDB
+        cloudPrivate.batchSize = 2
+        let (result, completion) = cloudPrivate.split(items: fakeRecords(count: COUNT))
+            .flatMap(executor: .iCloudFlatMap, bufferSize: .specific(4)) { cloudDB.push(records: $0).asChannel(executor: .iCloud) }
+            .waitForAll()
+        let records = result.flatMap { $0 }
+        
+        XCTAssert(completion.success != nil)
+        XCTAssert(result.count == COUNT / cloudPrivate.batchSize)
+        XCTAssert(records.count == COUNT)
+        
+        let deleteResult = cloudDB.delete(IDs: records.map { $0.recordID }).wait()
+        XCTAssert(deleteResult.success?.count == COUNT)
+    }
+    
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testPushOld() {
+        let cloudDB = cloudPrivate.cloudDB
+        
+        let pushResult = cloudDB.push(records: fakeRecords(count: 5)).wait()
+        
+    
+        
+        
+        /// PUSH with many batches
+        cloudPrivate.batchSize = 2
+        let count = 10
+        let (result, completion) = cloudPrivate.push(records: fakeRecords(count: count)).waitForAll()
+        let records = result.flatMap { $0 }
+        
+        print("result \(result.count)")
+        
+        XCTAssert(completion.success != nil)
+        XCTAssert(result.count == count / cloudPrivate.batchSize)
+        XCTAssert(records.count == count)
+        
+        /// PUSH with single batch
+        cloudPrivate.batchSize = 20
+        let (result2, completion2) = cloudPrivate.push(records: fakeRecords(count: count)).waitForAll()
+        let records2 = result.flatMap { $0 }
+        
+        XCTAssert(completion2.success != nil)
+        XCTAssert(result2.count == 1)
+        XCTAssert(records2.count == count)
+        
+        // wait for server processing
+        //sleep(3)
+        
+        //let allRecords = records + records2
+        //let allIDs = allRecords.map { $0.recordID }
+        
+        //        let (resultFetch, completeFetch) = cloudPrivate.fetchRecordsOf(type: recordType).waitForAll()
+        //        let recordsFetch = resultFetch.flatMap { $0 }
+        //
+        //        XCTAssert(recordsFetch.count == allRecords.count)
+        
+        //let fetchAll = cloudPrivate.fetchRecordsOf(type: recordType).map { $0.map { $0.recordID } }
+        //_ = cloudPrivate.delete(IDs: fetchAll).waitForAll()
     }
 
     func testPerformanceExample() {
@@ -46,3 +127,15 @@ extension iCloudServiceTests {
         return records
     }
 }
+
+func flatMapTest(arg: String) -> Channel<String,Void> {
+    return producer(executor: Executor.iCloud) { producer in
+        for i in 0...100 {
+            producer.update("_\(arg)_\(i)")
+        }
+    }
+}
+
+
+
+
