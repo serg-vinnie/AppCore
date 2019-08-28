@@ -17,6 +17,7 @@ class iCloudServiceTests: XCTestCase {
     let cloudPrivate = AppCore.container.resolve(iCloundNinjaPrivate.self)!
 
     override func setUp() {
+        XCTAssert(cloudPrivate.container.status().wait().success! == .available)
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
@@ -35,14 +36,43 @@ class iCloudServiceTests: XCTestCase {
         print(result.map { $0.count } )
     }
     
-    func testPushAndDelete() {
+    func testPushFetchDelete() {
+        let COUNT = 5
+        
         let cloudDB = cloudPrivate.cloudDB
-        let pushResult = cloudDB.push(records: fakeRecords(count: 5)).wait().success!
-        XCTAssert(pushResult.count == 5)
+        let pushResult = cloudDB.push(records: fakeRecords(count: COUNT)).wait().success!
+        XCTAssert(pushResult.count == COUNT)
         sleep(3)
         
-        let deleteResult = cloudDB.delete(IDs: pushResult.map { $0.recordID }).wait()
-        XCTAssert(deleteResult.success?.count == 5)
+        let IDs = pushResult.map { $0.recordID }
+        
+        let fetchResult = cloudDB.fetch(IDs: IDs).wait().success!
+        XCTAssert(fetchResult.count == COUNT)
+        
+        let deleteResult = cloudDB.delete(IDs: IDs).wait()
+        XCTAssert(deleteResult.success?.count == COUNT)
+    }
+    
+    func testQuery() {
+        let (_,delComp0) = cloudPrivate.deleteRecordsOf(type: recordType).waitForAll()
+        XCTAssert(delComp0.success != nil)
+        
+        let PUSH_COUNT = 350
+        cloudPrivate.batchSize = 100
+        let (pushResult, pushComp) = cloudPrivate.push(records: fakeRecords(count: PUSH_COUNT)).waitForAll()
+        XCTAssert(pushComp.success != nil)
+        XCTAssert(pushResult.flatMap { $0 }.count == PUSH_COUNT)
+        
+        sleep(3)
+        
+        let(queryResult, queryComp) = cloudPrivate.fetchRecordsOf(type: recordType).waitForAll()
+        XCTAssert(queryComp.success != nil)
+        XCTAssert(queryResult.flatMap { $0 }.count == PUSH_COUNT)
+        
+        let (delResult, delComp) = cloudPrivate.deleteRecordsOf(type: recordType).waitForAll()
+        XCTAssert(delComp.success != nil)
+        XCTAssert(delResult.flatMap { $0 }.count == PUSH_COUNT)
+        print("delResult \(delResult.flatMap { $0 }.count)")
     }
     
     func testPushAndDelete2() {

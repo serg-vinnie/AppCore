@@ -29,11 +29,9 @@ public extension CKDatabase {
 private extension Producer where Update == CKRecord, Success == CKQueryOperation.Cursor? {
     func bind(operation: CKQueryOperation, executor: Executor) {
         operation.recordFetchedBlock = { [weak self] in
-            //log(msg: "fetched \($0.recordType) \($0.recordID.recordName)")
             self?.update($0, from: executor)
         }
         operation.queryCompletionBlock = { [weak self] cursor, error in
-            
             if let error = error { log(error: error); self?.fail(error, from: executor) }
             self?.succeed(cursor, from: executor)
         }
