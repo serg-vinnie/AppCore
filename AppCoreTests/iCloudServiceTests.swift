@@ -27,7 +27,8 @@ class iCloudServiceTests: XCTestCase {
     
     func testDelete() {
         //cloudPrivate.batchSize = 100
-        let (result, completion) = cloudPrivate.deleteRecordsOf(type: recordType).waitForAll()
+        let (_, completion) = cloudPrivate.deleteRecordsOf(type: recordType).waitForAll()
+        XCTAssert(completion.success != nil)
     }
     
     func testFetch() {
@@ -144,6 +145,13 @@ class iCloudServiceTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testUserRecordID() {
+        let userRecordID = cloudPrivate.userRecordID().wait()
+        XCTAssert(userRecordID.success != nil)
+        
+        //cloudPrivate.userRecordID()
     }
 
 }

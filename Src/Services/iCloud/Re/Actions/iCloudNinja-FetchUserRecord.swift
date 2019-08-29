@@ -11,7 +11,7 @@ import AsyncNinja
 
 public extension CKContainer {
     func userRecordID() -> Future<CKRecord.ID> {
-        return promise() { [weak self] promise in
+        return promise(executor: .iCloud) { [weak self] promise in
             self?.fetchUserRecordID { recordID, error in
                 if let error = error {
                     promise.fail(error)
