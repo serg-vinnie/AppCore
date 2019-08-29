@@ -20,7 +20,7 @@ public struct LocalizationState { // states service accespts only structs
     }
     
     public func stringBy(id: String) -> String {
-        return localizator.stringBy(id: id)
+        return localizator.stringBy(id: id).withReplacing(from: "/n", to: "\n")
     }
     
     public var lang : LocalizatorService.Language { return localizator.lang }
