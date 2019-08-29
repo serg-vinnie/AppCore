@@ -62,8 +62,8 @@ public class iCloudNinjaService : ExecutionContext, ReleasePoolOwner {
     
     public func push(records: Channel<[CKRecord],Void>) -> Channel<[CKRecord], Void> {
         return records
-          .flatMap(context: self, executor: .iCloudFlatMap) { $0.split(items: $1) }
-          .flatMap(context: self, executor: .iCloudFlatMap) { $0.push(records: $1) }
+          //.flatMap(context: self, executor: .iCloudFlatMap) { $0.split(items: $1) }
+          .flatMap(context: self, executor: .iCloudFlatMap) { $0.cloudDB.push(records: $1).asChannel(executor: .iCloud) }
     }
     
     public func push(records: [CKRecord]) -> Channel<[CKRecord], Void> {
