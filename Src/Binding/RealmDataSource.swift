@@ -43,6 +43,7 @@ public class RealmDataSource<EntityType: Object> : NinjaContext.Main {
     private var producer = Producer<(AnyRealmCollection<EntityType>, RealmChangeset?), Void>()
     
     // input
+    public var traceID : String?
     // CollectionSignal.Filter
     // CollectionSignal.Sort
     
@@ -67,7 +68,11 @@ public class RealmDataSource<EntityType: Object> : NinjaContext.Main {
         items = realmQuery.apply(sorting: sorting).apply(predicate: predicate).toAnyCollection()
         
         // update subscription
-        notificationToken = items.observe { [weak producer] changeset in
+        notificationToken = items.observe { [weak producer, weak self] changeset in
+            if let id = self?.traceID {
+                AppCore.log(title: "RealmDataSource", msg: "\(id) changeset \(changeset)")
+            }
+            
             switch changeset {
             case .initial(let value):
                 producer?.update((value, nil))
