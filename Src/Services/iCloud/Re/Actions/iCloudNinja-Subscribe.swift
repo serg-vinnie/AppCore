@@ -13,13 +13,14 @@ public extension CKDatabase {
     func subscribe(_ subscription: CKSubscription) -> Future<CKSubscription> {
         return promise() { promise in
             self.save(subscription) { subscription, error in
-                if let error = error {
-                    log(error: error)
-                    promise.fail(error)
-                }
                 if let subscription = subscription {
                     log(msg: "subscribed to \(subscription.subscriptionID)")
                     promise.succeed(subscription)
+                }
+                
+                if let error = error {
+                    log(error: error)
+                    promise.fail(error)
                 }
             }
         }
@@ -28,14 +29,14 @@ public extension CKDatabase {
     func fetchAllSubscriptions() -> Future<[CKSubscription]> {
         return promise() { promise in
             self.fetchAllSubscriptions { subscriptions, error in
-                if let error = error {
-                    log(error: error)
-                    promise.fail(error)
-                }
-                
                 if let subscriptions = subscriptions {
                     log(msg: "fetched \(subscriptions.count) subscriptions")
                     promise.succeed(subscriptions)
+                }
+                
+                if let error = error {
+                    log(error: error)
+                    promise.fail(error)
                 }
             }
         }
