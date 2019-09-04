@@ -92,6 +92,7 @@
 		E65BCB7C222F04F900F7A8BC /* NSPopUpButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB77222F04F000F7A8BC /* NSPopUpButton+Rx.swift */; };
 		E65BCB7D222F04F900F7A8BC /* NSView+TrackingArea+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */; };
 		E65BCB7E222F04F900F7A8BC /* NSProgressIndicator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */; };
+		E6632606231FE3060046D305 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6632605231FE3060046D305 /* Network.swift */; };
 		E664576922A183F10059AB1B /* NSPopUpButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664576822A183F10059AB1B /* NSPopUpButton+Ext.swift */; };
 		E664576C22A2783A0059AB1B /* SubclassesOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664576B22A2783A0059AB1B /* SubclassesOf.swift */; };
 		E664576F22A2848D0059AB1B /* DaemonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664576E22A2848D0059AB1B /* DaemonsService.swift */; };
@@ -291,6 +292,7 @@
 		E65BCB77222F04F000F7A8BC /* NSPopUpButton+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPopUpButton+Rx.swift"; sourceTree = "<group>"; };
 		E65BCB78222F04F000F7A8BC /* NSView+TrackingArea+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+TrackingArea+Rx.swift"; sourceTree = "<group>"; };
 		E65BCB79222F04F000F7A8BC /* NSProgressIndicator+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProgressIndicator+Rx.swift"; sourceTree = "<group>"; };
+		E6632605231FE3060046D305 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		E664576822A183F10059AB1B /* NSPopUpButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopUpButton+Ext.swift"; sourceTree = "<group>"; };
 		E664576B22A2783A0059AB1B /* SubclassesOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubclassesOf.swift; sourceTree = "<group>"; };
 		E664576E22A2848D0059AB1B /* DaemonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaemonsService.swift; sourceTree = "<group>"; };
@@ -676,6 +678,7 @@
 		E6A6B19E224D69DB00196DD3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E6632605231FE3060046D305 /* Network.swift */,
 				E6C8F90F22E88BEB000F4038 /* Random.swift */,
 				E61465412294190C001EC0C0 /* AutoStartHelpers.swift */,
 				E614653F229416FB001EC0C0 /* MathHelpers.swift */,
@@ -903,6 +906,7 @@
 				E65BCB09222EA2E800F7A8BC /* AppCoreContainer.swift in Sources */,
 				E6DC5B982253EB2D00123606 /* CollectionService.swift in Sources */,
 				E65BCB14222EA2E800F7A8BC /* SignalsService.swift in Sources */,
+				E6632606231FE3060046D305 /* Network.swift in Sources */,
 				E614653822940CB3001EC0C0 /* DispatchHelpers.swift in Sources */,
 				E630E20B2293076E00CFEED4 /* iCloudNinja-Query.swift in Sources */,
 				E630E1FD2293076E00CFEED4 /* iCloudSubscriptions.swift in Sources */,
