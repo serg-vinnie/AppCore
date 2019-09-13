@@ -30,7 +30,7 @@ public class AppCore {
     
     public static let env           : ServiceEnvironment = environment()
     public static let scenes        = container.resolve(Scenes.self)!
-    public static let signals       = container.resolve(SignalsService.self)!   // resolve SignalsService.main
+    public static let signals       : SignalsService = { initSignalSubscribeHandlers(); return SignalsService.main }()
     public static let states        = container.resolve(StatesService.self)!
     public static let bundle        = Bundle.main
     

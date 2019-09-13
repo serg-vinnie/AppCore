@@ -23,11 +23,11 @@
  */
 import Foundation
 import AsyncNinja
-import RxSwift
 
 final public class SignalsService {
-    public static var main : SignalsService { return SignalsService() }
+    public static var main : SignalsService = { return SignalsService() }()
     var dispatchers = [Int:Any]()
+    var subscribeNotifiers = [Int:Producer<Void,Void>]()
     
     public func send<Signal>(signal: Signal) {
         let hash = ObjectIdentifier(Signal.self).hashValue
@@ -36,12 +36,19 @@ final public class SignalsService {
         }
     }
     
-    public func subscribeRxFor<Signal>(_ signalType: Signal.Type) -> Observable<Signal> {
-        return getDispatcher(signalType).dispatcherRx
+    public func subscribeFor<Signal>(_ signalType: Signal.Type) -> Producer<Signal,Void> {
+        subscribeNotifier(signalType)?.update(())
+        return getDispatcher(signalType).dispatcher
     }
     
-    public func subscribeFor<Signal>(_ signalType: Signal.Type) -> Producer<Signal,Void> {
-        return getDispatcher(signalType).dispatcher
+    public func onSubscribe<Signal>(_ signalType: Signal.Type) -> Producer<Void,Void> {
+        if let producer = subscribeNotifier(signalType) {
+            return producer
+        } else {
+            let hash = ObjectIdentifier(Signal.self).hashValue
+            subscribeNotifiers[hash] = Producer<Void,Void>()
+            return subscribeNotifiers[hash]!
+        }
     }
 }
 
@@ -55,5 +62,10 @@ private extension SignalsService {
             dispatchers[hash] = dispatcher
             return dispatcher
         }
+    }
+    
+    func subscribeNotifier<Signal>(_ signalType: Signal.Type) -> Producer<Void,Void>? {
+        let hash = ObjectIdentifier(Signal.self).hashValue
+        return subscribeNotifiers[hash]
     }
 }

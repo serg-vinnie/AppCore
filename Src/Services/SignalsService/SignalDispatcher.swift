@@ -27,10 +27,8 @@ import RxSwift
 
 class SignalDispatcher<Signal> {
     let dispatcher   = Producer<Signal,Void>(bufferSize: 0)
-    let dispatcherRx = PublishSubject<Signal>()
     
     func send(_ signal: Signal) {
         dispatcher.update(signal)
-        dispatcherRx.onNext(signal)
     }
 }

@@ -38,6 +38,17 @@ public struct Signal {
     public struct DaemonsDidInit {
         public init() { }
     }
+    
+    
+    public struct DateDidChange {
+        public let from : Date
+        public let to   : Date
+        
+        public init(from: Date, to: Date) {
+            self.from = from
+            self.to = to
+        }
+    }
 }
 
 public extension Signal {

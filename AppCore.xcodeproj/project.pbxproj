@@ -147,6 +147,8 @@
 		E6C1627A22F884C90027457A /* String+sha512.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C1627922F884C90027457A /* String+sha512.swift */; };
 		E6C346EF22667C240042A1D2 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C346EE22667C240042A1D2 /* TableViewDataSource.swift */; };
 		E6C346F3226736F70042A1D2 /* TableViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C346F2226736F70042A1D2 /* TableViewBinder.swift */; };
+		E6C4B1B4232C1CAA000CE4BD /* SignalSubscribeHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4B1B3232C1CAA000CE4BD /* SignalSubscribeHandlers.swift */; };
+		E6C4B1B6232C1DA5000CE4BD /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4B1B5232C1DA5000CE4BD /* Time.swift */; };
 		E6C8F91022E88BEB000F4038 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C8F90F22E88BEB000F4038 /* Random.swift */; };
 		E6CF23E4226B560F0004C436 /* NSView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CF23E3226B560F0004C436 /* NSView+Ext.swift */; };
 		E6DC5B982253EB2D00123606 /* CollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B972253EB2D00123606 /* CollectionService.swift */; };
@@ -318,6 +320,8 @@
 		E6C1627922F884C90027457A /* String+sha512.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+sha512.swift"; sourceTree = "<group>"; };
 		E6C346EE22667C240042A1D2 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		E6C346F2226736F70042A1D2 /* TableViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewBinder.swift; sourceTree = "<group>"; };
+		E6C4B1B3232C1CAA000CE4BD /* SignalSubscribeHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalSubscribeHandlers.swift; sourceTree = "<group>"; };
+		E6C4B1B5232C1DA5000CE4BD /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		E6C8F90F22E88BEB000F4038 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		E6CF23E3226B560F0004C436 /* NSView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+Ext.swift"; sourceTree = "<group>"; };
 		E6DC5B972253EB2D00123606 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = "<group>"; };
@@ -612,6 +616,7 @@
 				E65BCB03222EA2E800F7A8BC /* SignalDispatcher.swift */,
 				E65BCB04222EA2E800F7A8BC /* SignalsService.swift */,
 				E65BCB05222EA2E800F7A8BC /* Signals.swift */,
+				E6C4B1B3232C1CAA000CE4BD /* SignalSubscribeHandlers.swift */,
 			);
 			path = SignalsService;
 			sourceTree = "<group>";
@@ -678,6 +683,7 @@
 		E6A6B19E224D69DB00196DD3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E6C4B1B5232C1DA5000CE4BD /* Time.swift */,
 				E6632605231FE3060046D305 /* Network.swift */,
 				E6C8F90F22E88BEB000F4038 /* Random.swift */,
 				E61465412294190C001EC0C0 /* AutoStartHelpers.swift */,
@@ -945,6 +951,7 @@
 				E630E1FF2293076E00CFEED4 /* iCloudRx-Delete.swift in Sources */,
 				E65BCB0E222EA2E800F7A8BC /* Thread+Ext.swift in Sources */,
 				E6A6B199224D693A00196DD3 /* Then.swift in Sources */,
+				E6C4B1B4232C1CAA000CE4BD /* SignalSubscribeHandlers.swift in Sources */,
 				E614653A22940D06001EC0C0 /* OperationOrder.swift in Sources */,
 				E630E1CD2292F64100CFEED4 /* ArrayExt.swift in Sources */,
 				E6C1627A22F884C90027457A /* String+sha512.swift in Sources */,
@@ -974,6 +981,7 @@
 				E6DC5B9D2253EECB00123606 /* CollectionEntity.swift in Sources */,
 				E65BCB0B222EA2E800F7A8BC /* MVVMController.swift in Sources */,
 				E61465422294190D001EC0C0 /* AutoStartHelpers.swift in Sources */,
+				E6C4B1B6232C1DA5000CE4BD /* Time.swift in Sources */,
 				E630E1D72292F70A00CFEED4 /* ConfigR.swift in Sources */,
 				E65BCB0F222EA2E800F7A8BC /* Ninja.swift in Sources */,
 				E630E1DA2292F74300CFEED4 /* SettingsContext.swift in Sources */,
