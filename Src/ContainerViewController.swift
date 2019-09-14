@@ -20,6 +20,8 @@ open class ContainerViewController : NSViewController {
     weak var prevController : NSViewController?
     
     public func switchTo(controller: NSViewController, transition: Bool) {
+        guard controller != content else { return }
+        
         prevController = content
         if transition {
             transitionTo(controller: controller)
