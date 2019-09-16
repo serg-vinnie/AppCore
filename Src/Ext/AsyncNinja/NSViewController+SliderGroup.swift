@@ -10,7 +10,7 @@ import Foundation
 import AsyncNinja
 
 public extension ExecutionContext where Self: NSViewController {
-    func initGroupFor(slider: NSSlider, valueText: NSTextField,  config: ConfigR<Int64>, title: String, autoHide: Bool = true) {
+    func initGroupFor(slider: NSSlider, valueText: NSTextField,  config: ConfigR<Int64>, title: String, autoHide: Bool = true, hideZero: Bool = false) {
         
         let sliderValue = slider.rp.integerValue
             .skip(first: 1, last: 0)
@@ -24,7 +24,8 @@ public extension ExecutionContext where Self: NSViewController {
         }
         
         sliderValue
-            .map { "\($0) " + title }
+            .map { hideZero && $0 == 0 ? "" : "\($0) " }
+            .map { $0 + title }
             .bind(valueText.rp.stringValue)
         
         sliderValue
@@ -33,7 +34,7 @@ public extension ExecutionContext where Self: NSViewController {
             .onUpdate(context: self) { _,_ in valueText.isHidden = autoHide ? true : false }
     }
     
-    func initGroupFor(slider: NSSlider, valueText: NSTextField,  config: ConfigR<Int64>, title: Channel<String?,Void>, autoHide: Bool = true) {
+    func initGroupFor(slider: NSSlider, valueText: NSTextField,  config: ConfigR<Int64>, title: Channel<String?,Void>, autoHide: Bool = true, hideZero: Bool = false) {
         
         let sliderValue = slider.rp.integerValue
             .filter() { $0 != nil }
@@ -46,8 +47,11 @@ public extension ExecutionContext where Self: NSViewController {
                 valueText.isHidden = false
         }
         
-        self.combineLatest(sliderValue, title)
-            .map { "\($0.0) \($0.1!)" }
+        let sliderStringValue = sliderValue
+            .map { hideZero && $0 == 0 ? "" : "\($0) " }
+        
+        self.combineLatest(sliderStringValue, title)
+            .map { $0.0 + $0.1! }
             .bind(valueText.rp.stringValue)
         
         sliderValue
