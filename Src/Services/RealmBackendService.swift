@@ -95,14 +95,18 @@ open class RealmBackendService {
         delete(objects: [object])
     }
     
-    public func delete<T>(objects: [T]) where T : Object {
-        do {
-            try realm.write {
-                realm.delete(objects)
-            }
-        } catch {
-            log(error: error)
-        }
+	public func delete<T>(objects: [T], writeTransaction: Bool = true) where T : Object {
+		if writeTransaction {
+			do {
+				try realm.write {
+					realm.delete(objects)
+				}
+			} catch {
+				log(error: error)
+			}
+		} else {
+			realm.delete(objects)
+		}
     }
     
     public func deleteAll<T>(type: T.Type) where T : Object {
