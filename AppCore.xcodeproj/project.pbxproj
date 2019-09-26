@@ -52,6 +52,7 @@
 		E630E20B2293076E00CFEED4 /* iCloudNinja-Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1F72293076E00CFEED4 /* iCloudNinja-Query.swift */; };
 		E630E20C2293076E00CFEED4 /* iCloudNinja-Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630E1F82293076E00CFEED4 /* iCloudNinja-Delete.swift */; };
 		E6369A6022DC91E5001B0C9A /* iCloudNinja-FetchUserRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6369A5F22DC91E5001B0C9A /* iCloudNinja-FetchUserRecord.swift */; };
+		E6411DCF233CEE3800F5C571 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6411DCE233CEE3800F5C571 /* RxRelay.framework */; };
 		E642906E22BB909A0005781E /* LocalizationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E642906D22BB909A0005781E /* LocalizationEntity.swift */; };
 		E642907122BB91A50005781E /* LocalizatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E642907022BB91A50005781E /* LocalizatorProtocol.swift */; };
 		E642907422BB91D40005781E /* LocalizatorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E642907322BB91D40005781E /* LocalizatorExtensions.swift */; };
@@ -251,6 +252,7 @@
 		E630E1F72293076E00CFEED4 /* iCloudNinja-Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudNinja-Query.swift"; sourceTree = "<group>"; };
 		E630E1F82293076E00CFEED4 /* iCloudNinja-Delete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iCloudNinja-Delete.swift"; sourceTree = "<group>"; };
 		E6369A5F22DC91E5001B0C9A /* iCloudNinja-FetchUserRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iCloudNinja-FetchUserRecord.swift"; sourceTree = "<group>"; };
+		E6411DCE233CEE3800F5C571 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/Mac/RxRelay.framework; sourceTree = "<group>"; };
 		E642906D22BB909A0005781E /* LocalizationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationEntity.swift; sourceTree = "<group>"; };
 		E642907022BB91A50005781E /* LocalizatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizatorProtocol.swift; sourceTree = "<group>"; };
 		E642907322BB91D40005781E /* LocalizatorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizatorExtensions.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				E65BCB25222EA39600F7A8BC /* Action.framework in Frameworks */,
 				E65BCB26222EA39600F7A8BC /* AsyncNinja.framework in Frameworks */,
 				E65BCB23222EA39600F7A8BC /* RxAtomic.framework in Frameworks */,
+				E6411DCF233CEE3800F5C571 /* RxRelay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +627,7 @@
 		E65BCB18222EA36900F7A8BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E6411DCE233CEE3800F5C571 /* RxRelay.framework */,
 				E6B9164A231537D9009ACBBE /* CloudKit.framework */,
 				E65BCB1B222EA39600F7A8BC /* Action.framework */,
 				E65BCB1C222EA39600F7A8BC /* AsyncNinja.framework */,

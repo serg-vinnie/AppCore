@@ -5,7 +5,7 @@
 		<key>CFBundleDevelopmentRegion</key>
 		<string>English</string>
 		<key>CFBundleIdentifier</key>
-		<string>com.apple.xcode.dsym.com.el-eleven.Swinject</string>
+		<string>com.apple.xcode.dsym.com.el-eleven.Swinject-macOS</string>
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
 		<key>CFBundlePackageType</key>
@@ -13,7 +13,7 @@
 		<key>CFBundleSignature</key>
 		<string>????</string>
 		<key>CFBundleShortVersionString</key>
-		<string>2.6.0</string>
+		<string>2.7.1</string>
 		<key>CFBundleVersion</key>
 		<string>1</string>
 	</dict>

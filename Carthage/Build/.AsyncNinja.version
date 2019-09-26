@@ -1,31 +1,10 @@
 {
+  "commitish" : "ce6f2ea3ffd57a9829aa5461f9c1bfa4c2090047",
   "Mac" : [
     {
       "name" : "AsyncNinja",
-      "hash" : "6d9b0ffc3cc2eeacc49436517ed050955e6225b2035a452e6696b49857ecd5f9",
-      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
-    }
-  ],
-  "watchOS" : [
-    {
-      "name" : "AsyncNinja",
-      "hash" : "2a40047cab2f864b17dbc955f604cb478bb59a64aa14da29416b9a4a1858e7c7",
-      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
-    }
-  ],
-  "tvOS" : [
-    {
-      "name" : "AsyncNinja",
-      "hash" : "d9eebacdc641470cbe9341a961d6336624f2905e610f5103d020a6321afde800",
-      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
-    }
-  ],
-  "commitish" : "8ab10f546a23c2836de4113b0115bd4537ef1695",
-  "iOS" : [
-    {
-      "name" : "AsyncNinja",
-      "hash" : "0d202a8a4c8d4308a69847732626879d38af7505703dc4e169ed84bf02361918",
-      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+      "hash" : "9e8a292eab9df5256597ec2a9352c5cbc0717577a61c58fae8f604bda9ebc83e",
+      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
     }
   ]
 }

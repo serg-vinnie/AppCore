@@ -1,21 +1,10 @@
 {
+  "commitish" : "d85e2f0b99c48ea0594943aaff1f58983b961061",
   "Mac" : [
-
-  ],
-  "watchOS" : [
-
-  ],
-  "tvOS" : [
     {
       "name" : "RxAlamofire",
-      "hash" : "2685cba59813be58b1ceeded19c2277132374eb45c91090c1808f5314f9ea404"
-    }
-  ],
-  "commitish" : "8332895e218d4c03d483663fb85ce34bbcf12766",
-  "iOS" : [
-    {
-      "name" : "RxAlamofire",
-      "hash" : "fea204fc3e3ba50d22962d809e7d95e82911e463d1aa35e73f21d78e99f2fad1"
+      "hash" : "6a73ccddefe456451517b5dbfc70329389231e31c379b5077bf9b25fdd1add31",
+      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
     }
   ]
 }

@@ -2,46 +2,46 @@
   "Mac" : [
     {
       "name" : "RealmSwift",
-      "hash" : "31d9f6a4c43b4c343fb502dbb95f4f14295668029049fa18aad7ac736c560581",
-      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+      "hash" : "4697bda0c0329e5d740108650dde18cd5e42253c9ae7406abd34f76b4ea5eca7",
+      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
     },
     {
       "name" : "Realm",
-      "hash" : "54da94cf130253bf524a10d56f179978ae7cf7c535e691e44669ce5d0574a779"
+      "hash" : "8ca20167476b034514f88fc9e925151a75a92bf4a07cf35ae62249604820ad58"
     }
   ],
   "watchOS" : [
     {
       "name" : "RealmSwift",
-      "hash" : "6d1974f53d1fd4504729e5fbf0354f1a04a79edf0e6f403436786740a52c09ea",
-      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+      "hash" : "abd3049e0f4d2855692b1cf2930143369038089b0730a08d30a1345377dc0c55",
+      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
     },
     {
       "name" : "Realm",
-      "hash" : "3f7184949e0e8b3448772962232184bc633ab38f8281ceb80afbc56b24010944"
+      "hash" : "da696ed1488a683e7bf75baeaaf8d136d3290a8311c4b5fd7d07f99f8d9a67d3"
     }
   ],
   "tvOS" : [
     {
       "name" : "RealmSwift",
-      "hash" : "c166380fdbe986350757a0ce76c26bbe485fc6964d8a06471c34a5e6dc5ed82d",
-      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+      "hash" : "c32a98de61a005d525d148a775492ccc44208aa6d532e830bec6bead0e5014b1",
+      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
     },
     {
       "name" : "Realm",
-      "hash" : "7c1ac9d2c5b44447529dd9f1493c295e81c676bb1a057dc4c17dc2152e28f48f"
+      "hash" : "94b387aeefb8d2e9d1bbbf6cbbbc638d2d8393735f0716a1d95fb3c9ece2bb4a"
     }
   ],
-  "commitish" : "v3.17.3",
+  "commitish" : "v3.18.0",
   "iOS" : [
     {
       "name" : "RealmSwift",
-      "hash" : "ea237bad6bc5b6cd3281f54766bdcf1e665a32e0615f35a9cf36e93c2d15a8b8",
-      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+      "hash" : "4b2327ca7358b0bb2f2362de30fa854a25947eb0f572dc3884c670157261ba80",
+      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
     },
     {
       "name" : "Realm",
-      "hash" : "d9636be9409c7dc22ada12d9aa357305735446a0bc40dc91104bf8fb91cdc0be"
+      "hash" : "5b0d75278be2fb0526c97dff3485a25b54d6d57ceb0f1a22e3d9ca4c0e826471"
     }
   ]
 }

@@ -2,26 +2,26 @@
   "Mac" : [
     {
       "name" : "ZipArchive",
-      "hash" : "a80b2c21666ae8b7db7670dddfa76b426ea4070dca75c2f8cd750764e9d0ba01"
+      "hash" : "f22583cb99f617311aca47d2b5ede25e939e3998ab344b97d8c28754cb0cc1e7"
     }
   ],
   "watchOS" : [
     {
       "name" : "ZipArchive",
-      "hash" : "2ffae09efb89a6fc4bb117475fad2152d238734eb46e526f5cc475d86a54cde6"
+      "hash" : "a4f219b9def6c878277ac30b6415d70b8e44c2636c2a9e65f29b566374beba58"
     }
   ],
   "tvOS" : [
     {
       "name" : "ZipArchive",
-      "hash" : "92f11918072cac82023e7494e216a951b58d6a0e671aae32ccf94c134c62aa57"
+      "hash" : "088e019f52de2b9a576df0741fc5347d39f9ed6d4852017559d13d47e95d042a"
     }
   ],
-  "commitish" : "v2.1.5",
+  "commitish" : "v2.2.2",
   "iOS" : [
     {
       "name" : "ZipArchive",
-      "hash" : "66385376d39fa4550a64c27b4bd935b143115b3975a0398f7bf70f362f07a96a"
+      "hash" : "5e8154ed1698cd9a9374910de72219899aeeee12c907467483ed0dfcdec215d8"
     }
   ]
 }

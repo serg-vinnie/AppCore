@@ -1,27 +1,10 @@
 {
+  "commitish" : "1.0.1",
   "Mac" : [
     {
       "name" : "RxRealm",
-      "hash" : "7160f2b3690d4f632179db318f9180f8db1ec3239d5a547120cf0f1afb697a3f"
-    }
-  ],
-  "watchOS" : [
-    {
-      "name" : "RxRealm",
-      "hash" : "44c0b1a8d67d086667e2644bc918bb4dbf5445ffe142bf5b2ff984cacf10c256"
-    }
-  ],
-  "tvOS" : [
-    {
-      "name" : "RxRealm",
-      "hash" : "79419dfbd39541f8ecdf308045f291f039ddd4e9f8555ff8d0c08ab9d9ac8c8e"
-    }
-  ],
-  "commitish" : "0.7.7",
-  "iOS" : [
-    {
-      "name" : "RxRealm",
-      "hash" : "9697dcdb6a4fd28d9b16a8916d041c4d6ca82c598a91a580afe96fb95ff50c69"
+      "hash" : "31537ba90c0f4a0a37cc7839805b35301b3fdc4cfefb0b7372c4e795ef69828b",
+      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
     }
   ]
 }

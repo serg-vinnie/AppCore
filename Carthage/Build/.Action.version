@@ -1,27 +1,10 @@
 {
+  "commitish" : "4.0.1",
   "Mac" : [
     {
       "name" : "Action",
-      "hash" : "e035e995a14511cbc007975b8519b311d2b1ffb473688fd625ccb0e126923ffb"
-    }
-  ],
-  "watchOS" : [
-    {
-      "name" : "Action",
-      "hash" : "1e465151913d4fa1a683a8d9cc84845ea4e1873166d66747f0a443fcc293c3ef"
-    }
-  ],
-  "tvOS" : [
-    {
-      "name" : "Action",
-      "hash" : "4e1b3680f9f56c1b03b8fa6cb59ee535ac0a470006bb5d48d9e4649c9f406973"
-    }
-  ],
-  "commitish" : "3.11.0",
-  "iOS" : [
-    {
-      "name" : "Action",
-      "hash" : "3fa0775c17938e3fe1bcb07f02edd19e7a429a631b58323374a479d8961c5a1c"
+      "hash" : "998dae6bbc1e6157f889e8e34f7ea5a30b03937fda6f01a967effb7dbdaecff7",
+      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
     }
   ]
 }
