@@ -1,0 +1,4 @@
+framework module RxAlamofire {
+  header "RxAlamofire-Swift.h"
+  requires objc
+}
