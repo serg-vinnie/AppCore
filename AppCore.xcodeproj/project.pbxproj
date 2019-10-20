@@ -59,6 +59,7 @@
 		E649783B2290B78A00AB9E8C /* FlippedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649783A2290B78A00AB9E8C /* FlippedView.swift */; };
 		E6555C0F229BE7A50086E214 /* NSEvent+Ninja.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6555C0E229BE7A50086E214 /* NSEvent+Ninja.swift */; };
 		E657568E228D4CA0004C10F6 /* NSAttributedString+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E657568D228D4CA0004C10F6 /* NSAttributedString+Ext.swift */; };
+		E659F9BE235CE42500A92279 /* AppCoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E659F9BD235CE42500A92279 /* AppCoreController.swift */; };
 		E65BCAE0222EA26100F7A8BC /* AppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65BCAD6222EA26100F7A8BC /* AppCore.framework */; };
 		E65BCAE5222EA26100F7A8BC /* AppCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65BCAE4222EA26100F7A8BC /* AppCoreTests.swift */; };
 		E65BCAE7222EA26100F7A8BC /* AppCore.h in Headers */ = {isa = PBXBuildFile; fileRef = E65BCAD9222EA26100F7A8BC /* AppCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -259,6 +260,7 @@
 		E649783A2290B78A00AB9E8C /* FlippedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlippedView.swift; sourceTree = "<group>"; };
 		E6555C0E229BE7A50086E214 /* NSEvent+Ninja.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+Ninja.swift"; sourceTree = "<group>"; };
 		E657568D228D4CA0004C10F6 /* NSAttributedString+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Ext.swift"; sourceTree = "<group>"; };
+		E659F9BD235CE42500A92279 /* AppCoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoreController.swift; sourceTree = "<group>"; };
 		E65BCAD6222EA26100F7A8BC /* AppCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65BCAD9222EA26100F7A8BC /* AppCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCore.h; sourceTree = "<group>"; };
 		E65BCADA222EA26100F7A8BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 				E65BCAF7222EA2E800F7A8BC /* MVVMController.swift */,
 				E65BCAF8222EA2E800F7A8BC /* FS.swift */,
 				E65BCAFC222EA2E800F7A8BC /* Ninja.swift */,
+				E659F9BD235CE42500A92279 /* AppCoreController.swift */,
 			);
 			path = Src;
 			sourceTree = "<group>";
@@ -972,6 +975,7 @@
 				E630E1FA2293076E00CFEED4 /* iCloudQuery.swift in Sources */,
 				E630E20C2293076E00CFEED4 /* iCloudNinja-Delete.swift in Sources */,
 				E6C346F3226736F70042A1D2 /* TableViewBinder.swift in Sources */,
+				E659F9BE235CE42500A92279 /* AppCoreController.swift in Sources */,
 				E6E59409226EF84C0006EF4C /* StringExt.swift in Sources */,
 				E630E1F92293076E00CFEED4 /* iCloudDelete.swift in Sources */,
 				E649783B2290B78A00AB9E8C /* FlippedView.swift in Sources */,
