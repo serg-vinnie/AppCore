@@ -15,6 +15,15 @@ open class AppCoreController<MyView,MyViewModel> : NSHostingController<MyView> w
 	
 	@objc required dynamic public init?(coder: NSCoder) {
 		super.init(coder: coder, rootView: AppCore.container.resolve(MyView.self)!)
+		
+	}
+	
+    override open func viewDidLoad() {
+        if resolveViewModel {
+            if let viewModel = AppCore.container.resolve(MyViewModel.self) {
+				self.viewModel = viewModel
+			}
+        }
 	}
 	
 	open func viewModelDidSet() {
