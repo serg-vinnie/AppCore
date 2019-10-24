@@ -75,7 +75,7 @@ open class RealmBackendService {
     
     public func add<T>(object: T, block: (T)->() = { _ in }) where T : Object {
         add(objects: [object]) { objects in
-            guard let obj = objects.first as? T else { return }
+            guard let obj = objects.first else { return }
             block(obj)
         }
     }
