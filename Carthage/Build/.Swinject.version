@@ -3,8 +3,8 @@
   "Mac" : [
     {
       "name" : "Swinject",
-      "hash" : "556c691ef2b1380561f644b735d757551b363bfe4937cb60d70ed9fe74c11c58",
-      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
+      "hash" : "e4f23a4aca6b06ff9385702dd93cc70bad374b01eb886d20b445757f754b623a",
+      "swiftToolchainVersion" : "5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
     }
   ]
 }

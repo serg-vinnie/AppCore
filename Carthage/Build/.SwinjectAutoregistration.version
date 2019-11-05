@@ -3,8 +3,8 @@
   "Mac" : [
     {
       "name" : "SwinjectAutoregistration",
-      "hash" : "0809e1f57d1d3b89a31f1703d5a668c21d2d6b2bbd7b878c77a0eec6fb4f6b79",
-      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
+      "hash" : "d408cfdfff21458b97c3754d211107037763b3f4863e387b54c3dc95e9947584",
+      "swiftToolchainVersion" : "5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
     }
   ]
 }

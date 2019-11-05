@@ -3,8 +3,8 @@
   "Mac" : [
     {
       "name" : "AsyncNinja",
-      "hash" : "9e8a292eab9df5256597ec2a9352c5cbc0717577a61c58fae8f604bda9ebc83e",
-      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
+      "hash" : "d306a4375cb90263c4b9ccb230e9e009173ef4cd6f311f8ee94bba1c66f53ba8",
+      "swiftToolchainVersion" : "5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
     }
   ]
 }

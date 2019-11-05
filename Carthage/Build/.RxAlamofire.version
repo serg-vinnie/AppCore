@@ -1,10 +1,10 @@
 {
-  "commitish" : "d85e2f0b99c48ea0594943aaff1f58983b961061",
+  "commitish" : "64812f3aa1f7cc1ca1670ab890702c5dc6b9ff64",
   "Mac" : [
     {
       "name" : "RxAlamofire",
-      "hash" : "6a73ccddefe456451517b5dbfc70329389231e31c379b5077bf9b25fdd1add31",
-      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
+      "hash" : "3b4512bd4915a66c0345d96c1f28ae73bf35cda037464e1f9ba9cdc66288648a",
+      "swiftToolchainVersion" : "5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
     }
   ]
 }
