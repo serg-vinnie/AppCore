@@ -153,6 +153,7 @@
 		E6C4B1B6232C1DA5000CE4BD /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4B1B5232C1DA5000CE4BD /* Time.swift */; };
 		E6C8F91022E88BEB000F4038 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C8F90F22E88BEB000F4038 /* Random.swift */; };
 		E6CF23E4226B560F0004C436 /* NSView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CF23E3226B560F0004C436 /* NSView+Ext.swift */; };
+		E6CF2DE2237B4AFC006686F1 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CF2DE1237B4AFC006686F1 /* Logger.swift */; };
 		E6DC5B982253EB2D00123606 /* CollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B972253EB2D00123606 /* CollectionService.swift */; };
 		E6DC5B9D2253EECB00123606 /* CollectionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */; };
 		E6DD1251228B569A00EF2C8A /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6DD1250228B569A00EF2C8A /* CollectionViewItem.xib */; };
@@ -328,6 +329,7 @@
 		E6C4B1B5232C1DA5000CE4BD /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		E6C8F90F22E88BEB000F4038 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		E6CF23E3226B560F0004C436 /* NSView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+Ext.swift"; sourceTree = "<group>"; };
+		E6CF2DE1237B4AFC006686F1 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		E6DC5B972253EB2D00123606 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = "<group>"; };
 		E6DC5B9C2253EECB00123606 /* CollectionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEntity.swift; sourceTree = "<group>"; };
 		E6DD1250228B569A00EF2C8A /* CollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CollectionViewItem.xib; path = Src/Binding/RealmToCollectionView/CollectionViewItem/CollectionViewItem.xib; sourceTree = SOURCE_ROOT; };
@@ -560,6 +562,7 @@
 		E65BCAF1222EA2E800F7A8BC /* App */ = {
 			isa = PBXGroup;
 			children = (
+				E6CF2DE1237B4AFC006686F1 /* Logger.swift */,
 				E65BCAF2222EA2E800F7A8BC /* Scenes.swift */,
 				E65BCAF3222EA2E800F7A8BC /* AppCore.swift */,
 				E65BCAF5222EA2E800F7A8BC /* AppCoreContainer.swift */,
@@ -978,6 +981,7 @@
 				E659F9BE235CE42500A92279 /* AppCoreController.swift in Sources */,
 				E6E59409226EF84C0006EF4C /* StringExt.swift in Sources */,
 				E630E1F92293076E00CFEED4 /* iCloudDelete.swift in Sources */,
+				E6CF2DE2237B4AFC006686F1 /* Logger.swift in Sources */,
 				E649783B2290B78A00AB9E8C /* FlippedView.swift in Sources */,
 				E6CF23E4226B560F0004C436 /* NSView+Ext.swift in Sources */,
 				E630E1FB2293076E00CFEED4 /* iCloudChangeFetcher.swift in Sources */,
