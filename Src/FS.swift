@@ -221,4 +221,9 @@ public class FS {
         return (try? url.checkResourceIsReachable()) ?? false
     }
     
+    public class func randomTempDirectory() -> URL {
+        let url = URL(string: NSTemporaryDirectory())!.appendingPathComponent(UUID().uuidString)
+        makeSureDirExist(url.path)
+        return url
+    }
 }
