@@ -29,6 +29,8 @@ final public class SignalsService {
     var dispatchers = [Int:Any]()
     var subscribeNotifiers = [Int:Producer<Void,Void>]()
     
+    public init() {}
+    
     public func send<Signal>(signal: Signal) {
         let hash = ObjectIdentifier(Signal.self).hashValue
         if let dispatcher = dispatchers[hash] as? SignalDispatcher<Signal> {
