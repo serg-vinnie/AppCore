@@ -6,7 +6,6 @@
 //  Copyright © 2019 Loki. All rights reserved.
 //
 
-import Foundation
 import SwiftUI
 
 @available(OSX 10.15, *)

@@ -6,7 +6,6 @@
 //  Copyright © 2019 Loki. All rights reserved.
 //
 
-import Foundation
 import SwiftUI
 import Combine
 

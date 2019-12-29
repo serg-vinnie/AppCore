@@ -12,6 +12,9 @@
 		92027A2E23B8DDEC00E1BC0D /* ErrorBlinker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A2D23B8DDEC00E1BC0D /* ErrorBlinker.swift */; };
 		92027A3023B8DF0000E1BC0D /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A2F23B8DF0000E1BC0D /* ColorExtension.swift */; };
 		92027A3223B8DFC500E1BC0D /* ifModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A3123B8DFC500E1BC0D /* ifModifier.swift */; };
+		92027A3423B8E37200E1BC0D /* StyledText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A3323B8E37200E1BC0D /* StyledText.swift */; };
+		92027A3623B8E59D00E1BC0D /* LoadingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A3523B8E59D00E1BC0D /* LoadingCircle.swift */; };
+		92027A3823B8E74D00E1BC0D /* TaoToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A3723B8E74D00E1BC0D /* TaoToggle.swift */; };
 		AA5FC813239111CB00E8EF2E /* Combine+AsyncNinja.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5FC812239111CB00E8EF2E /* Combine+AsyncNinja.swift */; };
 		E60329D522B295830020984D /* LocalizatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60329D422B295830020984D /* LocalizatorService.swift */; };
 		E60808592274485B0035F488 /* RealmDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60808582274485B0035F488 /* RealmDataSource.swift */; };
@@ -220,6 +223,9 @@
 		92027A2D23B8DDEC00E1BC0D /* ErrorBlinker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorBlinker.swift; sourceTree = "<group>"; };
 		92027A2F23B8DF0000E1BC0D /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		92027A3123B8DFC500E1BC0D /* ifModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifModifier.swift; sourceTree = "<group>"; };
+		92027A3323B8E37200E1BC0D /* StyledText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledText.swift; sourceTree = "<group>"; };
+		92027A3523B8E59D00E1BC0D /* LoadingCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCircle.swift; sourceTree = "<group>"; };
+		92027A3723B8E74D00E1BC0D /* TaoToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaoToggle.swift; sourceTree = "<group>"; };
 		AA5FC812239111CB00E8EF2E /* Combine+AsyncNinja.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+AsyncNinja.swift"; sourceTree = "<group>"; };
 		E60329D422B295830020984D /* LocalizatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizatorService.swift; sourceTree = "<group>"; };
 		E60808582274485B0035F488 /* RealmDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataSource.swift; sourceTree = "<group>"; };
@@ -415,6 +421,9 @@
 				92027A2D23B8DDEC00E1BC0D /* ErrorBlinker.swift */,
 				92027A2F23B8DF0000E1BC0D /* ColorExtension.swift */,
 				92027A3123B8DFC500E1BC0D /* ifModifier.swift */,
+				92027A3323B8E37200E1BC0D /* StyledText.swift */,
+				92027A3523B8E59D00E1BC0D /* LoadingCircle.swift */,
+				92027A3723B8E74D00E1BC0D /* TaoToggle.swift */,
 			);
 			path = MoreSwiftUI;
 			sourceTree = "<group>";
@@ -998,9 +1007,11 @@
 				E67825842264BE5100391616 /* CollectionViewBinder.swift in Sources */,
 				E630E2002293076E00CFEED4 /* iCloudRx-Push.swift in Sources */,
 				92027A3023B8DF0000E1BC0D /* ColorExtension.swift in Sources */,
+				92027A3623B8E59D00E1BC0D /* LoadingCircle.swift in Sources */,
 				E620B04722D39D4D00EEC230 /* CKContainer+Fetch.swift in Sources */,
 				E630E1FE2293076E00CFEED4 /* iCloudRxSubscriptions.swift in Sources */,
 				E614657F22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift in Sources */,
+				92027A3823B8E74D00E1BC0D /* TaoToggle.swift in Sources */,
 				E65BCB0C222EA2E800F7A8BC /* FS.swift in Sources */,
 				E65BCB15222EA2E800F7A8BC /* Signals.swift in Sources */,
 				E630E2032293076E00CFEED4 /* iCloudRx-Query.swift in Sources */,
@@ -1009,6 +1020,7 @@
 				E6C346F3226736F70042A1D2 /* TableViewBinder.swift in Sources */,
 				E659F9BE235CE42500A92279 /* AppCoreController.swift in Sources */,
 				E6E59409226EF84C0006EF4C /* StringExt.swift in Sources */,
+				92027A3423B8E37200E1BC0D /* StyledText.swift in Sources */,
 				E630E1F92293076E00CFEED4 /* iCloudDelete.swift in Sources */,
 				E6CF2DE2237B4AFC006686F1 /* Logger.swift in Sources */,
 				92027A2C23B8DD5700E1BC0D /* AddBorder.swift in Sources */,
