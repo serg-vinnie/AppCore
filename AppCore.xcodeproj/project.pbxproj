@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92027A2A23B8DD1E00E1BC0D /* NoFocusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A2923B8DD1E00E1BC0D /* NoFocusTextField.swift */; };
+		92027A2C23B8DD5700E1BC0D /* AddBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A2B23B8DD5700E1BC0D /* AddBorder.swift */; };
+		92027A2E23B8DDEC00E1BC0D /* ErrorBlinker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A2D23B8DDEC00E1BC0D /* ErrorBlinker.swift */; };
+		92027A3023B8DF0000E1BC0D /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A2F23B8DF0000E1BC0D /* ColorExtension.swift */; };
+		92027A3223B8DFC500E1BC0D /* ifModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A3123B8DFC500E1BC0D /* ifModifier.swift */; };
 		AA5FC813239111CB00E8EF2E /* Combine+AsyncNinja.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5FC812239111CB00E8EF2E /* Combine+AsyncNinja.swift */; };
 		E60329D522B295830020984D /* LocalizatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60329D422B295830020984D /* LocalizatorService.swift */; };
 		E60808592274485B0035F488 /* RealmDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60808582274485B0035F488 /* RealmDataSource.swift */; };
@@ -210,6 +215,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		92027A2923B8DD1E00E1BC0D /* NoFocusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoFocusTextField.swift; sourceTree = "<group>"; };
+		92027A2B23B8DD5700E1BC0D /* AddBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBorder.swift; sourceTree = "<group>"; };
+		92027A2D23B8DDEC00E1BC0D /* ErrorBlinker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorBlinker.swift; sourceTree = "<group>"; };
+		92027A2F23B8DF0000E1BC0D /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		92027A3123B8DFC500E1BC0D /* ifModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifModifier.swift; sourceTree = "<group>"; };
 		AA5FC812239111CB00E8EF2E /* Combine+AsyncNinja.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+AsyncNinja.swift"; sourceTree = "<group>"; };
 		E60329D422B295830020984D /* LocalizatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizatorService.swift; sourceTree = "<group>"; };
 		E60808582274485B0035F488 /* RealmDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataSource.swift; sourceTree = "<group>"; };
@@ -397,6 +407,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92027A2823B8DCBB00E1BC0D /* MoreSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				92027A2923B8DD1E00E1BC0D /* NoFocusTextField.swift */,
+				92027A2B23B8DD5700E1BC0D /* AddBorder.swift */,
+				92027A2D23B8DDEC00E1BC0D /* ErrorBlinker.swift */,
+				92027A2F23B8DF0000E1BC0D /* ColorExtension.swift */,
+				92027A3123B8DFC500E1BC0D /* ifModifier.swift */,
+			);
+			path = MoreSwiftUI;
+			sourceTree = "<group>";
+		};
 		E60329D322B2953C0020984D /* Localizator */ = {
 			isa = PBXGroup;
 			children = (
@@ -505,6 +527,7 @@
 		E65BCACC222EA26100F7A8BC = {
 			isa = PBXGroup;
 			children = (
+				92027A2823B8DCBB00E1BC0D /* MoreSwiftUI */,
 				E65BCB16222EA35100F7A8BC /* Cartfile */,
 				E65BCAF0222EA2E800F7A8BC /* Src */,
 				E65BCAD8222EA26100F7A8BC /* AppCore */,
@@ -919,6 +942,7 @@
 			files = (
 				E664576922A183F10059AB1B /* NSPopUpButton+Ext.swift in Sources */,
 				E630E2052293076E00CFEED4 /* iCloudRx-UserID.swift in Sources */,
+				92027A2E23B8DDEC00E1BC0D /* ErrorBlinker.swift in Sources */,
 				E695DF76224F938F00611D2B /* CollectionViewDataSource.swift in Sources */,
 				E630E1D62292F70A00CFEED4 /* ConfigRx.swift in Sources */,
 				E65BCB0A222EA2E800F7A8BC /* ServiceEnvironment.swift in Sources */,
@@ -955,6 +979,7 @@
 				E6C346EF22667C240042A1D2 /* TableViewDataSource.swift in Sources */,
 				E65BCB07222EA2E800F7A8BC /* AppCore.swift in Sources */,
 				E65BCB06222EA2E800F7A8BC /* Scenes.swift in Sources */,
+				92027A2A23B8DD1E00E1BC0D /* NoFocusTextField.swift in Sources */,
 				E630E2072293076E00CFEED4 /* iCloudNinjaService.swift in Sources */,
 				E630E2082293076E00CFEED4 /* iCloudNinja-Fetch.swift in Sources */,
 				E664576C22A2783A0059AB1B /* SubclassesOf.swift in Sources */,
@@ -972,6 +997,7 @@
 				E630E1D52292F70A00CFEED4 /* ConfigCloudKeyValue.swift in Sources */,
 				E67825842264BE5100391616 /* CollectionViewBinder.swift in Sources */,
 				E630E2002293076E00CFEED4 /* iCloudRx-Push.swift in Sources */,
+				92027A3023B8DF0000E1BC0D /* ColorExtension.swift in Sources */,
 				E620B04722D39D4D00EEC230 /* CKContainer+Fetch.swift in Sources */,
 				E630E1FE2293076E00CFEED4 /* iCloudRxSubscriptions.swift in Sources */,
 				E614657F22998575001EC0C0 /* NSView+TrackingArea+Ninja.swift in Sources */,
@@ -985,11 +1011,13 @@
 				E6E59409226EF84C0006EF4C /* StringExt.swift in Sources */,
 				E630E1F92293076E00CFEED4 /* iCloudDelete.swift in Sources */,
 				E6CF2DE2237B4AFC006686F1 /* Logger.swift in Sources */,
+				92027A2C23B8DD5700E1BC0D /* AddBorder.swift in Sources */,
 				E649783B2290B78A00AB9E8C /* FlippedView.swift in Sources */,
 				E6CF23E4226B560F0004C436 /* NSView+Ext.swift in Sources */,
 				E630E1FB2293076E00CFEED4 /* iCloudChangeFetcher.swift in Sources */,
 				E6B33197225554610060CB6C /* ThumbnailService.swift in Sources */,
 				E65BCB11222EA2E800F7A8BC /* StatesService.swift in Sources */,
+				92027A3223B8DFC500E1BC0D /* ifModifier.swift in Sources */,
 				E6146540229416FB001EC0C0 /* MathHelpers.swift in Sources */,
 				E65BCB12222EA2E800F7A8BC /* StatesServiceItem.swift in Sources */,
 				E630E2062293076E00CFEED4 /* iCloudRxService.swift in Sources */,
