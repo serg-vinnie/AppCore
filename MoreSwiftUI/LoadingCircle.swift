@@ -15,13 +15,13 @@ public struct LoadingCircleView: View {
     @State var spinGreenCircle = false
     @State var trimGreenCircle = false
     
-    @State var diameter: CGFloat? = nil
-    @State var caliber: CGFloat! = nil
+    @State var diameter: CGFloat = 0
+    @State var caliber: CGFloat = 0
     
     @State var backColor: Color = Color.purple
     @State var frontColor: Color = Color.green
     
-    public init(diameter: CGFloat?, caliber: CGFloat, backColor:Color = Color.purple, frontColor:Color = Color.green){
+    public init(diameter: CGFloat, caliber: CGFloat, backColor:Color = Color.purple, frontColor:Color = Color.green){
         self.diameter = diameter
         self.caliber = caliber
         self.backColor = backColor
@@ -62,14 +62,14 @@ public struct LoadingCircleView: View {
 
 @available(OSX 10.15, *)
 public extension View {
-    func addLoadingCircle(diameter: CGFloat? = 20, caliber: CGFloat = 4) -> some View{
+    func addLoadingCircle(diameter: CGFloat = 20, caliber: CGFloat = 4) -> some View{
         return self.modifier(LoadingCircleModifier(diameter:diameter, caliber:caliber ))
     }
 }
 
 @available(OSX 10.15, *)
 public struct LoadingCircleModifier: ViewModifier {
-    @State var diameter: CGFloat?
+    @State var diameter: CGFloat
     @State var caliber: CGFloat
 
     public func body(content: Content) -> some View {
