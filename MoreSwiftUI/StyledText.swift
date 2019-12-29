@@ -9,31 +9,6 @@
 import SwiftUI
 
 @available(OSX 10.15, *)
-public struct TextStyle {
-    // This type is opaque because it exposes NSAttributedString details and requires unique keys.
-    // It can be extended, however, by using public static methods.
-    // Properties are internal to be accessed by StyledText
-    internal let key: NSAttributedString.Key
-    internal let apply: (Text) -> Text
-    private init(key: NSAttributedString.Key, apply: @escaping (Text) -> Text) {
-        self.key = key
-        self.apply = apply
-    }
-}
-
-// Public methods for building styles
-@available(OSX 10.15, *)
-public extension TextStyle {
-    static func foregroundColor(_ color: Color) -> TextStyle {
-        TextStyle(key: .init("TextStyleForegroundColor"), apply: { $0.foregroundColor(color) })
-    }
-
-    static func bold() -> TextStyle {
-        TextStyle(key: .init("TextStyleBold"), apply: { $0.bold() })
-    }
-}
-
-@available(OSX 10.15, *)
 public struct StyledText {
     // This is a value type. Don't be tempted to use NSMutableAttributedString here unless
     // you also implement copy-on-write.
@@ -43,33 +18,34 @@ public struct StyledText {
         self.attributedString = attributedString
     }
 
-    public func style<S>(_ style: TextStyle, ranges: (String) -> (S)) -> StyledText where S: Sequence, S.Element == Range<String.Index>?
+    //{ [$0.range(of: status.fileDir), $0.range(of: status.fileDir)] }
+    func style<S>(_ style: TextStyle, rangeFromTextBlock: (String) -> (S)) -> StyledText where S: Sequence, S.Element == Range<String.Index>?
     {
         // Remember this is a value type. If you want to avoid this copy,
         // then you need to implement copy-on-write.
         let newAttributedString = NSMutableAttributedString(attributedString: attributedString)
 
-        for range in ranges(attributedString.string) {
-            guard let range = range else { break }
-            let nsRange = NSRange(range, in: attributedString.string)
-            newAttributedString.addAttribute(style.key, value: style, range: nsRange)
+        for rangeIdx in rangeFromTextBlock(attributedString.string) {
+            if let rangeIdx = rangeIdx {
+                let nsRange = NSRange(rangeIdx, in: attributedString.string)
+                newAttributedString.addAttribute(style.key, value: style, range: nsRange)
+            }
         }
 
         return StyledText(attributedString: newAttributedString)
     }
     
-    //TODO
-//    public func style<S>(_ style: TextStyle, phrases: [String] ) -> StyledText
-//        where S: Sequence, S.Element == String?
-//    {
-//
-//        let ranges = phrases.map { self.attributedString.range(of: $0) }
-//
-//        //self.style(.foregroundColor(.gray), ranges: { [$0.range(of: status.fileDir) ] } )
-//
-//        return style(.foregroundColor(.gray)) { ranges}
-//
-//    }
+    public func style(_ mystyle: TextStyle, phrases: [String], ignoreCase:Bool = false ) -> StyledText {
+        if ignoreCase {
+            return style(mystyle) { text in
+                phrases.map { text.lowercased().range(of: $0.lowercased()) }
+            }
+        }
+        
+        return style(mystyle) { text in
+            phrases.map { text.range(of: $0) }
+        }
+    }
     
 }
 
@@ -77,7 +53,7 @@ public struct StyledText {
 public extension StyledText {
     // A convenience extension to apply to a single range.
     func style(_ style: TextStyle, range: (String) -> Range<String.Index> = { $0.startIndex..<$0.endIndex }) -> StyledText {
-        self.style(style, ranges: { [range($0)] })
+        self.style(style, rangeFromTextBlock: { [range($0)] })
     }
 }
 
@@ -108,6 +84,35 @@ extension StyledText: View {
                 }
         }
         return text
+    }
+}
+
+
+
+
+// ---------------- TEXT STYLE ------------------//
+@available(OSX 10.15, *)
+public struct TextStyle {
+    // This type is opaque because it exposes NSAttributedString details and requires unique keys.
+    // It can be extended, however, by using public static methods.
+    // Properties are internal to be accessed by StyledText
+    internal let key: NSAttributedString.Key
+    internal let apply: (Text) -> Text
+    private init(key: NSAttributedString.Key, apply: @escaping (Text) -> Text) {
+        self.key = key
+        self.apply = apply
+    }
+}
+
+// Public methods for building styles
+@available(OSX 10.15, *)
+public extension TextStyle {
+    static func foregroundColor(_ color: Color) -> TextStyle {
+        TextStyle(key: .init("TextStyleForegroundColor"), apply: { $0.foregroundColor(color) })
+    }
+
+    static func bold() -> TextStyle {
+        TextStyle(key: .init("TextStyleBold"), apply: { $0.bold() })
     }
 }
 
