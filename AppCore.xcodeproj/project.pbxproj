@@ -15,6 +15,7 @@
 		92027A3423B8E37200E1BC0D /* StyledText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A3323B8E37200E1BC0D /* StyledText.swift */; };
 		92027A3623B8E59D00E1BC0D /* LoadingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A3523B8E59D00E1BC0D /* LoadingCircle.swift */; };
 		92027A3823B8E74D00E1BC0D /* TaoToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A3723B8E74D00E1BC0D /* TaoToggle.swift */; };
+		9273464D23C275B800595758 /* AcceptFirstMouseModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9273464C23C275B800595758 /* AcceptFirstMouseModifier.swift */; };
 		AA5FC813239111CB00E8EF2E /* Combine+AsyncNinja.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5FC812239111CB00E8EF2E /* Combine+AsyncNinja.swift */; };
 		E60329D522B295830020984D /* LocalizatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60329D422B295830020984D /* LocalizatorService.swift */; };
 		E60808592274485B0035F488 /* RealmDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60808582274485B0035F488 /* RealmDataSource.swift */; };
@@ -226,6 +227,7 @@
 		92027A3323B8E37200E1BC0D /* StyledText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledText.swift; sourceTree = "<group>"; };
 		92027A3523B8E59D00E1BC0D /* LoadingCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCircle.swift; sourceTree = "<group>"; };
 		92027A3723B8E74D00E1BC0D /* TaoToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaoToggle.swift; sourceTree = "<group>"; };
+		9273464C23C275B800595758 /* AcceptFirstMouseModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptFirstMouseModifier.swift; sourceTree = "<group>"; };
 		AA5FC812239111CB00E8EF2E /* Combine+AsyncNinja.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+AsyncNinja.swift"; sourceTree = "<group>"; };
 		E60329D422B295830020984D /* LocalizatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizatorService.swift; sourceTree = "<group>"; };
 		E60808582274485B0035F488 /* RealmDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataSource.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 				92027A3323B8E37200E1BC0D /* StyledText.swift */,
 				92027A3523B8E59D00E1BC0D /* LoadingCircle.swift */,
 				92027A3723B8E74D00E1BC0D /* TaoToggle.swift */,
+				9273464C23C275B800595758 /* AcceptFirstMouseModifier.swift */,
 			);
 			path = MoreSwiftUI;
 			sourceTree = "<group>";
@@ -996,6 +999,7 @@
 				E6C8F91022E88BEB000F4038 /* Random.swift in Sources */,
 				E657568E228D4CA0004C10F6 /* NSAttributedString+Ext.swift in Sources */,
 				E630E1FF2293076E00CFEED4 /* iCloudRx-Delete.swift in Sources */,
+				9273464D23C275B800595758 /* AcceptFirstMouseModifier.swift in Sources */,
 				E65BCB0E222EA2E800F7A8BC /* Thread+Ext.swift in Sources */,
 				E6A6B199224D693A00196DD3 /* Then.swift in Sources */,
 				E6C4B1B4232C1CAA000CE4BD /* SignalSubscribeHandlers.swift in Sources */,
