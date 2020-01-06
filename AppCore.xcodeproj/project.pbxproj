@@ -539,7 +539,6 @@
 		E65BCACC222EA26100F7A8BC = {
 			isa = PBXGroup;
 			children = (
-				92027A2823B8DCBB00E1BC0D /* MoreSwiftUI */,
 				E65BCB16222EA35100F7A8BC /* Cartfile */,
 				E65BCAF0222EA2E800F7A8BC /* Src */,
 				E65BCAD8222EA26100F7A8BC /* AppCore */,
@@ -612,6 +611,7 @@
 		E65BCAF9222EA2E800F7A8BC /* Ext */ = {
 			isa = PBXGroup;
 			children = (
+				92027A2823B8DCBB00E1BC0D /* MoreSwiftUI */,
 				E6E59408226EF84C0006EF4C /* StringExt.swift */,
 				E6C1627922F884C90027457A /* String+sha512.swift */,
 				E614657D229984F5001EC0C0 /* AsyncNinja */,
