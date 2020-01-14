@@ -26,7 +26,7 @@ public struct TaoToggle : View {
         }
     }
     
-    public var state : CheckState = CheckState.off
+    public var state : CheckState = CheckState.mixed
     public var action : ()-> Void = {}
     
     public init(state: CheckState, action: @escaping ()->Void){

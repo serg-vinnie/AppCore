@@ -15,6 +15,7 @@
 		92027A3423B8E37200E1BC0D /* StyledText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A3323B8E37200E1BC0D /* StyledText.swift */; };
 		92027A3623B8E59D00E1BC0D /* LoadingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A3523B8E59D00E1BC0D /* LoadingCircle.swift */; };
 		92027A3823B8E74D00E1BC0D /* TaoToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92027A3723B8E74D00E1BC0D /* TaoToggle.swift */; };
+		926DAADB23CE7463003DB8D1 /* AccordionBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926DAADA23CE7463003DB8D1 /* AccordionBlock.swift */; };
 		9273464D23C275B800595758 /* AcceptFirstMouseModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9273464C23C275B800595758 /* AcceptFirstMouseModifier.swift */; };
 		AA5FC813239111CB00E8EF2E /* Combine+AsyncNinja.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5FC812239111CB00E8EF2E /* Combine+AsyncNinja.swift */; };
 		E60329D522B295830020984D /* LocalizatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60329D422B295830020984D /* LocalizatorService.swift */; };
@@ -227,6 +228,7 @@
 		92027A3323B8E37200E1BC0D /* StyledText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledText.swift; sourceTree = "<group>"; };
 		92027A3523B8E59D00E1BC0D /* LoadingCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCircle.swift; sourceTree = "<group>"; };
 		92027A3723B8E74D00E1BC0D /* TaoToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaoToggle.swift; sourceTree = "<group>"; };
+		926DAADA23CE7463003DB8D1 /* AccordionBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionBlock.swift; sourceTree = "<group>"; };
 		9273464C23C275B800595758 /* AcceptFirstMouseModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptFirstMouseModifier.swift; sourceTree = "<group>"; };
 		AA5FC812239111CB00E8EF2E /* Combine+AsyncNinja.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+AsyncNinja.swift"; sourceTree = "<group>"; };
 		E60329D422B295830020984D /* LocalizatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizatorService.swift; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 				92027A3523B8E59D00E1BC0D /* LoadingCircle.swift */,
 				92027A3723B8E74D00E1BC0D /* TaoToggle.swift */,
 				9273464C23C275B800595758 /* AcceptFirstMouseModifier.swift */,
+				926DAADA23CE7463003DB8D1 /* AccordionBlock.swift */,
 			);
 			path = MoreSwiftUI;
 			sourceTree = "<group>";
@@ -996,6 +999,7 @@
 				E630E2082293076E00CFEED4 /* iCloudNinja-Fetch.swift in Sources */,
 				E664576C22A2783A0059AB1B /* SubclassesOf.swift in Sources */,
 				E62E99F8229FFBF600B93C2F /* StatusBarController.swift in Sources */,
+				926DAADB23CE7463003DB8D1 /* AccordionBlock.swift in Sources */,
 				E6C8F91022E88BEB000F4038 /* Random.swift in Sources */,
 				E657568E228D4CA0004C10F6 /* NSAttributedString+Ext.swift in Sources */,
 				E630E1FF2293076E00CFEED4 /* iCloudRx-Delete.swift in Sources */,
