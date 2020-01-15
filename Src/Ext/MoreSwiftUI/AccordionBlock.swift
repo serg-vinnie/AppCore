@@ -22,28 +22,35 @@ public struct AccordionBlock : View {
     }
     
     public var body : some View {
-        VStack {
-            Button ( action: { self.collapsed.toggle() } ){
-                HStack{
-                    Text( collapsed ? "+" : "-" )
-                        .font(.system(size: 20))
-                        .animation(.easeInOut)
-                        .frame(width: 15)
-                    
-                    Text("Header")
-                        .font(.system(size: 15))
-                    
-                    Spacer()
-                }.padding(4)
-            }.buttonStyle( PlainButtonStyle() )
-            .background(Color(hex: 0x444444))
-            
-            if !collapsed {
-                HStack {
-                    Text("test")
-                    Spacer()
-                }.padding(5)
-                .background(Color(hex: 0x777777))
+        HStack (alignment: .top, spacing: 0) {
+            VStack (alignment: .leading, spacing: 0) {
+                GeometryReader { geometry in
+                    Button ( action: { self.collapsed.toggle() } ){
+                        HStack{
+                            Text( self.collapsed ? "+" : "-" )
+                                .font(.system(size: 20))
+                                .animation(.easeInOut)
+                                .padding(.leading, 8)
+                            
+                            Text( self.header )
+                                .font(.system(size: 15))
+                            
+                            Spacer()
+                        }.frame(width: geometry.size.width)
+                        
+                    }.buttonStyle( PlainButtonStyle() )
+                    .background(Color(hex: 0x444444))
+                }
+                
+                if !collapsed {
+                    HStack (alignment: .top, spacing: 0) {
+                        Text("test")
+                        Spacer()
+                    }.padding(5)
+                    .background(Color(hex: 0x777777))
+                }
+                
+                Spacer()
             }
         }
     }
