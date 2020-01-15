@@ -11,10 +11,10 @@ import Cocoa
 
 @available(OSX 10.15, *)
 public struct AttributedText: NSViewRepresentable {
-    @Binding var text: NSMutableAttributedString
+    var text: NSAttributedString
 
-    public init(attributedString: Binding<NSMutableAttributedString>) {
-        _text = attributedString
+    public init(attributedString: NSAttributedString) {
+        self.text = attributedString
     }
     
     public func makeNSView(context: Context) -> NSTextField {
