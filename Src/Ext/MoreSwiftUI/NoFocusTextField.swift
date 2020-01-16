@@ -31,14 +31,14 @@ public struct AttributedText: NSViewRepresentable {
 //        let bstWidth = textField.bestWidth(for: text.string , height: bstHeight)
 //        textField.setBoundsSize(NSSize(width: bstWidth , height: bstHeight) )
         
-        textField.backgroundColor = NSColor.brown
+        //textField.backgroundColor = NSColor.brown
         
         // no necessity in coordinator for read-only control
         // textField.delegate = context.coordinator
         
-        textField.isBordered = true
-        textField.layer?.borderColor = NSColor.black.cgColor
-        textField.layer?.borderWidth = 1.0
+//        textField.isBordered = true
+//        textField.layer?.borderColor = NSColor.black.cgColor
+//        textField.layer?.borderWidth = 1.0
 
 //        textField.backgroundColor = nil
 //        textField.focusRingType = .none
