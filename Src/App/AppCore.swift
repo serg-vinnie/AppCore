@@ -91,7 +91,7 @@ public extension AppCore {
     
     private static let debugDateFormatter: DateFormatter = { () -> DateFormatter in
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm:ss.SSSS"
+        dateFormatter.dateFormat = "HH:mm:ss.SSS"
         return dateFormatter
     }()
 }
